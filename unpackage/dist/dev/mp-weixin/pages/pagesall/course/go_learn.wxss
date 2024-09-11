@@ -1,0 +1,132 @@
+
+.learn_title {
+		display: flex;
+		padding: 20rpx;
+}
+.learn_title view {
+		width: 100%;
+		text-align: center;
+}
+.learn_video {
+		width: 100%;
+}
+.learn_text {
+		font-weight: 600;
+		font-size: 48rpx;
+		color: #000000;
+		margin: 28rpx 0 0 28rpx;
+}
+.input_leabox {
+		display: flex;
+		justify-content: center;
+		position: relative;
+}
+.btn_leabox {
+		position: absolute;
+		bottom: 5%;
+		padding: 15rpx 40rpx 15rpx 40rpx;
+		background-color: #FF9E02;
+		color: #fff;
+		border-radius: 40rpx;
+}
+.homePage {
+		padding: 15rpx 20rpx 15rpx 20rpx;
+}
+.time_textbox {
+		display: flex;
+		margin-top: 10rpx;
+}
+.time_textbox text {
+		display: block;
+		background-color: #F53C38;
+		margin-right: 4rpx;
+		color: #fff;
+}
+.swiper-container {
+		width: 710rpx;
+		height: 320rpx;
+		padding: 30rpx 0 30rpx 0;
+}
+.swiper-image {
+		width: 710rpx;
+		height: 320rpx;
+}
+.act_itme {
+
+		margin-top: 16rpx;
+		border-radius: 16rpx;
+		position: relative;
+}
+.peo_text {
+		position: absolute;
+		bottom: 20%;
+		right: 28rpx;
+		font-weight: 500;
+		font-size: 24rpx;
+		color: #000000;
+}
+.list_index {
+		width: 580rpx;
+		background: #FFFFFF;
+
+		border-radius: 16rpx;
+		border: 0rpx solid rgba(0, 0, 0, 0.25);
+		padding: 28rpx 0rpx 28rpx 30rpx;
+}
+.actitme_Text1 {
+
+		font-weight: 800;
+		font-size: 36rpx;
+		color: #000000;
+}
+.actitmeText2 {
+		font-size: 28rpx;
+		color: #333333;
+}
+.actitmeText3 {
+		font-size: 24rpx;
+		color: #666666;
+}
+.act_Img {
+		display: flex;
+}
+.act_Img img {
+		width: 80rpx;
+		height: 80rpx;
+}
+.act_Teacher {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: flex-start;
+		font-size: 24rpx;
+		margin-left: 20rpx;
+		margin-right: 50rpx;
+}
+.act_time {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: flex-start;
+}
+.actitme_Text1 {
+		padding-top: 12rpx;
+		padding-bottom: 8rpx;
+}
+.actitmeText3 {
+		padding-top: 16rpx;
+		padding-bottom: 28rpx;
+}
+.ipt_learn {
+		width: 694rpx;
+		height: 740rpx;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		border: 0.5px solid #d7d7d7;
+		border-radius: 5rpx;
+}
+.ipt_learn textarea {
+		width: 694rpx;
+		height: 740rpx;
+}

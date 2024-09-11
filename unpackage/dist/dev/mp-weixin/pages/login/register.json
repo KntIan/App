@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "注册",
+  "navigationStyle": "custom",
+  "usingComponents": {
+    "uv-datetime-picker": "../../uni_modules/uv-datetime-picker/components/uv-datetime-picker/uv-datetime-picker"
+  }
+}

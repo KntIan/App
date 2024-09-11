@@ -1,0 +1,51 @@
+
+.res_box {
+		width: 23.4375rem;
+		height: 26.5625rem;
+		background-color: rgba(249, 183, 34, 1);
+}
+.res_box2 {
+		position: relative;
+		padding: 0.9375rem;
+}
+.res_box2 img {
+		position: absolute;
+		top: 1.25rem;
+}
+.res_text {
+		text-align: center;
+		font-weight: 500;
+		font-size: 1.125rem;
+		color: #FFFFFF;
+}
+.res_box3 {
+		width: 19.9375rem;
+		height: 19.125rem;
+		background: #FFFFFF;
+		border-radius: 0.5rem;
+		margin-left: 0.875rem;
+		padding: 0.875rem;
+		margin-top: 0.9375rem;
+}
+.res_heard {
+		display: flex;
+		align-items: center;
+}
+.res_heard img {
+		width: 4.5rem;
+		height: 4.5rem;
+}
+.head_text {
+		margin-left: 0.875rem;
+}
+.text_2 {
+		margin-top: 0.25rem;
+		font-weight: 400;
+		font-size: 0.75rem;
+		color: #000000;
+}
+.text_1 {
+		font-weight: 500;
+		font-size: 1.125rem;
+		color: #000000;
+}

@@ -1,0 +1,75 @@
+
+.btnbox {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		position: relative;
+		margin-top: 0.4375rem;
+		margin-bottom: 2.5rem;
+}
+.input1 {
+		width: 16.875rem;
+		height: 2.5rem;
+		background: #EEEEEE;
+		border-radius: 1.25rem;
+		font-weight: 400;
+		font-size: 0.875rem;
+		color: #666666;
+		padding-left: 2.5rem;
+}
+.btn {
+		font-weight: 400;
+		font-size: 0.875rem;
+		color: #666666;
+		margin-left: 0.625rem;
+}
+.btns_img {
+		position: absolute;
+		left: 10%;
+		top: 35%;
+}
+.friendsbox_img {
+		width: 2.75rem;
+		height: 2.75rem;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		border-radius: 50%;
+}
+.friendsbox {
+		padding: 0.625rem;
+		display: flex;
+		justify-content: space-between;
+}
+.friends_text1 {
+		font-weight: 500;
+		font-size: 0.875rem;
+		color: #000000;
+}
+.friends_text2 {
+		font-weight: 400;
+		font-size: 0.5rem;
+		color: #000000;
+}
+.friends_text3 {
+
+		width: 5rem;
+		height: 2rem;
+
+		background: #5791F2;
+		border-radius: 1rem;
+		font-weight: 500;
+		font-size: 0.875rem;
+		color: #FFFFFF;
+		text-align: center;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+}
+.friendsbox2 {
+		display: flex;
+		align-items: center;
+}
+.friendsinter {
+		margin-left: 0.875rem;
+}

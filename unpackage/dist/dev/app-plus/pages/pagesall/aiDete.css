@@ -1,0 +1,129 @@
+
+.ai—_box {
+		/* width: 100%;
+		height: 100%; */
+		width: 23.4375rem;
+		height: 47.8125rem;
+		background: url(https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPng9bcae2a5986281f0465c7a08cd3f103d35cdf366a648ffb9bcaef79600119e22);
+		background-size: 100% 100%;
+		position: relative;
+		display: flex;
+		align-items: center;
+		flex-direction: column;
+}
+.ai_img {
+		width: 20.1875rem;
+		height: 17.3125rem;
+		background: url(https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPng847886c181f3a528b4a8e7dcf34469b8fa292411952583855e56895b69b53d8b) 100% no-repeat;
+		background-size: 100% 100%;
+		position: absolute;
+		left: 0;
+		top: 0;
+}
+.ai_title {
+		font-family: PangMenZhengDao;
+		font-size: 3.5rem;
+		color: #000000;
+		line-height: 4rem;
+		text-align: center;
+		font-style: normal;
+		margin-top: 3rem;
+}
+.photo_box {
+		width: 15rem;
+		height: 15rem;
+		background: linear-gradient(180deg, rgba(255, 159, 4, 0.24) 0%, rgba(255, 255, 255, 0) 50%, rgba(255, 173, 40, 0.24) 100%);
+		box-shadow: inset 0 0.0625rem 0.5rem 0.25rem rgba(255, 161, 9, 0.14);
+		border-radius: 0.5rem;
+		border-image: linear-gradient(180deg, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.8)) 4 4;
+		position: relative;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		margin-top: 1.8125rem;
+}
+.left_top {
+		width: 1.5rem;
+		height: 1.5rem;
+		position: absolute;
+		left: -0.3125rem;
+		top: -0.15625rem;
+}
+.right_top {
+		width: 1.5rem;
+		height: 1.5rem;
+		position: absolute;
+		right: 0.03125rem;
+		top: -0.15625rem;
+}
+.right_bottom {
+		width: 1.5rem;
+		height: 1.5rem;
+		position: absolute;
+		right: 0.03125rem;
+		bottom: 0.09375rem;
+}
+.left_bottom {
+		width: 1.5rem;
+		height: 1.5rem;
+		position: absolute;
+		left: -0.3125rem;
+		bottom: 0.125rem;
+}
+.photo_box2 {
+		width: 12.375rem;
+		height: 12.375rem;
+		background: rgba(255, 158, 2, 0.32);
+		border-radius: 50%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+}
+.photo_box3 {
+		width: 11.25rem;
+		height: 11.25rem;
+		background: #FF9E00;
+		border-radius: 50%;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+}
+.photo_box3 img {
+		width: 5.125rem;
+		height: 4.25rem;
+}
+.photo_text {
+		margin-top: 0.625rem;
+		font-weight: 600;
+		font-size: 1.125rem;
+		color: #FFFFFF;
+}
+.note1 {
+		display: flex;
+		align-items: center;
+		margin-top: 0.875rem;
+}
+.note2 {
+		display: flex;
+		align-items: center;
+		margin-top: 0.25rem;
+}
+.note3 {
+		display: flex;
+		align-items: center;
+		margin-top: 0.625rem;
+}
+.notes {
+		margin-left: 0.3125rem;
+}
+.ai_img2 {
+		position: absolute;
+		bottom: 5%;
+		left: 0;
+}
+.ai_img3 {
+		position: absolute;
+		bottom: 5%;
+		right: 0;
+}

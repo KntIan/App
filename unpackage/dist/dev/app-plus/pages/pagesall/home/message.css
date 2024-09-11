@@ -1,0 +1,56 @@
+
+.mess_Title {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		padding: 0.625rem;
+}
+.title_text {
+		margin-left: 2.8125rem;
+}
+.title_img img {
+		margin-left: 0.78125rem;
+		width: 1rem;
+		height: 1rem;
+}
+.messbox_img {
+		width: 2.75rem;
+		height: 2.75rem;
+		background-color: #FF9E02;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		border-radius: 50%;
+}
+.messbox_img img {
+		width: 1.5rem;
+		height: 1.5rem;
+}
+.messbox {
+		padding: 0.625rem;
+		display: flex;
+		justify-content: space-between;
+}
+.inter_text1 {
+		font-weight: 500;
+		font-size: 1rem;
+		color: #000000;
+}
+.inter_text2 {
+		font-weight: 400;
+		font-size: 0.75rem;
+		color: #666666;
+		margin-top: 0.25rem;
+}
+.inter_text3 {
+		font-weight: 500;
+		font-size: 0.625rem;
+		color: #000000;
+}
+.messbox2 {
+		display: flex;
+		align-items: center;
+}
+.messinter {
+		margin-left: 0.9375rem;
+}

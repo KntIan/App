@@ -1,0 +1,158 @@
+.timeline[data-v-a4098a69] {
+  padding: 0.625rem;
+}
+
+.timelineItem .timeItem[data-v-48a104e6] {
+  display: flex;
+}
+.timelineItem .timeItem .leftTime[data-v-48a104e6] {
+  width: 4.21875rem;
+  padding: 0 0.3125rem;
+  font-family: PingFangSC-Medium, PingFang SC;
+  color: #333333;
+  margin-right: 0.3125rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-weight: 500;
+  font-size: 0.875rem;
+  color: #000000;
+  margin-left: 0.625rem;
+}
+.timelineItem .timeItem .line[data-v-48a104e6] {
+  width: 1px;
+  background: #cccccc;
+  position: relative;
+}
+.timelineItem .timeItem .line .out[data-v-48a104e6] {
+  position: absolute;
+  top: 4%;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 0.5625rem;
+  height: 0.5625rem;
+  background: rgba(236, 104, 23, 0.6);
+  border-radius: 50%;
+}
+.timelineItem .timeItem .line .out .inner[data-v-48a104e6] {
+  width: 0.5625rem;
+  height: 0.5625rem;
+  background: #ec6817;
+  border-radius: 50%;
+}
+.timelineItem .timeItem .rightContent[data-v-48a104e6] {
+  flex: 1;
+  padding: 0 0.3125rem 1.25rem;
+  margin-left: 0.625rem;
+  min-height: 1.5625rem;
+}
+.leftlist1[data-v-48a104e6] {
+  padding: 0.625rem 0;
+  font-weight: 400;
+  font-size: 0.875rem;
+  color: #333333;
+}
+.leftlist2[data-v-48a104e6] {
+  padding: 0.625rem 0;
+  font-weight: 400;
+  font-size: 0.875rem;
+  color: #333333;
+}
+.leftlist3[data-v-48a104e6] {
+  padding: 0.625rem 0;
+  font-weight: 400;
+  font-size: 0.875rem;
+  color: #333333;
+}
+
+
+.codepage {
+		width: 23.4375rem;
+		height: 50.75rem;
+		background-color: #EEEEEE;
+}
+.code_titlebox {
+		position: relative;
+		padding: 0.9375rem;
+}
+.messImg {
+		position: absolute;
+		background-color: ;
+}
+.code_title {
+		text-align: center;
+		font-weight: 500;
+		font-size: 1.125rem;
+		color: #000;
+}
+.swiper-container {
+		width: 22.1875rem;
+		height: 10rem;
+		padding: 0.9375rem 0 0.9375rem 0;
+}
+.swiper-image {
+		width: 22.1875rem;
+		height: 10rem;
+}
+.timeline {
+		padding: 0.9375rem !important;
+}
+.swibox {
+		display: flex;
+		justify-content: center;
+}
+.game_time {
+		padding: 0 0.625rem;
+}
+.tripItem {
+		height: 4.375rem;
+		padding: 0.625rem 0.9375rem;
+		box-sizing: border-box;
+		background: rgba(255, 255, 255, 1);
+		box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.08);
+		border-radius: 10px;
+		margin-bottom: 0.9375rem;
+.title {
+			font-size: 0.875rem;
+			font-family: PingFangSC-Medium, PingFang SC;
+			font-weight: 500;
+			color: rgba(51, 51, 51, 1);
+}
+.tips {
+			font-weight: 600;
+			font-size: 0.875rem;
+			color: #000000;
+			margin-top: 0.625rem;
+}
+.tips {
+			font-weight: 600;
+			font-size: 0.75rem !important;
+			color: #333333;
+}
+}
+.line_list {
+		position: relative;
+}
+.class_room {
+		width: 96%;
+		display: flex;
+		justify-content: space-between;
+		position: absolute;
+		left: 5%;
+		bottom: 45%;
+}
+.list_btn {
+		width: 6.25rem;
+		height: 1.625rem;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		position: absolute;
+		bottom: 10%;
+		right: 0;
+		background-color: #5791F2;
+		color: #fff;
+		border-radius: 0.3125rem;
+}

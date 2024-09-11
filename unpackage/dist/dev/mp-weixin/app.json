@@ -1,0 +1,69 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/login/login",
+    "pages/login/ratpass",
+    "pages/login/register",
+    "pages/pagesall/home",
+    "pages/pagesall/course",
+    "pages/pagesall/aiDete",
+    "pages/pagesall/oper",
+    "pages/pagesall/mypage",
+    "pages/pagesall/home/signUp",
+    "pages/pagesall/home/message",
+    "pages/pagesall/home/search",
+    "pages/pagesall/home/sacnpage",
+    "pages/pagesall/home/mycode",
+    "pages/pagesall/home/adverMess",
+    "pages/pagesall/home/adver_detail",
+    "pages/pagesall/home/add_friend",
+    "pages/pagesall/home/game",
+    "pages/pagesall/home/chat",
+    "pages/pagesall/course/go_learn",
+    "pages/pagesall/aiDete/aiResult"
+  ],
+  "window": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "uni-app",
+    "navigationBarBackgroundColor": "#F8F8F8",
+    "backgroundColor": "#F8F8F8"
+  },
+  "tabBar": {
+    "borderStyle": "black",
+    "selectedColor": "#FB7299",
+    "color": "#444444",
+    "list": [
+      {
+        "pagePath": "pages/pagesall/home",
+        "iconPath": "https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPngdf87ac1f7e3dac80ae7e5a48c617a7633cf9629beffd39b3ab4711df2933e357",
+        "selectedIconPath": "https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPngdf87ac1f7e3dac80ae7e5a48c617a7633cf9629beffd39b3ab4711df2933e357",
+        "text": "主页"
+      },
+      {
+        "pagePath": "pages/pagesall/course",
+        "iconPath": "https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPng531a2562cc012936b9685e5a5396dded3728c86b8b1c1716a765111cbb27eccf",
+        "selectedIconPath": "https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPng531a2562cc012936b9685e5a5396dded3728c86b8b1c1716a765111cbb27eccf",
+        "text": "课程"
+      },
+      {
+        "pagePath": "pages/pagesall/aiDete",
+        "iconPath": "https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPng06eddec21f15f94eecab139ec484ceee008d298fee9fedb5c1a6eb8316776d2c",
+        "selectedIconPath": "https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPng06eddec21f15f94eecab139ec484ceee008d298fee9fedb5c1a6eb8316776d2c",
+        "text": "AI测评"
+      },
+      {
+        "pagePath": "pages/pagesall/oper",
+        "iconPath": "https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPng75b81db0fdf74a1c17eb2fa85600f2934ec4f8d700dce6aa5739fdd2fc6eced7",
+        "selectedIconPath": "https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPng75b81db0fdf74a1c17eb2fa85600f2934ec4f8d700dce6aa5739fdd2fc6eced7",
+        "text": "活动"
+      },
+      {
+        "pagePath": "pages/pagesall/mypage",
+        "iconPath": "https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPngd2167be7ac66f64890fde2b1a13f6424fe901fa986aaad9a23f4505125ba28c3",
+        "selectedIconPath": "https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPngd2167be7ac66f64890fde2b1a13f6424fe901fa986aaad9a23f4505125ba28c3",
+        "text": "我的"
+      }
+    ]
+  },
+  "usingComponents": {}
+}
