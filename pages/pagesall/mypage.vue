@@ -10,7 +10,7 @@
 						<img src="https://lanhu-dds-backend.oss-cn-beijing.aliyuncs.com/merge_image/imgs/dc222dae1c45493a96cd7da35e8a1a38_mergeImage.png"
 							alt="" />
 					</view>
-					<view class="name">
+					<view class="name" @click="myInfo">
 						<text class="textname">刘易阳</text>
 						<text class="textid">ID:000000</text>
 						<view class="posit">
@@ -35,7 +35,7 @@
 
 		<!-- 功能选项 -->
 		<view class="features">
-			<view class="feature" v-for="feature in features" :key="feature.title">
+			<view class="feature" v-for="feature in features" :key="feature.title" @click="toggle(feature.title)">
 				<image :src="feature.icon" class="feature-icon" />
 				<text>{{ feature.title }}</text>
 			</view>
@@ -165,6 +165,35 @@
 			goSet() {
 				uni.navigateTo({
 					url: "/pages/pagesall/mypage/Set"
+				})
+			},
+			toggle(title){
+				console.log(title);
+				if (title==='我的作业') {
+					uni.navigateTo({
+						url: "/pages/pagesall/mypage/myHomework"
+					})
+				}else if (title==='班级课程'){
+					uni.navigateTo({
+						url: "/pages/pagesall/mypage/myHomework"
+					})
+				}else if (title==='班级群'){
+					uni.navigateTo({
+						url: "/pages/pagesall/mypage/classGroup"
+					})
+				}else if (title==='我的老师'){
+					uni.navigateTo({
+						url: "/pages/pagesall/mypage/teachermsg"
+					})
+				}else if (title==='历史测评'){
+					uni.navigateTo({
+						url: "/pages/pagesall/mypage/historyAssessment"
+					})
+				}
+			},
+			myInfo(){
+				uni.navigateTo({
+					url: "/pages/pagesall/mypage/individualmsg"
 				})
 			}
 		}
