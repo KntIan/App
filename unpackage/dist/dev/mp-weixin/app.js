@@ -23,6 +23,8 @@ if (!Math) {
   "./pages/pagesall/home/chat.js";
   "./pages/pagesall/course/go_learn.js";
   "./pages/pagesall/aiDete/aiResult.js";
+  "./pages/pagesall/SelectCity.js";
+  "./pages/pagesall/PersonalData/PersonalData.js";
 }
 const _sfc_main = {
   onLaunch: function() {

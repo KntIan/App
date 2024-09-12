@@ -20,7 +20,9 @@
     "pages/pagesall/home/game",
     "pages/pagesall/home/chat",
     "pages/pagesall/course/go_learn",
-    "pages/pagesall/aiDete/aiResult"
+    "pages/pagesall/aiDete/aiResult",
+    "pages/pagesall/SelectCity",
+    "pages/pagesall/PersonalData/PersonalData"
   ],
   "window": {
     "navigationBarTextStyle": "black",

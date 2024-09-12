@@ -215,8 +215,8 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
   return {
     a: common_vendor.f($options.stars, (star, index, i0) => {
       return {
-        a: "0b3c4b68-0-" + i0,
-        b: "0b3c4b68-1-" + i0,
+        a: "48420a5b-0-" + i0,
+        b: "48420a5b-1-" + i0,
         c: star.activeWitch,
         d: index,
         e: common_vendor.o((...args) => $options.touchstart && $options.touchstart(...args), index),

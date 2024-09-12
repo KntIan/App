@@ -123,7 +123,7 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
         b: common_vendor.t(item.classroom),
         c: common_vendor.t(item.start),
         d: common_vendor.t(item.end),
-        e: "8540410e-1-" + i0 + ",8540410e-0",
+        e: "7f7178ec-1-" + i0 + ",7f7178ec-0",
         f: common_vendor.p({
           leftTime: item.title,
           color: "#5791F2"
@@ -140,7 +140,7 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
         e: common_vendor.t(item.status),
         f: item.color,
         g: common_vendor.o((...args) => $options.btn_study && $options.btn_study(...args), index),
-        h: "8540410e-3-" + i0 + ",8540410e-2",
+        h: "7f7178ec-3-" + i0 + ",7f7178ec-2",
         i: common_vendor.p({
           leftTime: item.title,
           color: item.color

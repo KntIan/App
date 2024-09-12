@@ -1,5 +1,5 @@
 {
   "navigationBarTitleText": "找回密码",
-  "navigationStyle": "custom ",
+  "navigationStyle": "default ",
   "usingComponents": {}
 }

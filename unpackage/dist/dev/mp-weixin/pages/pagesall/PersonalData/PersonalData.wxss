@@ -1,0 +1,93 @@
+
+.container {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: space-around;
+		height: 100vh;
+		background-color: #fff;
+}
+.input_po {
+		position: relative;
+}
+.icon_1 {
+		position: absolute;
+		top: 26rpx;
+		right: 36rpx;
+}
+.form {
+		width: 90%;
+}
+.title {
+		margin-bottom: 20rpx;
+}
+.title1 {
+		height: 25rpx;
+		font-family: PingFangSC, PingFang SC;
+		font-weight: 700;
+		font-size: 36rpx;
+		color: #000000;
+		line-height: 25rpx;
+		text-align: left;
+		font-style: normal;
+}
+.title2 {
+		margin-top: 24rpx;
+		height: 17rpx;
+		font-family: PingFangSC, PingFang SC;
+		font-weight: 400;
+		font-size: 24rpx;
+		color: #999999;
+		line-height: 17rpx;
+		text-align: left;
+		font-style: normal;
+}
+.textTitle {
+		margin-top: 60rpx;
+}
+.input {
+		padding: 10px;
+		margin-bottom: 15px;
+		border-radius: 50px;
+		background-color: #EEEEEE;
+		font-size: 14px;
+}
+.login-button {
+		width: 100%;
+		padding: 2px;
+		border-radius: 50px;
+		background-color: #666666;
+		color: #fff;
+		text-align: center;
+		font-size: 16px;
+		margin-top: 48rpx;
+		margin-bottom: 48rpx;
+}
+.textlogin {
+		margin-bottom: 24rpx;
+		font-weight: 700;
+		display: flex;
+
+		margin-top: 24rpx;
+}
+.links {
+		width: 100%;
+		display: flex;
+		justify-content: space-between;
+		margin-top: 10rpx;
+}
+.link {
+		color: #555;
+		font-size: 12rpx;
+}
+.footer {
+		margin-top: 20rpx;
+		text-align: center;
+		color: #888;
+}
+.imgtext1 {
+		text-align: center;
+		font-size: 28rpx;
+		font-weight: 500;
+}
+.img1 {}

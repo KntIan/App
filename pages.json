@@ -144,6 +144,62 @@
 				"navigationBarTitleText": "AI测评结果",
 				"navigationStyle": "custom"
 			}
+		},
+		{
+			"path": "pages/pagesall/SelectCity",
+			"style": {
+				"navigationBarTitleText": ""
+			}
+		},
+		{
+			"path": "pages/pagesall/mypage/PersonalData",
+			"style": {
+				"navigationBarTitleText": "个人信息",
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/pagesall/mypage/Set",
+			"style": {
+				"navigationBarTitleText": "设置",
+				"navigationBarBackgroundColor": "#ffffff"
+
+			}
+		},
+		{
+			"path": "pages/pagesall/mypage/changePassword",
+			"style": {
+				"navigationBarTitleText": "修改密码",
+				"navigationBarBackgroundColor": "#ffffff"
+			}
+		},
+		{
+			"path": "pages/pagesall/mypage/changePhone",
+			"style": {
+				"navigationBarTitleText": "修改手机号",
+				"navigationBarBackgroundColor": "#ffffff"
+			}
+		},
+		{
+			"path": "pages/pagesall/mypage/complaint",
+			"style": {
+				"navigationBarTitleText": "投诉意见",
+				"navigationBarBackgroundColor": "#ffffff"
+			}
+		},
+		{
+			"path": "pages/pagesall/mypage/contactUs",
+			"style": {
+				"navigationBarTitleText": "联系我们",
+				"navigationBarBackgroundColor": "#ffffff"
+			}
+		},
+		{
+			"path": "pages/pagesall/mypage/aboutUs",
+			"style": {
+				"navigationBarTitleText": "关于我们",
+				"navigationBarBackgroundColor": "#ffffff"
+			}
 		}
 	],
 	"globalStyle": {

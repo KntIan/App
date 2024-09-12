@@ -290,7 +290,7 @@ if (!Math) {
 }
 function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
   return {
-    a: common_vendor.sr("picker", "087a41de-0"),
+    a: common_vendor.sr("picker", "00c39a78-0"),
     b: common_vendor.o($options.close),
     c: common_vendor.o($options.cancel),
     d: common_vendor.o($options.confirm),

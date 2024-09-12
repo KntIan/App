@@ -1,5 +1,5 @@
 "use strict";
-const common_vendor = require("../../common/vendor.js");
+const common_vendor = require("../../../common/vendor.js");
 const _sfc_main = {
   name: "Login",
   data() {
@@ -82,24 +82,40 @@ const _sfc_main = {
       this.giftindex = index;
       this.giftmoren = giftArray[index].gift;
     },
-    roun() {
-      console.log(this.seen, this.loun);
-      if (this.seen == false) {
-        this.seen = true;
-        this.loun = true;
-      }
-      this.gender = "男";
-      console.log(this.seen, this.loun);
+    // roun() {
+    // 	console.log(this.seen, this.loun)
+    // 	if (this.seen == false) {
+    // 		this.seen = true
+    // 		this.loun = true
+    // 	}
+    // 	this.gender = '男'
+    // 	console.log(this.seen, this.loun, '11111111')
+    // },
+    chooseAvatar() {
+      common_vendor.index.chooseImage({
+        count: 1,
+        // 选择图片的数量
+        sizeType: ["original", "compressed"],
+        // 可以指定是原图还是压缩图，默认二者都有
+        sourceType: ["album", "camera"],
+        // 可以指定来源是相册还是相机，默认二者都有
+        success: (res) => {
+          this.avatarUrl = res.tempFilePaths[0];
+        },
+        fail: (error) => {
+          console.error("选择头像失败:", error);
+        }
+      });
     },
-    soun() {
-      console.log(this.seen, this.loun);
-      if (this.loun == true) {
-        this.seen = false;
-        this.loun = false;
-      }
-      this.gender = "女";
-      console.log(this.seen, this.loun);
-    },
+    // soun() {
+    // 	console.log(this.seen, this.loun)
+    // 	if (this.loun == true) {
+    // 		this.seen = false
+    // 		this.loun = false
+    // 	}
+    // 	this.gender = '女'
+    // 	console.log(this.seen, this.loun)
+    // },
     bindMultiPickerColumnChange: function(e) {
       console.log("修改的列为：" + e.detail.column + "，值为：" + e.detail.value);
       this.multiIndex[e.detail.column] = e.detail.value;
@@ -140,13 +156,13 @@ if (!Array) {
   const _easycom_uv_datetime_picker2 = common_vendor.resolveComponent("uv-datetime-picker");
   _easycom_uv_datetime_picker2();
 }
-const _easycom_uv_datetime_picker = () => "../../uni_modules/uv-datetime-picker/components/uv-datetime-picker/uv-datetime-picker.js";
+const _easycom_uv_datetime_picker = () => "../../../uni_modules/uv-datetime-picker/components/uv-datetime-picker/uv-datetime-picker.js";
 if (!Math) {
   _easycom_uv_datetime_picker();
 }
 function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
   return common_vendor.e({
-    a: common_vendor.sr("datetimePicker", "59a8a40c-0"),
+    a: common_vendor.sr("datetimePicker", "4f6cc8ae-0"),
     b: common_vendor.o($options.confirm),
     c: common_vendor.o(($event) => _ctx.value = $event),
     d: common_vendor.p({
@@ -156,26 +172,23 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
     }),
     e: $data.seen
   }, $data.seen ? {} : {}, {
-    f: common_vendor.o((...args) => $options.roun && $options.roun(...args)),
-    g: $data.loun
-  }, $data.loun ? {} : {}, {
-    h: common_vendor.o((...args) => $options.soun && $options.soun(...args)),
-    i: common_vendor.o((...args) => $options.getname && $options.getname(...args)),
-    j: common_vendor.o((...args) => $options.getold && $options.getold(...args)),
-    k: common_vendor.t($data.dateYear),
-    l: common_vendor.o((...args) => $options.open && $options.open(...args)),
-    m: common_vendor.t($data.giftmoren),
-    n: common_vendor.o(($event) => $options.giftPickerChange($event, $data.giftArray)),
-    o: _ctx.index,
-    p: $data.giftArray,
-    q: common_vendor.t($data.multiArray[1][$data.multiIndex[1]]),
-    r: common_vendor.o((...args) => $options.bindMultiPickerColumnChange && $options.bindMultiPickerColumnChange(...args)),
-    s: $data.multiIndex,
-    t: $data.multiArray,
-    v: common_vendor.o((...args) => $options.getrefe && $options.getrefe(...args)),
-    w: common_vendor.o((...args) => $options.getiphone && $options.getiphone(...args)),
-    x: common_vendor.o((...args) => $options.getregpass && $options.getregpass(...args)),
-    y: common_vendor.o((...args) => $options.getlogin && $options.getlogin(...args))
+    f: common_vendor.o((...args) => $options.chooseAvatar && $options.chooseAvatar(...args)),
+    g: common_vendor.o((...args) => $options.getname && $options.getname(...args)),
+    h: common_vendor.o((...args) => $options.getold && $options.getold(...args)),
+    i: common_vendor.t($data.dateYear),
+    j: common_vendor.o((...args) => $options.open && $options.open(...args)),
+    k: common_vendor.t($data.giftmoren),
+    l: common_vendor.o(($event) => $options.giftPickerChange($event, $data.giftArray)),
+    m: _ctx.index,
+    n: $data.giftArray,
+    o: common_vendor.t($data.multiArray[1][$data.multiIndex[1]]),
+    p: common_vendor.o((...args) => $options.bindMultiPickerColumnChange && $options.bindMultiPickerColumnChange(...args)),
+    q: $data.multiIndex,
+    r: $data.multiArray,
+    s: common_vendor.o((...args) => $options.getrefe && $options.getrefe(...args)),
+    t: common_vendor.o((...args) => $options.getiphone && $options.getiphone(...args)),
+    v: common_vendor.o((...args) => $options.getregpass && $options.getregpass(...args)),
+    w: common_vendor.o((...args) => $options.getlogin && $options.getlogin(...args))
   });
 }
 const MiniProgramPage = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["render", _sfc_render]]);

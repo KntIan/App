@@ -58,7 +58,7 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
     c: common_vendor.f($data.score_List, (item, index, i0) => {
       return {
         a: common_vendor.t(item.title),
-        b: "5c4af828-0-" + i0,
+        b: "7482dbd9-0-" + i0,
         c: common_vendor.p({
           readonly: true,
           size: "20",

@@ -39,6 +39,9 @@
   font-weight: 500;
   font-size: 36rpx;
   color: #000000;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 .area_input {
   width: 524rpx;

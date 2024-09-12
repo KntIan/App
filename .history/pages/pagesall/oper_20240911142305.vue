@@ -4,7 +4,7 @@
 	</view>
 
 
-	<view class="oper_area" @click="selectCity">
+	<view class="oper_area">
 
 
 		<view class="area_img">
@@ -471,14 +471,6 @@
 					this.intervalId = null;
 				}
 			},
-			selectCity() {
-				uni.navigateTo({
-					url: "SelectCity"
-				})
-			},
-			updateSelectedCity(city) {
-				this.oper_area = city; // 更新选中的城市
-			}
 		}
 	}
 </script>
@@ -501,15 +493,10 @@
 	}
 
 	.area_text {
-		// width: 200rpx;
 		margin: 0 10rpx;
 		font-weight: 500;
 		font-size: 36rpx;
 		color: #000000;
-		overflow: hidden;
-		white-space: nowrap;
-		text-overflow: ellipsis;
-
 	}
 
 	.area_input {

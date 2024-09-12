@@ -131,6 +131,14 @@ const _sfc_main = {
         clearInterval(this.intervalId);
         this.intervalId = null;
       }
+    },
+    selectCity() {
+      common_vendor.index.navigateTo({
+        url: "SelectCity"
+      });
+    },
+    updateSelectedCity(city) {
+      this.oper_area = city;
     }
   }
 };
@@ -146,37 +154,19 @@ if (!Math) {
 function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
   return common_vendor.e({
     a: common_vendor.t($data.oper_area),
-    b: common_vendor.o($options.onClickItem),
-    c: common_vendor.p({
+    b: common_vendor.o((...args) => $options.selectCity && $options.selectCity(...args)),
+    c: common_vendor.o($options.onClickItem),
+    d: common_vendor.p({
       current: $data.current,
       values: $data.items,
       ["active-color"]: _ctx.activeColor
     }),
-    d: $data.current === 0
+    e: $data.current === 0
   }, $data.current === 0 ? {} : {}, {
-    e: $data.current === 1
+    f: $data.current === 1
   }, $data.current === 1 ? {} : {}, {
-    f: $data.current === 0
+    g: $data.current === 0
   }, $data.current === 0 ? {
-    g: common_vendor.f($data.listdata, (item, index, i0) => {
-      return {
-        a: common_vendor.t(item.online),
-        b: item.techerimg,
-        c: common_vendor.t(item.biaoti),
-        d: common_vendor.t(item.laoshi),
-        e: common_vendor.t(item.star),
-        f: common_vendor.t(item.end),
-        g: item.hearimg,
-        h: common_vendor.t(item.teachername),
-        i: common_vendor.t(item.hours),
-        j: common_vendor.t(item.minutes),
-        k: common_vendor.t(item.seconds),
-        l: common_vendor.t(item.pers),
-        m: common_vendor.t(item.money == "免费" ? "免费" : "￥" + item.money),
-        n: common_vendor.o((...args) => _ctx.btnsignup && _ctx.btnsignup(...args), index),
-        o: index
-      };
-    }),
     h: common_vendor.f($data.listdata, (item, index, i0) => {
       return {
         a: common_vendor.t(item.online),
@@ -195,11 +185,8 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
         n: common_vendor.o((...args) => _ctx.btnsignup && _ctx.btnsignup(...args), index),
         o: index
       };
-    })
-  } : {}, {
-    i: $data.current === 1
-  }, $data.current === 1 ? {
-    j: common_vendor.f($data.listdata1, (item, index, i0) => {
+    }),
+    i: common_vendor.f($data.listdata, (item, index, i0) => {
       return {
         a: common_vendor.t(item.online),
         b: item.techerimg,
@@ -217,7 +204,10 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
         n: common_vendor.o((...args) => _ctx.btnsignup && _ctx.btnsignup(...args), index),
         o: index
       };
-    }),
+    })
+  } : {}, {
+    j: $data.current === 1
+  }, $data.current === 1 ? {
     k: common_vendor.f($data.listdata1, (item, index, i0) => {
       return {
         a: common_vendor.t(item.online),
@@ -236,9 +226,28 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
         n: common_vendor.o((...args) => _ctx.btnsignup && _ctx.btnsignup(...args), index),
         o: index
       };
+    }),
+    l: common_vendor.f($data.listdata1, (item, index, i0) => {
+      return {
+        a: common_vendor.t(item.online),
+        b: item.techerimg,
+        c: common_vendor.t(item.biaoti),
+        d: common_vendor.t(item.laoshi),
+        e: common_vendor.t(item.star),
+        f: common_vendor.t(item.end),
+        g: item.hearimg,
+        h: common_vendor.t(item.teachername),
+        i: common_vendor.t(item.hours),
+        j: common_vendor.t(item.minutes),
+        k: common_vendor.t(item.seconds),
+        l: common_vendor.t(item.pers),
+        m: common_vendor.t(item.money == "免费" ? "免费" : "￥" + item.money),
+        n: common_vendor.o((...args) => _ctx.btnsignup && _ctx.btnsignup(...args), index),
+        o: index
+      };
     })
   } : {}, {
-    l: common_vendor.p({
+    m: common_vendor.p({
       title: "实心标签",
       type: "line"
     })
