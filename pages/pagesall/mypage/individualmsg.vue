@@ -213,7 +213,7 @@
 		background-color: #1D56F9;
 		position: absolute;
 		top: 12%;
-		left: 6%;
+		left: 5.5%;
 		border-radius: 30rpx;
 	}
 
@@ -226,7 +226,7 @@
 		left: 46%;
 		border-radius: 30rpx;
 	}
-	.segmented-control__text{
+	:deep .segmented-control__text{
 		margin-right: 190rpx;
 		font-size: 36rpx;
 	}
