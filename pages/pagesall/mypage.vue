@@ -167,31 +167,31 @@
 					url: "/pages/pagesall/mypage/Set"
 				})
 			},
-			toggle(title){
+			toggle(title) {
 				console.log(title);
-				if (title==='我的作业') {
+				if (title === '我的作业') {
 					uni.navigateTo({
 						url: "/pages/pagesall/mypage/myHomework"
 					})
-				}else if (title==='班级课程'){
+				} else if (title === '班级课程') {
 					uni.navigateTo({
 						url: "/pages/pagesall/mypage/myHomework"
 					})
-				}else if (title==='班级群'){
+				} else if (title === '班级群') {
 					uni.navigateTo({
 						url: "/pages/pagesall/mypage/classGroup"
 					})
-				}else if (title==='我的老师'){
+				} else if (title === '我的老师') {
 					uni.navigateTo({
 						url: "/pages/pagesall/mypage/teachermsg"
 					})
-				}else if (title==='历史测评'){
+				} else if (title === '历史测评') {
 					uni.navigateTo({
 						url: "/pages/pagesall/mypage/historyAssessment"
 					})
 				}
 			},
-			myInfo(){
+			myInfo() {
 				uni.navigateTo({
 					url: "/pages/pagesall/mypage/individualmsg"
 				})
