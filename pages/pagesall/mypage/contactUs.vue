@@ -1,28 +1,37 @@
 <template>
 	<view class="container">
-		<view class="content">
+		<view class="content_box">
 			<text>客服电话</text>
 			<text class="phone-number" @click="showActionSheet">400-000-0000</text>
 		</view>
+		<bottom-sheet :isVisible="isActionSheetVisible" :options="actionSheetOptions" :fontColor="'#5791F2'"
+			@update:isVisible="isActionSheetVisible = $event" @optionSelected="handleOptionSelect" />
 	</view>
 </template>
 
 <script>
+	import BottomSheet from '@/components/BottomSheet/BottomSheet.vue';
+
 	export default {
+		components: {
+			BottomSheet,
+		},
+		data() {
+			return {
+				isActionSheetVisible: false,
+				actionSheetOptions: [{
+					text: '呼叫 400-000-0000',
+					imageSrc: 'https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPng508af3211aff2093c82948b6b714248f4e7c9dd737836b3b8d1449d9c81c5b12'
+				}],
+			};
+		},
 		methods: {
-			goBack() {
-				uni.navigateBack();
-			},
+
 			showActionSheet() {
-				uni.showActionSheet({
-					itemColor: '#007aff',
-					itemList: ['呼叫 400-000-0000'],
-					success: (res) => {
-						if (res.tapIndex === 0) {
-							this.makePhoneCall();
-						}
-					}
-				});
+				this.isActionSheetVisible = true; // 打开底部拉起栏
+			},
+			handleOptionSelect() {
+				this.makePhoneCall()
 			},
 			makePhoneCall() {
 				uni.makePhoneCall({
@@ -39,7 +48,7 @@
 	}
 </script>
 
-<style>
+<style scoped>
 	.container {
 		background-color: #fff;
 		padding: 28rpx;
@@ -65,7 +74,8 @@
 		text-align: center;
 	}
 
-	.content {
+
+	.content_box {
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
