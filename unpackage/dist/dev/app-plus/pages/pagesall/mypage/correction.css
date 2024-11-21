@@ -1,0 +1,106 @@
+
+.corr_Title {
+  display: flex;
+  align-items: center;
+  padding: 0.625rem;
+}
+.corr_text {
+  width: 100%;
+  text-align: center;
+}
+.corr-banner {
+  background-image: url(https://lanhu-dds-backend.oss-cn-beijing.aliyuncs.com/merge_image/imgs/7d37ad8dcc9e4df9a9f91877bcc919e6_mergeImage.png);
+  width: 23.4375rem;
+  height: 14.96875rem;
+}
+.corr-banner img {
+  width: 23.4375rem;
+  height: 14.96875rem;
+}
+.box_3 {
+  background-color: rgba(249, 183, 34, 1);
+  border-radius: 8px;
+  height: 5rem;
+  width: 5rem;
+}
+.section_2 {
+  background-color: rgba(255, 228, 63, 1);
+  border-radius: 8px;
+  height: 4.625rem;
+  width: 4.625rem;
+  position: relative;
+  top: 0.1875rem;
+  left: 0.1875rem;
+}
+.image_2 {
+  width: 4.625rem;
+  height: 0.0625rem;
+  margin-top: 2.5rem;
+}
+.section_3 {
+  height: 4.25rem;
+  background: url(https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPnga35bab1e0e151f44b12e4e0b1f267681fef9018c9f2b917b199af126c81a5d4a) -0.0625rem
+    0 no-repeat;
+  background-size: 4.375rem 4.25rem;
+  width: 4.25rem;
+  position: absolute;
+  left: 0.1875rem;
+  top: 0.1875rem;
+}
+.box_4 {
+  height: 4.25rem;
+  background: url(https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPng7324678af235f529103c73d84c4b31f509cc40d8085ed8f7d39e996449897b8b)
+    0 0 no-repeat;
+  background-size: 4.3125rem 4.25rem;
+  width: 4.25rem;
+  position: relative;
+}
+.text_4 {
+  width: 3rem;
+  height: 4.1875rem;
+  overflow-wrap: break-word;
+  color: rgba(0, 0, 0, 1);
+  font-size: 3rem;
+  font-family: PingFangSC-Semibold;
+  font-weight: 600;
+  text-align: left;
+  white-space: nowrap;
+  line-height: 4.1875rem;
+  margin: 0.0625rem 0 0 0.5rem;
+}
+.image_3 {
+  position: absolute;
+  left: 2.125rem;
+  top: -0.1875rem;
+  width: 0.0625rem;
+  height: 4.5625rem;
+}
+.corr-work {
+  padding: 0.625rem;
+  display: flex;
+}
+.worktext {
+  margin-left: 0.875rem;
+}
+.workText3 {
+  font-size: 0.875rem;
+  margin-right: 0.5rem;
+}
+.workText4 {
+  padding: 0.1875rem 0.625rem;
+  border-radius: 0.125rem;
+  background: #ff9e02;
+  font-size: 0.625rem;
+  color: #ffffff;
+}
+.workinput {
+  width: 14.5625rem;
+  height: 2.875rem;
+  padding: 0.1875rem 0.625rem;
+  margin-top: 0.5rem;
+  background: #f4f5f9;
+  border-radius: 0.125rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: space-between;
+}

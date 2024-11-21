@@ -1,0 +1,106 @@
+
+.bottom-sheet[data-v-8531473b] {
+		position: fixed;
+		bottom: -100%;
+		/* 初始隐藏 */
+		left: 0;
+		right: 0;
+		z-index: 1000;
+		/* 确保在遮罩层之上 */
+		border-radius: 0.625rem 0.625rem 0 0;
+		background-color: #fff;
+		transition: bottom 0.3s ease;
+		box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
+}
+.bottom-sheet.is-active[data-v-8531473b] {
+		bottom: 0;
+		/* 显示时从底部拉起 */
+}
+.overlay[data-v-8531473b] {
+		position: fixed;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background-color: rgba(0, 0, 0, 0.5);
+		/* 半透明黑色背景 */
+		z-index: 999;
+		/* 在底部栏之下 */
+}
+.content[data-v-8531473b] {
+		background: #EEEEEE;
+}
+.title[data-v-8531473b] {
+		font-size: 18px;
+		font-weight: bold;
+}
+.options[data-v-8531473b] {
+		background-color: #fff;
+}
+.option[data-v-8531473b] {
+		margin: 15px;
+		padding: 10px;
+		border-bottom: 1px solid #ccc;
+		margin-bottom: 10px;
+		cursor: pointer;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		font-size: 1.125rem;
+		padding-top: 0;
+}
+.option-image[data-v-8531473b] {
+		width: 1.5rem;
+		/* 自定义图片宽度 */
+		height: 1.5rem;
+		/* 自定义图片高度 */
+		margin-right: 0.625rem;
+		/* 图片与文本之间的间距 */
+}
+.option[data-v-8531473b]:last-child {
+		border-bottom: none;
+}
+.close-button[data-v-8531473b] {
+		margin-top: 0.5rem;
+		padding: 10px;
+		color: #000;
+		border: none;
+		border-radius: 0px;
+		cursor: pointer;
+		background: #fff;
+}
+.close-button[data-v-8531473b]::after {
+		border: none;
+}
+
+
+.container[data-v-9e2cb335] {
+  background-color: #fff;
+  padding: 0.875rem;
+  font-size: 0.875rem;
+  line-height: 2.5rem;
+  padding-top: 0;
+}
+.header[data-v-9e2cb335] {
+  padding: 20px;
+  display: flex;
+  align-items: center;
+}
+.back[data-v-9e2cb335] {
+  font-size: 30px;
+  margin-right: 10px;
+}
+.title[data-v-9e2cb335] {
+  font-size: 18px;
+  flex-grow: 1;
+  text-align: center;
+}
+.content_box[data-v-9e2cb335] {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 0.03125rem solid #eee;
+}
+.phone-number[data-v-9e2cb335] {
+  color: blue;
+}

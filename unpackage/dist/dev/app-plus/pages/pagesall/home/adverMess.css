@@ -1,57 +1,72 @@
 
-.codepage {
-		width: 23.4375rem;
-		height: 50.75rem;
-		background-color: #EEEEEE;
+.kong[data-v-6857b9a9] {
+  background: white;
+  width: 100%;
+  height: 100%;
 }
-.code_titlebox {
-		position: relative;
-		padding: 0.9375rem;
+.bg_img[data-v-6857b9a9] {
+  width: 100px;
+  height: 100px;
+  background-image: url(../../../static/img/kong.png);
+  border: 1px solid;
 }
-.messImg {
-		position: absolute;
-		background-color: ;
+.codepage[data-v-6857b9a9] {
+  width: 23.4375rem;
+  height: 50.75rem;
+  background-color: #eeeeee;
 }
-.code_title {
-		text-align: center;
-		font-weight: 500;
-		font-size: 1.125rem;
-		color: #000;
+.code_titlebox[data-v-6857b9a9] {
+  position: relative;
+  padding: 0.9375rem;
 }
-.adver_content {
-		width: 19.8125rem;
-		height: 8.625rem;
-		background-color: #fff;
-		padding: 0.9375rem;
-		border-radius: 0.5rem;
+.messImg[data-v-6857b9a9] {
+  position: absolute;
+  /* background-color: ; */
 }
-.adver_time {
-		display: flex;
-		align-items: center;
-		flex-wrap: wrap;
-		justify-content: center;
+.code_title[data-v-6857b9a9] {
+  text-align: center;
+  font-weight: 500;
+  font-size: 1.125rem;
+  color: #000;
 }
-.adver_text1 {
-		margin-bottom: 0.5rem;
-		font-weight: 500;
-		font-size: 1rem;
-		color: #000000;
+.adver_content[data-v-6857b9a9] {
+  width: 19.8125rem;
+  /* height: 276rpx; */
+  background-color: #fff;
+  padding: 0.9375rem;
+  border-radius: 0.5rem;
+  /* padding-bottom: 20rpx; */
 }
-.adver_text2 {
-		font-weight: 400;
-		font-size: 0.75rem;
-		color: #666666;
+.adver_time[data-v-6857b9a9] {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
 }
-.line {
-		width: 100%;
-		margin: 0.875rem 0 0.875rem 0;
+.adver_text1[data-v-6857b9a9] {
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  font-size: 1rem;
+  color: #000000;
 }
-.line img {
-		width: 19.875rem;
+.adver_text2[data-v-6857b9a9] {
+  font-weight: 400;
+  font-size: 0.75rem;
+  color: #666666;
 }
-.adver_btn {
-		text-align: center;
-		font-weight: 400;
-		font-size: 0.875rem;
-		color: #5791F2;
+.line[data-v-6857b9a9] {
+  width: 100%;
+  margin: 0.875rem 0 0.875rem 0;
+}
+.line img[data-v-6857b9a9] {
+  width: 19.875rem;
+}
+.adver_btn[data-v-6857b9a9] {
+  text-align: center;
+  font-weight: 400;
+  font-size: 0.875rem;
+  color: #5791f2;
+}
+.adverbox[data-v-6857b9a9] {
+  margin-bottom: 2.625rem;
 }

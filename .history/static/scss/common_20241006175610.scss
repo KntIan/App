@@ -1,0 +1,31 @@
+/*
+    common.scss
+
+*/
+//flex布局
+@mixin flex($direction: row, $justify-content: flex-start, $align-items: stretch, $align-content: stretch) {
+    display: flex;
+    flex-direction: $direction;
+    justify-content: $justify-content;
+    align-items: $align-items;
+    align-content: $align-content;
+}
+
+// 使用示例
+// .flex-container {
+//     @include flex(row, center, center, space-between);
+// }
+
+// .flex-item {
+//     @include flex(column, center, center);
+// }
+
+//grid布局
+@mixin grid($template-columns: 1fr, $template-rows: auto, $gap: 0, $justify-items: stretch, $align-items: stretch) {
+    display: grid;
+    grid-template-columns: $template-columns;
+    grid-template-rows: $template-rows;
+    grid-gap: $gap;
+    justify-items: $justify-items;
+    align-items: $align-items;
+}

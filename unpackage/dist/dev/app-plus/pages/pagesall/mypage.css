@@ -1,0 +1,365 @@
+/**
+ * 这里是uni-app内置的常用样式变量
+ *
+ * uni-app 官方扩展插件及插件市场（https://ext.dcloud.net.cn）上很多三方插件均使用了这些样式变量
+ * 如果你是插件开发者，建议你使用scss预处理，并在插件代码中直接使用这些变量（无需 import 这个文件），方便用户通过搭积木的方式开发整体风格一致的App
+ *
+ */
+/**
+ * 如果你是App开发者（插件使用者），你可以通过修改这些变量来定制自己的插件主题，实现自定义主题功能
+ *
+ * 如果你的项目同样使用了scss预处理，你也可以直接在你的 scss 代码中使用如下变量，同时无需 import 这个文件
+ */
+/* 颜色变量 */
+/* 行为相关颜色 */
+/* 文字基本颜色 */
+/* 背景颜色 */
+/* 边框颜色 */
+/* 尺寸变量 */
+/* 文字尺寸 */
+/* 图片尺寸 */
+/* Border Radius */
+/* 水平间距 */
+/* 垂直间距 */
+/* 透明度 */
+/* 文章场景相关 */
+.uni-countdown[data-v-c592f7f2] {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+.uni-countdown__splitor[data-v-c592f7f2] {
+  margin: 0 2px;
+  font-size: 14px;
+  color: #333;
+}
+.uni-countdown__number[data-v-c592f7f2] {
+  border-radius: 3px;
+  text-align: center;
+  font-size: 14px;
+}
+/**
+ * 这里是uni-app内置的常用样式变量
+ *
+ * uni-app 官方扩展插件及插件市场（https://ext.dcloud.net.cn）上很多三方插件均使用了这些样式变量
+ * 如果你是插件开发者，建议你使用scss预处理，并在插件代码中直接使用这些变量（无需 import 这个文件），方便用户通过搭积木的方式开发整体风格一致的App
+ *
+ */
+/**
+ * 如果你是App开发者（插件使用者），你可以通过修改这些变量来定制自己的插件主题，实现自定义主题功能
+ *
+ * 如果你的项目同样使用了scss预处理，你也可以直接在你的 scss 代码中使用如下变量，同时无需 import 这个文件
+ */
+/* 颜色变量 */
+/* 行为相关颜色 */
+/* 文字基本颜色 */
+/* 背景颜色 */
+/* 边框颜色 */
+/* 尺寸变量 */
+/* 文字尺寸 */
+/* 图片尺寸 */
+/* Border Radius */
+/* 水平间距 */
+/* 垂直间距 */
+/* 透明度 */
+/* 文章场景相关 */
+.uni-countdown[data-v-0bd4ae46] {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+.uni-countdown__splitor[data-v-0bd4ae46] {
+  margin: 0 2px;
+  font-size: 14px;
+  color: #333;
+}
+.uni-countdown__number[data-v-0bd4ae46] {
+  border-radius: 3px;
+  text-align: center;
+  font-size: 14px;
+}
+
+.timetextbox[data-v-bd6e87e7] {
+  display: flex;
+  margin-top: 0.3125rem;
+}
+.timetextbox uni-text[data-v-bd6e87e7] {
+  display: block;
+  background-color: #f53c38;
+  margin-right: 0.125rem;
+  color: #fff;
+}
+.courseRegistrationCard[data-v-bd6e87e7] {
+  margin-top: 0.5rem;
+  border-radius: 0.5rem;
+  position: relative;
+  background-color: #eeeeee;
+  width: 21.6875rem;
+  height: 14.5625rem;
+  border: 0.03125rem solid #eeeeee;
+}
+.techerImg[data-v-bd6e87e7] {
+  position: absolute;
+  right: 0;
+  bottom: 15%;
+}
+.techerImg img[data-v-bd6e87e7] {
+  width: 7.5rem;
+  height: 10.9375rem;
+}
+.courseRegistrationCard_bg[data-v-bd6e87e7] {
+  background-color: #ff9e02;
+  width: 2.5rem;
+  height: 2.5rem;
+  position: absolute;
+  top: 0;
+  right: 0;
+  -webkit-clip-path: polygon(0 0, 100% 100%, 100% 0);
+          clip-path: polygon(0 0, 100% 100%, 100% 0);
+  border-radius: 0 0.625rem 0 0;
+}
+.courseRegistrationCard_status[data-v-bd6e87e7] {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 4;
+  color: #fff;
+  transform: rotate(45deg);
+  transform-origin: 0 50%;
+  font-size: 0.625rem;
+}
+.courseInformation[data-v-bd6e87e7] {
+  width: 18.125rem;
+  background: #ffffff;
+  box-shadow: 0 0.125rem 0.25rem 0.0625rem rgba(0, 0, 0, 0.05);
+  border-radius: 0.5rem;
+  height: 12.8125rem;
+  border: 0 solid rgba(0, 0, 0, 0.25);
+  padding: 0.875rem 0 0.875rem 0.9375rem;
+}
+.courseTitle[data-v-bd6e87e7] {
+  font-size: 1rem;
+  font-weight: 500;
+}
+.courseTeacher[data-v-bd6e87e7] {
+  font-size: 0.875rem;
+  color: #333333;
+  overflow: hidden;
+
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  width: 85%;
+}
+.courseTime[data-v-bd6e87e7] {
+  font-size: 0.75rem;
+  color: #666666;
+}
+.lecturerInfo[data-v-bd6e87e7] {
+  display: flex;
+}
+.lecturerInfo img[data-v-bd6e87e7] {
+  width: 2.5rem;
+  height: 2.5rem;
+}
+.lecturer_name[data-v-bd6e87e7] {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  font-size: 0.75rem;
+  margin-left: 0.625rem;
+  margin-right: 1.5625rem;
+}
+.remainingTime[data-v-bd6e87e7] {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+.imgbox[data-v-bd6e87e7] {
+  position: relative;
+  width: 2.1875rem;
+  height: 0.9375rem;
+}
+.imgbox img[data-v-bd6e87e7] {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: inline-block;
+  border-radius: 50%;
+  border: 1px solid white;
+}
+.endbaoming[data-v-bd6e87e7] {
+  width: 19.875rem;
+  height: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1.8125rem;
+  background: linear-gradient(90deg, #ffffff 0%, #f9dcca 100%);
+}
+.peopers[data-v-bd6e87e7] {
+  width: 50%;
+  display: flex;
+  align-items: center;
+}
+.peotext[data-v-bd6e87e7] {
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+}
+.perbtn[data-v-bd6e87e7] {
+  width: 50%;
+  position: relative;
+}
+.courseTitle[data-v-bd6e87e7] {
+  padding-top: 0.375rem;
+  padding-bottom: 0.25rem;
+}
+.courseTime[data-v-bd6e87e7] {
+  padding-top: 0.5rem;
+  padding-bottom: 0.875rem;
+}
+.permoney[data-v-bd6e87e7] {
+  color: #f53c38;
+  font-size: 0.875rem;
+}
+.gobtn[data-v-bd6e87e7] {
+  width: 7.25rem;
+  height: 2.5rem;
+  background: #ff9e02;
+  border-radius: 0 6.25rem 6.25rem 1.5625rem;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  bottom: -60%;
+  right: -5%;
+  transform: skewX(-15deg);
+  cursor: pointer;
+}
+.timetextbox[data-v-bd6e87e7] {
+  display: flex;
+  margin-top: 0.3125rem;
+}
+.timetextbox uni-text[data-v-bd6e87e7] {
+  display: block;
+  background-color: #f53c38;
+  margin-right: 0.125rem;
+  color: #fff;
+}
+
+
+.titleHome[data-v-980ef0f9] {
+  display: flex;
+  justify-content: space-between;
+}
+.nameId[data-v-980ef0f9] {
+  display: flex;
+  align-items: flex-start;
+}
+.icon_2[data-v-980ef0f9] {
+  width: 1.125rem;
+  height: 1rem;
+}
+.class_[data-v-980ef0f9] {
+  float: left;
+}
+.homeworkScroll[data-v-980ef0f9] {
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.name[data-v-980ef0f9] {
+  display: flex;
+  flex-direction: column;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+  gap: 0.1875rem;
+}
+.textname[data-v-980ef0f9] {
+  font-size: 0.875rem;
+}
+.textid[data-v-980ef0f9] {
+  font-size: 0.5rem;
+}
+.classID[data-v-980ef0f9] {
+  font-size: 0.5rem;
+  padding: 0.0625rem 0.375rem 0.0625rem 0.375rem;
+  background-color: #ff9e02;
+  color: #fff;
+  margin-top: 0.25rem;
+  margin-left: -4.375rem;
+}
+.status_img uni-image[data-v-980ef0f9] {
+  width: 0.75rem;
+  height: 0.75rem;
+}
+.posit[data-v-980ef0f9] {
+  display: flex;
+  align-items: center;
+}
+.postext[data-v-980ef0f9] {
+  font-size: 0.5rem;
+}
+.container[data-v-980ef0f9] {
+  padding: 16px;
+}
+.task-status[data-v-980ef0f9] {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.625rem;
+  padding: 0.3125rem 0.375rem 0.4375rem 0.5rem;
+}
+.task-title[data-v-980ef0f9] {
+  font-size: 0.875rem;
+  color: #000000;
+  padding: 0.3125rem 0.375rem 0.4375rem 0.5rem;
+}
+.user-info[data-v-980ef0f9] {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.avatar[data-v-980ef0f9] {
+  width: 50px;
+  height: 50px;
+  border-radius: 25px;
+}
+.user-details[data-v-980ef0f9] {
+  margin-left: 10px;
+}
+.homework[data-v-980ef0f9] {
+  background: #ffffff;
+  box-shadow: 0 0 0.375rem 0 rgba(0, 0, 0, 0.08);
+  border-radius: 0.25rem;
+  border: 0 solid;
+}
+.features[data-v-980ef0f9],
+.homework-list[data-v-980ef0f9] {
+  display: flex;
+  font-size: 0.875rem;
+  color: #000000;
+  justify-content: space-around;
+  margin-top: 2.1875rem;
+  gap: 0.4375rem;
+}
+.task-details[data-v-980ef0f9] {
+}
+.feature[data-v-980ef0f9] {
+  display: grid;
+  justify-items: center;
+}
+.task-image[data-v-980ef0f9] {
+  width: 10.625rem;
+  height: 5rem;
+}
+.feature-icon[data-v-980ef0f9],
+.activity-image[data-v-980ef0f9] {
+  width: 2rem;
+  height: 2rem;
+}
+.section[data-v-980ef0f9] {
+  margin-top: 20px;
+}
