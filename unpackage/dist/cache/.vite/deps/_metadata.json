@@ -1,0 +1,73 @@
+{
+  "hash": "ce6aac80",
+  "configHash": "9640ddf7",
+  "lockfileHash": "a79ce96c",
+  "browserHash": "ffd821e4",
+  "optimized": {
+    "@tencentcloud/chat-uikit-engine": {
+      "src": "../../../../../node_modules/@tencentcloud/chat-uikit-engine/index.js",
+      "file": "@tencentcloud_chat-uikit-engine.js",
+      "fileHash": "5b369d96",
+      "needsInterop": false
+    },
+    "@tencentcloud/tui-core": {
+      "src": "../../../../../node_modules/@tencentcloud/tui-core/index.js",
+      "file": "@tencentcloud_tui-core.js",
+      "fileHash": "5ff5f774",
+      "needsInterop": false
+    },
+    "@tencentcloud/universal-api": {
+      "src": "../../../../../node_modules/@tencentcloud/universal-api/index.js",
+      "file": "@tencentcloud_universal-api.js",
+      "fileHash": "43a76d86",
+      "needsInterop": false
+    },
+    "@vue/composition-api": {
+      "src": "../../../../../node_modules/@vue/composition-api/dist/vue-composition-api.mjs",
+      "file": "@vue_composition-api.js",
+      "fileHash": "17cd052a",
+      "needsInterop": false
+    },
+    "dayjs": {
+      "src": "../../../../../node_modules/dayjs/dayjs.min.js",
+      "file": "dayjs.js",
+      "fileHash": "5735c034",
+      "needsInterop": true
+    },
+    "dayjs/locale/zh-cn": {
+      "src": "../../../../../node_modules/dayjs/locale/zh-cn.js",
+      "file": "dayjs_locale_zh-cn.js",
+      "fileHash": "ccac3b3c",
+      "needsInterop": true
+    },
+    "dayjs/plugin/isSameOrAfter.js": {
+      "src": "../../../../../node_modules/dayjs/plugin/isSameOrAfter.js",
+      "file": "dayjs_plugin_isSameOrAfter__js.js",
+      "fileHash": "b52d58ba",
+      "needsInterop": true
+    },
+    "dayjs/plugin/isSameOrBefore.js": {
+      "src": "../../../../../node_modules/dayjs/plugin/isSameOrBefore.js",
+      "file": "dayjs_plugin_isSameOrBefore__js.js",
+      "fileHash": "ec62f73e",
+      "needsInterop": true
+    },
+    "dayjs/plugin/localeData.js": {
+      "src": "../../../../../node_modules/dayjs/plugin/localeData.js",
+      "file": "dayjs_plugin_localeData__js.js",
+      "fileHash": "69df78bd",
+      "needsInterop": true
+    }
+  },
+  "chunks": {
+    "chunk-BFRB2QID": {
+      "file": "chunk-BFRB2QID.js"
+    },
+    "chunk-A6PKGKLD": {
+      "file": "chunk-A6PKGKLD.js"
+    },
+    "chunk-LQ2VYIYD": {
+      "file": "chunk-LQ2VYIYD.js"
+    }
+  }
+}

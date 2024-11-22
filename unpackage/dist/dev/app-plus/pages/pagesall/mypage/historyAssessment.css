@@ -1,0 +1,124 @@
+
+.box-list[data-v-df6b140b] {
+  margin-top: 0.25rem;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 0.625rem;
+}
+.boxlist[data-v-df6b140b] {
+  width: 10.625rem;
+  height: 8.125rem;
+  box-shadow: 0 0.125rem 0.25rem 0.0625rem rgba(0, 0, 0, 0.05);
+  border-radius: 0.25rem;
+  margin-bottom: 0.625rem;
+}
+.boxlistImg[data-v-df6b140b] {
+  width: 10.625rem;
+  height: 5rem;
+}
+.boxlistImg img[data-v-df6b140b] {
+  width: 10.625rem;
+  height: 5rem;
+}
+.boxlistText1[data-v-df6b140b] {
+  margin-top: 0.25rem;
+  margin-left: 0.5rem;
+  font-weight: 600;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+.boxlistText2[data-v-df6b140b] {
+  margin-top: 0.3125rem;
+  margin-left: 0.5rem;
+  font-size: 0.625rem;
+  line-height: 0.875rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.boxlistText3[data-v-df6b140b] {
+  margin-right: 0.5rem;
+}
+.boxlistText4[data-v-df6b140b] {
+  padding: 0 0.40625rem 0.03125rem 0.40625rem;
+  border-radius: 0.125rem;
+  background: #ff9e02;
+  font-size: 0.5rem;
+  color: #ffffff;
+}
+
+
+.hist_Title {
+  display: flex;
+  align-items: center;
+  padding: 0.625rem;
+}
+.hist_text {
+  width: 100%;
+  text-align: center;
+}
+.histbox {
+  padding: 0.625rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.box-text1 {
+  font-weight: 600;
+  font-size: 1rem;
+  line-height: 1.375rem;
+}
+.box-text2 {
+  font-size: 0.75rem;
+  line-height: 1.0625rem;
+  color: #666666;
+}
+.AI-list {
+  margin-top: 0.25rem;
+  padding: 0.625rem;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.ailist {
+  width: 10.625rem;
+  height: 8.125rem;
+  box-shadow: 0 0.125rem 0.25rem 0.0625rem rgba(0, 0, 0, 0.05);
+  border-radius: 0.25rem;
+  margin-bottom: 0.625rem;
+}
+.ailistImg {
+  width: 10.625rem;
+  height: 5rem;
+}
+.ailistImg img {
+  width: 10.625rem;
+  height: 5rem;
+}
+.ailistText1 {
+  margin-top: 0.25rem;
+  margin-left: 0.5rem;
+  font-weight: 600;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+.ailistText2 {
+  margin-top: 0.3125rem;
+  margin-left: 0.5rem;
+  font-size: 0.625rem;
+  line-height: 0.875rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.ailistText3 {
+  margin-right: 0.5rem;
+}
+.ailistText4 {
+  padding: 0 0.40625rem 0.03125rem 0.40625rem;
+  border-radius: 0.125rem;
+  background: #ff9e02;
+  font-size: 0.5rem;
+  color: #ffffff;
+}

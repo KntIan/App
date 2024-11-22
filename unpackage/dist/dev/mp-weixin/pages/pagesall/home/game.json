@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "赛事比赛",
+  "navigationStyle": "custom",
+  "usingComponents": {
+    "timeline": "../../../components/chenbin-timeline/timeLine",
+    "timeline-item": "../../../components/chenbin-timeline/timelineItem"
+  }
+}

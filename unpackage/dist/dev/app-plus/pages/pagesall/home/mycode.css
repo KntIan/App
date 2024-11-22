@@ -1,0 +1,70 @@
+
+.codepage {
+  background-color: #ff9e02;
+  width: 23.4375rem;
+  height: 50.75rem;
+}
+.code_titlebox {
+  position: relative;
+  padding: 0.9375rem;
+}
+.messImg {
+  position: absolute;
+  background-color: ;
+}
+.code_title {
+  text-align: center;
+  font-weight: 500;
+  font-size: 1.125rem;
+  color: #ffffff;
+}
+.code_codebox {
+  width: 17.375rem;
+  height: 20rem;
+  background: url(https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPng2f44e9201c59e30551b904da05df9e722aa6c7cb73f8bbacb51e09e0cd9aa9a8)
+    100% no-repeat;
+  background-size: 100% 100%;
+  margin: 5.5rem 0 0 3.0625rem;
+  position: relative;
+}
+.code_img {
+  position: absolute;
+  top: 23%;
+  left: 50%;
+  transform: translate(-50%);
+}
+.code_baocun {
+  background-color: rgba(255, 255, 255, 1);
+  border-radius: 20px;
+  height: 2.5rem;
+  width: 11.25rem;
+  margin: 4rem 0 11.0625rem 6.125rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.code_baocun img {
+  margin-right: 0.3125rem;
+}
+.code_titileimg {
+  width: 9.375rem;
+  height: 2.75rem;
+  display: flex;
+  align-items: center;
+  position: absolute;
+  top: 5%;
+  left: 5%;
+}
+.code_name {
+  margin-left: 0.46875rem;
+}
+.code_codeimg {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%);
+}
+.code_codeimg img {
+  width: 14.0625rem;
+  height: 14.0625rem;
+}

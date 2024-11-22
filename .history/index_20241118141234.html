@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <script>
+      var coverSupport = 'CSS' in window && typeof CSS.supports === 'function' && (CSS.supports('top: env(a)') ||
+        CSS.supports('top: constant(a)'))
+      document.write(
+        '<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0' +
+        (coverSupport ? ', viewport-fit=cover' : '') + '" />')
+      function  getAreaSize() {
+      var res = uni.getSystemInfoSync();
+
+      console.log("设备信息", res);
+      this.globalData.platform = res.platform;
+      console.log("手机设备", this.globalData.model);
+      // 设备可使用窗口高度，不包括系统状态栏和导航栏的高度
+      this.globalData.windowHeight = res.windowHeight;
+      // 设备的可使用窗口宽度
+      this.globalData.windowWidth = res.windowWidth;
+      // 设备的屏幕高度，包括系统状态栏和导航栏的高度
+      this.globalData.screenHeight = res.screenHeight;
+      // 设备安全区域信息（对象，包含设备的安全区域的四个边距）
+      this.globalData.safeArea = res.safeArea;
+      // 设备安全区域的顶部边距
+      this.globalData.top = res.safeArea.top;
+      console.log("safeAreaTop", this.globalData.top);
+      // 计算设备的底部安全区域的高度
+      this.globalData.safeAreaBottom = res.screenHeight - res.safeArea.bottom;
+      // 计算底部导航栏高度
+      this.globalData.tabBarHeight =
+        res.screenHeight - res.windowWidth - res.statusBarHeight;
+      // 设备状态栏的高度
+      this.globalData.statusBarHeight = res.statusBarHeight;
+      // 设置页面的高度为可使用窗口的高度
+      this.globalData.pageHeight = this.globalData.windowHeight;
+      // 设备平台信息（ios android）
+      this.globalData.platform = res.platform;
+    },
+    </script>
+    <title></title>
+    <!--preload-links-->
+    <!--app-context-->
+  </head>
+  <body>
+    <div id="app" ><!--app-html--></div>
+    <script type="module" src="/main.js"></script>
+  </body>
+  
+</html>

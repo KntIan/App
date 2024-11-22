@@ -1,0 +1,222 @@
+.timeline[data-v-a4098a69] {
+  padding: 0.625rem;
+}
+
+.timelineItem .timeItem[data-v-48a104e6] {
+  display: flex;
+}
+.timelineItem .timeItem .leftTime[data-v-48a104e6] {
+  width: 4.21875rem;
+  padding: 0 0.3125rem;
+  font-family: PingFangSC-Medium, PingFang SC;
+  color: #333333;
+  margin-right: 0.3125rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-weight: 500;
+  font-size: 0.875rem;
+  color: #000000;
+  margin-left: 0.625rem;
+}
+.timelineItem .timeItem .line[data-v-48a104e6] {
+  width: 1px;
+  background: #cccccc;
+  position: relative;
+}
+.timelineItem .timeItem .line .out[data-v-48a104e6] {
+  position: absolute;
+  top: 4%;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 0.5625rem;
+  height: 0.5625rem;
+  background: rgba(236, 104, 23, 0.6);
+  border-radius: 50%;
+}
+.timelineItem .timeItem .line .out .inner[data-v-48a104e6] {
+  width: 0.5625rem;
+  height: 0.5625rem;
+  background: #ec6817;
+  border-radius: 50%;
+}
+.timelineItem .timeItem .rightContent[data-v-48a104e6] {
+  flex: 1;
+  padding: 0 0.3125rem 1.25rem;
+  margin-left: 0.625rem;
+  min-height: 1.5625rem;
+}
+.leftlist1[data-v-48a104e6] {
+  padding: 0.625rem 0;
+  font-weight: 400;
+  font-size: 0.875rem;
+  color: #333333;
+}
+.leftlist2[data-v-48a104e6] {
+  padding: 0.625rem 0;
+  font-weight: 400;
+  font-size: 0.875rem;
+  color: #333333;
+}
+.leftlist3[data-v-48a104e6] {
+  padding: 0.625rem 0;
+  font-weight: 400;
+  font-size: 0.875rem;
+  color: #333333;
+}
+
+
+.codepage {
+  width: 23.4375rem;
+  height: 50.75rem;
+  background-color: #eeeeee;
+}
+.code_titlebox {
+  position: relative;
+  padding: 0.9375rem;
+}
+.messImg {
+  position: absolute;
+  /* background-color: ; */
+}
+.code_title {
+  text-align: center;
+  font-weight: 500;
+  font-size: 1.125rem;
+  color: #000;
+}
+.swiper-container {
+  width: 22.1875rem;
+  height: 10rem;
+  padding: 0.9375rem 0 0.9375rem 0;
+}
+.swiper-image {
+  width: 22.1875rem;
+  height: 10rem;
+}
+.swibox {
+  display: flex;
+  justify-content: center;
+}
+.game_time {
+  padding: 0 0.625rem;
+}
+.tripItem {
+  height: 4.375rem;
+  padding: 0.625rem 0.9375rem;
+  box-sizing: border-box;
+  background: rgba(255, 255, 255, 1);
+  box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.08);
+  border-radius: 10px;
+  margin-bottom: 0.9375rem;
+.title {
+    font-size: 0.875rem;
+    font-family: PingFangSC-Medium, PingFang SC;
+    font-weight: 500;
+    color: rgba(51, 51, 51, 1);
+}
+.tips {
+    font-size: 0.6875rem;
+    font-family: PingFangSC-Regular, PingFang SC;
+    font-weight: 400;
+    color: rgba(153, 153, 153, 1);
+    margin-top: 0.625rem;
+}
+.tips {
+    font-weight: 400;
+    font-size: 0.75rem !important;
+    color: #333333;
+}
+}
+.infoText {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0.46875rem 0;
+}
+.infolistbox {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.46875rem;
+  padding-right: 0.9375rem;
+  position: relative;
+}
+.infolistbox::after {
+  content: "";
+  height: 1px;
+  width: 90%;
+  background-color: #eee;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%);
+}
+.infostr {
+  width: 70%;
+}
+.huatibox {
+  display: flex;
+  align-items: center;
+}
+.paddbox {
+  padding: 0.3125rem 1.25rem 0 1.25rem;
+}
+.titleText {
+  font-weight: 400;
+  font-size: 0.75rem;
+  color: #666666;
+  margin-bottom: 0.25rem;
+  display: -webkit-box;
+  /* 必须结合下面的属性使用 */
+  -webkit-box-orient: vertical;
+  /* 设置盒子布局的方向为垂直 */
+  -webkit-line-clamp: 2;
+  /* 限制显示的行数为2行 */
+  overflow: hidden;
+  /* 隐藏超出内容 */
+  text-overflow: ellipsis;
+  /* 使用省略号替代超出的文本 */
+  word-break: break-all;
+}
+.proNum {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.site_title {
+  font-weight: 500;
+  font-size: 1.125rem;
+  color: #000000;
+  padding: 0.9375rem 0;
+}
+.event_site {
+  padding: 0.875rem;
+}
+.scroll-view_H {
+  white-space: nowrap;
+  width: 100%;
+}
+.scroll-view-item {
+  height: 9.375rem;
+  line-height: 9.375rem;
+  text-align: center;
+  font-size: 1.125rem;
+}
+.scroll-view-item_H {
+  display: inline-block;
+  width: 12.5rem;
+  height: 7.25rem;
+  margin-left: 0.3125rem;
+}
+.scroll-view-item_H img {
+  width: 12.5rem;
+  height: 7.25rem;
+}
+.img_text {
+  text-align: center;
+  font-weight: 500;
+  font-size: 0.875rem;
+  color: #000000;
+}

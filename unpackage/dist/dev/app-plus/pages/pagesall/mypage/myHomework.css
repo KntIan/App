@@ -1,0 +1,70 @@
+
+.homework_Title {
+  display: flex;
+  align-items: center;
+  padding: 0.625rem;
+}
+.homework_Title_text {
+  width: 100%;
+  text-align: center;
+}
+.homeworktbox {
+  padding: 0.625rem;
+  padding-bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.box-text1 {
+  font-weight: 600;
+  font-size: 1rem;
+  line-height: 1.375rem;
+}
+.tem-list {
+  margin-top: 0.25rem;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 0.625rem;
+  padding-bottom: 0;
+}
+.temlist {
+  width: 10.625rem;
+  border-radius: 0.5rem;
+  margin-bottom: 0.625rem;
+}
+.temlistImg {
+  width: 10.625rem;
+  height: 7.5rem;
+}
+.temlistImg img {
+  width: 10.625rem;
+  height: 7.5rem;
+}
+.temlistText1 {
+  margin-top: 0.5rem;
+  font-weight: 600;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.temlistText2 {
+  margin-top: 0.4375rem;
+  margin-bottom: 0.4375rem;
+  font-size: 0.625rem;
+  line-height: 0.875rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.boxlistText4 {
+  width: 2.5rem;
+  height: 1.25rem;
+  padding: 0.0625rem 0.5rem 0.0625rem 0.5rem;
+  background: #5791f2;
+  border-radius: 0.25rem;
+  font-size: 0.5rem;
+  color: #ffffff;
+}

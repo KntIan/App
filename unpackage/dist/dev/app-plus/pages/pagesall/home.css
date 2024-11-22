@@ -1,0 +1,608 @@
+/**
+ * 这里是uni-app内置的常用样式变量
+ *
+ * uni-app 官方扩展插件及插件市场（https://ext.dcloud.net.cn）上很多三方插件均使用了这些样式变量
+ * 如果你是插件开发者，建议你使用scss预处理，并在插件代码中直接使用这些变量（无需 import 这个文件），方便用户通过搭积木的方式开发整体风格一致的App
+ *
+ */
+/**
+ * 如果你是App开发者（插件使用者），你可以通过修改这些变量来定制自己的插件主题，实现自定义主题功能
+ *
+ * 如果你的项目同样使用了scss预处理，你也可以直接在你的 scss 代码中使用如下变量，同时无需 import 这个文件
+ */
+/* 颜色变量 */
+/* 行为相关颜色 */
+/* 文字基本颜色 */
+/* 背景颜色 */
+/* 边框颜色 */
+/* 尺寸变量 */
+/* 文字尺寸 */
+/* 图片尺寸 */
+/* Border Radius */
+/* 水平间距 */
+/* 垂直间距 */
+/* 透明度 */
+/* 文章场景相关 */
+.uni-countdown[data-v-c592f7f2] {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+.uni-countdown__splitor[data-v-c592f7f2] {
+  margin: 0 2px;
+  font-size: 14px;
+  color: #333;
+}
+.uni-countdown__number[data-v-c592f7f2] {
+  border-radius: 3px;
+  text-align: center;
+  font-size: 14px;
+}
+/**
+ * 这里是uni-app内置的常用样式变量
+ *
+ * uni-app 官方扩展插件及插件市场（https://ext.dcloud.net.cn）上很多三方插件均使用了这些样式变量
+ * 如果你是插件开发者，建议你使用scss预处理，并在插件代码中直接使用这些变量（无需 import 这个文件），方便用户通过搭积木的方式开发整体风格一致的App
+ *
+ */
+/**
+ * 如果你是App开发者（插件使用者），你可以通过修改这些变量来定制自己的插件主题，实现自定义主题功能
+ *
+ * 如果你的项目同样使用了scss预处理，你也可以直接在你的 scss 代码中使用如下变量，同时无需 import 这个文件
+ */
+/* 颜色变量 */
+/* 行为相关颜色 */
+/* 文字基本颜色 */
+/* 背景颜色 */
+/* 边框颜色 */
+/* 尺寸变量 */
+/* 文字尺寸 */
+/* 图片尺寸 */
+/* Border Radius */
+/* 水平间距 */
+/* 垂直间距 */
+/* 透明度 */
+/* 文章场景相关 */
+.uni-countdown[data-v-0bd4ae46] {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+.uni-countdown__splitor[data-v-0bd4ae46] {
+  margin: 0 2px;
+  font-size: 14px;
+  color: #333;
+}
+.uni-countdown__number[data-v-0bd4ae46] {
+  border-radius: 3px;
+  text-align: center;
+  font-size: 14px;
+}
+
+.timetextbox[data-v-bd6e87e7] {
+  display: flex;
+  margin-top: 0.3125rem;
+}
+.timetextbox uni-text[data-v-bd6e87e7] {
+  display: block;
+  background-color: #f53c38;
+  margin-right: 0.125rem;
+  color: #fff;
+}
+.courseRegistrationCard[data-v-bd6e87e7] {
+  margin-top: 0.5rem;
+  border-radius: 0.5rem;
+  position: relative;
+  background-color: #eeeeee;
+  width: 21.6875rem;
+  height: 14.5625rem;
+  border: 0.03125rem solid #eeeeee;
+}
+.techerImg[data-v-bd6e87e7] {
+  position: absolute;
+  right: 0;
+  bottom: 15%;
+}
+.techerImg img[data-v-bd6e87e7] {
+  width: 7.5rem;
+  height: 10.9375rem;
+}
+.courseRegistrationCard_bg[data-v-bd6e87e7] {
+  background-color: #ff9e02;
+  width: 2.5rem;
+  height: 2.5rem;
+  position: absolute;
+  top: 0;
+  right: 0;
+  -webkit-clip-path: polygon(0 0, 100% 100%, 100% 0);
+          clip-path: polygon(0 0, 100% 100%, 100% 0);
+  border-radius: 0 0.625rem 0 0;
+}
+.courseRegistrationCard_status[data-v-bd6e87e7] {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 4;
+  color: #fff;
+  transform: rotate(45deg);
+  transform-origin: 0 50%;
+  font-size: 0.625rem;
+}
+.courseInformation[data-v-bd6e87e7] {
+  width: 18.125rem;
+  background: #ffffff;
+  box-shadow: 0 0.125rem 0.25rem 0.0625rem rgba(0, 0, 0, 0.05);
+  border-radius: 0.5rem;
+  height: 12.8125rem;
+  border: 0 solid rgba(0, 0, 0, 0.25);
+  padding: 0.875rem 0 0.875rem 0.9375rem;
+}
+.courseTitle[data-v-bd6e87e7] {
+  font-size: 1rem;
+  font-weight: 500;
+}
+.courseTeacher[data-v-bd6e87e7] {
+  font-size: 0.875rem;
+  color: #333333;
+  overflow: hidden;
+
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  width: 85%;
+}
+.courseTime[data-v-bd6e87e7] {
+  font-size: 0.75rem;
+  color: #666666;
+}
+.lecturerInfo[data-v-bd6e87e7] {
+  display: flex;
+}
+.lecturerInfo img[data-v-bd6e87e7] {
+  width: 2.5rem;
+  height: 2.5rem;
+}
+.lecturer_name[data-v-bd6e87e7] {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  font-size: 0.75rem;
+  margin-left: 0.625rem;
+  margin-right: 1.5625rem;
+}
+.remainingTime[data-v-bd6e87e7] {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+.imgbox[data-v-bd6e87e7] {
+  position: relative;
+  width: 2.1875rem;
+  height: 0.9375rem;
+}
+.imgbox img[data-v-bd6e87e7] {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: inline-block;
+  border-radius: 50%;
+  border: 1px solid white;
+}
+.endbaoming[data-v-bd6e87e7] {
+  width: 19.875rem;
+  height: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1.8125rem;
+  background: linear-gradient(90deg, #ffffff 0%, #f9dcca 100%);
+}
+.peopers[data-v-bd6e87e7] {
+  width: 50%;
+  display: flex;
+  align-items: center;
+}
+.peotext[data-v-bd6e87e7] {
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+}
+.perbtn[data-v-bd6e87e7] {
+  width: 50%;
+  position: relative;
+}
+.courseTitle[data-v-bd6e87e7] {
+  padding-top: 0.375rem;
+  padding-bottom: 0.25rem;
+}
+.courseTime[data-v-bd6e87e7] {
+  padding-top: 0.5rem;
+  padding-bottom: 0.875rem;
+}
+.permoney[data-v-bd6e87e7] {
+  color: #f53c38;
+  font-size: 0.875rem;
+}
+.gobtn[data-v-bd6e87e7] {
+  width: 7.25rem;
+  height: 2.5rem;
+  background: #ff9e02;
+  border-radius: 0 6.25rem 6.25rem 1.5625rem;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  bottom: -60%;
+  right: -5%;
+  transform: skewX(-15deg);
+  cursor: pointer;
+}
+.timetextbox[data-v-bd6e87e7] {
+  display: flex;
+  margin-top: 0.3125rem;
+}
+.timetextbox uni-text[data-v-bd6e87e7] {
+  display: block;
+  background-color: #f53c38;
+  margin-right: 0.125rem;
+  color: #fff;
+}
+
+/**
+ * 这里是uni-app内置的常用样式变量
+ *
+ * uni-app 官方扩展插件及插件市场（https://ext.dcloud.net.cn）上很多三方插件均使用了这些样式变量
+ * 如果你是插件开发者，建议你使用scss预处理，并在插件代码中直接使用这些变量（无需 import 这个文件），方便用户通过搭积木的方式开发整体风格一致的App
+ *
+ */
+/**
+ * 如果你是App开发者（插件使用者），你可以通过修改这些变量来定制自己的插件主题，实现自定义主题功能
+ *
+ * 如果你的项目同样使用了scss预处理，你也可以直接在你的 scss 代码中使用如下变量，同时无需 import 这个文件
+ */
+/* 颜色变量 */
+/* 行为相关颜色 */
+/* 文字基本颜色 */
+/* 背景颜色 */
+/* 边框颜色 */
+/* 尺寸变量 */
+/* 文字尺寸 */
+/* 图片尺寸 */
+/* Border Radius */
+/* 水平间距 */
+/* 垂直间距 */
+/* 透明度 */
+/* 文章场景相关 */
+.homePage[data-v-a21552ae] {
+  padding: 0.46875rem 0.625rem;
+}
+.homePage .content[data-v-a21552ae] {
+  height: 100vh;
+}
+.homePage .loadmore[data-v-a21552ae] {
+  height: 100vh;
+}
+.homePage[data-v-a21552ae] {
+  padding: 0.46875rem 0.625rem;
+}
+.homePage .titleHome[data-v-a21552ae] {
+  display: flex;
+  justify-content: space-between;
+}
+.homePage .nameId[data-v-a21552ae] {
+  width: 42%;
+  display: flex;
+  align-items: flex-start;
+}
+.homePage .timetextbox[data-v-a21552ae] {
+  display: flex;
+  margin-top: 0.3125rem;
+}
+.homePage .timetextbox uni-text[data-v-a21552ae] {
+  display: block;
+  background-color: #f53c38;
+  margin-right: 0.125rem;
+  color: #fff;
+}
+.homePage .name[data-v-a21552ae] {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: 0.5rem;
+}
+.homePage .buttonImg[data-v-a21552ae] {
+  width: 20%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.homePage .textname[data-v-a21552ae] {
+  font-size: 0.875rem;
+}
+.homePage .textid[data-v-a21552ae] {
+  font-size: 0.5rem;
+}
+.homePage .classID[data-v-a21552ae] {
+  font-size: 0.5rem;
+  padding: 0.0625rem 0.375rem;
+  background-color: #ff9e02;
+  color: #fff;
+  margin-top: 0.25rem;
+}
+.homePage .posit[data-v-a21552ae] {
+  display: flex;
+  align-items: center;
+}
+.homePage .postext[data-v-a21552ae] {
+  font-size: 0.5rem;
+}
+.homePage .swiper-container[data-v-a21552ae] {
+  width: 22.1875rem;
+  height: 10rem;
+  padding: 0.9375rem 0;
+}
+.homePage .swiper-image[data-v-a21552ae] {
+  width: 22.1875rem;
+  height: 10rem;
+}
+.homePage .showbox[data-v-a21552ae] {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.homePage .showbox .showimg[data-v-a21552ae] {
+  width: 6.625rem;
+  height: 6.625rem;
+}
+.homePage .showbox .showtext[data-v-a21552ae] {
+  margin-left: 0.625rem;
+}
+.homePage .text-content[data-v-a21552ae] {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 5;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-weight: 400;
+  font-size: 0.75rem;
+  color: #000000;
+  line-height: 1.0625rem;
+  text-align: left;
+}
+.homePage .worksImgs[data-v-a21552ae],
+.homePage .stusImgs[data-v-a21552ae] {
+  display: grid;
+  grid-auto-columns: 7.1875rem;
+  grid-auto-flow: column;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.homePage .stutext[data-v-a21552ae] {
+  margin: 0.46875rem 0;
+}
+.homePage .stuimgbox[data-v-a21552ae] {
+  width: 7.9375rem;
+  height: 7.9375rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: url(https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPngbd78fc264dd7a014ef4d8c87f28b0858f0fac59b2a450df23b73c19c048bc5f5) 50% no-repeat;
+}
+.homePage .stuimgbox img[data-v-a21552ae] {
+  width: 100%;
+}
+.homePage .worksimgbox[data-v-a21552ae] {
+  width: 7.9375rem;
+  height: 7.9375rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: url(https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPng0e0e71aa4be084e3a16a052095bf6950ed5290cb2c60b5f90b0eb25b21205b9d) 50% no-repeat;
+}
+.homePage .actText[data-v-a21552ae],
+.homePage .infoText[data-v-a21552ae] {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0.46875rem 0;
+}
+.homePage .actitme[data-v-a21552ae] {
+  box-shadow: 0 0.125rem 0.25rem 0.0625rem rgba(0, 0, 0, 0.05);
+  margin-top: 0.5rem;
+  border-radius: 0.5rem;
+  position: relative;
+  background-color: #eeeeee;
+}
+.homePage .actitme .techerImg[data-v-a21552ae] {
+  position: absolute;
+  right: 0;
+  bottom: 15%;
+}
+.homePage .actitme .techerImg img[data-v-a21552ae] {
+  width: 7.5rem;
+  height: 10.9375rem;
+}
+.homePage .linetext[data-v-a21552ae] {
+  background-color: #ff9e02;
+  width: 2.5rem;
+  height: 2.5rem;
+  position: absolute;
+  top: 0;
+  right: 0;
+  -webkit-clip-path: polygon(0 0, 100% 100%, 100% 0);
+          clip-path: polygon(0 0, 100% 100%, 100% 0);
+  border-radius: 0 0.625rem 0 0;
+}
+.homePage .linetext1[data-v-a21552ae] {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 4;
+  color: #fff;
+  transform: rotate(45deg);
+  transform-origin: 0 50%;
+  font-size: 0.625rem;
+}
+.homePage .listindex[data-v-a21552ae] {
+  width: 18.125rem;
+  background: #ffffff;
+  box-shadow: 0 0.125rem 0.25rem 0.0625rem rgba(0, 0, 0, 0.05);
+  border-radius: 0.5rem;
+  padding: 0.875rem 0 0.875rem 0.9375rem;
+}
+.homePage .actitmeText1[data-v-a21552ae] {
+  font-size: 1rem;
+  font-weight: 500;
+}
+.homePage .actitmeText2[data-v-a21552ae] {
+  width: 80%;
+  font-size: 0.875rem;
+  color: #333333;
+  height: 2.375rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+}
+.homePage .actitmeText3[data-v-a21552ae] {
+  font-size: 0.75rem;
+  color: #666666;
+}
+.homePage .actImg[data-v-a21552ae] {
+  display: flex;
+}
+.homePage .actImg img[data-v-a21552ae] {
+  width: 2.5rem;
+  height: 2.5rem;
+}
+.homePage .actTeacher[data-v-a21552ae] {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  font-size: 0.75rem;
+  margin-left: 0.625rem;
+  margin-right: 1.5625rem;
+}
+.homePage .acttime[data-v-a21552ae] {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+.homePage .imgbox[data-v-a21552ae] {
+  position: relative;
+  width: 2.1875rem;
+  height: 0.9375rem;
+}
+.homePage .imgbox img[data-v-a21552ae] {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: inline-block;
+  border-radius: 50%;
+  border: 1px solid white;
+}
+.homePage .endbaoming[data-v-a21552ae] {
+  width: 19.875rem;
+  height: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1.8125rem;
+  background: linear-gradient(90deg, #ffffff 0%, #f9dcca 100%);
+}
+.homePage .peopers[data-v-a21552ae] {
+  width: 50%;
+  display: flex;
+  align-items: center;
+}
+.homePage .peopers .peotext[data-v-a21552ae] {
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+}
+.homePage .perbtn[data-v-a21552ae] {
+  width: 50%;
+  position: relative;
+}
+.homePage .actitmeText1[data-v-a21552ae] {
+  padding-top: 0.375rem;
+  padding-bottom: 0.25rem;
+  white-space: nowrap;
+  /*强制文字在一行文本框内*/
+  overflow: hidden;
+  /*溢出部分文字隐藏*/
+  text-overflow: ellipsis;
+  /*溢出部分省略号处理*/
+  width: 90%;
+}
+.homePage .actitmeText3[data-v-a21552ae] {
+  padding-top: 0.5rem;
+  padding-bottom: 0.875rem;
+}
+.homePage .permoney[data-v-a21552ae] {
+  color: #f53c38;
+  font-size: 0.875rem;
+}
+.homePage .gobtn[data-v-a21552ae] {
+  width: 7.25rem;
+  height: 2.5rem;
+  background: #ff9e02;
+  border-radius: 0 6.25rem 6.25rem 1.5625rem;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  bottom: -60%;
+  right: -5%;
+  transform: skewX(-15deg);
+  cursor: pointer;
+}
+.homePage .infostr[data-v-a21552ae] {
+  width: 70%;
+}
+.homePage .infolistbox[data-v-a21552ae] {
+  display: flex;
+  justify-content: space-between;
+}
+.homePage .paddbox[data-v-a21552ae] {
+  padding: 0.875rem 1.25rem 1.125rem 1.25rem;
+}
+.homePage .titleText[data-v-a21552ae] {
+  width: 90%;
+  font-size: 0.875rem;
+  font-weight: 400;
+  margin-bottom: 0.875rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+.homePage .huatibox[data-v-a21552ae] {
+  display: flex;
+  align-items: center;
+}
+.homePage .proImg[data-v-a21552ae] {
+  width: 6rem;
+  height: 5.5rem;
+  border-radius: 0.25rem;
+  margin-top: 1.1875rem;
+  margin-bottom: 1.0625rem;
+}
+.homePage .proImg img[data-v-a21552ae] {
+  width: 6rem;
+  height: 5.5rem;
+  border-radius: 0.25rem;
+}
+.homePage .proNum[data-v-a21552ae] {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
