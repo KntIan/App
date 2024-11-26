@@ -8,7 +8,7 @@
 			class="segmented-control__item" @click="_onClick(index)">
 			<view>
 				<text
-					:style="{color:index === currentIndex? styleType === 'text'? activeColor: '#FF9E02': styleType === 'text'? '#000': '#000'}"
+					:style="{color:index === currentIndex? styleType === 'text'? activeColor: '#fff': styleType === 'text'? '#000': activeColor}"
 					class="segmented-control__text"
 					:class="styleType === 'text' && index === currentIndex ? 'segmented-control__item--text': ''">{{ item }}</text>
 			</view>
@@ -48,7 +48,7 @@
 			},
 			activeColor: {
 				type: String,
-				default: '#FFf'
+				default: '#2979FF'
 			},
 			inActiveColor: {
 				type: String,
@@ -91,6 +91,7 @@
 <style lang="scss" scoped>
 	.segmented-control {
 		/* #ifndef APP-NVUE */
+		display: flex;
 		box-sizing: border-box;
 		/* #endif */
 		flex-direction: row;
@@ -124,7 +125,6 @@
 		border-left-width: 1px;
 		border-top-left-radius: 5px;
 		border-bottom-left-radius: 5px;
-		margin-right: 64rpx;
 	}
 
 	.segmented-control__item--button--last {
@@ -139,8 +139,7 @@
 	}
 
 	.segmented-control__text {
-		font-weight: 500;
-		font-size: 32rpx;
+		font-size: 14px;
 		line-height: 20px;
 		text-align: center;
 	}

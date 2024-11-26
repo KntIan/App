@@ -3938,7 +3938,7 @@ uni-input[data-v-dc18037a]:focus, uni-input[data-v-dc18037a]:active, uni-textare
 .title_text[data-v-48451ebb] {
   margin-left: 2.8125rem;
 }
-.title_img img[data-v-48451ebb] {
+.title_img uni-image[data-v-48451ebb] {
   margin-left: 0.78125rem;
   width: 1rem;
   height: 1rem;

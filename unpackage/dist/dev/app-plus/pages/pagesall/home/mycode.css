@@ -2,7 +2,7 @@
 .codepage {
   background-color: #ff9e02;
   width: 23.4375rem;
-  height: 50.75rem;
+  min-height: 100vh;
 }
 .code_titlebox {
   position: relative;
@@ -24,7 +24,7 @@
   background: url(https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPng2f44e9201c59e30551b904da05df9e722aa6c7cb73f8bbacb51e09e0cd9aa9a8)
     100% no-repeat;
   background-size: 100% 100%;
-  margin: 5.5rem 0 0 3.0625rem;
+  margin: 5.5rem 3.0625rem;
   position: relative;
 }
 .code_img {

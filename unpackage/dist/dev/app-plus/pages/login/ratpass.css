@@ -1,10 +1,13 @@
 
+body[data-v-58fa56fc] {
+  overflow: hidden;
+}
 .container[data-v-58fa56fc] {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
-  height: 100vh;
+  margin-top: 6.25rem;
   background-color: #fff;
 }
 .form[data-v-58fa56fc] {
@@ -25,6 +28,7 @@
   color: #fff;
   text-align: center;
   font-size: 16px;
+  margin-top: 3.125rem;
 }
 .textlogin[data-v-58fa56fc] {
   margin-bottom: 24px;
@@ -38,7 +42,7 @@
 }
 .button1[data-v-58fa56fc] {
   display: flex;
-  justify-content: space-around;
+
   align-items: center;
   margin-bottom: 0.9375rem;
 }

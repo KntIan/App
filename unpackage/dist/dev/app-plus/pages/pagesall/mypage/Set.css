@@ -30,3 +30,13 @@
 .arrow {
   color: #999;
 }
+.logout-btn {
+  width: 100%;
+  padding: 2px;
+  border-radius: 50px;
+  background-color: #666666;
+  color: #fff;
+  text-align: center;
+  font-size: 16px;
+  margin-top: 15.625rem;
+}
