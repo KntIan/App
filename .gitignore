@@ -1,0 +1,7 @@
+__MACOSX
+.idea
+.vscode
+.hbuilderx
+.history
+node_modules
+unpackage
