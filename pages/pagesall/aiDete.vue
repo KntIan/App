@@ -1,45 +1,16 @@
 <template>
   <view style="position: relative">
-    <view :style="'height:' + (statusBarHeight + 5) + 'px;'"></view>
+    <view :style="'height:' + statusBarHeight + 'px;'"></view>
     <view class="ai—_box" style="position: absolute; z-index: 1000">
       <view class="ai_img"> </view>
 
       <view class="ai_title"> </view>
-      <view class="photo_box">
-        <view class="left_top">
-          <img
-            src="https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPng8841afb2ed9b814c547bbb1d87bb42508771ef6fea67f1f4b54dae3061027a9c"
-            alt=""
-          />
-        </view>
-        <view class="right_top">
-          <img
-            src="https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPnge94653dbe7f9bbbbe93f73e44c1dc68ccd17c869bf40e27cee8834315c37bd77"
-            alt=""
-          />
-        </view>
-        <view class="right_bottom">
-          <img
-            src="https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPngb3b3f03ebc6279ecc80d4ea63aa70fe3cf9aea5a8a49c7a1abe68f3e7fda82ac"
-            alt=""
-          />
-        </view>
-        <view class="left_bottom">
-          <img
-            src="https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPngff2bda36ded4b2b18a74c5ae9c8f5cc1c354864c822489c9660cfd7d2d26bc3e"
-            alt=""
-          />
-        </view>
-
-        <view class="photo_box2" @click="chooseImage">
-          <view class="photo_box3">
-            <img
-              src="https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPng3ed3fe30d1cf29e35208039bd47fd79c2b4a0a89c3f20565393574a04704475a"
-              alt=""
-            />
-            <view class="photo_text"> 拍照测评 </view>
-          </view>
-        </view>
+      <view class="photo_box" @click="chooseImage">
+        <image
+          style="width: 100%; height: 100%"
+          src="../../static/img/ais.png"
+          mode=""
+        />
       </view>
 
       <view class="note1">
@@ -551,33 +522,37 @@ export default {
       canvasNode: null,
       evaluationDesc: '',
       statusBarHeight: '',
-    }
+    };
   },
   onLoad() {
-    this.statusBarHeight = getApp().globalData.top
+    this.statusBarHeight = getApp().globalData.top;
   },
   methods: {
     chooseImage() {
       uni.navigateTo({
         url: '/pages/pagesall/aiDete/aiResult', // 目标页面路径
         success: () => {
-          console.log('成功跳转到目标页面')
+          console.log('成功跳转到目标页面');
         },
         fail: (err) => {
-          console.error('跳转失败', err)
+          console.error('跳转失败', err);
         },
-      })
+      });
     },
   },
-}
+};
 </script>
 
 <style scoped>
+body {
+  overflow: hidden;
+}
+
 .ai—_box {
   /* width: 100%;
 		height: 100%; */
   width: 100%;
-  height: 93vh;
+  height: 100vh;
   background: url('../../static/img/aibg.png');
   background-size: cover;
   position: relative;
@@ -610,7 +585,7 @@ export default {
 .photo_box {
   width: 480rpx;
   height: 480rpx;
-  background: linear-gradient(
+  /* background: linear-gradient(
     180deg,
     rgba(255, 159, 4, 0.24) 0%,
     rgba(255, 255, 255, 0) 50%,
@@ -624,7 +599,7 @@ export default {
       rgba(255, 255, 255, 0),
       rgba(255, 255, 255, 0.8)
     )
-    4 4;
+    4 4; */
   position: relative;
   display: flex;
   justify-content: center;

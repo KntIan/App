@@ -14,7 +14,14 @@ export const useStore = defineStore('main', {
     selectedSwiperIndex: null,
     campusData: [],
     classData: [],
-    userinfo: null, //
+    userinfo: {
+      avatar: '',
+      nickname: '',
+      id: '',
+      classly_name: '',
+      school_name: '',
+      // 其他属性
+    },
     resultDivData: null,
     messageList: [],
     infoList: [],

@@ -1,6 +1,6 @@
 <template>
   <view>
-    <view :style="'height:' + (statusBarHeight + 5) + 'px;'"></view>
+    <view :style="'height:' + statusBarHeight + 'px;'"></view>
     <view class="container">
       <!-- <view class="header">
 			<text class="back" @click="goBack">＜</text>
@@ -13,23 +13,48 @@
       </view> -->
         <view class="item" @click="goToPage('changePassword')">
           <text>修改密码</text>
-          <text class="arrow">＞</text>
+          <text class="arrow"
+            ><image
+              style="width: 12rpx; height: 22rpx"
+              src="@/static/img/right.png"
+              mode="aspectFit"
+          /></text>
         </view>
         <view class="item" @click="goToPage('changePhone')">
           <text>修改手机号</text>
-          <text class="arrow">＞</text>
+          <text class="arrow"
+            ><image
+              style="width: 12rpx; height: 22rpx"
+              src="@/static/img/right.png"
+              mode="aspectFit"
+          /></text>
         </view>
         <view class="item" @click="goToPage('complaint')">
           <text>投诉意见</text>
-          <text class="arrow">＞</text>
+          <text class="arrow"
+            ><image
+              style="width: 12rpx; height: 22rpx"
+              src="@/static/img/right.png"
+              mode="aspectFit"
+          /></text>
         </view>
         <view class="item" @click="goToPage('contactUs')">
           <text>联系我们</text>
-          <text class="arrow">＞</text>
+          <text class="arrow"
+            ><image
+              style="width: 12rpx; height: 22rpx"
+              src="@/static/img/right.png"
+              mode="aspectFit"
+          /></text>
         </view>
         <view class="item" @click="goToPage('aboutUs')">
           <text>关于我们</text>
-          <text class="arrow">＞</text>
+          <text class="arrow"
+            ><image
+              style="width: 12rpx; height: 22rpx"
+              src="@/static/img/right.png"
+              mode="aspectFit"
+          /></text>
         </view>
         <button class="logout-btn" @click="logout">退出登录</button>
       </view>
@@ -42,31 +67,31 @@ export default {
   data() {
     return {
       statusBarHeight: 0,
-    }
+    };
   },
   onLoad() {
-    this.statusBarHeight = getApp().globalData.top
+    this.statusBarHeight = getApp().globalData.top;
   },
   methods: {
     goBack() {
-      uni.navigateBack()
+      uni.navigateBack();
     },
     goToPage(page) {
       // 替换成实际的页面路径
       uni.navigateTo({
         url: `/pages/pagesall/mypage/${page}`,
-      })
+      });
     },
     logout() {
       // 处理退出登录的逻辑
       // 例如清除用户信息、跳转到登录页面等
-      uni.clearStorageSync()
-      uni.navigateTo({
+      uni.clearStorageSync();
+      uni.redirectTo({
         url: '/pages/login/login',
-      })
+      });
     },
   },
-}
+};
 </script>
 
 <style>

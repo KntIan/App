@@ -1,6 +1,6 @@
 <template>
   <!-- Course registration card -->
-  <view class="courseRegistrationCard">
+  <view class="courseRegistrationCard" @click="handleSignup">
     <view
       class="courseRegistrationCard_bg"
       :style="{
@@ -54,7 +54,7 @@
             :minute="testMinute"
             :second="testSecond"
             color="#FFFFFF"
-            background-color="#007AFF"
+            background-color="#F53C38"
           />
         </view>
       </view>
@@ -75,7 +75,7 @@
               :key="idx"
               :style="{
                 position: 'absolute',
-                right: `calc(20rpx * ${idx})`,
+                left: `calc(20rpx * ${idx})`,
                 zIndex: 10 - idx,
                 width: '30rpx',
                 height: '30rpx',
@@ -85,18 +85,18 @@
           </view>
         </view>
         <view class="perbtn">
-          <view class="permoney">{{
-            money ?? 0 <= 0 ? '免费' : '￥' + (money ?? 0)
-          }}</view>
+          <view class="permoney">{{ money <= 0 ? '免费' : '￥' + money }}</view>
 
           <view
-            :style="
-              signedUp
-                ? { backgroundColor: '#999999' }
-                : { background: '#ff9e02' }
-            "
+            :style="{
+              backgroundColor:
+                hours === 0 && minutes === 0 && seconds === 0
+                  ? '#999999' // 已结束时设置背景颜色
+                  : signedUp
+                  ? '#999999' // 已报名时设置背景颜色
+                  : '#ff9e02', // 否则使用默认颜色
+            }"
             class="gobtn"
-            @click="handleSignup"
             >{{ signupText }}</view
           >
         </view>
@@ -118,7 +118,7 @@ export default {
       testMinute: 0,
       testSecond: 0,
       start: false,
-    }
+    };
   },
 
   props: {
@@ -140,11 +140,31 @@ export default {
   },
   computed: {
     signupText() {
-      return this.signedUp ? '已报名' : '立即报名'
+      // 确保进行类型转换
+      const hours = Number(this.hours);
+      const minutes = Number(this.minutes);
+      const seconds = Number(this.seconds);
+
+      // 根据时间和是否已报名来返回不同的文本
+      if (hours === 0 && minutes === 0 && seconds === 0) {
+        return '已结束'; // 时间为0时返回“已结束”
+      } else {
+        // 根据 signedUp 的值返回相应的文本
+        switch (this.signedUp) {
+          case -1:
+            return '已结束'; // 当 signedUp 为 -1 时
+          case 0:
+            return '立即报名'; // 当 signedUp 为 0 时
+          case 1:
+            return '已报名'; // 当 signedUp 为 1 时
+          default:
+            return '状态未知'; // 其他情况可以返回一个默认状态
+        }
+      }
     },
   },
   mounted() {
-    this.updateCountdown()
+    this.updateCountdown();
     // setTimeout(() => {
     //   this.testHour = this.hours
     //   this.testMinute = this.minutes
@@ -163,15 +183,15 @@ export default {
   },
   methods: {
     printTime() {
-      console.log('Hours:', this.hours)
-      console.log('Minutes:', this.minutes)
-      console.log('Seconds:', this.seconds)
+      console.log('Hours:', this.hours);
+      console.log('Minutes:', this.minutes);
+      console.log('Seconds:', this.seconds);
     },
     updateCountdown() {
-      this.testHour = this.hours
-      this.testMinute = this.minutes
-      this.testSecond = this.seconds
-      this.start = true // 可以在此状态中进行其他逻辑，比如开始计时
+      this.testHour = this.hours;
+      this.testMinute = this.minutes;
+      this.testSecond = this.seconds;
+      this.start = true; // 可以在此状态中进行其他逻辑，比如开始计时
       // console.log(
       //   'Counting down:',
       //   this.testHour,
@@ -181,7 +201,7 @@ export default {
     },
     handleSignup() {
       // 如果已报名，则可以显示提示
-      this.$emit('signup', this)
+      this.$emit('signup', this);
       // if (this.signedUp) {
       //   uni.showToast({
       //     title: '您已经报名了',
@@ -192,7 +212,7 @@ export default {
       // }
     },
   },
-}
+};
 </script>
 
 <style scoped>
@@ -263,7 +283,13 @@ export default {
 
 .courseTitle {
   font-size: 32rpx;
-  font-weight: 500;
+  font-weight: bold;
+  padding-top: 12rpx;
+  padding-bottom: 8rpx;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  width: 90%;
 }
 
 .courseTeacher {
@@ -309,8 +335,9 @@ export default {
 
 .imgbox {
   position: relative;
-  width: 70rpx;
+  width: 150rpx;
   height: 30rpx;
+  overflow: hidden;
 }
 
 .imgbox img {
@@ -341,16 +368,12 @@ export default {
 .peotext {
   margin-left: 16rpx;
   margin-right: 16rpx;
+  font-weight: bold;
 }
 
 .perbtn {
-  width: 50%;
+  width: 60%;
   position: relative;
-}
-
-.courseTitle {
-  padding-top: 12rpx;
-  padding-bottom: 8rpx;
 }
 
 .courseTime {
@@ -359,6 +382,10 @@ export default {
 }
 
 .permoney {
+  width: 100rpx;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
   color: #f53c38;
   font-size: 28rpx;
 }

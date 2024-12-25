@@ -11,7 +11,13 @@
       </view>
       <view
         class="leftTime"
-        style="font-weight: 500; font-size: 28rpx; color: #000000"
+        @click="handleClick"
+        style="
+          font-weight: bold;
+          font-size: 28rpx;
+          color: #000000;
+          overflow: hidden;
+        "
       >
         {{ leftTime }}
         <view class="leftlist1" v-if="leftlist1 !== ''">
@@ -44,6 +50,9 @@
 <script>
 export default {
   props: {
+    id: {
+      default: '',
+    },
     leftTime: {
       default: '',
     },
@@ -61,9 +70,17 @@ export default {
     },
   },
   data() {
-    return {}
+    return {};
   },
-}
+  emits: ['tiaozhuan'],
+  methods: {
+    handleClick(id) {
+      console.log('左侧时间被点击');
+      this.$emit('tiaozhuan', id);
+      console.log('接收到的 id:', this.id);
+    },
+  },
+};
 </script>
 
 <style scoped lang="less">
@@ -72,7 +89,7 @@ export default {
     display: flex;
 
     .leftTime {
-      width: 135rpx;
+      width: 320rpx;
       padding: 0 10rpx;
       font-family: PingFangSC-Medium, PingFang SC;
       color: rgba(51, 51, 51, 1);

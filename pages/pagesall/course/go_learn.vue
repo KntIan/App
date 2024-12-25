@@ -1,28 +1,30 @@
 <template>
   <view>
-    <view :style="'height:' + (statusBarHeight + 5) + 'px;'"></view>
+    <view :style="'height:' + statusBarHeight + 'px;'"></view>
     <view
       v-if="learnList && learnList.font_data && learnList.font_data.length > 0"
     >
-      <view class="learn_title">
+      <!-- <view class="learn_title">
         <img
           src="https://lanhu-dds-backend.oss-cn-beijing.aliyuncs.com/merge_image/imgs/abf07bd571444c73aceb1d1b20093538_mergeImage.png"
           alt=""
           @click="back_learn"
         />
         <view>视频学习</view>
-      </view>
+      </view> -->
 
       <!-- 确保在这里先检查 learnList 和 learnList.font_data 是否存在 -->
       <video
         v-if="
-          learnList && learnList.font_data && learnList.font_data.length > 0
+          learnList.font_data &&
+          learnList.font_data.length > 0 &&
+          currentVideoIndex !== null
         "
         @play="playAudio"
         @pause="pauseAudio"
-        @ended="stopAudio"
+        @ended="nextVideo"
         class="learn_video"
-        :src="learnList.font_data[0].video"
+        :src="learnList.font_data[currentVideoIndex].video"
         muted="true"
       ></video>
 
@@ -41,51 +43,21 @@
               <view class="act_time">
                 <text style="font-size: 24rpx">距结束还剩:</text>
                 <view class="time_textbox">
-                  <text
-                    style="
-                      font-size: 20rpx;
-                      padding: 3rpx 5rpx 3rpx 5rpx;
-                      border-radius: 5rpx;
-                    "
-                    >{{ hours }}</text
-                  >
-                  <text
-                    style="
-                      font-size: 20rpx;
-                      background-color: #fff;
-                      color: #f53c38;
-                    "
-                    >:</text
-                  >
-                  <text
-                    style="
-                      font-size: 20rpx;
-                      padding: 3rpx 5rpx 3rpx 5rpx;
-                      border-radius: 5rpx;
-                    "
-                    >{{ minutes }}</text
-                  >
-                  <text
-                    style="
-                      font-size: 20rpx;
-                      background-color: #fff;
-                      color: #f53c38;
-                    "
-                    >:</text
-                  >
-                  <text
-                    style="
-                      font-size: 20rpx;
-                      padding: 3rpx 5rpx 3rpx 5rpx;
-                      border-radius: 5rpx;
-                    "
-                    >{{ seconds }}</text
-                  >
+                  <uni-countdown
+                    style="margin-left: -30rpx"
+                    :hour="testHour"
+                    :minute="testMinute"
+                    :second="testSecond"
+                    color="#FFFFFF"
+                    background-color="#007AFF"
+                  />
                 </view>
               </view>
             </view>
           </view>
-          <view class="peo_text"> 已有30人学习 </view>
+          <view class="peo_text">
+            已有{{ learnList.font_data[currentVideoIndex].views }}人学习
+          </view>
         </view>
       </view>
 
@@ -95,9 +67,19 @@
             type="text"
             placeholder="本次横撇斜钩教学视频：相关作业就是多写多练多练多写"
             class="input_padd"
+            :disabled="isSubmitDisabled == true"
           />
         </view>
-        <view class="btn_leabox" @click="submitHomework"> 提交作业 </view>
+        <view
+          class="btn_leabox"
+          @click="submitHomework"
+          :style="{
+            backgroundColor: isSubmitDisabled ? '#d7d7d7' : '#ff9e02',
+            color: isSubmitDisabled ? '#999' : '#fff',
+          }"
+        >
+          提交作业
+        </view>
       </view>
     </view>
 
@@ -121,7 +103,12 @@
 </template>
 
 <script>
-import { fetchHomeworkAudio, submitHomework } from '@/utils/api'
+import {
+  fetchHomeworkAudio,
+  submitHomework,
+  goStudyFromRecentList,
+} from '@/utils/api';
+import { aesEncrypt, aesDecrypt } from '@/utils/utils.js';
 export default {
   data() {
     return {
@@ -149,54 +136,113 @@ export default {
           quenum: '15999',
         },
       ],
-      hours: '',
-      minutes: '',
-      seconds: '',
+      testHour: 0,
+      testMinute: 0,
+      testSecond: 0,
       intervalId: null, // 保存计时器ID
       audioContext: null, // 用于存储音频上下文的引用
       videoContext: null, // 用于存储音频上下文的引用
       learnList: {
-        font_data: null, //
+        font_data: [], //
         info: {}, // 初始化为一个数组，用于存储其他相关信息
       },
       homeworkFinishTime: null,
       statusBarHeight: '',
-    }
+      isSubmitDisabled: false,
+      currentVideoIndex: 0,
+    };
   },
   onLoad(options) {
-    const homework_id = options.homework_id
-    console.log(homework_id)
-    this.statusBarHeight = getApp().globalData.top
-    this.startCountdown() // 开始倒计时
+    console.log(options);
+    const homework_id = options.homework_id;
+    const content_id = options.content_id;
+
+    this.statusBarHeight = getApp().globalData.top;
 
     // 创建音频上下文
-    this.audioContext = uni.createInnerAudioContext()
-    this.loadHomeworkAudio(homework_id) // 加载音频路径
+    this.audioContext = uni.createInnerAudioContext();
+    if (homework_id) {
+      this.loadHomeworkAudio(homework_id);
+    } else {
+      this.loadStudyFrom(content_id);
+    }
+    // this.loadHomeworkAudio(homework_id) // 加载音频路径
     // this.audioContext.src = 'https://lv-sycdn.kuwo.cn/54b050f63f0cf2c46e7ad4a70bb2fb29/6734043a/resource/30106/trackmedia/M800001DZgUf2NfnXZ.mp3'; // 设置音频源地址
+
+    // this.loadStudyFrom(content_id)
   },
   onUnload() {
-    this.stopCountdown() // 页面卸载时停止倒计时
-    this.audioContext.destroy() // 销毁音频上下文
+    // this.stopCountdown() // 页面卸载时停止倒计时
+    this.audioContext.destroy(); // 销毁音频上下文
   },
   mounted() {
     // this.loadHomeworkAudio() // 在组件挂载时加载数据
   },
   methods: {
+    submit() {
+      uni.showToast({
+        title: '时间已结束',
+        icon: 'none',
+      });
+    },
+
+    async loadStudyFrom(content_id) {
+      try {
+        const data = {
+          content_id: content_id,
+        };
+        const paramsString = JSON.stringify(data) + '|$~|~$|';
+        const encryptedId = encodeURIComponent(aesEncrypt(paramsString)); // 使用 encodeURIComponent 转义加密后的字符串
+
+        let p = { params: encryptedId };
+        const response = await goStudyFromRecentList(p); // 调用 API 请求
+
+        // 确保未定义或空数据处理
+        if (response && response.items) {
+          this.learnList.font_data = response.items.font_data || []; // 确保是一个空数组
+          this.learnList.info = response.items[0] || {}; // 如果没有 items[0]，则赋值为空对象
+        } else {
+          this.learnList.font_data = []; // 设置为默认值
+          this.learnList.info = {};
+          console.warn('返回数据格式不正确，设置默认值。'); // 日志记录
+        }
+
+        this.homeworkFinishTime = this.learnList.info.finish_time;
+        // 如果 font_data 有内容，则设置音频源
+        if (this.learnList.font_data.length > 0) {
+          const audioSrc = this.learnList.font_data[0].voice_url; // 获取音频 URL
+          this.audioContext.src = audioSrc; // 设置音频源地址
+        }
+        this.updateCountdown();
+      } catch (error) {
+        console.error('获取作业失败:', error);
+        this.learnList.font_data = []; // 清空数据以避免影响后续操作
+        this.learnList.info = {};
+      }
+    },
+
     async submitHomework() {
+      if (this.isSubmitDisabled) {
+        uni.showToast({
+          title: '提交时间已过，无法提交作业',
+          icon: 'none',
+        });
+        return; // 提前返回，阻止后续执行
+      }
       uni.chooseImage({
         count: 1, // 选择的图片数量
         sourceType: ['camera', 'album'], // 选择的来源，'camera' 表示使用摄像头
         success: (res) => {
           // console.log('选择的图片:', res.tempFilePaths);
-          this.images = res.tempFilePaths // 保存选择的图片路径
+          this.images = res.tempFilePaths; // 保存选择的图片路径
 
           // 在这里，您可以选择将图片上传到服务器
-          this.uploadImage(res.tempFilePaths[0]) // 上传第一张选择的图片
+          this.uploadImage(res.tempFilePaths[0]); // 上传第一张选择的图片
         },
         fail: (err) => {
-          console.error('选择图片失败:', err)
+          console.error('选择图片失败:', err);
         },
-      })
+      });
     },
 
     async uploadImage(filePath) {
@@ -211,10 +257,10 @@ export default {
             token: uni.getStorageSync('token'),
             // 其他需要发送的数据
           },
-        })
+        });
 
         // 解析后台返回的结果
-        const response = JSON.parse(uploadResult.data)
+        const response = JSON.parse(uploadResult.data);
         // console.log('上传结果:', response);
 
         // 检查返回的 code 并提示用户
@@ -223,51 +269,64 @@ export default {
             title: response.msg, // 从接口返回的消息
             icon: 'none',
             duration: 2000, // 提示显示2秒
-          })
+          });
+          uni.navigateBack();
         } else {
           // 处理其他可能的状态码
           uni.showToast({
             title: '上传失败，请重试', // 默认的失败提示
             icon: 'none',
             duration: 2000, // 提示显示2秒
-          })
+          });
         }
       } catch (error) {
-        console.error('上传失败:', error)
+        console.error('上传失败:', error);
         // 在上传失败时提醒用户
         uni.showToast({
           title: '上传异常，请稍后再试',
           icon: 'none',
           duration: 2000, // 提示显示2秒
-        })
+        });
       }
     },
 
     async loadHomeworkAudio(homework_id) {
       try {
-        const response = await fetchHomeworkAudio(homework_id) // 调用 API 请求
+        let params = { homework_id: homework_id };
+        const paramsString = JSON.stringify(params) + '|$~|~$|';
+        const encryptedId = encodeURIComponent(aesEncrypt(paramsString)); // 使用 encodeURIComponent 转义加密后的字符串
+        const encryptedId1 = decodeURIComponent(encryptedId); // 使用 encodeURIComponent 转义加密后的字符串
+        console.log(encryptedId1, 'decode');
+        console.log(encryptedId1.length, 'decode length');
+        console.log(encryptedId, '+++++');
+        console.log(encryptedId.length, '长度');
+        let s = 'cBIXiKijKGsAv0Yi%2BvqrLuBtfCraXUv7FbFVDmvaUaY%3D';
+        console.log(s.length, 's');
+        let p = { params: encryptedId };
+        const response = await fetchHomeworkAudio(p); // 调用 API 请求
         // console.log('获取到的数据:', response.items); // 打印获取的数据
 
         // 清空之前的数据
-        this.learnList.font_data = [] // 确保是空数组
-        this.learnList.info = [] // 确保是空数组
+        this.learnList.font_data = []; // 确保是空数组
+        this.learnList.info = []; // 确保是空数组
 
         // 检查获取到的数据并赋值
 
-        this.learnList.font_data = response.items.font_data || {} // 存储音频或视频信息
-        this.learnList.info = response.items[0] // 将完整的第一个元素放入 info 数组中
+        this.learnList.font_data = response.items.font_data || {}; // 存储音频或视频信息
+        this.learnList.info = response.items[0]; // 将完整的第一个元素放入 info 数组中
 
-        console.log('Font Data:', this.learnList.font_data) // 打印音频或视频信息
-        console.log('Info Data:', this.learnList.info) // 打印相关信息
-        console.log(this.learnList.font_data[0].voice_url)
-        this.homeworkFinishTime = this.learnList.info.homeworkFinishTime
+        // console.log('Font Data:', this.learnList.font_data) // 打印音频或视频信息
+        // console.log('Info Data:', this.learnList.info) // 打印相关信息
+        // console.log(this.learnList.font_data[0].voice_url)
+        this.homeworkFinishTime = this.learnList.info.finish_time;
         // 检查并设置音频源
         if (this.learnList.font_data.length > 0) {
-          const audioSrc = this.learnList.font_data[0].voice_url // 获取音频 URL
-          this.audioContext.src = audioSrc // 设置音频源地址
+          const audioSrc = this.learnList.font_data[0].voice_url; // 获取音频 URL
+          this.audioContext.src = audioSrc; // 设置音频源地址
         }
+        this.updateCountdown();
       } catch (error) {
-        console.error('获取作业失败:', error) // 错误处理
+        console.error('获取作业失败:', error); // 错误处理
       }
     },
 
@@ -278,62 +337,54 @@ export default {
     // },
 
     playAudio() {
-      this.audioContext.play() // 播放音频
+      this.audioContext.play(); // 播放音频
     },
     pauseAudio() {
-      this.audioContext.pause() // 暂停音频
+      this.audioContext.pause(); // 暂停音频
     },
     stopAudio() {
-      this.audioContext.stop() // 停止音频
+      this.audioContext.stop(); // 停止音频
+    },
+    nextVideo() {
+      if (this.currentVideoIndex < this.learnList.font_data.length - 1) {
+        this.currentVideoIndex++; // 切换到下一个视频
+      } else {
+        this.currentVideoIndex = 0; // 如果达到最后一个，则可以选择重头播放或其他逻辑
+      }
     },
     formatTime(value) {
       // 确保时间总是两位数
-      return value.toString().padStart(2, '0')
+      return value.toString().padStart(2, '0');
     },
     updateCountdown() {
-      // 假设 homeworkFinishTime 是一个字符串，您可以直接将其转换为 Date 对象
-      let end = new Date(this.homeworkFinishTime) // 将 homeworkFinishTime 转换为 Date 对象
-      let now = new Date() // 当前时间
+      const currentDateTimestampInMilliseconds = new Date().getTime();
+      const now = Math.floor(currentDateTimestampInMilliseconds / 1000);
 
-      // 计算时间差
-      let timeDiff = end - now
+      // 确保 matchedDetails 存在并且包含 end_time
+      if (this.learnList.info && !isNaN(this.learnList.info.finish_time)) {
+        const timeDiff = this.learnList.info.finish_time - now;
+        if (timeDiff > 0) {
+          this.testHour = Math.floor(timeDiff / 3600);
+          this.testMinute = Math.floor((timeDiff % 3600) / 60);
+          this.testSecond = timeDiff % 60;
 
-      // 将计算结果应用于您的列表
-      if (timeDiff > 0) {
-        let totalSeconds = Math.floor(timeDiff / 1000) // 总秒数
-        let hours = Math.floor(totalSeconds / 3600) // 小时
-        let minutes = Math.floor((totalSeconds % 3600) / 60) // 分钟
-        let seconds = totalSeconds % 60 // 秒
-
-        // 格式化小时、分钟和秒
-        // 此处可以将结果用于固定的 displayBox，或在 listdata 中分配给特定项
-        this.hours = this.formatTime(hours)
-        this.minutes = this.formatTime(minutes)
-        this.seconds = this.formatTime(seconds)
+          this.isSubmitDisabled = false;
+        } else {
+          this.testHour = this.testMinute = this.testSecond = 0; // 时间到达
+          this.isSubmitDisabled = true;
+        }
       } else {
-        // 倒计时结束，设置为 00:00:00
-        this.hours = '00'
-        this.minutes = '00'
-        this.seconds = '00'
-      }
-    },
-
-    startCountdown() {
-      this.updateCountdown() // 初始化
-      this.intervalId = setInterval(this.updateCountdown, 1000) // 每秒更新一次
-    },
-    stopCountdown() {
-      if (this.intervalId) {
-        clearInterval(this.intervalId) // 停止计时器
-        this.intervalId = null
+        // console.warn('matchedDetails 无效，无法更新倒计时');
+        this.testHour = this.testMinute = this.testSecond = 0; // 处理无效时间
+        this.isSubmitDisabled = true;
       }
     },
     back_learn() {
-      uni.navigateBack()
+      uni.navigateBack();
     },
     btnsignup() {},
   },
-}
+};
 </script>
 
 <style>
@@ -384,7 +435,7 @@ export default {
 
 .time_textbox text {
   display: block;
-  background-color: #f53c38;
+  /* background-color: #f53c38; */
   margin-right: 4rpx;
   color: #fff;
 }
@@ -478,7 +529,7 @@ export default {
 
 .ipt_learn {
   width: 694rpx;
-  height: 740rpx;
+  /* height: 740rpx; */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -488,6 +539,6 @@ export default {
 
 .ipt_learn textarea {
   width: 694rpx;
-  height: 740rpx;
+  /* height: 740rpx; */
 }
 </style>

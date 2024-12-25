@@ -1,85 +1,121 @@
 <template>
   <view>
-    <view :style="'height:' + (statusBarHeight + 5) + 'px;'"></view>
+    <view :style="'height:' + statusBarHeight + 'px;'"></view>
     <view class="corr_Title">
-
       <view class="corrImg" @click="corr_goback">
-        <img src="https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPng427bd6433cc6e0a8e82f63b3174b2c817dc9c299bd0c4414c8d258f46cf46f94" alt="" />
+        <img
+          src="https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPng427bd6433cc6e0a8e82f63b3174b2c817dc9c299bd0c4414c8d258f46cf46f94"
+          alt=""
+        />
       </view>
-      <view class="corr_text">
-        批改作业
-      </view>
+      <view class="corr_text"> 批改作业 </view>
     </view>
 
-    <view class="corr-banner">
-    </view>
+    <!-- <view class="corr-banner"> </view> -->
 
-    <view v-if="corrlist.length>0">
+    <view v-if="corrlist.length > 0">
       <view class="corr-work" v-for="item in corrlist" :key="item">
-        <view class="box_3 flex-col">
+        <image
+          class="image_2"
+          referrerpolicy="no-referrer"
+          :src="item.sub_image"
+        />
+        <!-- <view class="box_3 flex-col">
           <view class="section_2 flex-col">
-            <image class="image_2" referrerpolicy="no-referrer" src="https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPnga8bdcdc42cb8abff5e083a6b06d4babd504f55028e66bd740598ca6e4c215f63" />
+            <image
+              class="image_2"
+              referrerpolicy="no-referrer"
+              :src="item.sub_image"
+            />
             <view class="section_3 flex-col justify-center">
               <view class="box_4 flex-col">
                 <text class="text_4">飞</text>
-                <image class="image_3" referrerpolicy="no-referrer" src="https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPng6cc8f7834ef7b5d3491c2d4dd44cb93fc443519c40d959f937e54216c0d0b745" />
+                <image
+                  class="image_3"
+                  referrerpolicy="no-referrer"
+                  src="https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPng6cc8f7834ef7b5d3491c2d4dd44cb93fc443519c40d959f937e54216c0d0b745"
+                />
               </view>
             </view>
           </view>
-        </view>
+        </view> -->
         <view class="worktext">
           <view>
             <text class="workText3">评测:</text>
-            <text class="workText4">优秀</text>
+            <text class="workText4">
+              <text v-if="item.mark > 80">优秀</text>
+              <text v-else-if="item.mark > 60">良</text>
+              <text v-else>差</text>
+            </text>
           </view>
           <view class="workinput">
-            <view style="font-size: 20rpx;">请输入评语</view>
-            <view style="font-size: 20rpx; width: 466rpx; text-align: right">0/30</view>
+            {{ item.remark }}
+            <!-- <view style="font-size: 20rpx">请输入评语</view>
+            <view style="font-size: 20rpx; width: 466rpx; text-align: right"
+              >0/30</view
+            > -->
           </view>
         </view>
       </view>
     </view>
 
-    <view v-else class="kong" style="display: flex; justify-content: center; align-items: center; height: 800rpx;">
-      <image style="width:400rpx;height: 400rpx;" src="@/static/img/noAct.png" mode="aspectFit" />
+    <view
+      v-else
+      class="kong"
+      style="
+        display: grid;
+        justify-items: center;
+        position: relative;
+        height: 500rpx;
+      "
+    >
+      <image
+        style="width: 400rpx; height: 400rpx; margin-bottom: -30rpx"
+        src="@/static/img/noHomework.png"
+        mode="aspectFit"
+      />
+      <text style="color: #666; position: absolute; z-index: 1; bottom: 140rpx"
+        >暂无批改作业</text
+      >
     </view>
   </view>
 </template>
 
 <script>
-import { fetchMyHistoryHomework } from '@/utils/api'
+import { fetchHomeworkReviewDetail } from '@/utils/api';
 export default {
   data() {
     return {
       corrlist: 4,
       limit: 5, // 你可以根据需要赋值
-      page: 1,   // 你可以根据需要赋值
+      page: 1, // 你可以根据需要赋值
 
       statusBarHeight: '',
-
-    }
+      homeworkid: '',
+    };
   },
-  onLoad() {
+  onLoad(options) {
+    console.log(options);
+    this.homeworkid = options.homework_id;
     this.statusBarHeight = getApp().globalData.top;
-    this.getMyHistoryHomework();
+    this.getMyHistoryHomework(this.homeworkid);
   },
   methods: {
-
-    async getMyHistoryHomework() {
+    async getMyHistoryHomework(id) {
       try {
-        const response = await fetchMyHistoryHomework({ limit: this.limit, page: this.page });
-        console.log(response)
+        const response = await fetchHomeworkReviewDetail({ homework_id: id });
+        console.log(response);
         this.corrlist = response.items; // 根据实际返回结果调整
-        console.log(this.corrlist)
+        console.log(this.corrlist);
       } catch (error) {
         console.error('获取关于我们的接口失败：', error);
       }
     },
     corr_goback() {
-      uni.navigateBack()
-    }
-  }
-}
+      uni.navigateBack();
+    },
+  },
+};
 </script>
 
 <style>
@@ -123,9 +159,9 @@ export default {
 }
 
 .image_2 {
-  width: 148rpx;
-  height: 2rpx;
-  margin-top: 80rpx;
+  width: 100%;
+  height: 480rpx;
+  /* margin-top: 80rpx; */
 }
 
 .section_3 {
@@ -172,7 +208,7 @@ export default {
 
 .corr-work {
   padding: 20rpx;
-  display: flex;
+  /* display: flex; */
 }
 
 .worktext {
@@ -193,8 +229,8 @@ export default {
 }
 
 .workinput {
-  width: 466rpx;
-  height: 92rpx;
+  /* width: 466rpx; */
+  min-height: 92rpx;
   padding: 6rpx 20rpx;
   margin-top: 16rpx;
   background: #f4f5f9;

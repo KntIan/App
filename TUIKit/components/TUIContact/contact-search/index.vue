@@ -9,12 +9,19 @@
       ]"
       @click="changeContactSearchingStatus(true)"
     >
-      <!-- <div :class="[
+      <div
+        :class="[
           'tui-contact-search-header-icon',
           !isPC && 'tui-contact-search-h5-header-icon',
-        ]" @click.stop="changeContactSearchingStatus(!isSearching)">
-        <Icon :file="isSearching ? backSVG : addSVG" :width="isSearching ? '20px' : '14px'" :height="isSearching ? '20px' : '14px'" />
-      </div> -->
+        ]"
+        @click.stop="changeContactSearchingStatus(!isSearching)"
+      >
+        <Icon
+          :file="isSearching ? backSVG : addSVG"
+          :width="isSearching ? '20px' : '14px'"
+          :height="isSearching ? '20px' : '14px'"
+        />
+      </div>
 
       <div
         :class="[
@@ -49,27 +56,27 @@
   </div>
 </template>
 <script setup lang="ts">
-import { ref, watch } from 'vue'
+import { ref, watch } from 'vue';
 import {
   TUITranslateService,
   TUIStore,
   StoreName,
-} from '@tencentcloud/chat-uikit-engine'
-import TUICore, { TUIConstants } from '@tencentcloud/tui-core'
-import { TUIGlobal } from '@tencentcloud/universal-api'
-import Icon from '../../common/Icon.vue'
-import addSVG from '../../../assets/icon/add.svg'
-import backSVG from '../../../assets/icon/back.svg'
-import { isPC } from '../../../utils/env'
-import { debounce } from '../../../utils/lodash'
-import { IContactSearchResult } from '../../../interface'
-import { checkUserFriend } from '../../../../utils/api'
+} from '@tencentcloud/chat-uikit-engine';
+import TUICore, { TUIConstants } from '@tencentcloud/tui-core';
+import { TUIGlobal } from '@tencentcloud/universal-api';
+import Icon from '../../common/Icon.vue';
+import addSVG from '../../../assets/icon/add.svg';
+import backSVG from '../../../assets/icon/back.svg';
+import { isPC } from '../../../utils/env';
+import { debounce } from '../../../utils/lodash';
+import { IContactSearchResult } from '../../../interface';
+import { checkUserFriend } from '../../../../utils/api';
 
-import { onLoad } from '@dcloudio/uni-app'
+import { onLoad } from '@dcloudio/uni-app';
 
-const searchingPlaceholder = TUITranslateService.t('TUIContact.输入ID')
-const isSearching = ref<boolean>(true)
-const searchValue = ref<string>('')
+const searchingPlaceholder = TUITranslateService.t('TUIContact.输入ID');
+const isSearching = ref<boolean>(true);
+const searchValue = ref<String>('');
 const searchResult = ref<IContactSearchResult>({
   user: {
     label: '联系人',
@@ -79,40 +86,43 @@ const searchResult = ref<IContactSearchResult>({
     label: '群聊',
     list: [],
   },
-})
+});
 
 const changeContactSearchingStatus = debounce(function (status: boolean) {
-  isSearching.value = status
-}, 200)
+  isSearching.value = status;
+}, 200);
 
 const search = async () => {
   if (!searchValue.value) {
-    return
+    return;
   }
+
   let params = {
     user_id: Number(searchValue.value),
-  }
-  let res = await checkUserFriend(params)
-
+  };
+  let res = await checkUserFriend(params);
   if (res.code === 1) {
     // 搜索用户
+    let num = Number(searchValue.value);
+    let searchVal = String(num);
     TUICore.callService({
       serviceName: TUIConstants.TUISearch.SERVICE.NAME,
       method: TUIConstants.TUISearch.SERVICE.METHOD.SEARCH_USER,
       params: {
-        userID: searchValue.value,
+        userID: searchVal,
       },
     })
       .then((res: any) => {
-        searchResult.value.user.list = res.data
+        console.log(res, '+5+6');
+        searchResult.value.user.list = res.data;
 
         // 在搜索完成之后清除本地存储的 params
-        uni.removeStorageSync('params')
+        uni.removeStorageSync('params');
       })
       .catch((error: any) => {
-        searchResult.value.user.list = []
-        console.warn('search user error', error)
-      })
+        searchResult.value.user.list = [];
+        console.warn('search user error', error);
+      });
 
     // 搜索群组
     TUICore.callService({
@@ -123,23 +133,23 @@ const search = async () => {
       },
     })
       .then((res: any) => {
-        searchResult.value.group.list = [res.data.group]
+        searchResult.value.group.list = [res.data.group];
 
         // 在搜索完成之后清除本地存储的 params
-        uni.removeStorageSync('params')
+        uni.removeStorageSync('params');
       })
       .catch((error: any) => {
-        searchResult.value.group.list = []
-        console.warn('search group error', error)
-      })
+        searchResult.value.group.list = [];
+        console.warn('search group error', error);
+      });
   } else {
     uni.showToast({
       title: res.msg,
       icon: 'none',
       mask: true,
-    })
+    });
   }
-}
+};
 watch(
   () => searchResult.value,
   () => {
@@ -147,13 +157,13 @@ watch(
       StoreName.CUSTOM,
       'currentContactSearchResult',
       searchResult.value
-    )
+    );
   },
   {
     deep: true,
     immediate: true,
   }
-)
+);
 watch(
   () => isSearching.value,
   () => {
@@ -161,32 +171,32 @@ watch(
       StoreName.CUSTOM,
       'currentContactSearchingStatus',
       isSearching.value
-    )
+    );
     if (isSearching.value) {
-      searchValue.value = ''
-      searchResult.value.user.list = []
-      searchResult.value.group.list = []
+      searchValue.value = '';
+      searchResult.value.user.list = [];
+      searchResult.value.group.list = [];
     }
   },
   {
     deep: true,
     immediate: true,
   }
-)
+);
 
-TUIGlobal.updateContactSearch = search
+TUIGlobal.updateContactSearch = search;
 TUIGlobal.closeSearching = () => {
-  isSearching.value = false
-}
+  isSearching.value = false;
+};
 onLoad(() => {
-  const userId = uni.getStorageSync('params')?.user_id // 获取存储的 user_id
-  console.log(userId, typeof userId)
+  const userId = uni.getStorageSync('params')?.user_id; // 获取存储的 user_id
+  console.log(userId, typeof userId);
   if (userId) {
-    searchValue.value = userId
+    searchValue.value = userId;
     // console.log((searchValue.value = userId)) // 将 user_id 赋值给 searchValue
-    search() // 自动调用搜索
+    search(); // 自动调用搜索
   }
-})
+});
 </script>
 <style lang="scss" scoped>
 .tui-contact-search {

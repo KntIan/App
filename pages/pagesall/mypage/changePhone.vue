@@ -1,6 +1,6 @@
 <template>
   <view class="container">
-    <view :style="'height:' + (statusBarHeight + 5) + 'px;'"></view>
+    <view :style="'height:' + statusBarHeight + 'px;'"></view>
     <view class="form">
       <view class="input-container">
         <input
@@ -30,7 +30,7 @@ import {
   fetchVerificationCode,
   updatePhone,
   submitRegisterInfo,
-} from '@/utils/api'
+} from '@/utils/api';
 export default {
   data() {
     return {
@@ -41,14 +41,14 @@ export default {
       timer: null,
       getCodeButtonText: '获取验证码',
       statusBarHeight: '',
-    }
+    };
   },
   onLoad() {
-    this.statusBarHeight = getApp().globalData.top
+    this.statusBarHeight = getApp().globalData.top;
   },
   methods: {
     goBack() {
-      uni.navigateBack()
+      uni.navigateBack();
     },
 
     async getCode() {
@@ -57,8 +57,8 @@ export default {
         uni.showToast({
           title: '手机号格式不正确',
           icon: 'none',
-        })
-        return
+        });
+        return;
       }
 
       // 发送请求到后端
@@ -66,38 +66,38 @@ export default {
         const response = await fetchVerificationCode({
           mobile: this.phone,
           event: 'changemobile',
-        })
-        console.log(response)
+        });
+        console.log(response);
         if (response.code === 1) {
           uni.showToast({
             title: response.msg || '验证码发送成功',
             icon: 'success', // 提示图标类型
             duration: 2000, // 持续时间
-          })
-          this.isCodeSent = true
-          startCountdown()
+          });
+          this.isCodeSent = true;
+          startCountdown();
         } else {
           uni.showToast({
             title: response.msg || '发送验证码失败，请重试',
             icon: 'none', // 提示图标类型
             duration: 2000, // 持续时间
-          })
+          });
         }
       } catch (error) {}
     },
     startCountdown() {
-      this.isCodeSent = true
-      this.getCodeButtonText = `${this.countdown}秒`
+      this.isCodeSent = true;
+      this.getCodeButtonText = `${this.countdown}秒`;
       this.timer = setInterval(() => {
-        this.countdown--
-        this.getCodeButtonText = `${this.countdown}秒`
+        this.countdown--;
+        this.getCodeButtonText = `${this.countdown}秒`;
         if (this.countdown <= 0) {
-          clearInterval(this.timer)
-          this.isCodeSent = false
-          this.countdown = 60
-          this.getCodeButtonText = '获取验证码'
+          clearInterval(this.timer);
+          this.isCodeSent = false;
+          this.countdown = 60;
+          this.getCodeButtonText = '获取验证码';
         }
-      }, 1000)
+      }, 1000);
     },
     async submit() {
       // 在这里处理手机号码修改的提交逻辑
@@ -105,38 +105,38 @@ export default {
         uni.showToast({
           title: '请输入验证码',
           icon: 'none',
-        })
-        return
+        });
+        return;
       }
       const response = await updatePhone({
         mobile: this.phone,
         captcha: this.code,
-      })
+      });
 
       if (response.code === 1) {
-        this.isCodeSent = true
+        this.isCodeSent = true;
         uni.showToast({
           title: response.msg + '即将重新登录',
           icon: 'success',
           duration: 5000,
-        })
+        });
         // 跳转到登录页面
-        uni.clearStorageSync()
+        uni.clearStorageSync();
         setTimeout(() => {
           uni.navigateTo({
             url: '/pages/login/login',
-          })
-        }, 3000) // 3 秒后跳转
+          });
+        }, 3000); // 3 秒后跳转
       } else {
         uni.showToast({
           title: response.msg || '发送验证码失败，请重试',
           icon: 'none', // 提示图标类型
           duration: 2000, // 持续时间
-        })
+        });
       }
     },
   },
-}
+};
 </script>
 
 <style scoped>
@@ -146,7 +146,7 @@ export default {
 }
 
 .form {
-  padding: 48rpx 64rpx;
+  padding: 30rpx 64rpx;
 }
 
 .input {

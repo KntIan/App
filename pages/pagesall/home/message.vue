@@ -1,7 +1,7 @@
 <template>
   <view>
     <view class="container">
-      <view :style="'height:' + (statusBarHeight + 5) + 'px;'"></view>
+      <view :style="'height:' + statusBarHeight + 'px;'"></view>
 
       <view class="mess_Title">
         <view class="messImg" @click="goback">
@@ -64,11 +64,11 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue'
-import MessageList from '@/components/MessageList/MessageList'
-import TUIChat from '../../../TUIKit/components/TUIConversation/index.vue'
-import TUIChat1 from '../../../TUIKit/components/TUIConversation/index1.vue'
-import Avatar from '../../../TUIKit/components/common/Avatar/index.vue'
+import { ref, onMounted } from 'vue';
+import MessageList from '@/components/MessageList/MessageList';
+import TUIChat from '../../../TUIKit/components/TUIConversation/index.vue';
+import TUIChat1 from '../../../TUIKit/components/TUIConversation/index1.vue';
+import Avatar from '../../../TUIKit/components/common/Avatar/index.vue';
 // 在组件挂载时获取存储的 conversationList1
 // onMounted(() => {
 //   uni.getStorage({
@@ -83,11 +83,11 @@ import Avatar from '../../../TUIKit/components/common/Avatar/index.vue'
 //     }
 //   });
 // });
-import { onLoad } from '@dcloudio/uni-app'
-const statusBarHeight = ref()
+import { onLoad } from '@dcloudio/uni-app';
+const statusBarHeight = ref();
 onLoad(() => {
-  statusBarHeight.value = getApp().globalData.top
-})
+  statusBarHeight.value = getApp().globalData.top;
+});
 
 const conversationList1 = ref([
   {
@@ -107,7 +107,7 @@ const conversationList1 = ref([
     color: '#5791F2',
   },
   // 更多假数据
-])
+]);
 
 const messagesList = ref([
   {
@@ -119,59 +119,101 @@ const messagesList = ref([
     size: '88rpx',
   },
   // 更多假数据
-])
+]);
 
 const navigateTo = (url) => {
   // 错误处理机制
   try {
-    uni.navigateTo({ url })
+    uni.navigateTo({ url });
   } catch (error) {
-    console.error('导航失败:', error)
-    uni.showToast({ title: '导航失败，请重试', icon: 'none' })
+    console.error('导航失败:', error);
+    uni.showToast({ title: '导航失败，请重试', icon: 'none' });
   }
-}
+};
 const btnsearch = () => {
   uni.navigateTo({
     url: '/pages/pagesall/home/search',
-  })
-}
+  });
+};
 const goback = () => {
-  uni.switchTab({ url: '/pages/pagesall/home' }) // 修改为实际的 tabBar 首页路径
-}
+  uni.switchTab({ url: '/pages/pagesall/home' }); // 修改为实际的 tabBar 首页路径
+};
 
 const btnscan = () => {
   uni.scanCode({
     success: async (res) => {
       // console.log('条码类型：' + res.scanType)
-      // console.log('条码内容：' + res.result)
-      const userIdMatch = res.result.match(/user_id=(\d+)/)
-      if (userIdMatch) {
-        let user_id = userIdMatch[1] // 获取提取的 user_id 值
+      console.log('条码内容：' + res.result);
 
+      const userIdMatch = res.result.match(/user_id=(\d+)/);
+      const typeMatch = res.result.match(/type=(\d+)/);
+      console.log(userIdMatch);
+      console.log(typeMatch);
+
+      if (userIdMatch) {
+        let user_id = userIdMatch[1]; // 获取提取的 user_id 值
+        console.log(user_id);
         let params = {
           user_id: user_id,
-        }
-        uni.setStorageSync('params', params) // 存入本地缓存
+        };
+        uni.setStorageSync('params', params); // 存入本地缓存
       } else {
-        console.log('未找到用户ID参数')
+        console.log('未找到用户ID参数');
       }
 
-      uni.navigateTo({
-        url: '/pages/pagesall/home/search',
-      })
+      if (typeMatch) {
+        let type = typeMatch[1]; // 获取提取的 type 值
+        console.log(type);
+        switch (type) {
+          case '1':
+            uni.navigateTo({
+              url: '/pages/pagesall/home/search', // 加好友页面
+            });
+            break;
+          case '2':
+            const urlMatch = res.result.match(/type=2\|(.*)/);
+            if (urlMatch && urlMatch[1]) {
+              const url = urlMatch[1];
+              console.log('截取到的 URL:', url);
+
+              // 处理 URL，例如跳转到双师课堂页面并传递 URL 参数
+              uni.navigateTo({
+                url: `/pages/pagesall/course/golearn?url=${url}`, // 双师课堂页面
+              });
+            }
+
+            break;
+          case '3':
+            uni.navigateTo({
+              url: '/pages/pagesall/home/recentCourse', // 近期课程页面
+            });
+            break;
+          default:
+            console.log('未知的 type 值');
+            uni.navigateTo({
+              url: '/pages/pagesall/home/search', // 默认跳转页面
+            });
+        }
+      } else {
+        console.log('未找到 type 参数');
+        uni.navigateTo({
+          url: '/pages/pagesall/home/search', // 默认跳转页面
+        });
+      }
     },
+
     fail: (error) => {
-      console.error('扫码失败', error)
+      console.error('扫码失败', error);
       uni.showToast({
         title: '扫码失败',
         icon: 'error',
         duration: 2000,
-      })
+      });
     },
-  })
-}
-const mycode = () => navigateTo('/pages/pagesall/home/mycode')
-const messgoback = () => navigateTo('/pages/pagesall/home/adverMess')
+  });
+};
+const mycode = () => navigateTo('/pages/pagesall/home/mycode');
+const messgoback = () => navigateTo('/pages/pagesall/home/adverMess');
 </script>
 
 <style scoped>

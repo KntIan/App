@@ -1,46 +1,34 @@
 <template>
-  <view class="codepage">
-    <view :style="'height:' + (statusBarHeight + 5) + 'px;'"></view>
-    <view class="code_titlebox">
-      <view class="messImg" @click="goback">
-        <img
-          src="https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPng427bd6433cc6e0a8e82f63b3174b2c817dc9c299bd0c4414c8d258f46cf46f94"
-          alt=""
-        />
-      </view>
-      <view class="code_title"> 公告消息 </view>
-    </view>
+  <view>
+    <view :style="'height:' + statusBarHeight + 'px;'"></view>
 
-    <view
-      v-if="messList.length > 0"
-      class="adverbox"
-      v-for="(item, index) in messList"
-      :key="index"
-    >
-      <view class="adver_time">
-        <view
-          class="adver_hour"
-          style="
-            text-align: center;
-            font-weight: 400;
-            font-size: 20rpx;
-            color: #000000;
-            margin: 28rpx 0 28rpx 0;
-          "
-        >
-          <text>{{ item.createtime }}</text>
-        </view>
-        <view class="adver_content">
-          <view class="adver_text1">{{ item.title }}</view>
-          <view class="adver_text2">{{ item.description }}</view>
-          <view class="line">
-            <img
-              src="https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPng754b004becd9b25a8ebdc9d2cb98f423d3fa6fdf022dd0a97d950d38fe548f62"
-              alt=""
-            />
+    <view class="codepage" v-if="messList.length > 0">
+      <view class="adverbox" v-for="(item, index) in messList" :key="index">
+        <view class="adver_time">
+          <view
+            class="adver_hour"
+            style="
+              text-align: center;
+              font-weight: 400;
+              font-size: 20rpx;
+              color: #000000;
+              margin: 28rpx 0 28rpx 0;
+            "
+          >
+            <text>{{ item.createtime }}</text>
           </view>
-          <view class="adver_btn" @click="adverbtn(event, index)">
-            查看详情
+          <view class="adver_content">
+            <view class="adver_text1">{{ item.title }}</view>
+            <view class="adver_text2">{{ item.description }}</view>
+            <view class="line">
+              <img
+                src="https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPng754b004becd9b25a8ebdc9d2cb98f423d3fa6fdf022dd0a97d950d38fe548f62"
+                alt=""
+              />
+            </view>
+            <view class="adver_btn" @click="adverbtn(event, index)">
+              查看详情
+            </view>
           </view>
         </view>
       </view>
@@ -49,66 +37,68 @@
       v-else
       class="kong"
       style="
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
+        display: grid;
+        justify-items: center;
+        position: relative;
+        height: 500rpx;
       "
     >
       <image
-        style="margin-top: -600rpx"
-        src="@/static/img/noMes.png"
+        style="width: 400rpx; height: 400rpx; margin-bottom: -30rpx"
+        src="@/static/img/noAicp.png"
         mode="aspectFit"
       />
-      <!-- <view class="bg_img"></view> -->
+      <text style="color: #666; position: absolute; z-index: 1; bottom: 140rpx"
+        >暂无资讯</text
+      >
     </view>
   </view>
 </template>
 
 <script>
-import { fetchNoticeList } from '@/utils/api'
-import { useStore } from '@/store'
+import { fetchNoticeList } from '@/utils/api';
+import { useStore } from '@/store';
 
 export default {
   data() {
     return {
       messList: [], // 初始化为空数组
       statusBarHeight: '',
-    }
+    };
   },
   onLoad() {
-    this.statusBarHeight = getApp().globalData.top
-    this.loadNoticeList() // 页面加载时调用方法获取公告消息
+    this.statusBarHeight = getApp().globalData.top;
+    this.loadNoticeList(); // 页面加载时调用方法获取公告消息
   },
   methods: {
     goback() {
-      uni.navigateBack()
+      uni.navigateBack();
     },
     async adverbtn(event, index) {
-      console.log(event, index)
-      const selectedNotice = this.messList[index] // 获取选中的公告
-      console.log(selectedNotice.id)
+      console.log(event, index);
+      const selectedNotice = this.messList[index]; // 获取选中的公告
+      console.log(selectedNotice.id);
       uni.navigateTo({
         url: `/pages/pagesall/home/adver_detail?id=${selectedNotice.id}`,
-      })
+      });
     },
     mycode() {
       uni.navigateTo({
         url: '/pages/pagesall/home/mycode',
-      })
+      });
     },
     async loadNoticeList() {
       try {
-        const store = useStore()
-        const response = await fetchNoticeList() // 调用接口获取公告消息
-        this.messList = response.rows // 将返回的数据赋值给 messList
-        store.setMessageList(this.messList)
+        const store = useStore();
+        const response = await fetchNoticeList(); // 调用接口获取公告消息
+        this.messList = response.rows; // 将返回的数据赋值给 messList
+        store.setMessageList(this.messList);
       } catch (error) {
-        console.error('获取公告消息失败:', error)
+        console.error('获取公告消息失败:', error);
       }
     },
   },
-}
+};
 </script>
 
 <style scoped>

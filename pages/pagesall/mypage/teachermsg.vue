@@ -1,45 +1,58 @@
 <template>
   <view>
-    <view :style="'height:' + (statusBarHeight + 5) + 'px;'"></view>
+    <view :style="'height:' + statusBarHeight + 'px;'"></view>
     <view class="mess_Title">
-
       <view class="messImg" @click="teacher_goback">
-        <img src="https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPng427bd6433cc6e0a8e82f63b3174b2c817dc9c299bd0c4414c8d258f46cf46f94" alt="" />
+        <img
+          src="https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPng427bd6433cc6e0a8e82f63b3174b2c817dc9c299bd0c4414c8d258f46cf46f94"
+          alt=""
+        />
       </view>
-      <view class="title_text">
-        我的老师
-      </view>
+      <view class="title_text"> 我的老师 </view>
       <view class="title_img">
-        <image style="width: 36rpx;height: 36rpx;" src="../../../static/img/scan.png" mode="aspectFit" @click="mycode" />
-        <image style="width: 36rpx;height: 36rpx;" src="../../../static/img/saoma.png" mode="aspectFit" @click="btnscan" />
-        <image style="width: 36rpx;height: 36rpx;" src="../../../static/img/sousuo.png" mode="aspectFit" @click="btnsearch" />
+        <image
+          style="width: 36rpx; height: 36rpx"
+          src="../../../static/img/scan.png"
+          mode="aspectFit"
+          @click="mycode"
+        />
+        <image
+          style="width: 36rpx; height: 36rpx"
+          src="../../../static/img/saoma.png"
+          mode="aspectFit"
+          @click="btnscan"
+        />
+        <image
+          style="width: 36rpx; height: 36rpx"
+          src="../../../static/img/sousuo.png"
+          mode="aspectFit"
+          @click="btnsearch"
+        />
       </view>
     </view>
 
     <!-- <view v-if="myteacher_List.length>0">
       <msglist :msgList="myteacher_List" />
     </view> -->
-    <view style="padding: 28rpx;" class="container">
+    <view style="padding: 28rpx" class="container">
       <!-- <MessageList :messages="messagesList" /> -->
       <TUIChat />
-
     </view>
     <!-- <view v-else class="kong" style="display: flex; justify-content: center; align-items: center; height: 500rpx;">
       <image style="width:400rpx;height: 400rpx;" src="@/static/img/noTea.png" mode="aspectFit" />
     </view> -->
-
   </view>
 </template>
 
 <script>
 import msglist from './compontents/msglist.vue';
-import { fetchMyTeacher } from '@/utils/api'
+import { fetchMyTeacher } from '@/utils/api';
 
-import TUIChat from "@/TUIKit/components/TUIConversation/index.vue";
+import TUIChat from '@/TUIKit/components/TUIConversation/index.vue';
 export default {
   components: {
     msglist,
-    TUIChat
+    TUIChat,
   },
   data() {
     return {
@@ -71,13 +84,10 @@ export default {
       // }]
       myteacher_List: [],
       teacherListLength: null,
-    }
+    };
   },
   onLoad() {
     this.statusBarHeight = getApp().globalData.top;
-
-
-
   },
   mounted() {
     this.loadTeacherMessages(); // 在组件挂载时加载数据
@@ -85,29 +95,86 @@ export default {
   methods: {
     btnsearch() {
       uni.navigateTo({
-        url: '/pages/pagesall/home/search'
-      })
+        url: '/pages/pagesall/home/search',
+      });
     },
     mycode() {
       uni.navigateTo({
-        url: '/pages/pagesall/home/mycode'
-      })
+        url: '/pages/pagesall/home/mycode',
+      });
     },
     btnscan() {
       uni.scanCode({
-        success: (res) => {
-          console.log('条码类型：' + res.scanType)
-          console.log('条码内容：' + res.result)
-        },
-        fail: (error) => {
+        success: async (res) => {
+          // console.log('条码类型：' + res.scanType)
+          console.log('条码内容：' + res.result);
 
-          uni.showToast({
-            title: error.errMsg || '扫码失败',
-            icon: 'none',
-            duration: 2000
-          })
+          const userIdMatch = res.result.match(/user_id=(\d+)/);
+          const typeMatch = res.result.match(/type=(\d+)/);
+          console.log(userIdMatch);
+          console.log(typeMatch);
+
+          if (userIdMatch) {
+            let user_id = userIdMatch[1]; // 获取提取的 user_id 值
+            console.log(user_id);
+            let params = {
+              user_id: user_id,
+            };
+            uni.setStorageSync('params', params); // 存入本地缓存
+          } else {
+            console.log('未找到用户ID参数');
+          }
+
+          if (typeMatch) {
+            let type = typeMatch[1]; // 获取提取的 type 值
+            console.log(type);
+            switch (type) {
+              case '1':
+                uni.navigateTo({
+                  url: '/pages/pagesall/home/search', // 加好友页面
+                });
+                break;
+              case '2':
+                const urlMatch = res.result.match(/type=2\|(.*)/);
+                if (urlMatch && urlMatch[1]) {
+                  const url = urlMatch[1];
+                  console.log('截取到的 URL:', url);
+
+                  // 处理 URL，例如跳转到双师课堂页面并传递 URL 参数
+                  uni.navigateTo({
+                    url: `/pages/pagesall/course/golearn?url=${url}`, // 双师课堂页面
+                  });
+                }
+
+                break;
+              case '3':
+                uni.navigateTo({
+                  url: '/pages/pagesall/home/recentCourse', // 近期课程页面
+                });
+                break;
+              default:
+                console.log('未知的 type 值');
+                uni.navigateTo({
+                  url: '/pages/pagesall/home/search', // 默认跳转页面
+                });
+            }
+          } else {
+            console.log('未找到 type 参数');
+            uni.navigateTo({
+              url: '/pages/pagesall/home/search', // 默认跳转页面
+            });
+          }
         },
-      })
+
+        fail: (error) => {
+          console.error('扫码失败', error);
+          uni.showToast({
+            title: '扫码失败',
+            icon: 'error',
+            duration: 2000,
+          });
+        },
+      });
     },
     async loadTeacherMessages() {
       try {
@@ -119,10 +186,10 @@ export default {
       }
     },
     teacher_goback() {
-      uni.navigateBack()
-    }
+      uni.navigateBack();
+    },
   },
-}
+};
 </script>
 
 <style>

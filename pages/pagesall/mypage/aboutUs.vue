@@ -1,6 +1,6 @@
 <template>
   <view class="page">
-    <view :style="'height:' + (statusBarHeight + 5) + 'px;'"></view>
+    <view :style="'height:' + statusBarHeight + 'px;'"></view>
     <view class="box1">
       <image
         class="image_2"
@@ -15,32 +15,32 @@
   </view>
 </template>
 <script>
-import { fetchAboutUs } from '@/utils/api'
+import { fetchAboutUs } from '@/utils/api';
 export default {
   data() {
     return {
       constants: null,
       statusBarHeight: '',
-    }
+    };
   },
   onLoad() {
-    this.statusBarHeight = getApp().globalData.top
-    this.getAboutUs()
+    this.statusBarHeight = getApp().globalData.top;
+    this.getAboutUs();
   },
 
   methods: {
     async getAboutUs() {
       try {
-        const response = await fetchAboutUs()
+        const response = await fetchAboutUs();
         // console.log(response)
-        this.constants = response // 根据实际返回结果调整
+        this.constants = response; // 根据实际返回结果调整
         // console.log(this.constants)
       } catch (error) {
-        console.error('获取关于我们的接口失败：', error)
+        console.error('获取关于我们的接口失败：', error);
       }
     },
   },
-}
+};
 </script>
 <style>
 .page {

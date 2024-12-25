@@ -1,6 +1,6 @@
 import {
   __commonJS
-} from "./chunk-LQ2VYIYD.js";
+} from "./chunk-BQWMX7FD.js";
 
 // vite:cjs-external-facade:vue
 import * as m from "vue";

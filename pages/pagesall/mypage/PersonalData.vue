@@ -1,6 +1,6 @@
 <template>
   <view>
-    <view :style="'height:' + (statusBarHeight + 5) + 'px;'"></view>
+    <view :style="'height:' + statusBarHeight + 'px;'"></view>
     <view>
       <view style="height: 100rpx"></view>
       <uv-datetime-picker
@@ -135,18 +135,18 @@
 </template>
 
 <script setup>
-import { ref, reactive, onMounted } from 'vue'
-import CustomInput from '@/components/CustomInput/CustomInput'
-import BottomSheet from '@/components/BottomSheet/BottomSheet'
-import { fetchUserInfo, updateAvatar } from '@/utils/api'
+import { ref, reactive, onMounted } from 'vue';
+import CustomInput from '@/components/CustomInput/CustomInput';
+import BottomSheet from '@/components/BottomSheet/BottomSheet';
+import { fetchUserInfo, updateAvatar } from '@/utils/api';
 
-import { useStore } from '@/store'
-const store = useStore()
-import { onLoad } from '@dcloudio/uni-app'
-const statusBarHeight = ref()
+import { useStore } from '@/store';
+const store = useStore();
+import { onLoad } from '@dcloudio/uni-app';
+const statusBarHeight = ref();
 onLoad(() => {
-  statusBarHeight.value = getApp().globalData.top
-})
+  statusBarHeight.value = getApp().globalData.top;
+});
 
 // 响应式数据
 const formData = reactive({
@@ -156,9 +156,9 @@ const formData = reactive({
   phone: '13812345678', // 模拟数据
   password: '12315',
   value: '',
-})
+});
 
-const isActionSheetVisible = ref(false)
+const isActionSheetVisible = ref(false);
 const actionSheetOptions = ref([
   {
     text: '拍照',
@@ -166,80 +166,80 @@ const actionSheetOptions = ref([
   {
     text: '从手机相册选择',
   },
-])
-const isDisabled1 = ref(true)
-const isDisabled2 = ref(true)
-const isDisabled = ref(true)
-const dateYear = ref('年/月/日')
-const giftmoren = ref('选择校区')
-const selectedValue = ref('请选择班级')
-const datetimePicker = ref(null)
-const giftindex = ref(0)
-const giftArray = ref()
-const multiArray = ref()
-const multiIndex = ref()
-const refelist = ref({})
-const avatarUrl = ref('') // 新增：存储头像URL
-const avatarUrl1 = ref('') // 新增：存储头像URL
+]);
+const isDisabled1 = ref(true);
+const isDisabled2 = ref(true);
+const isDisabled = ref(true);
+const dateYear = ref('年/月/日');
+const giftmoren = ref('选择校区');
+const selectedValue = ref('请选择班级');
+const datetimePicker = ref(null);
+const giftindex = ref(0);
+const giftArray = ref();
+const multiArray = ref();
+const multiIndex = ref();
+const refelist = ref({});
+const avatarUrl = ref(''); // 新增：存储头像URL
+const avatarUrl1 = ref(''); // 新增：存储头像URL
 // 方法
 const retPass = async () => {
   await uni.navigateTo({
     url: '/pages/login/ratpass',
-  })
-}
+  });
+};
 
 const open = () => {
-  datetimePicker.value.open()
-  console.log(datetimePicker.value)
-}
+  datetimePicker.value.open();
+  console.log(datetimePicker.value);
+};
 
 const togglePicker = () => {
-  isDisabled1.value = !isDisabled1.value // 切换禁用状态
-}
+  isDisabled1.value = !isDisabled1.value; // 切换禁用状态
+};
 
 const togglePickerclass = () => {
-  isDisabled2.value = !isDisabled2.value // 切换禁用状态
-}
+  isDisabled2.value = !isDisabled2.value; // 切换禁用状态
+};
 
 const getlogin = async () => {
   try {
     // 调用 updateAvatar 方法上传头像
     if (avatarUrl.value) {
       // 确保头像 URL 存在
-      const response = await updateAvatar({ avatar: avatarUrl.value })
+      const response = await updateAvatar({ avatar: avatarUrl.value });
 
       if (response.code === 1) {
-        store.userinfo.avatar = avatarUrl1.value
-        uni.navigateBack() // 返回上一页面
+        store.userinfo.avatar = avatarUrl1.value;
+        uni.navigateBack(); // 返回上一页面
       } else {
         uni.showToast({
           title: '头像上传失败',
           icon: 'none',
-        })
+        });
       }
     }
   } catch (error) {}
-}
+};
 
 const giftPickerChange = (e, giftArray) => {
   // console.log('picker发送选择改变，携带值为', e.detail.value);
-  let index = e.detail.value
-  giftindex.value = index
-  giftmoren.value = giftArray[index].title
-}
+  let index = e.detail.value;
+  giftindex.value = index;
+  giftmoren.value = giftArray[index].title;
+};
 
 const chooseAvatar = () => {
-  isActionSheetVisible.value = true // 打开底部拉起栏
-}
+  isActionSheetVisible.value = true; // 打开底部拉起栏
+};
 
 const handleOptionSelect = (option) => {
   if (option === '拍照') {
-    takePhoto()
+    takePhoto();
   } else {
-    pickImageFromAlbum()
+    pickImageFromAlbum();
   }
   // console.log('选择的选项:', option); // 处理选项选择
-}
+};
 
 const takePhoto = () => {
   uni.chooseImage({
@@ -254,18 +254,18 @@ const takePhoto = () => {
           token: uni.getStorageSync('token'),
         },
         success: (uploadFileRes) => {
-          const data = JSON.parse(uploadFileRes.data) // 根据实际返回的数据格式解析
+          const data = JSON.parse(uploadFileRes.data); // 根据实际返回的数据格式解析
 
-          avatarUrl.value = data.data.url
-          avatarUrl1.value = data.data.fullurl
+          avatarUrl.value = data.data.url;
+          avatarUrl1.value = data.data.fullurl;
         },
-      })
+      });
     },
     fail: (error) => {
-      console.error('拍照失败:', error)
+      console.error('拍照失败:', error);
     },
-  })
-}
+  });
+};
 
 const pickImageFromAlbum = () => {
   uni.chooseImage({
@@ -273,8 +273,8 @@ const pickImageFromAlbum = () => {
     sourceType: ['album'],
     success: async (res) => {
       if (res.tempFilePaths.length === 0) {
-        console.error('未选择任何图片')
-        return // 如果没有选择图片，提前退出
+        console.error('未选择任何图片');
+        return; // 如果没有选择图片，提前退出
       }
       uni.uploadFile({
         url: 'http://admin.zexishuhua.com/api/common/upload', //仅为示例，非真实的接口地址
@@ -284,103 +284,104 @@ const pickImageFromAlbum = () => {
           token: uni.getStorageSync('token'),
         },
         success: (uploadFileRes) => {
-          const data = JSON.parse(uploadFileRes.data) // 根据实际返回的数据格式解析
+          const data = JSON.parse(uploadFileRes.data); // 根据实际返回的数据格式解析
           // console.log(data);
-          avatarUrl.value = data.data.url // 更新头像 URL
-          avatarUrl1.value = data.data.fullurl
+          avatarUrl.value = data.data.url; // 更新头像 URL
+          avatarUrl1.value = data.data.fullurl;
         },
-      })
+      });
     },
     fail: (error) => {
       // console.error('选择图片失败:', error);
     },
-  })
-}
+  });
+};
 
 const onClassChange = (event) => {
-  multiIndex.value = event.detail.value
+  multiIndex.value = event.detail.value;
   // 检查 multiIndex.value 是否是有效的索引
   if (isNaN(multiIndex.value) || multiIndex.value.length === 0) {
-    selectedValue.value = multiArray.value[0].title // 默认选择第一项
-    classlyId.value = multiArray.value[0].id
+    selectedValue.value = multiArray.value[0].title; // 默认选择第一项
+    classlyId.value = multiArray.value[0].id;
   } else {
-    selectedValue.value = multiArray.value[multiIndex.value].title // 更新为用户选择的值
-    classlyId.value = multiArray.value[multiIndex.value].id
+    selectedValue.value = multiArray.value[multiIndex.value].title; // 更新为用户选择的值
+    classlyId.value = multiArray.value[multiIndex.value].id;
   }
-}
+};
 
 const confirm = (e) => {
-  let date = new Date(e.value)
-  let y = date.getFullYear()
-  let MM = date.getMonth() + 1
-  MM = MM < 10 ? '0' + MM : MM //月补0
-  let d = date.getDate()
-  d = d < 10 ? '0' + d : d //天补0
-  let h = date.getHours()
-  h = h < 10 ? '0' + h : h //小时补0
-  let m = date.getMinutes()
-  m = m < 10 ? '0' + m : m //分钟补0
-  let s = date.getSeconds()
-  s = s < 10 ? '0' + s : s //秒补0
-  let newtime = y + '-' + MM + '-' + d //年月日
-  let newtime2 = y + '.' + MM + '.' + d
+  let date = new Date(e.value);
+  let y = date.getFullYear();
+  let MM = date.getMonth() + 1;
+  MM = MM < 10 ? '0' + MM : MM; //月补0
+  let d = date.getDate();
+  d = d < 10 ? '0' + d : d; //天补0
+  let h = date.getHours();
+  h = h < 10 ? '0' + h : h; //小时补0
+  let m = date.getMinutes();
+  m = m < 10 ? '0' + m : m; //分钟补0
+  let s = date.getSeconds();
+  s = s < 10 ? '0' + s : s; //秒补0
+  let newtime = y + '-' + MM + '-' + d; //年月日
+  let newtime2 = y + '.' + MM + '.' + d;
 
-  dateYear.value = newtime2
-}
+  dateYear.value = newtime2;
+};
 
 // 页面加载时请求接口获取个人信息
 onMounted(async () => {
-  console.log(store.campusData)
-  giftArray.value = store.campusData
-  console.log(giftArray.value)
-  multiArray.value = store.classData
+  console.log(store.campusData);
+  giftArray.value = store.campusData;
+  console.log(giftArray.value);
+  multiArray.value = store.classData;
   try {
-    const userInfo = await fetchUserInfo()
-    console.log(userInfo)
+    const userInfo = await fetchUserInfo();
+    console.log(userInfo);
     // 将获取到的用户信息赋值给 formData
-    formData.name = userInfo.data.nickname
-    formData.age = userInfo.data.age
-    formData.referrer = userInfo.data.referee
-    formData.phone = userInfo.data.mobile
-    formData.password = userInfo.data.password
+    formData.name = userInfo.data.nickname;
+    formData.age = userInfo.data.age;
+    formData.referrer = userInfo.data.referee;
+    formData.phone = userInfo.data.mobile;
+    formData.password = userInfo.data.password;
+    avatarUrl1.value = userInfo.data.avatar;
 
     // 处理出生年月日
-    const birthDate = new Date(userInfo.data.birthday)
-    console.log(birthDate)
-    const y = birthDate.getFullYear()
-    const MM = (birthDate.getMonth() + 1).toString().padStart(2, '0')
-    const d = birthDate.getDate().toString().padStart(2, '0')
-    console.log(y, MM, d)
-    dateYear.value = `${y}.${MM}.${d}`
+    const birthDate = new Date(userInfo.data.birthday);
+    console.log(birthDate);
+    const y = birthDate.getFullYear();
+    const MM = (birthDate.getMonth() + 1).toString().padStart(2, '0');
+    const d = birthDate.getDate().toString().padStart(2, '0');
+    console.log(y, MM, d);
+    dateYear.value = `${y}.${MM}.${d}`;
 
     // 处理校区
     const campus = store.campusData.find(
       (item) => item.id === userInfo.data.school_id
-    )
+    );
     if (campus) {
-      giftmoren.value = campus.title
-      giftindex.value = store.campusData.indexOf(campus)
+      giftmoren.value = campus.title;
+      giftindex.value = store.campusData.indexOf(campus);
     }
 
     // 处理班级
     // const num = userInfo.data.classly_id = 2
 
-    console.log(store.classData)
-    console.log(userInfo.data.classly_id)
+    console.log(store.classData);
+    console.log(userInfo.data.classly_id);
 
     const classItem = store.classData.find(
       (item) => item.id === userInfo.data.classly_id
-    )
-    console.log(classItem)
+    );
+    console.log(classItem);
     if (classItem) {
-      const classIndex = store.classData.indexOf(classItem)
-      selectedValue.value = classItem.title
-      multiIndex.value = [classIndex]
+      const classIndex = store.classData.indexOf(classItem);
+      selectedValue.value = classItem.title;
+      multiIndex.value = [classIndex];
     }
   } catch (error) {
-    console.error('获取用户信息失败:', error)
+    console.error('获取用户信息失败:', error);
   }
-})
+});
 </script>
 
 <style>

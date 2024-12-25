@@ -1,42 +1,55 @@
 <template>
-  <view class="code_page">
-    <view :style="'height:' + (statusBarHeight + 5) + 'px;'"></view>
-    <view class="code_titlebox">
-      <view class="messImg" @click="goback">
-        <img src="https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPng427bd6433cc6e0a8e82f63b3174b2c817dc9c299bd0c4414c8d258f46cf46f94" alt="" />
-      </view>
-      <view class="code_title">
-        {{selectedMessage.title}}
-      </view>
-    </view>
-
-    <view class="detail_title">
-      <text style="font-weight: 500;font-size: 32rpx;color: #000000;width:70%;overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;"></text>
-      <view class="detail_time">
-        <view class="time_1">
-          {{selectedMessage.addtime}}
+  <view>
+    <view :style="'height:' + statusBarHeight + 'px;'"></view>
+    <view class="code_page">
+      <!-- <view style="text-align: center; font-size: 36rpx"> 资讯详情 </view> -->
+      <view class="code_titlebox">
+        <!-- <view class="messImg" @click="goback">
+          <img
+            src="https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPng427bd6433cc6e0a8e82f63b3174b2c817dc9c299bd0c4414c8d258f46cf46f94"
+            alt=""
+          />
+        </view> -->
+        <view class="code_title">
+          {{ selectedMessage.title }}
         </view>
-        <!-- <view class="time_2">
+      </view>
+
+      <view class="detail_title">
+        <text
+          style="
+            font-weight: 500;
+            font-size: 32rpx;
+            color: #000000;
+            width: 70%;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+          "
+        ></text>
+        <view class="detail_time">
+          <view class="time_1">
+            {{ selectedMessage.addtime }}
+          </view>
+          <!-- <view class="time_2">
           {{mours}}
         </view> -->
+        </view>
       </view>
+      <div class="detail_box" v-html="selectedMessage.content"></div>
     </view>
-    <div class="detail_box" v-html="selectedMessage.content"></div>
-
   </view>
 </template>
 
 <script>
-import { useStore } from '@/store'
+import { useStore } from '@/store';
 export default {
   data() {
     return {
       messageList: [], // 存储消息列表
       selectedMessage: null, // 存储选中的公告
       statusBarHeight: '',
-    }
+    };
   },
   onLoad(options) {
     this.statusBarHeight = getApp().globalData.top;
@@ -46,17 +59,18 @@ export default {
 
     const messageId = options.id; // 获取传入的公告 ID
 
+    this.selectedMessage = this.messageList.find(
+      (message) => message.id.toString() === messageId.toString()
+    ); // 查找对应 ID 的公告
 
-    this.selectedMessage = this.messageList.find(message => message.id.toString() === messageId.toString()); // 查找对应 ID 的公告
-
-    console.log(this.selectedMessage)
+    console.log(this.selectedMessage);
   },
   methods: {
     goback() {
-      uni.navigateBack()
+      uni.navigateBack();
     },
-  }
-}
+  },
+};
 </script>
 
 <style>
@@ -76,9 +90,9 @@ export default {
 }
 
 .code_title {
-  text-align: center;
+  text-align: left;
   font-weight: 500;
-  font-size: 36rpx;
+  font-size: rpx;
   color: #000;
 }
 
@@ -110,7 +124,13 @@ export default {
   text-indent: 2em;
   padding: 0 30rpx 0 30rpx;
   font-weight: 400;
-  font-size: 24rpx;
+
   color: #666666;
+}
+::v-deep.detail_box div {
+  font-size: 28rpx !important;
+}
+::v-deep.detail_box img {
+  width: 100% !important;
 }
 </style>

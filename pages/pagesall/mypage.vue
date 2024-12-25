@@ -1,7 +1,7 @@
 <template>
   <view class="container">
     <!-- 用户信息 -->
-    <view :style="'height:' + (statusBarHeight + 5) + 'px;'"></view>
+    <view :style="'height:' + statusBarHeight + 'px;'"></view>
     <view class="user-info">
       <view class="titleHome">
         <view class="nameId">
@@ -11,12 +11,13 @@
               :src="userInfo.avatar"
             />
           </view>
-          <view class="name" @click="myInfo">
+          <view class="name">
             <text class="textname">{{ userInfo.nickname }}</text>
-            <text class="textid">ID:{{ userInfo.id }}</text>
+            <text class="textid">ID:{{ userInfo.show_id }}</text>
             <view class="posit">
               <img
-                src="https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPng5b0a65fd47f768b4c8f59ba6e2c415f9fe8dd593587d9ad6bbcd9f647066dc01"
+                style="margin-right: 10rpx"
+                src="http://admin.zexishuhua.com/uploads/20241128/11a05173840d3d4ad9dc32f1cf5c6e98.png"
                 alt=""
               />
               <text class="postext">{{ userInfo.school_name }}</text>
@@ -56,28 +57,52 @@
       <view
         style="margin-top: 20rpx; justify-content: flex-start"
         class="homework-list homeworkScroll"
+        v-if="homework.items?.length > 0"
       >
         <view
           class="homework"
-          v-for="task in homework"
-          :key="task.title"
+          v-for="task in homework.items"
+          :key="task.id"
           @click="goTask(task.id)"
         >
-          <image class="task-image" :src="task.image" />
+          <image class="task-image" :src="task.lesson_thumb" />
           <view class="task-details">
-            <text class="task-title">{{ task.title }}</text>
+            <text class="task-title">{{ task.content }}</text>
             <view class="task-status">
-              <text>{{ task.from }}</text>
-              <view class="status_img">
+              <text>来自{{ task.teacher_name }}</text>
+              <view
+                class="status_img"
+                style="display: flex; align-items: center"
+              >
                 <image
                   src="https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPng2da006757aba600979e398ec0c09e7190d6db896432216ec206836dc25bb68e4"
                   mode="aspectFill"
                 ></image>
-                <text>{{ task.status }}</text>
+                <text>{{ task.status ? '已完成' : '未完成' }}</text>
               </view>
             </view>
           </view>
         </view>
+      </view>
+      <view
+        v-else
+        class="kong"
+        style="
+          display: grid;
+          justify-items: center;
+          position: relative;
+          height: 500rpx;
+        "
+      >
+        <image
+          style="width: 400rpx; height: 400rpx; margin-bottom: -30rpx"
+          src="@/static/img/noHomework.png"
+          mode="aspectFit"
+        />
+        <text
+          style="color: #666; position: absolute; z-index: 1; bottom: 140rpx"
+          >暂无作业</text
+        >
       </view>
     </view>
 
@@ -121,27 +146,35 @@
         v-else
         class="kong"
         style="
-          display: flex;
-          justify-content: center;
-          align-items: center;
+          display: grid;
+          justify-items: center;
+          position: relative;
           height: 500rpx;
         "
       >
         <image
-          style="width: 400rpx; height: 400rpx"
-          src="@/static/img/noAct.png"
+          style="width: 400rpx; height: 400rpx; margin-bottom: -30rpx"
+          src="@/static/img/nohuodong.png"
           mode="aspectFit"
         />
+        <text
+          style="color: #666; position: absolute; z-index: 1; bottom: 140rpx"
+          >暂无参加的活动</text
+        >
       </view>
     </view>
   </view>
 </template>
 
 <script>
-import ActivityItem from '@/components/ActivityItem/ActivityItem'
-import { useStore } from '@/store'
-import { fetchActivityCourseList, fetchMyTemporaryHomework } from '@/utils/api'
-import { onLoad, onShow } from '@dcloudio/uni-app'
+import ActivityItem from '@/components/ActivityItem/ActivityItem';
+import { useStore } from '@/store';
+import {
+  fetchActivityCourseList,
+  fetchMyTemporaryHomework,
+  fetchTodayHomeworkList,
+} from '@/utils/api';
+import { onLoad, onShow } from '@dcloudio/uni-app';
 export default {
   components: {
     ActivityItem,
@@ -186,138 +219,148 @@ export default {
         },
       ],
       participatingActivitiess: [],
-    }
+    };
   },
   computed: {
     listdata() {
-      const store = useStore()
-      return store.listdata // 从 Pinia 存储中获取 listdata
+      const store = useStore();
+      return store.listdata; // 从 Pinia 存储中获取 listdata
     },
     userInfo() {
-      const store = useStore()
-      return store.userinfo // 从 Pinia 存储中获取 userinfo
+      const store = useStore();
+      return store.userinfo; // 从 Pinia 存储中获取 userinfo
     },
   },
   onShow() {
-    this.pa()
+    this.pa();
   },
   onLoad() {
-    this.statusBarHeight = getApp().globalData.top
+    this.statusBarHeight = getApp().globalData.top;
   },
   methods: {
-    goTask(id) {
+    goTask(homework_id) {
       uni.navigateTo({
-        url: `/pages/pagesall/course/go_learn?id=${id}`,
-      })
+        url: `/pages/pagesall/course/go_learn?homework_id=${homework_id}`,
+      });
     },
     async pa() {
       //报名活动
       let params = {
         page: 1,
         limit: 7,
-      }
+      };
       // 今日作业
       let params1 = {
         page: 1,
         limit: 5,
-      }
+      };
       try {
-        let participatingActivities = await fetchActivityCourseList(params)
-        this.homework = await fetchMyTemporaryHomework(params1)
-
+        let participatingActivities = await fetchActivityCourseList(params);
+        this.homework = await fetchTodayHomeworkList(params1);
         // 查找所有 hadSignup 为 1 的活动
         const matchedDetails = participatingActivities.items.filter(
           (detail) => detail.hadSignup === 1
-        )
+        );
         let matchedD = matchedDetails.map((item) => ({
           ...item, // 保留原有的属性
           timerId: null, //用于存储定时器ID
           hours: 0, // 增加时字段，初始化为0
           minutes: 0, // 增加分字段，初始化为0
           seconds: 0, // 增加秒字段，初始化为0
-        }))
+        }));
         // 打印匹配的活动详情
         if (matchedD.length > 0) {
-          this.participatingActivitiess = matchedD // 将符合条件的活动存入 participatingActivitiess 数组
-          this.updateCountdown()
+          this.participatingActivitiess = matchedD; // 将符合条件的活动存入 participatingActivitiess 数组
+          this.updateCountdown();
         } else {
-          console.log('未找到已经报名的活动')
+          // console.log('未找到已经报名的活动')
         }
       } catch (error) {
-        console.error('获取活动详情失败:', error)
+        const token = uni.getStorageSync('token');
+        if (!token) {
+          // 如果 token 不存在，则跳转到登录页面
+          uni.showToast({
+            title: '请重新登录',
+            icon: 'error',
+          });
+          uni.reLaunch({
+            url: '/pages/login/login', // 替换为您的登录页面路径
+          });
+        }
+        console.error('获取活动详情失败:', error);
       }
     },
     setInfo() {
       uni.navigateTo({
         url: '/pages/pagesall/mypage/PersonalData',
-      })
+      });
     },
     handleSignup(id) {
       // const paramsString = encodeURIComponent(JSON.stringify(params));
       uni.navigateTo({
         url: `/pages/pagesall/home/signUp?id=${id}`, // 确保替换为相应的页面路径
-      })
+      });
     },
     updateCountdown() {
-      const currentDateTimestampInMilliseconds = new Date().getTime()
-      const now = Math.floor(currentDateTimestampInMilliseconds / 1000)
+      const currentDateTimestampInMilliseconds = new Date().getTime();
+      const now = Math.floor(currentDateTimestampInMilliseconds / 1000);
 
       this.participatingActivitiess.forEach((item) => {
         // const newItem = { ...item };
         if (!isNaN(item.end_time)) {
-          const timeDiff = item.end_time - now
+          const timeDiff = item.end_time - now;
           if (timeDiff > 0) {
-            item.hours = Math.floor(timeDiff / 3600)
-            item.minutes = Math.floor((timeDiff % 3600) / 60)
-            item.seconds = timeDiff % 60
+            item.hours = Math.floor(timeDiff / 3600);
+            item.minutes = Math.floor((timeDiff % 3600) / 60);
+            item.seconds = timeDiff % 60;
           } else {
-            item.hours = item.minutes = item.seconds = 0 // 时间到达
+            item.hours = item.minutes = item.seconds = 0; // 时间到达
           }
           // console.log('Updated time for item:', item.hours, item.minutes, item.seconds);
         } else {
-          item.hours = item.minutes = item.seconds = 0 // 处理无效时间
+          item.hours = item.minutes = item.seconds = 0; // 处理无效时间
         }
         // console.log('Updated time:', item.hours, item.minutes, item.seconds);
         // return newItem;
-      })
+      });
       // 更新 store
     },
     goSet() {
       uni.navigateTo({
         url: '/pages/pagesall/mypage/Set',
-      })
+      });
     },
     toggle(title) {
-      console.log(title)
+      console.log(title);
       if (title === '我的作业') {
         uni.navigateTo({
           url: '/pages/pagesall/mypage/myHomework',
-        })
+        });
       } else if (title === '班级课程') {
         uni.navigateTo({
           url: '/pages/pagesall/mypage/myCourses',
-        })
+        });
       } else if (title === '班级群') {
         uni.navigateTo({
           url: '/pages/pagesall/mypage/classGroup',
-        })
+        });
       } else if (title === '我的老师') {
         uni.navigateTo({
           url: '/pages/pagesall/mypage/teachermsg',
-        })
+        });
       } else if (title === '历史测评') {
         uni.navigateTo({
           url: '/pages/pagesall/mypage/historyAssessment',
-        })
+        });
       }
     },
     myInfo() {
       uni.navigateTo({
         url: '/pages/pagesall/mypage/individualmsg',
-      })
+      });
     },
   },
-}
+};
 </script>
 
 <style scoped>
@@ -339,10 +382,12 @@ export default {
 .class_ {
   float: left;
 }
+
 .homeworkScroll {
   overflow-x: auto;
   scrollbar-width: none;
 }
+
 .name {
   display: flex;
   flex-direction: column;
@@ -353,6 +398,7 @@ export default {
 
 .textname {
   font-size: 28rpx;
+  font-weight: bold;
 }
 
 .textid {
@@ -366,6 +412,10 @@ export default {
   color: #fff;
   margin-top: 8rpx;
   margin-left: -140rpx;
+  max-width: 120rpx;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .status_img image {
@@ -397,6 +447,12 @@ export default {
   font-size: 28rpx;
   color: #000000;
   padding: 10rpx 12rpx 14rpx 16rpx;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+
+  display: block;
+  width: 92%;
 }
 
 .user-info {
@@ -420,6 +476,7 @@ export default {
   box-shadow: 0rpx 0rpx 12rpx 0rpx rgba(0, 0, 0, 0.08);
   border-radius: 8rpx;
   border: 0rpx solid;
+  width: 340rpx;
 }
 
 .features,

@@ -1,6 +1,6 @@
 <template>
   <view>
-    <view :style="'height:' + (statusBarHeight + 5) + 'px;'"></view>
+    <view :style="'height:' + statusBarHeight + 'px;'"></view>
     <view class="oper_Title"> 活动 </view>
 
     <view class="oper_area" @click="selectCity">
@@ -12,9 +12,10 @@
         <view class="area_text">
           {{ oper_area }}
         </view>
-        <img
-          src="https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPngf4e9bc406788b9232143810336e08dc7652f21137fb2a98411b6742d7f4dffb2"
-          alt=""
+        <image
+          style="width: 20rpx; height: 20rpx"
+          src="@/static/img/juxing.png"
+          mode="aspectFit"
         />
       </view>
       <input type="text" class="area_input" placeholder="请输入要查找的城市" />
@@ -25,14 +26,15 @@
         <view class="uni-padding-wrap uni-common-mt">
           <!-- <uni-segmented-control class="line_segmented" :current="current" :values="items" active-color="#FF9E02" @clickItem="onClickItem" /> -->
           <uni-segmented-control
+            style="font-weight: bold; font-size: 32rpx"
             :current="current"
             :values="items"
             style-type="text"
             :active-color="activeColor"
             @clickItem="onClickItem"
           />
-          <view class="line_oper666" v-if="current === 0"> </view>
-          <view class="line_oper1666" v-if="current === 1"> </view>
+          <view class="line_oper" v-if="current === 0"> </view>
+          <view class="line_oper1" v-if="current === 1"> </view>
         </view>
         <view class="oper_title_text"> 正在进行 </view>
         <view class="content">
@@ -66,17 +68,26 @@
               v-else
               class="kong"
               style="
-                display: flex;
-                justify-content: center;
-                align-items: center;
+                display: grid;
+                justify-items: center;
+                position: relative;
                 height: 500rpx;
               "
             >
               <image
-                style="width: 400rpx; height: 400rpx"
-                src="@/static/img/noAct.png"
+                style="width: 400rpx; height: 400rpx; margin-bottom: -30rpx"
+                src="@/static/img/nohuodong.png"
                 mode="aspectFit"
               />
+              <text
+                style="
+                  color: #666;
+                  position: absolute;
+                  z-index: 1;
+                  bottom: 140rpx;
+                "
+                >暂无活动</text
+              >
             </view>
 
             <view class="oper_title_text1"> 往期回顾 </view>
@@ -110,18 +121,26 @@
               v-else
               class="kong"
               style="
-                display: flex;
-                justify-content: center;
-                align-items: center;
+                display: grid;
+                justify-items: center;
+                position: relative;
                 height: 500rpx;
-                width: 730rpx;
               "
             >
               <image
-                style="width: 400rpx; height: 400rpx"
-                src="@/static/img/noAct.png"
+                style="width: 400rpx; height: 400rpx; margin-bottom: -30rpx"
+                src="@/static/img/nohuodong.png"
                 mode="aspectFit"
               />
+              <text
+                style="
+                  color: #666;
+                  position: absolute;
+                  z-index: 1;
+                  bottom: 140rpx;
+                "
+                >暂无活动</text
+              >
             </view>
           </view>
           <view v-if="current === 1">
@@ -154,17 +173,26 @@
               v-else
               class="kong"
               style="
-                display: flex;
-                justify-content: center;
-                align-items: center;
+                display: grid;
+                justify-items: center;
+                position: relative;
                 height: 500rpx;
               "
             >
               <image
-                style="width: 400rpx; height: 400rpx"
-                src="@/static/img/noAct.png"
+                style="width: 400rpx; height: 400rpx; margin-bottom: -30rpx"
+                src="@/static/img/nohuodong.png"
                 mode="aspectFit"
               />
+              <text
+                style="
+                  color: #666;
+                  position: absolute;
+                  z-index: 1;
+                  bottom: 140rpx;
+                "
+                >暂无活动</text
+              >
             </view>
 
             <view class="oper_title_text1"> 往期回顾 </view>
@@ -200,18 +228,26 @@
                 v-else
                 class="kong"
                 style="
-                  display: flex;
-                  justify-content: center;
-                  align-items: center;
+                  display: grid;
+                  justify-items: center;
+                  position: relative;
                   height: 500rpx;
-                  width: 730rpx;
                 "
               >
                 <image
-                  style="width: 400rpx; height: 400rpx"
-                  src="@/static/img/noAct.png"
+                  style="width: 400rpx; height: 400rpx; margin-bottom: -30rpx"
+                  src="@/static/img/nohuodong.png"
                   mode="aspectFit"
                 />
+                <text
+                  style="
+                    color: #666;
+                    position: absolute;
+                    z-index: 1;
+                    bottom: 140rpx;
+                  "
+                  >暂无活动</text
+                >
               </view>
             </view>
           </view>
@@ -221,15 +257,15 @@
   </view>
 </template>
 <script>
-import ActivityItem from '@/components/ActivityItem/ActivityItem'
-import { useStore } from '@/store'
-import { fetchActivityCourseList } from '@/utils/api'
+import ActivityItem from '@/components/ActivityItem/ActivityItem';
+import { useStore } from '@/store';
+import { fetchActivityCourseList } from '@/utils/api';
 import {
   onLoad,
   onShow,
   onPullDownRefresh,
   onReachBottom,
-} from '@dcloudio/uni-app'
+} from '@dcloudio/uni-app';
 export default {
   components: {
     ActivityItem,
@@ -251,62 +287,78 @@ export default {
       currentPage: 1,
       isLoading: false,
       activeColor: '#FF9E02',
-    }
+    };
   },
   onPullDownRefresh() {
-    this.fetchActivityData()
-    uni.stopPullDownRefresh()
+    this.fetchActivityData();
+    uni.stopPullDownRefresh();
   },
   onReachBottom() {
-    if (this.isLoading) return // 如果正在加载，直接返回
-    this.currentPage++
+    if (this.isLoading) {
+      uni.showToast({
+        title: '没有更多数据了',
+        icon: 'none',
+        duration: 3000,
+      });
+    }
+    if (this.isLoading) return;
+    this.currentPage++;
+    this.fetchActivityData();
+    // if (this.isLoading) return; // 如果正在加载，直接返回
+    // this.currentPage++;
 
-    // 保存当前数组长度以便后续比较
-    const currentLength1 = this.onlineInProgress.length
-    const currentLength2 = this.offlineOngoing.length
-    const currentLength3 = this.offlineReviewofPreviousEvents.length
-    const currentLength = this.onlineReviewofPastEvents.length
+    // // 保存当前数组长度以便后续比较
+    // const currentLength1 = this.onlineInProgress.length;
+    // const currentLength2 = this.offlineOngoing.length;
+    // const currentLength3 = this.offlineReviewofPreviousEvents.length;
+    // const currentLength = this.onlineReviewofPastEvents.length;
 
-    this.fetchActivityData()
-      .then(() => {
-        const newLength1 = this.onlineInProgress.length
-        const newLength2 = this.offlineOngoing.length
-        const newLength3 = this.offlineReviewofPreviousEvents.length
-        const newLength = this.onlineReviewofPastEvents.length
-        // 检查新的数组长度
-        if (
-          newLength1 === currentLength1 &&
-          newLength2 === currentLength2 &&
-          newLength3 === currentLength3 &&
-          newLength === currentLength
-        ) {
-          // 如果数组长度没有增加，重置加载状态
-          this.isLoading = true
-          uni.showToast({
-            title: '没有更多数据',
-            icon: 'none',
-            duration: 2000, // 持续时间，单位为毫秒
-          })
-        } else {
-          // 如果成功加载新的数据，保持加载状态为 false
-          this.isLoading = false
-        }
-      })
-      .catch(() => {
-        this.isLoading = false // 如果请求失败，重置状态
-      })
+    // this.fetchActivityData()
+    //   .then(() => {
+    //     const newLength1 = this.onlineInProgress.length;
+    //     const newLength2 = this.offlineOngoing.length;
+    //     const newLength3 = this.offlineReviewofPreviousEvents.length;
+    //     const newLength = this.onlineReviewofPastEvents.length;
+    //     // 检查新的数组长度
+    //     if (
+    //       newLength1 === currentLength1 &&
+    //       newLength2 === currentLength2 &&
+    //       newLength3 === currentLength3 &&
+    //       newLength === currentLength
+    //     ) {
+    //       // 如果数组长度没有增加，重置加载状态
+    //       this.isLoading = true;
+    //       uni.showToast({
+    //         title: '没有更多数据',
+    //         icon: 'none',
+    //         duration: 2000, // 持续时间，单位为毫秒
+    //       });
+    //     } else {
+    //       // 如果成功加载新的数据，保持加载状态为 false
+    //       this.isLoading = false;
+    //     }
+    //   })
+    //   .catch(() => {
+    //     this.isLoading = false; // 如果请求失败，重置状态
+    //   });
   },
+
   onLoad() {
-    this.statusBarHeight = getApp().globalData.top
-    this.isLoading = false
+    this.statusBarHeight = getApp().globalData.top;
+    this.isLoading = false;
+
     // this.startCountdown() // 开始倒计时
+    this.fetchActivityData();
   },
   onShow() {
-    this.fetchActivityData()
-    this.isLoading = false
+    this.currentPage = 1;
+    this.fetchActivityData();
+
+    this.isLoading = false;
   },
   onUnload() {
-    // this.stopCountdown() // 页面卸载时停止倒计时
+    clearInterval(this.intervalId);
+    clearInterval(this.intervalId1);
   },
 
   mounted() {
@@ -324,112 +376,160 @@ export default {
           page: this.currentPage,
           end_activity: 1,
           is_online: this.current === 0 ? 1 : 0, // 根据当前状态设置在线状态
-        }
+        };
         //进行中
         const params1 = {
           limit: 7,
           page: this.currentPage,
+          end_activity: -1,
           is_online: this.current === 0 ? 1 : 0, // 根据当前状态设置在线状态
-        }
+        };
         // const store = useStore()
         // 已结束的活动
-        const response = await fetchActivityCourseList(params)
+        const response = await fetchActivityCourseList(params);
 
         //正在进行中的活动
-        const afoot = await fetchActivityCourseList(params1)
+        const afoot = await fetchActivityCourseList(params1);
 
         if (this.current === 0) {
           //线上已结束
+          // this.onlineReviewofPastEvents = response.items;
+          let resOver = response.items.map((item) => ({
+            ...item, // 保留原有的属性
+            hadSignup: -1, // 将 hadSignup 改为 -1
+          }));
+          this.onlineReviewofPastEvents = resOver;
+          // if (this.onlineReviewofPastEvents.length === response.total) {
+          //   this.isLoading = true;
+          // }
           // this.listdata1 = response.items || [];
-          const existingIds1 = new Set(
-            this.onlineReviewofPastEvents.map((item) => item.id)
-          )
+          // const existingIds1 = new Set(
+          //   this.onlineReviewofPastEvents.map((item) => item.id)
+          // );
 
           // 线上已结束
-          let newItems1 = response.items
-            .filter((item) => !existingIds1.has(item.id))
-            .map((item) => ({
-              ...item, // 保留原有的属性
-              hours: 0, // 增加时字段，初始化为0
-              minutes: 0, // 增加分字段，初始化为0
-              seconds: 0, // 增加秒字段，初始化为0
-            }))
-          this.onlineReviewofPastEvents = [
-            ...this.onlineReviewofPastEvents,
-            ...newItems1,
-          ]
+          // let newItems1 = response.items
+          //   .filter((item) => !existingIds1.has(item.id))
+          //   .map((item) => ({
+          //     ...item, // 保留原有的属性
+          //     hours: 0, // 增加时字段，初始化为0
+          //     minutes: 0, // 增加分字段，初始化为0
+          //     seconds: 0, // 增加秒字段，初始化为0
+          //   }));
+          // this.onlineReviewofPastEvents = [
+          //   ...this.onlineReviewofPastEvents,
+          //   ...newItems1,
+          // ];
           //线上进行中
           // this.listdata2 = afoot.items || [];
           // 线上进行中
-          const existingIds2 = new Set(
-            this.onlineInProgress.map((item) => item.id)
-          )
-          let newItems2 = afoot.items
-            .filter((item) => !existingIds2.has(item.id))
-            .map((item) => ({
-              ...item, // 保留原有的属性
-              hours: 0, // 增加时字段，初始化为0
-              minutes: 0, // 增加分字段，初始化为0
-              seconds: 0, // 增加秒字段，初始化为0
-            }))
-          this.onlineInProgress = [...this.onlineInProgress, ...newItems2]
-          this.updateCountdown()
+          this.onlineInProgress = afoot.items;
+          if (
+            this.onlineReviewofPastEvents.length === response.total &&
+            this.onlineInProgress.length === afoot.total
+          ) {
+            this.isLoading = true;
+          }
+          // const existingIds2 = new Set(
+          //   this.onlineInProgress.map((item) => item.id)
+          // );
+          // let newItems2 = afoot.items
+          //   .filter((item) => !existingIds2.has(item.id))
+          //   .map((item) => ({
+          //     ...item, // 保留原有的属性
+          //     hours: 0, // 增加时字段，初始化为0
+          //     minutes: 0, // 增加分字段，初始化为0
+          //     seconds: 0, // 增加秒字段，初始化为0
+          //   }));
+          // this.onlineInProgress = [...this.onlineInProgress, ...newItems2];
+          // console.log(this.onlineInProgress);
+          this.updateCountdown();
         } else {
           //线下已结束
-          const existingIds = new Set(
-            this.offlineReviewofPreviousEvents.map((item) => item.id)
-          )
+          // this.offlineReviewofPreviousEvents = response.items;
 
-          let newItems = response.items
-            .filter((item) => !existingIds.has(item.id))
-            .map((item) => ({
-              ...item, // 保留原有的属性
-              hours: 0, // 增加时字段，初始化为0
-              minutes: 0, // 增加分字段，初始化为0
-              seconds: 0, // 增加秒字段，初始化为0
-            }))
-          this.offlineReviewofPreviousEvents = [
-            ...this.offlineReviewofPreviousEvents,
-            ...newItems,
-          ]
+          let resOver1 = response.items.map((item) => ({
+            ...item, // 保留原有的属性
+            hadSignup: -1, // 将 hadSignup 改为 -1
+          }));
+          this.offlineReviewofPreviousEvents = resOver1;
+          // if (this.offlineReviewofPreviousEvents.length === response.total) {
+          //   this.isLoading = true;
+          // }
+          // this.listdata3 = response.items || [];
+          // const existingIds = new Set(
+          //   this.offlineReviewofPreviousEvents.map((item) => item.id)
+          // );
+          // const existingIds = new Set(
+          //   this.offlineReviewofPreviousEvents.map((item) => item.id)
+          // );
+
+          // let newItems = response.items
+          //   .filter((item) => !existingIds.has(item.id))
+          //   .map((item) => ({
+          //     ...item, // 保留原有的属性
+          //     hours: 0, // 增加时字段，初始化为0
+          //     minutes: 0, // 增加分字段，初始化为0
+          //     seconds: 0, // 增加秒字段，初始化为0
+          //   }));
+          // this.offlineReviewofPreviousEvents = [
+          //   ...this.offlineReviewofPreviousEvents,
+          //   ...newItems,
+          // ];
           //线下进行中
+
+          this.offlineOngoing = afoot.items;
+          // if (this.offlineOngoing.length === response.total) {
+          //   this.isLoading = true;
+          // }
+
+          if (
+            this.offlineOngoing.length === afoot.total &&
+            this.offlineReviewofPreviousEvents.length === response.total
+          ) {
+            this.isLoading = true;
+          }
           // this.listdata3 = afoot.items || [];
-          const existingIds3 = new Set(
-            this.offlineOngoing.map((item) => item.id)
-          )
-          let newItems3 = afoot.items
-            .filter((item) => !existingIds3.has(item.id))
-            .map((item) => ({
-              ...item, // 保留原有的属性
-              hours: 0, // 增加时字段，初始化为0
-              minutes: 0, // 增加分字段，初始化为0
-              seconds: 0, // 增加秒字段，初始化为0
-            }))
-          this.offlineOngoing = [...this.offlineOngoing, ...newItems3]
-          this.updateCountdown()
+          // const existingIds3 = new Set(
+          //   this.offlineOngoing.map((item) => item.id)
+          // );
+          // let newItems3 = afoot.items
+          //   .filter((item) => !existingIds3.has(item.id))
+          //   .map((item) => ({
+          //     ...item, // 保留原有的属性
+          //     hours: 0, // 增加时字段，初始化为0
+          //     minutes: 0, // 增加分字段，初始化为0
+          //     seconds: 0, // 增加秒字段，初始化为0
+          //   }));
+          // this.offlineOngoing = [...this.offlineOngoing, ...newItems3];
+          console.log(this.offlineOngoing);
+          this.updateCountdown();
         }
       } catch (error) {
-        console.error('获取活动数据失败:', error)
+        console.error('获取活动数据失败:', error);
       }
     },
     onClickItem(e) {
       if (this.current !== e.currentIndex) {
-        this.current = e.currentIndex
-        this.currentPage = 1 // 重置当前页数为1
-        this.isLoading = false // 重置加载状态
-        this.fetchActivityData() // 切换时重新请求数据
+        this.current = e.currentIndex;
+        this.currentPage = 1; // 重置当前页数为1
+        this.isLoading = false; // 重置加载状态
+        // 清除定时器
+        clearInterval(this.intervalId);
+        clearInterval(this.intervalId1);
+        this.fetchActivityData(); // 切换时重新请求数据
       }
     },
     styleChange(e) {
       if (this.styleType !== e.detail.value) {
-        this.styleType = e.detail.value
+        this.styleType = e.detail.value;
       }
     },
 
     colorChange(e) {
       if (this.styleType !== e.detail.value) {
-        console.log(e.detail.value)
-        this.activeColor = e.detail.value
+        console.log(e.detail.value);
+        this.activeColor = e.detail.value;
       }
     },
     handleSignup(id) {
@@ -437,93 +537,97 @@ export default {
         limit: 7,
         page: 1,
         end_activity: 1,
-      }
+      };
 
       uni.navigateTo({
         url: `/pages/pagesall/home/signUp?id=${id}&limit=${params.limit}&page=${params.page}&end_activity=${params.end_activity}`, // 确保替换为相应的页面路径
-      })
+      });
     },
     handleSignup1(id) {
       const params = {
         limit: 7,
         page: 1,
         end_activity: 1,
-      }
+      };
 
       uni.navigateTo({
         url: `/pages/pagesall/home/signUp?id=${id}&limit=${params.limit}&page=${params.page}&end_activity=${params.end_activity}`, // 确保替换为相应的页面路径
-      })
+      });
     },
 
     handleSignupXSline(id) {
       const params = {
         limit: 7,
         page: 1,
-        end_activity: 1,
+        // end_activity: 1,
         is_online: 1, // 根据当前状态设置在线状态
-      }
+      };
 
       uni.navigateTo({
-        url: `/pages/pagesall/home/signUp?id=${id}&limit=${params.limit}&page=${params.page}&end_activity=${params.end_activity}&is_online=${params.is_online}`, // 确保替换为相应的页面路径
-      })
+        url: `/pages/pagesall/home/signUp?id=${id}&limit=${params.limit}&page=${params.page}&is_online=${params.is_online}`, // 确保替换为相应的页面路径
+      });
     },
     handleSignupOnline(id) {
       // 在此处可以解析请求参数
       const params = {
         limit: 7,
         page: 1,
-        end_activity: 1,
+        // end_activity: 1,
         is_online: 0, // 根据当前状态设置在线状态
-      }
+      };
 
       uni.navigateTo({
-        url: `/pages/pagesall/home/signUp?id=${id}&limit=${params.limit}&page=${params.page}&end_activity=${params.end_activity}&is_online=${params.is_online}`, // 确保替换为相应的页面路径
-      })
+        url: `/pages/pagesall/home/signUp?id=${id}&limit=${params.limit}&page=${params.page}&is_online=${params.is_online}`, // 确保替换为相应的页面路径
+      });
     },
     formatTime(value) {
       // 确保时间总是两位数
-      return value.toString().padStart(2, '0')
+      return value.toString().padStart(2, '0');
     },
 
     updateCountdown() {
-      const currentDateTimestampInMilliseconds = new Date().getTime()
-      const now = Math.floor(currentDateTimestampInMilliseconds / 1000)
+      const currentDateTimestampInMilliseconds = new Date().getTime();
+      const now = Math.floor(currentDateTimestampInMilliseconds / 1000);
 
       this.onlineInProgress.forEach((item) => {
         if (!isNaN(item.end_time)) {
-          const timeDiff = item.end_time - now
+          const timeDiff = item.end_time - now;
           if (timeDiff > 0) {
-            item.hours = Math.floor(timeDiff / 3600)
-            item.minutes = Math.floor((timeDiff % 3600) / 60)
-            item.seconds = timeDiff % 60
-            this.intervalId = setInterval(this.updateCountdown, 1000) // 每秒更新一次
+            item.hours = Math.floor(timeDiff / 3600);
+            item.minutes = Math.floor((timeDiff % 3600) / 60);
+            item.seconds = timeDiff % 60;
+            if (!this.intervalId) {
+              this.intervalId = setInterval(this.updateCountdown, 1000);
+            }
           } else {
-            item.hours = item.minutes = item.seconds = 0 // 时间到达
-            clearInterval(this.intervalId) // 停止计时器
-            this.intervalId = null
+            item.hours = item.minutes = item.seconds = 0; // 时间到达
+            clearInterval(this.intervalId); // 停止计时器
+            this.intervalId = null;
           }
         } else {
-          item.hours = item.minutes = item.seconds = 0 // 处理无效时间
+          item.hours = item.minutes = item.seconds = 0; // 处理无效时间
         }
-      })
+      });
 
       this.offlineOngoing.forEach((item) => {
         if (!isNaN(item.end_time)) {
-          const timeDiff = item.end_time - now
+          const timeDiff = item.end_time - now;
           if (timeDiff > 0) {
-            item.hours = Math.floor(timeDiff / 3600)
-            item.minutes = Math.floor((timeDiff % 3600) / 60)
-            item.seconds = timeDiff % 60
-            this.intervalId1 = setInterval(this.updateCountdown, 1000) // 每秒更新一次
+            item.hours = Math.floor(timeDiff / 3600);
+            item.minutes = Math.floor((timeDiff % 3600) / 60);
+            item.seconds = timeDiff % 60;
+            if (!this.intervalId1) {
+              this.intervalId1 = setInterval(this.updateCountdown, 1000);
+            }
           } else {
-            item.hours = item.minutes = item.seconds = 0 // 时间到达
-            clearInterval(this.intervalId1) // 停止计时器
-            this.intervalId1 = null
+            item.hours = item.minutes = item.seconds = 0; // 时间到达
+            clearInterval(this.intervalId1); // 停止计时器
+            this.intervalId1 = null;
           }
         } else {
-          item.hours = item.minutes = item.seconds = 0 // 处理无效时间
+          item.hours = item.minutes = item.seconds = 0; // 处理无效时间
         }
-      })
+      });
     },
 
     selectCity() {
@@ -531,16 +635,16 @@ export default {
         title: '暂不开放其他城市',
         icon: 'none',
         duration: 2000,
-      })
+      });
       // uni.navigateTo({
       //   url: 'SelectCity',
       // })
     },
     updateSelectedCity(city) {
-      this.oper_area = city // 更新选中的城市
+      this.oper_area = city; // 更新选中的城市
     },
   },
-}
+};
 </script>
 
 <style lang="scss">
@@ -569,7 +673,7 @@ export default {
 }
 
 .area_input {
-  width: 524rpx;
+  width: 14.625rem;
   height: 40rpx;
   padding: 20rpx;
   background: #eeeeee;
@@ -748,20 +852,21 @@ export default {
   align-items: flex-start;
 }
 
-.imgbox {
-  position: relative;
-  width: 70rpx;
-  height: 30rpx;
-}
+// .imgbox {
+//   position: relative;
+//   width: 170rpx;
+//   height: 30rpx;
+//   overflow: hidden;
+// }
 
-.imgbox img {
-  position: absolute;
-  top: 0;
-  right: 0;
-  display: inline-block;
-  border-radius: 50%;
-  border: 1px solid white;
-}
+// .imgbox img {
+//   position: absolute;
+//   top: 0;
+//   right: 0;
+//   display: inline-block;
+//   border-radius: 50%;
+//   border: 1px solid white;
+// }
 
 .endbaoming {
   width: 636rpx;
@@ -834,7 +939,7 @@ export default {
 
 .oper_title_text {
   padding: 10rpx 30rpx;
-  font-weight: 500;
+  font-weight: bold;
   font-size: 36rpx;
   color: #000000;
   line-height: 50rpx;
@@ -842,7 +947,7 @@ export default {
 
 .oper_title_text1 {
   padding: 20rpx 0 0 0;
-  font-weight: 500;
+  font-weight: bold;
   font-size: 36rpx;
   color: #000000;
   line-height: 50rpx;
@@ -863,5 +968,8 @@ export default {
 }
 .uni-section-header {
   display: none !important;
+}
+::v-deep.segmented-control__item--text {
+  border-bottom-style: none !important;
 }
 </style>

@@ -1,12 +1,12 @@
 <template>
   <view>
-    <view :style="'height:' + (statusBarHeight + 5) + 'px;'"></view>
+    <view :style="'height:' + statusBarHeight + 'px;'"></view>
     <TUIContact />
   </view>
 </template>
 
 <script>
-import TUIContact from '../../../TUIKit/components/TUIContact/index.vue'
+import TUIContact from '../../../TUIKit/components/TUIContact/index.vue';
 
 export default {
   components: { TUIContact },
@@ -16,33 +16,33 @@ export default {
       btnyes: true,
       input_text: '',
       friends_List: [],
-    }
+    };
   },
   onLoad(options) {
     // const userId = options.user_id
     // console.log('接收到的用户ID：', userId)
-    this.statusBarHeight = getApp().globalData.top
+    this.statusBarHeight = getApp().globalData.top;
   },
   methods: {
     input_search(event) {
-      console.log(event.detail.value)
-      this.input_text = event.detail.value
+      console.log(event.detail.value);
+      this.input_text = event.detail.value;
       if (this.input_text == '') {
-        this.btnyes = true
+        this.btnyes = true;
       } else if (this.input_text != '') {
-        this.btnyes = false
+        this.btnyes = false;
       }
     },
     add_friend() {
       uni.navigateTo({
         url: '/pages/pagesall/home/add_friend',
-      })
+      });
     },
     cancel_lation() {
-      uni.navigateBack()
+      uni.navigateBack();
     },
   },
-}
+};
 </script>
 
 <style>

@@ -1,75 +1,122 @@
 <template>
   <view>
-    <view :style="'height:' + (statusBarHeight + 5) + 'px;'"></view>
+    <view :style="'height:' + statusBarHeight + 'px;'"></view>
     <view class="homework_Title">
       <view class="homeworkImg" @click="work_goback">
-        <img src="https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPng427bd6433cc6e0a8e82f63b3174b2c817dc9c299bd0c4414c8d258f46cf46f94" alt="" />
+        <img
+          src="https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPng427bd6433cc6e0a8e82f63b3174b2c817dc9c299bd0c4414c8d258f46cf46f94"
+          alt=""
+        />
       </view>
-      <view class="homework_Title_text">
-        我的作业
-      </view>
+      <view class="homework_Title_text"> 我的作业 </view>
     </view>
 
     <view class="homeworktbox">
       <text class="box-text1">临时作业</text>
     </view>
 
-    <view v-if="temworkList.length>0">
+    <view v-if="temworkList.length > 0">
       <view class="tem-list">
-        <view class="temlist" v-for="(item,index) in temworkList" :key="index" @click="goToVideoPage(item.id)">
+        <view
+          class="temlist"
+          v-for="(item, index) in temworkList"
+          :key="index"
+          @click="goToVideoPage(item.id)"
+        >
           <view class="temlistImg">
             <img :src="item.sub_image" alt="" />
           </view>
           <view class="temlistText1">
-            {{item.content}}
+            {{ item.content }}
           </view>
           <view class="temlistText2">
-            <text>讲师：{{item.teacher_name}}</text>
+            <text>讲师：{{ item.teacher_name }}</text>
             <text>
               {{
-    (new Date(item.finish_time).getMonth() + 1).toString().padStart(2, '0') + '-' +
-    new Date(item.finish_time).getDate().toString().padStart(2, '0')
-  }}
+                (new Date(item.finish_time).getMonth() + 1)
+                  .toString()
+                  .padStart(2, '0') +
+                '-' +
+                new Date(item.finish_time).getDate().toString().padStart(2, '0')
+              }}
             </text>
-
           </view>
         </view>
       </view>
     </view>
-    <view v-else class="kong" style="display: flex; justify-content: center; align-items: center; height: 500rpx;">
-      <image style="width:400rpx;height: 400rpx;" src="@/static/img/noAct.png" mode="aspectFit" />
+    <view
+      v-else
+      class="kong"
+      style="
+        display: grid;
+        justify-items: center;
+        position: relative;
+        height: 500rpx;
+      "
+    >
+      <image
+        style="width: 400rpx; height: 400rpx; margin-bottom: -30rpx"
+        src="@/static/img/noHomework.png"
+        mode="aspectFit"
+      />
+      <text style="color: #666; position: absolute; z-index: 1; bottom: 140rpx"
+        >暂无作业</text
+      >
     </view>
     <view class="homeworktbox">
       <text class="box-text1">近期作业</text>
     </view>
 
-    <view v-if="workList.length>0">
+    <view v-if="workList.length > 0">
       <view class="tem-list">
-        <view class="temlist" v-for="(item,index) in workList" :key="index" @click="goToVideoPage1(item.id)">
+        <view
+          class="temlist"
+          v-for="(item, index) in workList"
+          :key="index"
+          @click="goToVideoPage1(item.id)"
+        >
           <view class="temlistImg">
-            <img :src="item.img" alt="" />
+            <img :src="item.sub_image" alt="" />
           </view>
-          <view class="temlistText1">
-            {{item.title}}
-          </view>
+          <view class="temlistText1"> 评语：{{ item.remark }} </view>
           <view class="boxlistText3">
-            <text class="boxlistText4">优秀</text>
+            <text class="boxlistText4" v-if="mark !== undefined">{{
+              mark < 60 ? '去学习' : mark >= 85 ? '优秀' : '良'
+            }}</text>
           </view>
           <view class="temlistText2">
-            <text>{{item.teacher}}</text>
+            <text>审阅：{{ item.teacher_name }}讲师</text>
           </view>
         </view>
       </view>
     </view>
-    <view v-else class="kong" style="display: flex; justify-content: center; align-items: center; height: 500rpx;">
-      <image style="width:400rpx;height: 400rpx;" src="@/static/img/noAct.png" mode="aspectFit" />
+    <view
+      v-else
+      class="kong"
+      style="
+        display: grid;
+        justify-items: center;
+        position: relative;
+        height: 500rpx;
+      "
+    >
+      <image
+        style="width: 400rpx; height: 400rpx; margin-bottom: -30rpx"
+        src="@/static/img/noHomework.png"
+        mode="aspectFit"
+      />
+      <text style="color: #666; position: absolute; z-index: 1; bottom: 140rpx"
+        >暂无作业</text
+      >
     </view>
   </view>
-
 </template>
 
 <script>
-import { fetchMyTemporaryHomework, fetchMyHistoryHomework } from '@/utils/api'
+import {
+  fetchTemporaryHomeworkList,
+  fetchRecentHomeworkList,
+} from '@/utils/api';
 import {
   onLoad,
   onShow,
@@ -91,7 +138,7 @@ export default {
         page: 1,
         limit: 6,
       },
-    }
+    };
   },
 
   onPullDownRefresh() {
@@ -107,25 +154,27 @@ export default {
     const currentLength = this.temworkList.length;
     const currentLength1 = this.workList.length;
 
-    this.loadMyTemporaryHomework().then(() => {
-      const newLength1 = this.temworkList.length;
-      const newLength2 = this.workList.length;
-      // 检查新的数组长度
-      if (newLength1 === currentLength && newLength2 === currentLength1) {
-        // 如果数组长度没有增加，重置加载状态
-        this.isLoading = true;
-        uni.showToast({
-          title: '没有更多数据',
-          icon: 'none',
-          duration: 2000 // 持续时间，单位为毫秒
-        });
-      } else {
-        // 如果成功加载新的数据，保持加载状态为 false
-        this.isLoading = false;
-      }
-    }).catch(() => {
-      this.isLoading = false; // 如果请求失败，重置状态
-    });
+    this.loadMyTemporaryHomework()
+      .then(() => {
+        const newLength1 = this.temworkList.length;
+        const newLength2 = this.workList.length;
+        // 检查新的数组长度
+        if (newLength1 === currentLength && newLength2 === currentLength1) {
+          // 如果数组长度没有增加，重置加载状态
+          this.isLoading = true;
+          uni.showToast({
+            title: '没有更多数据',
+            icon: 'none',
+            duration: 2000, // 持续时间，单位为毫秒
+          });
+        } else {
+          // 如果成功加载新的数据，保持加载状态为 false
+          this.isLoading = false;
+        }
+      })
+      .catch(() => {
+        this.isLoading = false; // 如果请求失败，重置状态
+      });
   },
   onLoad() {
     this.statusBarHeight = getApp().globalData.top;
@@ -138,45 +187,51 @@ export default {
     goToVideoPage(id) {
       // 跳转到视频页面，并携带id作为参数
       uni.navigateTo({
-        url: `/pages/pagesall/course/go_learn?id=${id}`, // 使用模板字符串构建URL
+        url: `/pages/pagesall/course/go_learn?homework_id=${id}`, // 使用模板字符串构建URL
       });
     },
     goToVideoPage1(id) {
       // 跳转到视频页面，并携带id作为参数
       uni.navigateTo({
-        url: `/pages/pagesall/course/go_learn?id=${id}`, // 使用模板字符串构建URL
+        url: `/pages/pagesall/course/go_learn?content_id=${id}`, // 使用模板字符串构建URL
       });
     },
     async loadMyTemporaryHomework() {
       try {
-        const response = await fetchMyTemporaryHomework(this.params); // 调用 API 请求
-        const HistoryHomework = await fetchMyHistoryHomework(this.params1); // 调用 API 请求
+        //临时作业
+        const response = await fetchTemporaryHomeworkList(this.params); // 调用 API 请求
+        // 近期作业
+        const HistoryHomework = await fetchRecentHomeworkList(this.params1); // 调用 API 请求
 
         if (response.items && response.items.length > 0) {
-          const existingIds = new Set(this.temworkList.map(item => item.id));
+          const existingIds = new Set(this.temworkList.map((item) => item.id));
           // 过滤新项，确保不重复
-          const newItems = response.items.filter(item => !existingIds.has(item.id)).map(item => ({
-            ...item, // 复制其他属性
-            // 其他字段
-          }));
+          const newItems = response.items
+            .filter((item) => !existingIds.has(item.id))
+            .map((item) => ({
+              ...item, // 复制其他属性
+              // 其他字段
+            }));
 
           // 合并新项到现有列表
           this.temworkList = [...this.temworkList, ...newItems];
         } else {
-
         }
         if (HistoryHomework.items && HistoryHomework.items.length > 0) {
-          const existingIds1 = new Set(this.temworkList.map(item => item.id));
+          const existingIds1 = new Set(this.workList.map((item) => item.id));
           // 过滤新项，确保不重复
-          const newItems1 = HistoryHomework.items.filter(item => !existingIds1.has(item.id)).map(item => ({
-            ...item, // 复制其他属性
-            // 其他字段
-          }));
-
+          console.log(existingIds1);
+          const newItems1 = HistoryHomework.items
+            .filter((item) => !existingIds1.has(item.id))
+            .map((item) => ({
+              ...item, // 复制其他属性
+              // 其他字段
+            }));
+          console.log(newItems1);
           // 合并新项到现有列表
           this.workList = [...this.workList, ...newItems1];
+          console.log(this.workList);
         } else {
-
         }
         // this.workList = HistoryHomework.items || []; // 更新数据
         console.log('教师信息:', this.temworkList); // 打印获取的数据
@@ -186,10 +241,10 @@ export default {
       }
     },
     work_goback() {
-      uni.navigateBack()
-    }
+      uni.navigateBack();
+    },
   },
-}
+};
 </script>
 
 <style>

@@ -1,8 +1,13 @@
 <template>
   <view class="container">
-    <view :style="'height:' + (statusBarHeight + 5) + 'px;'"></view>
+    <view :style="'height:' + statusBarHeight + 'px;'"></view>
     <view class="form">
-      <textarea class="textarea" placeholder="请输入您的投诉意见" v-model="feedback" @input="updateCharCount"></textarea>
+      <textarea
+        class="textarea"
+        placeholder="请输入您的投诉意见"
+        v-model="feedback"
+        @input="updateCharCount"
+      ></textarea>
       <text class="char-count">{{ charCount }}/1000</text>
       <button class="submit-button" @click="submitFeedback">提交</button>
     </view>
@@ -10,15 +15,15 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
-import { submitComplaint } from "@/utils/api";
+import { ref } from 'vue';
+import { submitComplaint } from '@/utils/api';
 import { onLoad } from '@dcloudio/uni-app';
-const statusBarHeight = ref()
+const statusBarHeight = ref();
 onLoad(() => {
   statusBarHeight.value = getApp().globalData.top;
-})
+});
 
-const feedback = ref("");
+const feedback = ref('');
 const charCount = ref(0);
 
 const updateCharCount = () => {
@@ -34,15 +39,23 @@ const showToast = (title, icon) => {
 
 const submitFeedback = async () => {
   if (!feedback.value.trim()) {
-    return showToast("请输入投诉意见", "none");
+    return showToast('请输入投诉意见', 'none');
   }
 
   try {
-    await submitComplaint({ data: feedback.value }); // 将 feedback.value 作为参数传递
-    showToast("投诉意见已提交", "success");
+    let res = await submitComplaint({ data: feedback.value }); // 将 feedback.value 作为参数传递
+    // showToast('投诉意见已提交', 'success');
+    // uni.navigateBack();
+    uni.showToast({
+      title: '投诉意见已提交',
+      icon: 'success',
+      success: () => {
+        uni.navigateBack();
+      },
+    });
   } catch (error) {
-    showToast("提交失败，请稍后再试", "none");
-    console.error("提交反馈失败:", error);
+    showToast('提交失败，请稍后再试', 'none');
+    console.error('提交反馈失败:', error);
   }
 };
 </script>

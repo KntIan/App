@@ -2,10 +2,10 @@ import {
   require_chat,
   require_tim_profanity_filter_plugin,
   require_tim_upload_plugin
-} from "./chunk-A6PKGKLD.js";
+} from "./chunk-SI3C56W5.js";
 import {
   __toESM
-} from "./chunk-LQ2VYIYD.js";
+} from "./chunk-BQWMX7FD.js";
 
 // ../../../Project Folder/ZXHand/ZXHandwritting_APP_uniapp/node_modules/@tencentcloud/tui-core/index.js
 var import_chat = __toESM(require_chat());

@@ -1,6 +1,6 @@
 import {
   __commonJS
-} from "./chunk-LQ2VYIYD.js";
+} from "./chunk-BQWMX7FD.js";
 
 // ../../../Project Folder/ZXHand/ZXHandwritting_APP_uniapp/node_modules/dayjs/plugin/localeData.js
 var require_localeData = __commonJS({

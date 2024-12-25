@@ -1,14 +1,14 @@
 <template>
   <view class="codepage">
-    <view :style="'height:' + (statusBarHeight + 5) + 'px;'"></view>
+    <view :style="'height:' + statusBarHeight + 'px;'"></view>
 
     <view class="code_titlebox">
-      <!-- <view class="messImg" @click="goback">
+      <view class="messImg" @click="goback">
         <img
           src="https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPnge1553c1d8d43568ee582b54f1deab731573c8804790b09e299c2e73eda1cfa68"
           alt=""
         />
-      </view> -->
+      </view>
       <view class="code_title"> 分享二维码 </view>
     </view>
 
@@ -61,69 +61,72 @@
 </template>
 
 <script>
-import { generateQRCode } from '@/utils/api'
-import { useStore } from '@/store'
+import { generateQRCode } from '@/utils/api';
+import { useStore } from '@/store';
 export default {
   data() {
     return {
       statusBarHeight: '',
       codeUrl: '',
-    }
+    };
   },
   computed: {
     userInfo() {
-      const store = useStore()
-      return store.userinfo // 从 Pinia 存储中获取 userinfo
+      const store = useStore();
+      return store.userinfo; // 从 Pinia 存储中获取 userinfo
     },
   },
   onLoad() {
-    this.statusBarHeight = getApp().globalData.top
+    this.statusBarHeight = getApp().globalData.top;
   },
   mounted() {
-    this.generateCode()
+    this.generateCode();
   },
   methods: {
     async generateCode() {
       let param = {
-        params: uni.getStorageSync('user_id'),
-      }
-      const res = await generateQRCode(param)
+        params: 'type=1|user_id=' + uni.getStorageSync('user_id'),
+      };
+      const res = await generateQRCode(param);
 
-      this.codeUrl = res.data
-      console.log(this.codeUrl)
+      this.codeUrl = res.data;
+      console.log(this.codeUrl);
     },
     goback() {
-      uni.navigateBack()
+      uni.navigateBack();
     },
     mycode() {
       uni.navigateTo({
         url: '/pages/pagesall/home/mycode',
-      })
+      });
     },
     saveToAlbum() {
       uni.saveImageToPhotosAlbum({
         filePath: this.codeUrl,
         success: (res) => {
-          console.log('保存成功：', res)
+          console.log('保存成功：', res);
           uni.showToast({
             title: '保存成功',
             icon: 'success',
-          })
+          });
         },
         fail: (err) => {
-          console.error('保存失败：', err)
+          console.error('保存失败：', err);
           uni.showToast({
             title: '保存失败',
             icon: 'none',
-          })
+          });
         },
-      })
+      });
     },
   },
-}
+};
 </script>
 
-<style>
+<style scoped>
+body {
+  overflow: hidden;
+}
 .codepage {
   background-color: #ff9e02;
   width: 750rpx;

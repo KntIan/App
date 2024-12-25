@@ -12,7 +12,9 @@
 			"style": {
 				"navigationBarTitleText": "登录页",
 				"navigationStyle": "custom",
-				"enablePullDownRefresh": true
+				"app-plus": {
+					"popGesture": "none"
+				}
 			}
 		},
 		{
@@ -41,7 +43,8 @@
 			"style": {
 				"navigationBarTitleText": "课程",
 				"navigationStyle": "custom",
-				"enablePullDownRefresh": true
+				"enablePullDownRefresh": true,
+				"onReachBottomDistance": 50
 			}
 		}, {
 			"path": "pages/pagesall/aiDete",
@@ -68,8 +71,7 @@
 		{
 			"path": "pages/pagesall/home/signUp",
 			"style": {
-				"navigationBarTitleText": "立即报名",
-				"navigationStyle": "custom"
+				"navigationBarTitleText": "立即报名"
 			}
 		},
 		{
@@ -103,8 +105,7 @@
 		{
 			"path": "pages/pagesall/home/adverMess",
 			"style": {
-				"navigationBarTitleText": "公告消息",
-				"navigationStyle": "custom"
+				"navigationBarTitleText": "公告消息"
 			}
 		},
 		{
@@ -124,8 +125,7 @@
 		{
 			"path": "pages/pagesall/home/game",
 			"style": {
-				"navigationBarTitleText": "赛事比赛",
-				"navigationStyle": "custom"
+				"navigationBarTitleText": "赛事比赛"
 			}
 		},
 		{
@@ -138,8 +138,7 @@
 		{
 			"path": "pages/pagesall/course/go_learn",
 			"style": {
-				"navigationBarTitleText": "学习",
-				"navigationStyle": "custom"
+				"navigationBarTitleText": "双师课堂"
 			}
 		},
 		{
@@ -242,7 +241,7 @@
 				"navigationBarTitleText": "我的作业",
 				"navigationStyle": "custom",
 				"enablePullDownRefresh": true,
-                "onReachBottomDistance": 50
+				"onReachBottomDistance": 50
 			}
 		},
 		{
@@ -324,14 +323,17 @@
 			"path": "pages/pagesall/home/informationDetails",
 			"style": {
 				"navigationBarTitleText": "资讯列表",
-				"navigationStyle": "custom"
+				"navigationBarBackgroundColor": "#eeeeee",
+				"enablePullDownRefresh": true,
+				"onReachBottomDistance": 50
 			}
 		},
 		{
 			"path": "pages/pagesall/home/informationDetailsmess",
 			"style": {
-				"navigationBarTitleText": "",
-				"navigationStyle": "custom"
+				"navigationBarTitleText": "资讯详情",
+				"navigationBarBackgroundColor": "white"
+
 			}
 		},
 		{
@@ -340,6 +342,30 @@
 				"navigationBarTitleText": "我的课程",
 
 				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/pagesall/course/golearn",
+			"style": {
+				"navigationBarTitleText": "双师课堂"
+			}
+		},
+		{
+			"path": "pages/pagesall/home/studentStyle",
+			"style": {
+				"navigationBarTitleText": "学员风采",
+				"navigationBarBackgroundColor": "white",
+				"enablePullDownRefresh": true,
+				"onReachBottomDistance": 50
+			}
+		},
+		{
+			"path": "pages/pagesall/home/worksOfExcellence",
+			"style": {
+				"navigationBarTitleText": "优秀作品",
+				"navigationBarBackgroundColor": "white",
+				"enablePullDownRefresh": true,
+				"onReachBottomDistance": 50
 			}
 		}
 
@@ -354,8 +380,10 @@
 	},
 	"tabBar": {
 		"borderStyle": "black",
-		"selectedColor": "#FB7299",
+		"selectedColor": "#FF9E02",
+
 		"color": "#444444",
+
 		"list": [{
 			"pagePath": "pages/pagesall/home",
 			"iconPath": "./static/img/index.png",
@@ -367,11 +395,6 @@
 			"selectedIconPath": "./static/img/les1.png",
 			"text": "课程"
 		}, {
-			"pagePath": "pages/pagesall/aiDete",
-			"iconPath": "./static/img/ai1.png",
-			"selectedIconPath": "./static/img/ai1.png",
-			"text": "AI测评"
-		}, {
 			"pagePath": "pages/pagesall/oper",
 			"iconPath": "./static/img/act.png",
 			"selectedIconPath": "./static/img/act1.png",
@@ -381,14 +404,14 @@
 			"iconPath": "./static/img/my.png",
 			"selectedIconPath": "./static/img/my1.png",
 			"text": "我的"
-		}]
+		}],
+		"midButton": {
+			"iconWidth": "60px",
+			"iconHeight": "60px",
+
+			"iconPath": "static/img/ai1.png"
+		}
 	},
-	// "midButton": {
-	//   "width": "60px",
-	//   "height": "60px",
-	//   "iconWidth": "50px",
-	//   "iconPath": "./static/img/ai1.png"
-	// },
 
 	"uniIdRouter": {}
 }

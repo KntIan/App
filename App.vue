@@ -1,21 +1,21 @@
 <script lang="ts">
-import { TUIChatKit } from "./TUIKit";
-import { TUITranslateService } from "@tencentcloud/chat-uikit-engine";
+import { TUIChatKit } from './TUIKit';
+import { TUITranslateService } from '@tencentcloud/chat-uikit-engine';
 // #ifndef MP-WEIXIN
-import { locales } from "./locales";
+import { locales } from './locales';
 // #endif
-import TIMPushConfigs from "./timpush-configs.json";
+import TIMPushConfigs from './timpush-configs.json';
 // #ifdef APP-PLUS
 // register TencentCloud-TIMPush
-import { IEnterChatConfig, loginFromStorage, openChat } from "./loginChat";
-import TUIChatEngine from "@tencentcloud/chat-uikit-engine";
-import { getNotificationAuth } from "./utils/getNotificationAuth";
+import { IEnterChatConfig, loginFromStorage, openChat } from './loginChat';
+import TUIChatEngine from '@tencentcloud/chat-uikit-engine';
+import { getNotificationAuth } from './utils/getNotificationAuth';
 
-import { tengXun, login } from "@/pages/login/login.vue";
-const TIMPush: any = uni.requireNativePlugin("TencentCloud-TIMPush");
+import { tengXun, login } from '@/pages/login/login.vue';
+const TIMPush: any = uni.requireNativePlugin('TencentCloud-TIMPush');
 console.warn(
   `TencentCloud-TIMPush: uni.requireNativePlugin ${
-    TIMPush ? "success" : "fail"
+    TIMPush ? 'success' : 'fail'
   }`
 );
 
@@ -23,13 +23,13 @@ uni.$TIMPush = TIMPush;
 uni.$TIMPushConfigs = TIMPushConfigs;
 const enterChatConfig: IEnterChatConfig = {
   isLoginChat: false,
-  conversationID: "",
+  conversationID: '',
 };
 // register TencentCloud-TUICallKit
-const TUICallKit: any = uni.requireNativePlugin("TencentCloud-TUICallKit");
+const TUICallKit: any = uni.requireNativePlugin('TencentCloud-TUICallKit');
 console.warn(
   `TencentCloud-TUICallKit: uni.requireNativePlugin ${
-    TUICallKit ? "success" : "fail"
+    TUICallKit ? 'success' : 'fail'
   }`
 );
 uni.$TUICallKit = TUICallKit;
@@ -39,10 +39,10 @@ uni.$TUICallKit = TUICallKit;
 const notificationChannelInfo = {
   notificationChannelList: [
     {
-      channelID: "tuikit", // 控制台配置 oppo 的 channelID
-      channelName: "tuikit", // 自定义名称
-      channelDesc: "自定义铃音", // 自定义描述
-      channelSound: "private_ring", // 自定义铃音的名称且不需要后缀名
+      channelID: 'tuikit', // 控制台配置 oppo 的 channelID
+      channelName: 'tuikit', // 自定义名称
+      channelDesc: '自定义铃音', // 自定义描述
+      channelSound: 'private_ring', // 自定义铃音的名称且不需要后缀名
     },
   ],
 };
@@ -57,7 +57,7 @@ TUITranslateService.useI18n();
 TUIChatKit.init();
 const SDKAppID = 1600059782; // Your SDKAppID
 const secretKey =
-  "de59c03814fa68ec61476566140ae06fdcd9f17fe05bcb33e5162571924e6246"; // Your secretKey
+  'de59c03814fa68ec61476566140ae06fdcd9f17fe05bcb33e5162571924e6246'; // Your secretKey
 
 uni.$chat_SDKAppID = SDKAppID;
 uni.$chat_secretKey = secretKey;
@@ -75,36 +75,53 @@ export default {
 
     // platform: 0,
     tabBarHeight: 0,
-    token: "",
-    platform: "", //设备信息
+    token: '',
+    platform: '', //设备信息
   },
   onLaunch: function () {
     uni.onTabBarMidButtonTap(() => {
       uni.navigateTo({
-        url: "/pages/release/release",
+        url: '/pages/pagesall/aiDete',
       });
     });
     this.getAreaSize();
+    // uni.loadFontFace({
+    //   family: 'MyCustomFont', // 字体名称
+    //   source: 'url(@/static/fonts/PingFangSC-Light.ttf)', // 字体文件的 URL
+    //   success: () => {
+    //     console.log('字体加载成功');
+    //   },
+    //   fail: (err) => {
+    //     console.error('字体加载失败', err);
+    //   },
+    // });
+
+    // uni.onTabBarMidButtonTap(() => {
+    //   uni.navigateTo({
+    //     url: '/pages/release/release',
+    //   });
+    // });
+
     // checkLoginStatus();
     // #ifdef APP-PLUS
     // 在 App.vue, 生命钩子 onLaunch 中监听
-    if (typeof uni.$TIMPush === "undefined") {
+    if (typeof uni.$TIMPush === 'undefined') {
       console.warn(
-        "如果您使用推送功能，需集成 TIMPush 插件，使用真机运行并且自定义基座调试，请参考官网文档：https://cloud.tencent.com/document/product/269/103522"
+        '如果您使用推送功能，需集成 TIMPush 插件，使用真机运行并且自定义基座调试，请参考官网文档：https://cloud.tencent.com/document/product/269/103522'
       );
     } else {
       getNotificationAuth();
-      uni.$on("uikitLogin", () => {
+      uni.$on('uikitLogin', () => {
         enterChatConfig.isLoginChat = true;
         openChat(enterChatConfig);
       });
       uni.$TIMPush.setOfflinePushListener((data) => {
-        const { notification = "" } = data?.data || {};
+        const { notification = '' } = data?.data || {};
         if (!notification) {
           return;
         }
         const { entity } = JSON.parse(notification);
-        console.log("推送消息:", 111111);
+        console.log('推送消息:', 111111);
         const type =
           entity.chatType === 1
             ? TUIChatEngine.TYPES.CONV_C2C
@@ -134,9 +151,8 @@ export default {
     getAreaSize() {
       var res = uni.getSystemInfoSync();
 
-      console.log("设备信息", res);
       this.globalData.platform = res.platform;
-      console.log("手机设备", this.globalData.model);
+
       // 设备可使用窗口高度，不包括系统状态栏和导航栏的高度
       this.globalData.windowHeight = res.windowHeight;
       // 设备的可使用窗口宽度
@@ -147,7 +163,7 @@ export default {
       this.globalData.safeArea = res.safeArea;
       // 设备安全区域的顶部边距
       this.globalData.top = res.safeArea.top;
-      console.log("safeAreaTop", this.globalData.top);
+
       // 计算设备的底部安全区域的高度
       this.globalData.safeAreaBottom = res.screenHeight - res.safeArea.bottom;
       // 计算底部导航栏高度
@@ -163,28 +179,31 @@ export default {
   },
 };
 </script>
-<style lang="scss" scoped>
+<style lang="scss">
+@font-face {
+  font-family: 'MyCustomFont';
+  src: url('~@/static/fonts/PingFangSC-Light.ttf');
+}
+
 /* 每个页面公共css */
 uni-page-body,
 html,
 body,
 page {
-  width: 100% !important;
+  // width: 100% !important;
   /* height: 100% !important;
   overflow: hidden; */
-  padding-bottom: 60rpx;
+  font-family: 'MyCustomFont', sans-serif;
+  /* 使用自定义字体 */
+  padding-bottom: var(safe-area-inset-bottom);
   padding-top: var(--safe-area-top);
 }
 
-@media (max-width: 768px) {
-  #app {
-    padding-top: 40px;
-    /* 更改顶部 padding 值 */
-  }
+::v-deep .uni-tabbar__label {
+  font-weight: bold;
 }
 
-#app {
-  padding-top: var(--safe-area-top);
-  /* 使用自定义变量 */
+::v-deep.uni-tabbar__mid {
+  bottom: 30px !important;
 }
 </style>

@@ -1,6 +1,6 @@
 <template>
-  <view @scroll.passive="handleScroll">
-    <view :style="'height:' + (statusBarHeight + 5) + 'px;'"></view>
+  <view @touchmove.prevent>
+    <view :style="'height:' + statusBarHeight + 'px;'"></view>
     <view class="container">
       <view class="form">
         <view class="textlogin">
@@ -57,28 +57,33 @@
 </template>
 
 <script lang="ts" setup>
-import { ref } from 'vue'
-import { useStore } from '@/store' // 导入 Pinia store
-import { genTestUserSig } from '../../TUIKit/debug'
-import { TUITranslateService } from '@tencentcloud/chat-uikit-engine'
-import { isPC, isH5, isApp } from '../../TUIKit/utils/env'
-import { loginChat } from '../../loginChat'
-import { loginUser, fetchUserAgreement } from '@/utils/api'
-import { onLoad } from '@dcloudio/uni-app'
-const privateAgree = ref(false)
-const inputValue = ref('')
-const statusBarHeight = ref()
+import { ref } from 'vue';
+import { useStore } from '@/store'; // 导入 Pinia store
+import { genTestUserSig } from '../../TUIKit/debug';
+import {
+  TUITranslateService,
+  TUIUserService,
+} from '@tencentcloud/chat-uikit-engine';
+import { isPC, isH5, isApp } from '../../TUIKit/utils/env';
+import { loginChat } from '../../loginChat';
+import { loginUser, fetchUserAgreement } from '@/utils/api';
+import { onLoad } from '@dcloudio/uni-app';
+
+import TencentCloudChat from '@tencentcloud/chat';
+const privateAgree = ref(false);
+const inputValue = ref('');
+const statusBarHeight = ref();
 onLoad(async () => {
-  statusBarHeight.value = getApp().globalData.top
+  statusBarHeight.value = getApp().globalData.top;
 
   if (uni.getStorageSync('token') && uni.getStorageSync('isLoggedIn')) {
-    const userId = uni.getStorageSync('user_id') // 获取用户 ID
+    const userId = uni.getStorageSync('user_id'); // 获取用户 ID
     if (userId) {
       const options = genTestUserSig({
         SDKAppID: uni.$chat_SDKAppID,
         secretKey: uni.$chat_secretKey,
         userID: String(userId),
-      })
+      });
 
       const loginInfo = {
         SDKAppID: uni.$chat_SDKAppID,
@@ -91,40 +96,40 @@ onLoad(async () => {
             iOSBusinessID: '',
           },
         },
-      }
+      };
 
       try {
-        await login(loginInfo) // 等待登录结果
+        await login(loginInfo); // 等待登录结果
         // 登录成功后跳转到主页
         uni.switchTab({
           url: '/pages/pagesall/home',
-        })
+        });
       } catch (error) {
         // 登录失败处理
         uni.showToast({
           title: '自动登录失败，请重试',
           icon: 'error',
           duration: 2000,
-        })
+        });
       }
     }
   } else {
     uni.navigateTo({
       url: '/pages/login/login',
-    })
+    });
   }
-})
+});
 const handleScroll = (event) => {
-  console.log('滚动位置：', event.target.scrollTop)
-}
+  console.log('滚动位置：', event.target.scrollTop);
+};
 const handleLoginInfo = async () => {
   if (!radio.value) {
     uni.showToast({
       title: '请勾选同意协议',
       icon: 'error',
       duration: 2000,
-    })
-    return
+    });
+    return;
   }
 
   if (!account.value) {
@@ -132,8 +137,8 @@ const handleLoginInfo = async () => {
       title: '请输入账号',
       icon: 'error',
       duration: 2000,
-    })
-    return
+    });
+    return;
   }
 
   if (!password.value) {
@@ -141,27 +146,27 @@ const handleLoginInfo = async () => {
       title: '请输入密码',
       icon: 'error',
       duration: 2000,
-    })
-    return
+    });
+    return;
   }
-  const store = useStore() // 获取 Pinia store
+  const store = useStore(); // 获取 Pinia store
   const response = await loginUser({
     mobile: account.value,
     password: password.value,
-  })
-  console.log(response)
+  });
+  console.log(response);
   if (response.code === 1) {
     uni.showToast({
       title: response.msg,
       icon: 'success',
-    })
+    });
 
-    const { token } = response.data.userinfo
+    const { token } = response.data.userinfo;
 
-    store.setUserinfo(response.data.userinfo)
-    store.setToken(token)
-    uni.setStorageSync('token', token) // 将 token 存储在 localStorage
-    uni.switchTab({ url: '/pages/pagesall/home' })
+    store.setUserinfo(response.data.userinfo);
+    store.setToken(token);
+    uni.setStorageSync('token', token); // 将 token 存储在 localStorage
+    uni.switchTab({ url: '/pages/pagesall/home' });
     // uni.navigateTo({
     //   url: "/pages/home/home",
     // });
@@ -171,26 +176,30 @@ const handleLoginInfo = async () => {
       title: response.msg,
       icon: 'error',
       duration: 2000,
-    })
+    });
   }
   // console.log(response.data.userinfo);
-  const { user_id } = response.data.userinfo
-  console.log(user_id)
-  uni.setStorageSync('user_id', user_id)
-  tengXun()
-}
+  const { user_id, nickname, avatar } = response.data.userinfo;
+  console.log(user_id, nickname, avatar);
+  uni.setStorageSync('user_id', user_id);
+  uni.setStorageSync('nickname', nickname);
+  uni.setStorageSync('avatar', avatar);
+  tengXun();
+};
 
 const tengXun = () => {
   const options = genTestUserSig({
     SDKAppID: uni.$chat_SDKAppID,
     secretKey: uni.$chat_secretKey,
     userID: String(uni.getStorageSync('user_id')),
-  })
+  });
   const loginInfo = {
     SDKAppID: uni.$chat_SDKAppID,
     userID: String(String(uni.getStorageSync('user_id'))), // 确保使用正确的user_id,
     userSig: options.userSig,
-    // useUploadPlugin: true,
+    NickName: uni.getStorageSync('nickname'),
+    Image: uni.getStorageSync('avatar'),
+    useUploadPlugin: true,
     // framework: `vue${vueVersion}`,
     TIMPush: uni.$TIMPush, // register TencentCloud-TIMPush
     pushConfig: {
@@ -199,49 +208,56 @@ const tengXun = () => {
         iOSBusinessID: '', // iOS Certificate ID
       },
     },
-  }
-  login(loginInfo)
-}
+  };
+  login(loginInfo);
+};
+
+// 修改个人标配资料
 
 const login = (loginInfo: any) => {
   return loginChat(loginInfo) // 返回 Promise
-    .then(() => {
-      uni.setStorageSync('isLoggedIn', true)
-      uni.setStorageSync('loginInfo', JSON.stringify(loginInfo))
+    .then((res) => {
+      console.log(res, '+++++++');
+      TUIUserService.updateMyProfile({
+        nick: uni.getStorageSync('nickname'),
+        avatar: uni.getStorageSync('avatar'),
+      });
+      uni.setStorageSync('isLoggedIn', true);
+      uni.setStorageSync('loginInfo', JSON.stringify(loginInfo));
     })
     .catch((error) => {
       uni.showToast({
         title: TUITranslateService.t('Login.登录失败'),
         icon: 'none',
-      })
-      throw error // 抛出错误，以便在外部处理
-    })
-}
+      });
+      throw error; // 抛出错误，以便在外部处理
+    });
+};
 // export { tengXun, login };
-const account = ref('')
-const password = ref('')
-const radio = ref(false)
-const store = useStore()
+const account = ref('');
+const password = ref('');
+const radio = ref(false);
+const store = useStore();
 
 const capitalizeFirstLetter = (string) => {
-  if (!string) return '' // 检查输入是否有效
-  return string.charAt(0).toUpperCase() + string.slice(1) // 首字母大写
-}
+  if (!string) return ''; // 检查输入是否有效
+  return string.charAt(0).toUpperCase() + string.slice(1); // 首字母大写
+};
 
 const parsePolicyContent = (content, title) => {
-  console.log(content)
+  console.log(content);
 
   if (!content) {
     uni.showToast({
       title: `${title}内容为空，请稍后重试`,
       icon: 'error',
       duration: 2000,
-    })
-    return
+    });
+    return;
   }
 
   // 用正则表达式检查内容是否包含 HTML 标签
-  const hasHtmlTags = /<\/?[a-z][\s\S]*>/i.test(content)
+  const hasHtmlTags = /<\/?[a-z][\s\S]*>/i.test(content);
 
   if (!hasHtmlTags) {
     // 如果没有 HTML 标签，直接显示内容
@@ -249,74 +265,74 @@ const parsePolicyContent = (content, title) => {
       title: title,
       content: content, // 直接传入内容
       showCancel: false,
-    })
+    });
   } else {
     // 如果有 HTML 标签，进行解析处理
-    const parser = new DOMParser()
-    const doc = parser.parseFromString(content, 'text/html')
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(content, 'text/html');
     const paragraphs = Array.from(doc.getElementsByTagName('p'))
       .map((p) => p.textContent)
-      .join('\n')
+      .join('\n');
 
     uni.showModal({
       title: title,
       content: paragraphs,
       showCancel: false,
-    })
+    });
   }
-}
+};
 
 const handlePolicyClick = async (type) => {
   const titleMap = {
     privacy: '隐私政策',
     user: '用户协议',
-  }
+  };
 
-  const title = titleMap[type] // 使用映射表获取标题
+  const title = titleMap[type]; // 使用映射表获取标题
   if (!title) {
     uni.showToast({
       title: '无效的协议类型，请重试',
       icon: 'error',
       duration: 2000,
-    })
-    return
+    });
+    return;
   }
 
   try {
     let params = {
       type: type,
-    }
-    let res = await fetchUserAgreement(params)
-    parsePolicyContent(res.data.content, title) // 使用可选链避免错误
+    };
+    let res = await fetchUserAgreement(params);
+    parsePolicyContent(res.data.content, title); // 使用可选链避免错误
   } catch (error) {
-    console.error(`获取${type}失败:`, error)
+    console.error(`获取${type}失败:`, error);
     uni.showToast({
       title: `获取${title}失败，请重试`,
       icon: 'error',
       duration: 2000,
-    })
+    });
   }
-}
+};
 
 const retPass = async () => {
-  await uni.navigateTo({ url: '/pages/login/ratpass' })
-}
+  await uni.navigateTo({ url: '/pages/login/ratpass' });
+};
 
 const regiSter = () => {
-  uni.navigateTo({ url: '/pages/login/register' })
-}
+  uni.navigateTo({ url: '/pages/login/register' });
+};
 
 const radiogrp = (event) => {
-  radio.value = event.detail.value.length > 0 // 确保获取到的值是否有效
-}
+  radio.value = event.detail.value.length > 0; // 确保获取到的值是否有效
+};
 
 const getadmin = (event) => {
-  account.value = event.detail.value
-}
+  account.value = event.detail.value;
+};
 
 const getpass = (event) => {
-  password.value = event.detail.value
-}
+  password.value = event.detail.value;
+};
 </script>
 
 <style scoped>

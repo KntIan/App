@@ -1,9 +1,9 @@
 import {
   require_dayjs_min
-} from "./chunk-BFRB2QID.js";
+} from "./chunk-KV7CX6VM.js";
 import {
   __commonJS
-} from "./chunk-LQ2VYIYD.js";
+} from "./chunk-BQWMX7FD.js";
 
 // ../../../Project Folder/ZXHand/ZXHandwritting_APP_uniapp/node_modules/dayjs/locale/zh-cn.js
 var require_zh_cn = __commonJS({

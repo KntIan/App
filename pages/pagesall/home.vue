@@ -1,17 +1,17 @@
 <template>
   <view class="homePage">
-    <view :style="'height:' + (statusBarHeight + 5) + 'px;'"></view>
+    <view :style="'height:' + statusBarHeight + 'px;'"></view>
     <view class="titleHome">
       <view class="nameId">
-        <view class="head">
-          <img
+        <view class="head" @click="toUserInfo">
+          <image
             style="width: 32px; height: 32px; border-radius: 50%"
-            :src="userInfo.avatar"
+            :src="userInfo?.avatar"
           />
         </view>
         <view class="name">
           <text class="textname">{{ userInfo.nickname }}</text>
-          <text class="textid">ID:{{ userInfo.id }}</text>
+          <text class="textid">ID:{{ userInfo.show_id }}</text>
         </view>
         <view class="classID">{{ userInfo.classly_name }}</view>
       </view>
@@ -40,7 +40,11 @@
       </view>
     </view>
     <view class="posit">
-      <img src="@/static/img/add.png" alt="" />
+      <img
+        style="margin-right: 10rpx"
+        src="http://admin.zexishuhua.com/uploads/20241128/11a05173840d3d4ad9dc32f1cf5c6e98.png"
+        alt=""
+      />
       <text class="postext">{{ userInfo.school_name }}</text>
     </view>
 
@@ -56,7 +60,7 @@
       <swiper-item
         v-for="(item, index) in images"
         :key="index"
-        @click="() => swiper_click(index + 1)"
+        @click="swiper_click(index)"
       >
         <image :src="item.thumb" class="swiper-image"></image>
       </swiper-item>
@@ -67,53 +71,138 @@
         <img :src="studentAndstyle.logo" alt="" class="showimg1" />
       </view>
       <view class="showtext">
-        <text class="text-content">{{ studentAndstyle.remark }}</text>
+        <text class="text-content" @click="toggleTooltip">{{
+          studentAndstyle.remark
+        }}</text>
+        <view v-if="isTooltipVisible" class="tooltip">
+          {{ studentAndstyle.remark }}
+        </view>
+        <!-- <text
+          class="text-content"
+          @mouseenter="showTooltip"
+          @mouseleave="hideTooltip"
+        >
+          {{ studentAndstyle.remark }}
+        </text>
+        <view v-if="isTooltipVisible" class="tooltip">
+          {{ studentAndstyle.remark }}
+        </view> -->
       </view>
     </view>
 
     <view class="works">
-      <text class="worktext">优秀作品</text>
-      <view class="worksImgs">
-        <view
-          class="worksimgbox"
-          v-for="(item, index) in studentAndstyle.nice"
-          :key="index"
+      <view class="infoText">
+        <text style="font-weight: bold">优秀作品</text>
+        <text style="font-size: 24rpx; color: #666666" @click="nice_text"
+          >更多</text
         >
-          <image
-            style="width: 198rpx; height: 122rpx; margin-top: 12rpx"
-            :src="item.sub_image"
-            mode="aspectFill"
-          />
-        </view>
+      </view>
+      <view class="worksImgs">
+        <template v-if="studentAndstyle.nice_homeworkbg">
+          <view
+            class="worksimgbox"
+            v-for="(item, index) in studentAndstyle.nice"
+            :key="index"
+            :style="{
+              backgroundImage: 'url(' + studentAndstyle.nice_homeworkbg + ')',
+              backgroundPosition: '50% 50%',
+
+              backgroundSize: 'cover',
+              width: '110px',
+              height: '110px',
+            }"
+            @click="showImagenice(item.image)"
+          >
+            <image
+              style="width: 198rpx; height: 122rpx; margin-top: 12rpx"
+              :src="item.image"
+              mode="aspectFill"
+            />
+          </view>
+        </template>
+        <template v-else>
+          <view
+            class="worksimgbox"
+            v-for="(item, index) in studentAndstyle.nice"
+            :key="index"
+            @click="showImagenice(item.image)"
+          >
+            <image
+              style="width: 198rpx; height: 122rpx; margin-top: 12rpx"
+              :src="item.image"
+              mode="aspectFill"
+            />
+          </view>
+        </template>
+        <!-- 弹窗 -->
+        <div v-if="isModalVisible" class="modal" @click="hideImage">
+          <img :src="currentImage" class="large-image" />
+        </div>
       </view>
     </view>
 
     <view class="students">
-      <text class="stutext">学员风采</text>
-      <view class="stusImgs">
-        <view
-          class="stuimgbox"
-          v-for="(item, index) in studentAndstyle.stud"
-          :key="index"
+      <view class="infoText">
+        <text style="font-weight: bold">学员风采</text>
+        <text style="font-size: 24rpx; color: #666666" @click="xueyuanLists"
+          >更多</text
         >
-          <image
-            style="
-              width: 108rpx;
-              height: 108rpx;
-              border-radius: 32px;
-              margin-top: -4px;
-              margin-left: -2px;
-            "
-            :src="item.avatar"
-            mode="aspectFill"
-          />
-        </view>
+      </view>
+      <view class="stusImgs">
+        <template v-if="studentAndstyle.stud_bg">
+          <view
+            class="stuimgbox"
+            v-for="(item, index) in studentAndstyle.stud"
+            :key="index"
+            :style="{
+              backgroundImage: 'url(' + studentAndstyle.stud_bg + ')',
+              backgroundPosition: '50% 50%',
+              backgroundSize: 'cover',
+              width: '110px',
+              height: '110px',
+            }"
+            @click="showImage(item.avatar)"
+          >
+            <image
+              style="
+                width: 65px;
+                height: 65px;
+                border-radius: 32px;
+                margin-top: -4px;
+                margin-left: -2px;
+              "
+              :src="item.avatar"
+              mode="aspectFill"
+            />
+          </view>
+        </template>
+
+        <template v-else>
+          <view
+            class="stuimgbox"
+            v-for="(item, index) in studentAndstyle.stud"
+            :key="index"
+            @click="showImage(item.avatar)"
+          >
+            <image
+              style="
+                width: 65px;
+                height: 65px;
+                border-radius: 32px;
+                margin-top: -4px;
+                margin-left: -2px;
+              "
+              :src="item.avatar"
+              mode="aspectFill"
+            />
+          </view>
+        </template>
       </view>
     </view>
 
     <view class="actiClass">
       <view class="actText">
-        <text>活动课</text>
+        <text style="font-weight: bold">活动课</text>
         <text style="font-size: 24rpx; color: #666666" @click="activityLists"
           >更多</text
         >
@@ -148,23 +237,27 @@
         v-else
         class="kong"
         style="
-          display: flex;
-          justify-content: center;
-          align-items: center;
+          display: grid;
+          justify-items: center;
+          position: relative;
           height: 500rpx;
         "
       >
         <image
-          style="width: 400rpx; height: 400rpx"
-          src="@/static/img/noAct.png"
+          style="width: 400rpx; height: 400rpx; margin-bottom: -30rpx"
+          src="@/static/img/nohuodong.png"
           mode="aspectFit"
         />
+        <text
+          style="color: #666; position: absolute; z-index: 1; bottom: 140rpx"
+          >暂无活动</text
+        >
       </view>
     </view>
 
     <view class="infobox">
       <view class="infoText">
-        <text>资讯</text>
+        <text style="font-weight: bold">资讯</text>
         <text style="font-size: 24rpx; color: #666666" @click="informationLists"
           >更多</text
         >
@@ -205,12 +298,12 @@
                 >
               </view>
               <view class="huatibox">
-                <img :src="item.ressImg" alt="" />
                 <text
-                  style="font-weight: 400; font-size: 24rpx; margin-left: 6px"
+                  style="font-weight: 400; font-size: 24rpx; margin-right: 6px"
                 >
                   {{ item.school_name || 'http://www.baidu.com' }}
                 </text>
+                <img :src="item.ressImg" alt="" />
               </view>
             </view>
           </view>
@@ -226,7 +319,8 @@
               />
             </view>
             <view class="proImg">
-              <img :src="item.thumb" alt="" />
+              <!-- <img :src="item.thumb" alt="" /> -->
+              <image :src="item.thumb" mode="aspectFit" />
             </view>
           </view>
         </view>
@@ -235,29 +329,34 @@
         v-else
         class="kong"
         style="
-          display: flex;
-          justify-content: center;
-          align-items: center;
+          display: grid;
+          justify-items: center;
+          position: relative;
           height: 500rpx;
         "
       >
         <image
-          style="width: 400rpx; height: 400rpx"
-          src="@/static/img/noMes.png"
+          style="width: 400rpx; height: 400rpx; margin-bottom: -30rpx"
+          src="@/static/img/noAicp.png"
           mode="aspectFit"
         />
+        <text
+          style="color: #666; position: absolute; z-index: 1; bottom: 140rpx"
+          >暂无资讯</text
+        >
       </view>
     </view>
   </view>
 </template>
 
 <script setup>
-import { ref, onMounted, onUnmounted, computed, watch, watchEffect } from 'vue'
-import ActivityItem from '@/components/ActivityItem/ActivityItem'
-import { useStore } from '@/store'
-import { onLoad, onShow, onPullDownRefresh } from '@dcloudio/uni-app'
+import { ref, onMounted, onUnmounted, computed, watch, watchEffect } from 'vue';
+import ActivityItem from '@/components/ActivityItem/ActivityItem';
+import { useStore } from '@/store';
+import { aesEncrypt, aesDecrypt } from '@/utils/utils.js';
+import { onLoad, onShow, onPullDownRefresh } from '@dcloudio/uni-app';
 //腾讯IM
-import TUICore, { TUIConstants } from '@tencentcloud/tui-core'
+import TUICore, { TUIConstants } from '@tencentcloud/tui-core';
 
 import {
   fetchActivityCourseList,
@@ -265,46 +364,68 @@ import {
   fetchNewsList,
   fetchMyStyle,
   checkUserFriend,
-} from '@/utils/api'
+} from '@/utils/api';
 
-const store = useStore()
-const token = store.token
+const store = useStore();
+
+// const token = store.token
 
 // const images = ref([
 //   "/static/img/swiper1.png",
 //   "https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPngdadd194d15ae0a321cf1b69b42b82fbdb401e127f68d9e091f73b2ef2c6682a6",
 //   "/static/img/swiper1.png",
 // ]);
-const images = computed(() => store.images) // 从 store 中获取 images
-const listdataIndex = computed(() => store.listdataIndex) // 从 store 中获取 listdata
-const userInfo = computed(() => store.userinfo) // 从 store 中获取 listdata
+const images = computed(() => store.images); // 从 store 中获取 images
+const listdataIndex = computed(() => store.listdataIndex); // 从 store 中获取 listdata
+const userInfo = computed(() => store.userinfo); // 从 store 中获取 listdata
 
-const infoList = computed(() => store.infoList) // 从 store 中获取 listdata
+const infoList = computed(() => store.infoList); // 从 store 中获取 listdata
 // const studentShowcase = ref([])
 // const excellentWorks = ref([])
 //学员风采&优秀作品
-const studentAndstyle = ref({})
-const intervalId = ref(null)
+const studentAndstyle = ref({});
+const intervalId = ref(null);
 
-const hours = ref(0) // 示例：当前页面
-const minutes = ref(0) // 示例：每页数据条数
-const seconds = ref(0) // 示例：是否是首页数据
+const hours = ref(0); // 示例：当前页面
+const minutes = ref(0); // 示例：每页数据条数
+const seconds = ref(0); // 示例：是否是首页数据
 
+const isTooltipVisible = ref(false);
+const toggleTooltip = () => {
+  isTooltipVisible.value = !isTooltipVisible.value;
+};
+// 用于控制弹窗的显示与隐藏
+const isModalVisible = ref(false);
+const currentImage = ref('');
+// 显示大图的方法
+const showImage = (imageSrc) => {
+  currentImage.value = imageSrc; // 设置当前显示的图片
+  isModalVisible.value = true; // 显示弹窗
+};
+const showImagenice = (imageSrc) => {
+  currentImage.value = imageSrc; // 设置当前显示的图片
+  isModalVisible.value = true; // 显示弹窗
+};
+
+// 隐藏大图的方法
+const hideImage = () => {
+  isModalVisible.value = false; // 隐藏弹窗
+};
 //首页活动传入的值
 const params = {
   page: 1, // 当前页面
-  limit: 7, // 每页数据条数
-  isindex: 1, // 是否是首页数据
-}
+  limit: 1, // 每页数据条数
+  is_index: 1, // 是否是首页数据
+};
 
 const fetchData = async () => {
   try {
     const responses = await Promise.all([
       fetchActivityCourseList(params), // 传入 page, limit, isindex
       fetchBannerList(),
-      fetchNewsList(),
+      fetchNewsList(params),
       fetchMyStyle(),
-    ])
+    ]);
     // console.log(responses)
 
     const listdataIndex = responses[0].items.map((item) => ({
@@ -313,127 +434,133 @@ const fetchData = async () => {
       hours: 0, // 增加时字段，初始化为0
       minutes: 0, // 增加分字段，初始化为0
       seconds: 0, // 增加秒字段，初始化为0
-    }))
+    }));
+    // 更新组件的数据
+    listdataIndex.value = listdataIndex; // 确保这里触发响应式更新
+    store.setListdataIndex(listdataIndex); // 存入 store
 
-    store.setListdataIndex(listdataIndex) // 存入 store
-
-    store.setImages(responses[1].items)
+    store.setImages(responses[1].items);
     // 遍历响应中的 items 并添加 titleimg
 
     const infoList = responses[2].items.map((item) => ({
       ...item, // 保留原有的属性
-      titleimg: item.titleimg || '../../static/img/jinghao.png',
+      titleimg:
+        item.titleimg ||
+        'http://admin.zexishuhua.com/uploads/20241128/0fc2c3efb7e6574d8acdc3bdefee333a.png',
       image_input:
         item.image_input ||
         'https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPng9124bf95026b34308d6bd993d7c3774578aa0f9fdf293cc08d4cb043bc1ba5a8',
-      ressImg: item.ressImg || '@/static/img/add.png',
+      ressImg:
+        item.ressImg ||
+        'http://admin.zexishuhua.com/uploads/20241128/11a05173840d3d4ad9dc32f1cf5c6e98.png',
       jiantouimg:
         item.jiantouimg ||
         'https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPng6deab9d71966dbbdc8297bb42543232fd5ab80e8f1b6e7650f9a66310b4f656e',
-    }))
-    store.setInfoList(infoList)
-    studentAndstyle.value = responses[3].data
+    }));
+    store.setInfoList(infoList);
+    studentAndstyle.value = responses[3].data;
   } catch (error) {
-    console.error('获取数据时发生错误:', error) // 打印错误信息
+    console.error('获取数据时发生错误:', error); // 打印错误信息
   }
-}
+};
 onPullDownRefresh(() => {
-  fetchData()
+  fetchData();
 
-  startCountdown()
-  uni.stopPullDownRefresh()
-})
+  startCountdown();
+  uni.stopPullDownRefresh();
+});
 
 onShow(() => {
-  fetchData()
+  fetchData();
+});
 
-  startCountdown()
-})
-
-const statusBarHeight = ref()
+const statusBarHeight = ref();
 onLoad(() => {
-  statusBarHeight.value = getApp().globalData.top
-})
-onUnmounted(() => {})
+  startCountdown();
+  statusBarHeight.value = getApp().globalData.top;
+});
+onUnmounted(() => {});
 // 跳转到详情页面的函数
 const goToDetail = (item) => {
   uni.navigateTo({
     url: `/pages/pagesall/home/informationDetailsmess?id=${item.id}`, // 确保将 item.id 修改为您的详情页所需的参数
-  })
-}
+  });
+};
 const activityLists = () => {
   uni.switchTab({
     url: '/pages/pagesall/oper',
-  })
-}
+  });
+};
 const formatDate = (dateString) => {
-  const date = new Date(dateString)
-  const year = date.getFullYear()
-  const month = String(date.getMonth() + 1).padStart(2, '0') // 月份从0开始计算
-  const day = String(date.getDate()).padStart(2, '0')
-  return `${year}.${month}.${day}` // 格式化为 YYYY.MM.DD
-}
+  const date = new Date(dateString);
+  const year = date.getFullYear();
+  const month = String(date.getMonth() + 1).padStart(2, '0'); // 月份从0开始计算
+  const day = String(date.getDate()).padStart(2, '0');
+  return `${year}.${month}.${day}`; // 格式化为 YYYY.MM.DD
+};
 
 const formatTime = (value) => {
-  return value.toString().padStart(2, '0')
-}
+  return value.toString().padStart(2, '0');
+};
 
 const updateCountdown = () => {
-  const currentDateTimestampInMilliseconds = new Date().getTime()
-  const now = Math.floor(currentDateTimestampInMilliseconds / 1000)
+  const currentDateTimestampInMilliseconds = new Date().getTime();
+  const now = Math.floor(currentDateTimestampInMilliseconds / 1000);
 
   listdataIndex.value.forEach((item) => {
     // const newItem = { ...item };
     if (!isNaN(item.end_time)) {
-      const timeDiff = item.end_time - now
+      const timeDiff = item.end_time - now;
 
       if (timeDiff > 0) {
-        item.hours = Math.floor(timeDiff / 3600)
+        item.hours = Math.floor(timeDiff / 3600);
 
-        item.minutes = Math.floor((timeDiff % 3600) / 60)
+        item.minutes = Math.floor((timeDiff % 3600) / 60);
 
-        item.seconds = timeDiff % 60
+        item.seconds = timeDiff % 60;
 
         // 如果没有设置定时器ID，设置一个定时器
         if (!item.timerId) {
           item.timerId = setInterval(() => {
-            updateCountdown() // 定时更新
-          }, 1000)
+            updateCountdown(); // 定时更新
+          }, 1000);
         }
       } else {
-        item.hours = item.minutes = item.seconds = 0 // 时间到达
-        clearTimer(item) // 清除定时器
+        item.hours = item.minutes = item.seconds = 0; // 时间到达
+        clearTimer(item); // 清除定时器
       }
       // console.log('Updated time for item:', item.hours, item.minutes, item.seconds);
     } else {
-      item.hours = item.minutes = item.seconds = 0 // 处理无效时间
+      item.hours = item.minutes = item.seconds = 0; // 处理无效时间
     }
     // console.log('Updated time:', item.hours, item.minutes, item.seconds);
     // return newItem;
-  })
+  });
 
-  store.setListdataIndex(listdataIndex.value) // 更新 store
-}
+  store.setListdataIndex(listdataIndex.value); // 更新 store
+};
 // 清除特定活动的定时器
 const clearTimer = (item) => {
   if (item.timerId) {
-    clearInterval(item.timerId) // 停止其他活动定时器
-    item.timerId = null // 清除定时器ID
-    console.log(`活动 ${item.id} 的定时器已清除，时间到达。`)
+    clearInterval(item.timerId); // 停止其他活动定时器
+    item.timerId = null; // 清除定时器ID
+    console.log(`活动 ${item.id} 的定时器已清除，时间到达。`);
   }
-}
+};
 
 // 启动计时的函数
 const startCountdown = () => {
-  updateCountdown() // 初始化倒计时
-  intervalId.value = setInterval(updateCountdown, 1000) // 每秒更新一次
-}
+  updateCountdown(); // 初始化倒计时
+  intervalId.value = setInterval(updateCountdown, 1000); // 每秒更新一次
+};
 const search = async () => {
   if (!searchValue.value) {
-    return
+    return;
   }
-  let res = await checkUserFriend({ user_id: Number(searchValue.value) })
-  console.log(res)
+  let res = await checkUserFriend({
+    user_id: Number(searchValue.value),
+  });
+  console.log(res);
   if (res.code === 1) {
     TUICore.callService({
       serviceName: TUIConstants.TUISearch.SERVICE.NAME,
@@ -443,12 +570,12 @@ const search = async () => {
       },
     })
       .then((res) => {
-        searchResult.value.user.list = res.data
+        searchResult.value.user.list = res.data;
       })
       .catch((error) => {
-        searchResult.value.user.list = []
-        console.warn('search user error', error)
-      })
+        searchResult.value.user.list = [];
+        console.warn('search user error', error);
+      });
     TUICore.callService({
       serviceName: TUIConstants.TUISearch.SERVICE.NAME,
       method: TUIConstants.TUISearch.SERVICE.METHOD.SEARCH_GROUP,
@@ -457,83 +584,164 @@ const search = async () => {
       },
     })
       .then((res) => {
-        searchResult.value.group.list = [res.data.group]
+        searchResult.value.group.list = [res.data.group];
       })
       .catch((error) => {
-        searchResult.value.group.list = []
-        console.warn('search group error', error)
-      })
+        searchResult.value.group.list = [];
+        console.warn('search group error', error);
+      });
   } else {
     uni.showToast({
       title: res.msg,
       icon: 'none',
       mask: true,
-    })
+    });
   }
-}
+};
 const btnscan = () => {
   uni.scanCode({
     success: async (res) => {
       // console.log('条码类型：' + res.scanType)
-      // console.log('条码内容：' + res.result)
-      const userIdMatch = res.result.match(/user_id=(\d+)/)
-      if (userIdMatch) {
-        let user_id = userIdMatch[1] // 获取提取的 user_id 值
+      console.log('条码内容：' + res.result);
 
+      const userIdMatch = res.result.match(/user_id=(\d+)/);
+      const typeMatch = res.result.match(/type=(\d+)/);
+      console.log(userIdMatch);
+      console.log(typeMatch);
+
+      if (userIdMatch) {
+        let user_id = userIdMatch[1]; // 获取提取的 user_id 值
+        console.log(user_id);
         let params = {
           user_id: user_id,
-        }
-        uni.setStorageSync('params', params) // 存入本地缓存
+        };
+        uni.setStorageSync('params', params); // 存入本地缓存
       } else {
-        console.log('未找到用户ID参数')
+        console.log('未找到用户ID参数');
       }
 
-      uni.navigateTo({
-        url: '/pages/pagesall/home/search',
-      })
+      if (typeMatch) {
+        let type = typeMatch[1]; // 获取提取的 type 值
+        console.log(type);
+        switch (type) {
+          case '1':
+            uni.navigateTo({
+              url: '/pages/pagesall/home/search', // 加好友页面
+            });
+            break;
+          case '2':
+            const urlMatch = res.result.match(/type=2\|(.*)/);
+            if (urlMatch && urlMatch[1]) {
+              const urlType2 = urlMatch[1];
+              console.log('截取到的 URL:', urlType2);
+              let url = aesDecrypt(urlType2);
+              url = url.split('|$~|~$|')[0];
+              console.log(url);
+              // 处理 URL，例如跳转到双师课堂页面并传递 URL 参数
+              uni.navigateTo({
+                url: `/pages/pagesall/course/golearn?url=${url}`, // 双师课堂页面
+              });
+            }
+
+            break;
+          case '3':
+            const urlM = res.result.match(/type=3\|(.*)/);
+            if (urlM && urlM[1]) {
+              const urlAes = urlM[1];
+              console.log('截取到的 2:', urlAes);
+              let url = aesDecrypt(urlAes);
+              url = url.split('|$~|~$|')[0];
+              console.log(url);
+
+              // // 处理 URL，例如跳转到双师课堂页面并传递 URL 参数
+              uni.navigateTo({
+                url: `/pages/pagesall/course/golearn?url=${url}`, // 双师课堂页面
+              });
+            }
+            uni.navigateTo({
+              url: '/pages/pagesall/home/recentCourse', // 近期课程页面
+            });
+            break;
+          default:
+            console.log('未知的 type 值');
+            uni.navigateTo({
+              url: '/pages/pagesall/home/search', // 默认跳转页面
+            });
+        }
+      } else {
+        console.log('未找到 type 参数');
+        uni.navigateTo({
+          url: '/pages/pagesall/home/search', // 默认跳转页面
+        });
+      }
     },
+
     fail: (error) => {
-      console.error('扫码失败', error)
+      console.error('扫码失败', error);
       uni.showToast({
         title: '扫码失败',
         icon: 'error',
         duration: 2000,
-      })
+      });
     },
-  })
-}
+  });
+};
 
 const btnsearch = () => {
   uni.navigateTo({
     url: '/pages/pagesall/home/search',
-  })
-}
+  });
+};
+const toUserInfo = () => {
+  uni.navigateTo({
+    url: '/pages/pagesall/mypage/PersonalData',
+  });
+};
 
 const btnmess = () => {
   uni.navigateTo({
     url: '/pages/pagesall/home/message',
-  })
-}
+  });
+};
 const informationLists = () => {
   uni.navigateTo({
     url: '/pages/pagesall/home/informationDetails',
-  })
-}
+  });
+};
+
+const nice_text = () => {
+  uni.navigateTo({
+    url: '/pages/pagesall/home/worksOfExcellence',
+  });
+};
+const xueyuanLists = () => {
+  uni.navigateTo({
+    url: '/pages/pagesall/home/studentStyle',
+  });
+};
 
 const handleSignup = (id) => {
-  const paramsString = encodeURIComponent(JSON.stringify(params))
+  const paramsString = encodeURIComponent(JSON.stringify(params));
   uni.navigateTo({
     url: `/pages/pagesall/home/signUp?id=${id}&params=${paramsString}`, // 确保替换为相应的页面路径
-  })
-}
+  });
+};
 
 const swiper_click = (index) => {
-  console.log('当前点击的轮播图下标:', index) // 打印下标
-  store.setSelectedSwiperIndex(index)
-  uni.navigateTo({
-    url: '/pages/pagesall/home/game',
-  })
-}
+  console.log('当前点击的轮播图下标:', index); // 打印下标
+  //   store.setSelectedSwiperIndex(index)
+  console.log(store.images);
+  // 根据索引获取对应的链接并跳转
+  const selectedImage = store.images[index];
+  console.log(selectedImage);
+  if (selectedImage) {
+    uni.navigateTo({
+      url: selectedImage.link_url, // 跳转到对应的链接
+    });
+  } else {
+    console.error('未找到对应的链接');
+  }
+};
 
 // // 处理下拉刷新
 // const onPullDownRefresh = () => {
@@ -556,14 +764,17 @@ const swiper_click = (index) => {
 <style lang="scss" scoped>
 .homePage {
   padding: 15rpx 20rpx;
+
   // ... 其他样式
   .content {
     height: 100vh; // 根据需要调整高度
   }
+
   .loadmore {
     height: 100vh; // 根据需要调整高度
   }
 }
+
 .homePage {
   padding: 15rpx 20rpx;
 
@@ -607,6 +818,7 @@ const swiper_click = (index) => {
 
   .textname {
     font-size: 28rpx;
+    font-weight: bold;
   }
 
   .textid {
@@ -619,6 +831,10 @@ const swiper_click = (index) => {
     background-color: #ff9e02;
     color: #fff;
     margin-top: 8rpx;
+    max-width: 120rpx;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
   }
 
   .posit {
@@ -653,6 +869,7 @@ const swiper_click = (index) => {
 
     .showtext {
       margin-left: 20rpx;
+      position: relative;
     }
   }
 
@@ -681,6 +898,7 @@ const swiper_click = (index) => {
 
   .stutext {
     margin: 15rpx 0;
+    font-weight: bold;
   }
 
   .stuimgbox {
@@ -689,8 +907,6 @@ const swiper_click = (index) => {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: url(https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPngbd78fc264dd7a014ef4d8c87f28b0858f0fac59b2a450df23b73c19c048bc5f5)
-      50% no-repeat;
 
     img {
       width: 100%;
@@ -703,8 +919,6 @@ const swiper_click = (index) => {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: url(https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPng0e0e71aa4be084e3a16a052095bf6950ed5290cb2c60b5f90b0eb25b21205b9d)
-      50% no-repeat;
   }
 
   .actText,
@@ -714,9 +928,11 @@ const swiper_click = (index) => {
     align-items: center;
     margin: 15rpx 0;
   }
+
   .courseRegistrationCard {
     width: 100% !important;
   }
+
   .actitme {
     box-shadow: 0rpx 4rpx 8rpx 2rpx rgba(0, 0, 0, 0.05);
     margin-top: 16rpx;
@@ -931,7 +1147,7 @@ const swiper_click = (index) => {
     margin-top: 38rpx;
     margin-bottom: 34rpx;
 
-    img {
+    image {
       width: 192rpx;
       height: 176rpx;
       border-radius: 8rpx;
@@ -943,5 +1159,36 @@ const swiper_click = (index) => {
     justify-content: space-between;
     align-items: center;
   }
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 8888;
+}
+
+.large-image {
+  max-width: 90%;
+  max-height: 90%;
+}
+
+.tooltip {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #333;
+  color: #fff;
+  padding: 8rpx;
+  border-radius: 4rpx;
+  z-index: 10;
+  white-space: normal;
+  max-width: 750rpx;
 }
 </style>

@@ -1,4 +1,4 @@
-import "./chunk-LQ2VYIYD.js";
+import "./chunk-BQWMX7FD.js";
 
 // ../../../Project Folder/ZXHand/ZXHandwritting_APP_uniapp/node_modules/@tencentcloud/universal-api/index.js
 var e = "undefined" != typeof wx && "function" == typeof wx.getSystemInfoSync && Boolean(wx.getSystemInfoSync().fontSizeSetting);

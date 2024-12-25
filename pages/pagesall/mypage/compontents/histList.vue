@@ -1,14 +1,19 @@
 <template>
   <view class="box-list">
-    <view class="boxlist" v-for="(item,index) in histList" :key="index" @click="toCorr">
-      <view class="boxlistImg">
+    <view
+      class="boxlist"
+      v-for="(item, index) in histList"
+      :key="index"
+      @click="toCorr(item.id)"
+    >
+      <view :class="{ boxlistImg: item.title, boxlistImg2: !item.title }">
         <img :src="item.img" alt="" />
       </view>
       <view class="boxlistText1">
-        {{item.title}}
+        {{ item.title }}
       </view>
       <view class="boxlistText2">
-        <text>{{item.date ? item.date : item.teacherName}}</text>
+        <text>{{ item.date ? item.date : item.teacherName }}</text>
         <view class="boxlistText3">
           <text>评测:</text>
           <text class="boxlistText4">{{ item.grade }}</text>
@@ -24,25 +29,23 @@ export default {
   props: {
     histList: {
       type: Array,
-      default: []
-    }
+      default: [],
+    },
   },
+  emits: ['tea'],
   data() {
-    return {
-
-    }
+    return {};
   },
-  onload() {
-
-  },
+  onload() {},
   methods: {
-    toCorr() {
-      uni.navigateTo({
-        url: "/pages/pagesall/mypage/correction"
-      })
-    }
-  }
-}
+    toCorr(id) {
+      this.$emit('tea', id); // 向父组件传值
+      // uni.navigateTo({
+      //   url: `/pages/pagesall/aiDete/aiResult?homework_id=${id}`, // 使用模板字符串传入变量
+      // })
+    },
+  },
+};
 </script>
 
 <style>
@@ -66,10 +69,18 @@ export default {
   width: 340rpx;
   height: 160rpx;
 }
+.boxlistImg2 {
+  width: 340rpx;
+  height: 200rpx;
+}
 
 .boxlistImg img {
-  width: 340rpx;
-  height: 160rpx;
+  width: 100%;
+  height: 100%;
+}
+.boxlistImg2 img {
+  width: 100%;
+  height: 100%;
 }
 
 .boxlistText1 {
@@ -78,6 +89,9 @@ export default {
   font-weight: 600;
   font-size: 28rpx;
   line-height: 40rpx;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .boxlistText2 {
