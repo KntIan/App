@@ -1,5 +1,6 @@
 <template>
   <view>
+<<<<<<< HEAD
     <view :style="'height:' + statusBarHeight + 'px;'"></view>
     <view class="mess_Title">
       <view class="messImg" @click="teacher_goback">
@@ -28,24 +29,51 @@
           mode="aspectFit"
           @click="btnsearch"
         />
+=======
+    <view :style="'height:' + (statusBarHeight + 5) + 'px;'"></view>
+    <view class="mess_Title">
+
+      <view class="messImg" @click="teacher_goback">
+        <img src="https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPng427bd6433cc6e0a8e82f63b3174b2c817dc9c299bd0c4414c8d258f46cf46f94" alt="" />
+      </view>
+      <view class="title_text">
+        我的老师
+      </view>
+      <view class="title_img">
+        <image style="width: 36rpx;height: 36rpx;" src="../../../static/img/scan.png" mode="aspectFit" @click="mycode" />
+        <image style="width: 36rpx;height: 36rpx;" src="../../../static/img/saoma.png" mode="aspectFit" @click="btnscan" />
+        <image style="width: 36rpx;height: 36rpx;" src="../../../static/img/sousuo.png" mode="aspectFit" @click="btnsearch" />
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
       </view>
     </view>
 
     <!-- <view v-if="myteacher_List.length>0">
       <msglist :msgList="myteacher_List" />
     </view> -->
+<<<<<<< HEAD
     <view style="padding: 28rpx" class="container">
       <!-- <MessageList :messages="messagesList" /> -->
       <TUIChat />
+=======
+    <view style="padding: 28rpx;" class="container">
+      <!-- <MessageList :messages="messagesList" /> -->
+      <TUIChat />
+
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
     </view>
     <!-- <view v-else class="kong" style="display: flex; justify-content: center; align-items: center; height: 500rpx;">
       <image style="width:400rpx;height: 400rpx;" src="@/static/img/noTea.png" mode="aspectFit" />
     </view> -->
+<<<<<<< HEAD
+=======
+
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
   </view>
 </template>
 
 <script>
 import msglist from './compontents/msglist.vue';
+<<<<<<< HEAD
 import { fetchMyTeacher } from '@/utils/api';
 
 import TUIChat from '@/TUIKit/components/TUIConversation/index.vue';
@@ -53,6 +81,15 @@ export default {
   components: {
     msglist,
     TUIChat,
+=======
+import { fetchMyTeacher } from '@/utils/api'
+
+import TUIChat from "@/TUIKit/components/TUIConversation/index.vue";
+export default {
+  components: {
+    msglist,
+    TUIChat
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
   },
   data() {
     return {
@@ -84,10 +121,20 @@ export default {
       // }]
       myteacher_List: [],
       teacherListLength: null,
+<<<<<<< HEAD
     };
   },
   onLoad() {
     this.statusBarHeight = getApp().globalData.top;
+=======
+    }
+  },
+  onLoad() {
+    this.statusBarHeight = getApp().globalData.top;
+
+
+
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
   },
   mounted() {
     this.loadTeacherMessages(); // 在组件挂载时加载数据
@@ -95,6 +142,7 @@ export default {
   methods: {
     btnsearch() {
       uni.navigateTo({
+<<<<<<< HEAD
         url: '/pages/pagesall/home/search',
       });
     },
@@ -175,6 +223,31 @@ export default {
           });
         },
       });
+=======
+        url: '/pages/pagesall/home/search'
+      })
+    },
+    mycode() {
+      uni.navigateTo({
+        url: '/pages/pagesall/home/mycode'
+      })
+    },
+    btnscan() {
+      uni.scanCode({
+        success: (res) => {
+          console.log('条码类型：' + res.scanType)
+          console.log('条码内容：' + res.result)
+        },
+        fail: (error) => {
+
+          uni.showToast({
+            title: error.errMsg || '扫码失败',
+            icon: 'none',
+            duration: 2000
+          })
+        },
+      })
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
     },
     async loadTeacherMessages() {
       try {
@@ -186,10 +259,17 @@ export default {
       }
     },
     teacher_goback() {
+<<<<<<< HEAD
       uni.navigateBack();
     },
   },
 };
+=======
+      uni.navigateBack()
+    }
+  },
+}
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
 </script>
 
 <style>
@@ -222,4 +302,8 @@ export default {
   align-items: center;
   border-radius: 50%;
 }
+<<<<<<< HEAD
 </style>
+=======
+</style>
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74

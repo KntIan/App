@@ -1630,6 +1630,10 @@ This will fail in production.`);
   const fetchNewsList = (params) => get$1("/news/list", params);
   const fetchMatchDetail = (id) => get$1("/match/detail?match_id=" + id);
   const submitComplaint = (data) => post("/user/feedback", data);
+<<<<<<< HEAD
+=======
+  const uploadImage = (data) => post("/common/upload", data);
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
   const fetchNoticeList = (params) => get$1("/user/notice", params);
   const fetchUserInfo = () => get$1("/user/personal");
   const fetchMyCourseList = (params) => get$1("/user/lessons", params);
@@ -1638,17 +1642,24 @@ This will fail in production.`);
   const fetchMyTeacher = (params) => get$1("/user/myteachers", params);
   const fetchMyHistoryHomework = (params) => get$1("/user/homeworkpast", params);
   const fetchMyTemporaryHomework = (params) => get$1("/user/homeworknow", params);
+<<<<<<< HEAD
   const fetchHomeworkAudio = (id) => get$1("/user/dohomework?homework_id=" + id);
+=======
+  const fetchHomeworkAudio = (id) => get$1("/user/dohomework?homework_id=1");
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
   const signUpActivity = (data) => post("/activity/signup", data);
   const fetchAboutUs = () => get$1("/user/aboutus");
   const fetchContactUs = () => get$1("/user/contact");
   const updatePhone = (data) => post("/user/changemobile", data);
   const goStudy = (data) => get$1("/user/gostudy", data);
   const fetchMyAIWork = (params) => get$1("/user/homeworkai", params);
+<<<<<<< HEAD
   const updateAvatar = (data) => post("/user/profile", data);
   const fetchUserAgreement = (data) => get$1("/common/agreement", data);
   const checkUserFriend = (data) => get$1("/common/judgeident", data);
   const generateQRCode = (data) => get$1("/common/qrcode", data);
+=======
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
   const message$2 = {
     "tip": {
       "群成员": "group members",
@@ -1725,7 +1736,10 @@ This will fail in production.`);
       campusData: [],
       classData: [],
       userinfo: null,
+<<<<<<< HEAD
       //
+=======
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
       resultDivData: null,
       messageList: [],
       infoList: [],
@@ -1795,9 +1809,12 @@ This will fail in production.`);
       setUserinfo(userinfo) {
         this.userinfo = userinfo;
       },
+<<<<<<< HEAD
       // setAvatar(url) {
       //   this.userInfo.avatar = url // 更新头像
       // },
+=======
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
       setListdataIndex(data) {
         this.listdataIndex = data;
       },
@@ -1822,7 +1839,11 @@ This will fail in production.`);
       },
       setResultDiv(div) {
         this.resultDivData = div;
+<<<<<<< HEAD
         formatAppLog("log", "at store/index.js:119", "resultDivData:", this.resultDivData);
+=======
+        formatAppLog("log", "at store/index.js:117", "resultDivData:", this.resultDivData);
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
       },
       setEvaluationDesc(data) {
         this.evaluationDesc = data;
@@ -1835,16 +1856,28 @@ This will fail in production.`);
       }
     }
   });
+<<<<<<< HEAD
   var e$2 = "undefined" != typeof global ? global : "undefined" != typeof self ? self : "undefined" != typeof window ? window : {}, t$3 = [], r$3 = [], n$3 = "undefined" != typeof Uint8Array ? Uint8Array : Array, i$3 = false;
   function o$3() {
     i$3 = true;
     for (var e2 = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/", n2 = 0, o2 = e2.length; n2 < o2; ++n2)
       t$3[n2] = e2[n2], r$3[e2.charCodeAt(n2)] = n2;
+=======
+  var e$2 = "undefined" != typeof global ? global : "undefined" != typeof self ? self : "undefined" != typeof window ? window : {}, t$4 = [], r$3 = [], n$3 = "undefined" != typeof Uint8Array ? Uint8Array : Array, i$3 = false;
+  function o$3() {
+    i$3 = true;
+    for (var e2 = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/", n2 = 0, o2 = e2.length; n2 < o2; ++n2)
+      t$4[n2] = e2[n2], r$3[e2.charCodeAt(n2)] = n2;
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
     r$3["-".charCodeAt(0)] = 62, r$3["_".charCodeAt(0)] = 63;
   }
   function a$3(e2, r2, n2) {
     for (var i2, o2, a2 = [], s2 = r2; s2 < n2; s2 += 3)
+<<<<<<< HEAD
       i2 = (e2[s2] << 16) + (e2[s2 + 1] << 8) + e2[s2 + 2], a2.push(t$3[(o2 = i2) >> 18 & 63] + t$3[o2 >> 12 & 63] + t$3[o2 >> 6 & 63] + t$3[63 & o2]);
+=======
+      i2 = (e2[s2] << 16) + (e2[s2 + 1] << 8) + e2[s2 + 2], a2.push(t$4[(o2 = i2) >> 18 & 63] + t$4[o2 >> 12 & 63] + t$4[o2 >> 6 & 63] + t$4[63 & o2]);
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
     return a2.join("");
   }
   function s$2(e2) {
@@ -1852,7 +1885,11 @@ This will fail in production.`);
     i$3 || o$3();
     for (var n2 = e2.length, s2 = n2 % 3, h2 = "", l2 = [], f2 = 0, c2 = n2 - s2; f2 < c2; f2 += 16383)
       l2.push(a$3(e2, f2, f2 + 16383 > c2 ? c2 : f2 + 16383));
+<<<<<<< HEAD
     return 1 === s2 ? (r2 = e2[n2 - 1], h2 += t$3[r2 >> 2], h2 += t$3[r2 << 4 & 63], h2 += "==") : 2 === s2 && (r2 = (e2[n2 - 2] << 8) + e2[n2 - 1], h2 += t$3[r2 >> 10], h2 += t$3[r2 >> 4 & 63], h2 += t$3[r2 << 2 & 63], h2 += "="), l2.push(h2), l2.join("");
+=======
+    return 1 === s2 ? (r2 = e2[n2 - 1], h2 += t$4[r2 >> 2], h2 += t$4[r2 << 4 & 63], h2 += "==") : 2 === s2 && (r2 = (e2[n2 - 2] << 8) + e2[n2 - 1], h2 += t$4[r2 >> 10], h2 += t$4[r2 >> 4 & 63], h2 += t$4[r2 << 2 & 63], h2 += "="), l2.push(h2), l2.join("");
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
   }
   function h$3(e2, t2, r2, n2, i2) {
     var o2, a2, s2 = 8 * i2 - n2 - 1, h2 = (1 << s2) - 1, l2 = h2 >> 1, f2 = -7, c2 = r2 ? i2 - 1 : 0, u2 = r2 ? -1 : 1, d2 = e2[t2 + c2];
@@ -16883,7 +16920,11 @@ This will fail in production.`);
     });
   })(timUploadPlugin);
   var timUploadPluginExports = timUploadPlugin.exports;
+<<<<<<< HEAD
   const t$2 = /* @__PURE__ */ getDefaultExportFromCjs(timUploadPluginExports);
+=======
+  const t$3 = /* @__PURE__ */ getDefaultExportFromCjs(timUploadPluginExports);
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
   var lookup = [
     0,
     0,
@@ -18444,7 +18485,11 @@ This will fail in production.`);
     }
     registerPlugin(e2) {
       const { useUploadPlugin: n2 = false, useProfanityFilterPlugin: i2 = false, TIMPush: r2, pushConfig: a2, TUIOfflinePush: o2, offlinePushConfig: u2 } = e2;
+<<<<<<< HEAD
       true === n2 && this.chat.registerPlugin({ "tim-upload-plugin": t$2 }), true === i2 && this.chat.registerPlugin({ "tim-profanity-filter-plugin": n$2 }), !w$1 || G || S$1(r2) || S$1(a2) || this.chat.registerPlugin({ "tim-push": r2, pushConfig: a2 }), !w$1 || G || S$1(o2) || S$1(u2) || this.chat.registerPlugin({ "tim-offline-push-plugin": o2, offlinePushConfig: u2 });
+=======
+      true === n2 && this.chat.registerPlugin({ "tim-upload-plugin": t$3 }), true === i2 && this.chat.registerPlugin({ "tim-profanity-filter-plugin": n$2 }), !w$1 || G || S$1(r2) || S$1(a2) || this.chat.registerPlugin({ "tim-push": r2, pushConfig: a2 }), !w$1 || G || S$1(o2) || S$1(u2) || this.chat.registerPlugin({ "tim-offline-push-plugin": o2, offlinePushConfig: u2 });
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
     }
     onSDKReady() {
       if (this.loginStatusPromise.has("login")) {
@@ -22109,7 +22154,11 @@ This will fail in production.`);
     }
     registerPlugin(e2) {
       const { useUploadPlugin: i2 = false, useProfanityFilterPlugin: s2 = false, TUIOfflinePush: o2, offlinePushConfig: E2, TIMPush: r2, pushConfig: a2 } = e2;
+<<<<<<< HEAD
       true === i2 && this.chat.registerPlugin({ "tim-upload-plugin": t$2 }), true === s2 && this.chat.registerPlugin({ "tim-profanity-filter-plugin": n$2 }), U && r2 && a2 && this.chat.registerPlugin({ "tim-push": r2, pushConfig: a2 }), U && o2 && E2 && this.chat.registerPlugin({ "tim-offline-push-plugin": o2, offlinePushConfig: E2 });
+=======
+      true === i2 && this.chat.registerPlugin({ "tim-upload-plugin": t$3 }), true === s2 && this.chat.registerPlugin({ "tim-profanity-filter-plugin": n$2 }), U && r2 && a2 && this.chat.registerPlugin({ "tim-push": r2, pushConfig: a2 }), U && o2 && E2 && this.chat.registerPlugin({ "tim-offline-push-plugin": o2, offlinePushConfig: E2 });
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
     }
     getStatScene(e2) {
       let t2;
@@ -22322,9 +22371,12 @@ This will fail in production.`);
           });
         }
       });
+<<<<<<< HEAD
       const handleScroll = (event) => {
         formatAppLog("log", "at pages/login/login.vue:118", "滚动位置：", event.target.scrollTop);
       };
+=======
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
       const handleLoginInfo = async () => {
         if (!radio.value) {
           uni.showToast({
@@ -22355,7 +22407,11 @@ This will fail in production.`);
           mobile: account.value,
           password: password.value
         });
+<<<<<<< HEAD
         formatAppLog("log", "at pages/login/login.vue:152", response);
+=======
+        formatAppLog("log", "at pages/login/login.vue:126", response);
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
         if (response.code === 1) {
           uni.showToast({
             title: response.msg,
@@ -22374,7 +22430,11 @@ This will fail in production.`);
           });
         }
         const { user_id } = response.data.userinfo;
+<<<<<<< HEAD
         formatAppLog("log", "at pages/login/login.vue:178", user_id);
+=======
+        formatAppLog("log", "at pages/login/login.vue:152", user_id);
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
         uni.setStorageSync("user_id", user_id);
         tengXun();
       };
@@ -22426,7 +22486,10 @@ This will fail in production.`);
         return string2.charAt(0).toUpperCase() + string2.slice(1);
       };
       const parsePolicyContent = (content, title) => {
+<<<<<<< HEAD
         formatAppLog("log", "at pages/login/login.vue:232", content);
+=======
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
         if (!content) {
           uni.showToast({
             title: `${title}内容为空，请稍后重试`,
@@ -22435,6 +22498,7 @@ This will fail in production.`);
           });
           return;
         }
+<<<<<<< HEAD
         const hasHtmlTags = /<\/?[a-z][\s\S]*>/i.test(content);
         if (!hasHtmlTags) {
           uni.showModal({
@@ -22482,6 +22546,16 @@ This will fail in production.`);
             duration: 2e3
           });
         }
+=======
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(content, "text/html");
+        const paragraphs = Array.from(doc.getElementsByTagName("p")).map((p2) => p2.textContent).join("\n");
+        uni.showModal({
+          title,
+          content: paragraphs,
+          showCancel: false
+        });
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
       };
       const retPass = async () => {
         await uni.navigateTo({ url: "/pages/login/ratpass" });
@@ -22498,12 +22572,17 @@ This will fail in production.`);
       const getpass = (event) => {
         password.value = event.detail.value;
       };
+<<<<<<< HEAD
       const __returned__ = { privateAgree, inputValue, statusBarHeight, handleScroll, handleLoginInfo, tengXun, login, account, password, radio, store, capitalizeFirstLetter, parsePolicyContent, handlePolicyClick, retPass, regiSter, radiogrp, getadmin, getpass };
+=======
+      const __returned__ = { privateAgree, inputValue, statusBarHeight, handleLoginInfo, tengXun, login, account, password, radio, store, capitalizeFirstLetter, parsePolicyContent, retPass, regiSter, radiogrp, getadmin, getpass };
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
       Object.defineProperty(__returned__, "__isScriptSetup", { enumerable: false, value: true });
       return __returned__;
     }
   });
   function _sfc_render$2O(_ctx, _cache, $props, $setup, $data, $options) {
+<<<<<<< HEAD
     return vue.openBlock(), vue.createElementBlock(
       "view",
       { onScrollPassive: $setup.handleScroll },
@@ -22602,6 +22681,98 @@ This will fail in production.`);
     );
   }
   const PagesLoginLogin = /* @__PURE__ */ _export_sfc(_sfc_main$2P, [["render", _sfc_render$2O], ["__scopeId", "data-v-e4e4508d"], ["__file", "C:/Users/Administrator/Desktop/Project Folder/ZXHand/ZXHandwritting_APP_uniapp/pages/login/login.vue"]]);
+=======
+    return vue.openBlock(), vue.createElementBlock("view", { class: "container" }, [
+      vue.createElementVNode(
+        "view",
+        {
+          style: vue.normalizeStyle("height:" + ($setup.statusBarHeight + 5) + "px;")
+        },
+        null,
+        4
+        /* STYLE */
+      ),
+      vue.createElementVNode("view", { class: "form" }, [
+        vue.createElementVNode("view", { class: "textlogin" }, [
+          vue.createElementVNode("text", null, "登录/注册")
+        ]),
+        vue.createElementVNode(
+          "input",
+          {
+            type: "text",
+            placeholder: "账号",
+            class: "input",
+            onInput: $setup.getadmin
+          },
+          null,
+          32
+          /* NEED_HYDRATION */
+        ),
+        vue.createElementVNode(
+          "input",
+          {
+            type: "password",
+            placeholder: "密码",
+            class: "input",
+            onInput: $setup.getpass
+          },
+          null,
+          32
+          /* NEED_HYDRATION */
+        ),
+        vue.createElementVNode("button", {
+          class: "login-button",
+          onClick: $setup.handleLoginInfo
+        }, "登录"),
+        vue.createElementVNode("view", { class: "links" }, [
+          vue.createElementVNode("text", {
+            class: "link",
+            onClick: $setup.retPass
+          }, "找回密码"),
+          vue.createElementVNode("text", {
+            class: "link",
+            onClick: $setup.regiSter
+          }, "注册")
+        ])
+      ]),
+      vue.createElementVNode("view", { class: "footer" }, [
+        vue.createElementVNode(
+          "checkbox-group",
+          {
+            onChange: $setup.radiogrp,
+            style: { "display": "flex", "align-items": "center" }
+          },
+          [
+            vue.createElementVNode("label", { class: "radio" }, [
+              vue.createElementVNode("checkbox", {
+                value: "true",
+                activeBorderColor: "#000",
+                activeBackgroundColor: "#fff",
+                iconColor: "#000",
+                style: { "transform": "scale(0.5)" }
+              })
+            ]),
+            vue.createElementVNode("text", null, [
+              vue.createTextVNode(" 点击登录，即表示同意 "),
+              vue.createElementVNode("text", {
+                onClick: _cache[0] || (_cache[0] = ($event) => _ctx.handlePolicyClick("privacyPolicy")),
+                style: { "color": "blue", "text-decoration": "underline" }
+              }, "《隐私政策》"),
+              vue.createTextVNode(" 和 "),
+              vue.createElementVNode("text", {
+                onClick: _cache[1] || (_cache[1] = ($event) => _ctx.handlePolicyClick("userAgreement")),
+                style: { "color": "blue", "text-decoration": "underline" }
+              }, "《用户协议》")
+            ])
+          ],
+          32
+          /* NEED_HYDRATION */
+        )
+      ])
+    ]);
+  }
+  const PagesLoginLogin = /* @__PURE__ */ _export_sfc(_sfc_main$2P, [["render", _sfc_render$2O], ["__file", "C:/Users/Administrator/Desktop/Project Folder/ZXHand/ZXHandwritting_APP_uniapp/pages/login/login.vue"]]);
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
   const _sfc_main$2O = {
     __name: "ratpass",
     setup(__props, { expose: __expose }) {
@@ -22631,7 +22802,11 @@ This will fail in production.`);
       const requestVerificationCode = async () => {
         const phonePattern = /^[1][3-9][0-9]{9}$/;
         if (!phonePattern.test(account.value)) {
+<<<<<<< HEAD
           return uni.showToast({ title: "手机号格式不正确", icon: "none" });
+=======
+          return showToast("手机号格式不正确");
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
         }
         uni.showLoading({
           title: "发送中..."
@@ -22639,9 +22814,15 @@ This will fail in production.`);
         try {
           const response = await fetchVerificationCode({
             mobile: account.value,
+<<<<<<< HEAD
             event: "resetpwd"
           });
           formatAppLog("log", "at pages/login/ratpass.vue:90", response);
+=======
+            event: "changemobile"
+          });
+          formatAppLog("log", "at pages/login/ratpass.vue:67", response);
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
           if (response.code === 1) {
             isCodeSent.value = true;
             startCountdown2();
@@ -22669,7 +22850,11 @@ This will fail in production.`);
             duration: 2e3
             // 持续时间
           });
+<<<<<<< HEAD
           formatAppLog("error", "at pages/login/ratpass.vue:113", "发送验证码错误:", error2);
+=======
+          formatAppLog("error", "at pages/login/ratpass.vue:90", "发送验证码错误:", error2);
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
         } finally {
           uni.hideLoading();
         }
@@ -22696,12 +22881,20 @@ This will fail in production.`);
           const response = await fetchFindPassword({
             mobile: account.value,
             newpassword: password2.value,
+<<<<<<< HEAD
             captcha: code2.value,
             type: "mobile"
           });
           if (response.code === 1) {
             uni.showToast({
               title: response.msg || "密码重置成功",
+=======
+            captcha: code2.value
+          });
+          if (response.statusCode === 200) {
+            uni.showToast({
+              title: "密码重置成功",
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
               icon: "success",
               duration: 2e3
             });
@@ -22709,7 +22902,11 @@ This will fail in production.`);
           }
         } catch (error2) {
           showError("网络异常，请稍后再试");
+<<<<<<< HEAD
           formatAppLog("error", "at pages/login/ratpass.vue:170", "重置密码错误:", error2);
+=======
+          formatAppLog("error", "at pages/login/ratpass.vue:146", "重置密码错误:", error2);
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
         }
       };
       const showError = (message2) => {
@@ -24212,7 +24409,11 @@ This will fail in production.`);
       /* CLASS, STYLE */
     )) : vue.createCommentVNode("v-if", true);
   }
+<<<<<<< HEAD
   const __easycom_1$2 = /* @__PURE__ */ _export_sfc(_sfc_main$2M, [["render", _sfc_render$2L], ["__scopeId", "data-v-29b619ea"], ["__file", "C:/Users/Administrator/Desktop/Project Folder/ZXHand/ZXHandwritting_APP_uniapp/uni_modules/uv-loading-icon/components/uv-loading-icon/uv-loading-icon.vue"]]);
+=======
+  const __easycom_1$1 = /* @__PURE__ */ _export_sfc(_sfc_main$2M, [["render", _sfc_render$2L], ["__scopeId", "data-v-29b619ea"], ["__file", "C:/Users/Administrator/Desktop/Project Folder/ZXHand/ZXHandwritting_APP_uniapp/uni_modules/uv-loading-icon/components/uv-loading-icon/uv-loading-icon.vue"]]);
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
   class MPAnimation {
     constructor(options, _this) {
       this.options = options;
@@ -24703,7 +24904,11 @@ This will fail in production.`);
       /* STYLE */
     );
   }
+<<<<<<< HEAD
   const __easycom_1$1 = /* @__PURE__ */ _export_sfc(_sfc_main$2J, [["render", _sfc_render$2I], ["__scopeId", "data-v-f5bd6f5a"], ["__file", "C:/Users/Administrator/Desktop/Project Folder/ZXHand/ZXHandwritting_APP_uniapp/uni_modules/uv-status-bar/components/uv-status-bar/uv-status-bar.vue"]]);
+=======
+  const __easycom_1 = /* @__PURE__ */ _export_sfc(_sfc_main$2J, [["render", _sfc_render$2I], ["__scopeId", "data-v-f5bd6f5a"], ["__file", "C:/Users/Administrator/Desktop/Project Folder/ZXHand/ZXHandwritting_APP_uniapp/uni_modules/uv-status-bar/components/uv-status-bar/uv-status-bar.vue"]]);
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
   const _sfc_main$2I = {
     name: "uv-safe-bottom",
     mixins: [mpMixin, mixin],
@@ -25427,7 +25632,11 @@ This will fail in production.`);
   };
   function _sfc_render$2F(_ctx, _cache, $props, $setup, $data, $options) {
     const _component_uv_overlay = resolveEasycom(vue.resolveDynamicComponent("uv-overlay"), __easycom_0$6);
+<<<<<<< HEAD
     const _component_uv_status_bar = resolveEasycom(vue.resolveDynamicComponent("uv-status-bar"), __easycom_1$1);
+=======
+    const _component_uv_status_bar = resolveEasycom(vue.resolveDynamicComponent("uv-status-bar"), __easycom_1);
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
     const _component_uv_safe_bottom = resolveEasycom(vue.resolveDynamicComponent("uv-safe-bottom"), __easycom_2$1);
     const _component_uv_icon = resolveEasycom(vue.resolveDynamicComponent("uv-icon"), __easycom_3);
     const _component_uv_transition = resolveEasycom(vue.resolveDynamicComponent("uv-transition"), __easycom_4);
@@ -25771,7 +25980,11 @@ This will fail in production.`);
   };
   function _sfc_render$2E(_ctx, _cache, $props, $setup, $data, $options) {
     const _component_uv_toolbar = resolveEasycom(vue.resolveDynamicComponent("uv-toolbar"), __easycom_0$7);
+<<<<<<< HEAD
     const _component_uv_loading_icon = resolveEasycom(vue.resolveDynamicComponent("uv-loading-icon"), __easycom_1$2);
+=======
+    const _component_uv_loading_icon = resolveEasycom(vue.resolveDynamicComponent("uv-loading-icon"), __easycom_1$1);
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
     const _component_uv_popup = resolveEasycom(vue.resolveDynamicComponent("uv-popup"), __easycom_2);
     return vue.openBlock(), vue.createBlock(_component_uv_popup, {
       ref: "pickerPopup",
@@ -26497,7 +26710,11 @@ This will fail in production.`);
     }, null, 8, ["closeOnClickOverlay", "closeOnClickConfirm", "columns", "title", "itemHeight", "showToolbar", "visibleItemCount", "defaultIndex", "cancelText", "confirmText", "cancelColor", "confirmColor", "round", "onClose", "onCancel", "onConfirm", "onChange"]);
   }
   const __easycom_0$4 = /* @__PURE__ */ _export_sfc(_sfc_main$2E, [["render", _sfc_render$2D], ["__file", "C:/Users/Administrator/Desktop/Project Folder/ZXHand/ZXHandwritting_APP_uniapp/uni_modules/uv-datetime-picker/components/uv-datetime-picker/uv-datetime-picker.vue"]]);
+<<<<<<< HEAD
   const _imports_0$9 = "/static/img/boy1.png";
+=======
+  const _imports_0$8 = "/static/img/boy1.png";
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
   const _imports_1$3 = "/static/img/boy.png";
   const _imports_2$2 = "/static/img/girl1.png";
   const _imports_3$1 = "/static/img/girl.png";
@@ -26770,7 +26987,11 @@ This will fail in production.`);
             }, [
               $setup.isMale ? (vue.openBlock(), vue.createElementBlock("image", {
                 key: 0,
+<<<<<<< HEAD
                 src: _imports_0$9,
+=======
+                src: _imports_0$8,
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
                 alt: ""
               })) : (vue.openBlock(), vue.createElementBlock("image", {
                 key: 1,
@@ -27255,7 +27476,11 @@ This will fail in production.`);
     "zh-Hant": zhHant$1
   };
   const {
+<<<<<<< HEAD
     t: t$1
+=======
+    t: t$2
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
   } = initVueI18n(messages$8);
   const _sfc_main$2C = {
     name: "UniCountdown",
@@ -27336,6 +27561,7 @@ This will fail in production.`);
     },
     computed: {
       dayText() {
+<<<<<<< HEAD
         return t$1("uni-countdown.day");
       },
       hourText(val) {
@@ -27346,6 +27572,18 @@ This will fail in production.`);
       },
       secondText(val) {
         return t$1("uni-countdown.s");
+=======
+        return t$2("uni-countdown.day");
+      },
+      hourText(val) {
+        return t$2("uni-countdown.h");
+      },
+      minuteText(val) {
+        return t$2("uni-countdown.m");
+      },
+      secondText(val) {
+        return t$2("uni-countdown.s");
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
       },
       timeStyle() {
         const {
@@ -27557,11 +27795,350 @@ This will fail in production.`);
     ]);
   }
   const __easycom_0$3 = /* @__PURE__ */ _export_sfc(_sfc_main$2C, [["render", _sfc_render$2B], ["__scopeId", "data-v-c592f7f2"], ["__file", "C:/Users/Administrator/Desktop/Project Folder/ZXHand/ZXHandwritting_APP_uniapp/uni_modules/uni-countdown/components/uni-countdown/uni-countdown.vue"]]);
+<<<<<<< HEAD
   const _imports_0$8 = "/static/img/fir.png";
   const _sfc_main$2B = {
     // components: {
     //   UniCountdown,
     // },
+=======
+  const en = {
+    "uni-countdown.day": "day",
+    "uni-countdown.h": "h",
+    "uni-countdown.m": "m",
+    "uni-countdown.s": "s"
+  };
+  const zhHans = {
+    "uni-countdown.day": "天",
+    "uni-countdown.h": "时",
+    "uni-countdown.m": "分",
+    "uni-countdown.s": "秒"
+  };
+  const zhHant = {
+    "uni-countdown.day": "天",
+    "uni-countdown.h": "時",
+    "uni-countdown.m": "分",
+    "uni-countdown.s": "秒"
+  };
+  const messages$7 = {
+    en,
+    "zh-Hans": zhHans,
+    "zh-Hant": zhHant
+  };
+  const {
+    t: t$1
+  } = initVueI18n(messages$7);
+  const _sfc_main$2B = {
+    name: "UniCountdown",
+    emits: ["timeup"],
+    props: {
+      showDay: {
+        type: Boolean,
+        default: true
+      },
+      showHour: {
+        type: Boolean,
+        default: true
+      },
+      showMinute: {
+        type: Boolean,
+        default: true
+      },
+      showColon: {
+        type: Boolean,
+        default: true
+      },
+      start: {
+        type: Boolean,
+        default: true
+      },
+      backgroundColor: {
+        type: String,
+        default: ""
+      },
+      color: {
+        type: String,
+        default: "#333"
+      },
+      fontSize: {
+        type: Number,
+        default: 14
+      },
+      splitorColor: {
+        type: String,
+        default: "#333"
+      },
+      day: {
+        type: Number,
+        default: 0
+      },
+      hour: {
+        type: Number,
+        default: 0
+      },
+      minute: {
+        type: Number,
+        default: 0
+      },
+      second: {
+        type: Number,
+        default: 0
+      },
+      timestamp: {
+        type: Number,
+        default: 0
+      }
+    },
+    data() {
+      return {
+        timer: null,
+        syncFlag: false,
+        d: "00",
+        h: "00",
+        i: "00",
+        s: "00",
+        leftTime: 0,
+        seconds: 0
+      };
+    },
+    computed: {
+      dayText() {
+        return t$1("uni-countdown.day");
+      },
+      hourText(val) {
+        return t$1("uni-countdown.h");
+      },
+      minuteText(val) {
+        return t$1("uni-countdown.m");
+      },
+      secondText(val) {
+        return t$1("uni-countdown.s");
+      },
+      timeStyle() {
+        const {
+          color,
+          backgroundColor,
+          fontSize
+        } = this;
+        return {
+          color,
+          backgroundColor,
+          fontSize: `${fontSize}px`,
+          width: `${fontSize * 22 / 14}px`,
+          // 按字体大小为 14px 时的比例缩放
+          lineHeight: `${fontSize * 20 / 14}px`,
+          borderRadius: `${fontSize * 3 / 14}px`
+        };
+      },
+      splitorStyle() {
+        const { splitorColor, fontSize, backgroundColor } = this;
+        return {
+          color: splitorColor,
+          fontSize: `${fontSize * 12 / 14}px`,
+          margin: backgroundColor ? `${fontSize * 4 / 14}px` : ""
+        };
+      }
+    },
+    watch: {
+      day(val) {
+        this.changeFlag();
+      },
+      hour(val) {
+        this.changeFlag();
+      },
+      minute(val) {
+        this.changeFlag();
+      },
+      second(val) {
+        this.changeFlag();
+      },
+      start: {
+        immediate: true,
+        handler(newVal, oldVal) {
+          if (newVal) {
+            this.startData();
+          } else {
+            if (!oldVal)
+              return;
+            clearInterval(this.timer);
+          }
+        }
+      }
+    },
+    created: function(e2) {
+      this.seconds = this.toSeconds(this.timestamp, this.day, this.hour, this.minute, this.second);
+      this.countDown();
+    },
+    unmounted() {
+      clearInterval(this.timer);
+    },
+    methods: {
+      toSeconds(timestamp, day, hours, minutes, seconds) {
+        if (timestamp) {
+          return timestamp - parseInt((/* @__PURE__ */ new Date()).getTime() / 1e3, 10);
+        }
+        return day * 60 * 60 * 24 + hours * 60 * 60 + minutes * 60 + seconds;
+      },
+      timeUp() {
+        clearInterval(this.timer);
+        this.$emit("timeup");
+      },
+      countDown() {
+        let seconds = this.seconds;
+        let [day, hour, minute, second] = [0, 0, 0, 0];
+        if (seconds > 0) {
+          day = Math.floor(seconds / (60 * 60 * 24));
+          hour = Math.floor(seconds / (60 * 60)) - day * 24;
+          minute = Math.floor(seconds / 60) - day * 24 * 60 - hour * 60;
+          second = Math.floor(seconds) - day * 24 * 60 * 60 - hour * 60 * 60 - minute * 60;
+        } else {
+          this.timeUp();
+        }
+        if (day < 10) {
+          day = "0" + day;
+        }
+        if (hour < 10) {
+          hour = "0" + hour;
+        }
+        if (minute < 10) {
+          minute = "0" + minute;
+        }
+        if (second < 10) {
+          second = "0" + second;
+        }
+        this.d = day;
+        this.h = hour;
+        this.i = minute;
+        this.s = second;
+      },
+      startData() {
+        this.seconds = this.toSeconds(this.timestamp, this.day, this.hour, this.minute, this.second);
+        if (this.seconds <= 0) {
+          this.seconds = this.toSeconds(0, 0, 0, 0, 0);
+          this.countDown();
+          return;
+        }
+        clearInterval(this.timer);
+        this.countDown();
+        this.timer = setInterval(() => {
+          this.seconds--;
+          if (this.seconds < 0) {
+            this.timeUp();
+            return;
+          }
+          this.countDown();
+        }, 1e3);
+      },
+      update() {
+        this.startData();
+      },
+      changeFlag() {
+        if (!this.syncFlag) {
+          this.seconds = this.toSeconds(this.timestamp, this.day, this.hour, this.minute, this.second);
+          this.startData();
+          this.syncFlag = true;
+        }
+      }
+    }
+  };
+  function _sfc_render$2A(_ctx, _cache, $props, $setup, $data, $options) {
+    return vue.openBlock(), vue.createElementBlock("view", { class: "uni-countdown" }, [
+      $props.showDay ? (vue.openBlock(), vue.createElementBlock(
+        "text",
+        {
+          key: 0,
+          style: vue.normalizeStyle([$options.timeStyle]),
+          class: "uni-countdown__number"
+        },
+        vue.toDisplayString($data.d),
+        5
+        /* TEXT, STYLE */
+      )) : vue.createCommentVNode("v-if", true),
+      $props.showDay ? (vue.openBlock(), vue.createElementBlock(
+        "text",
+        {
+          key: 1,
+          style: vue.normalizeStyle([$options.splitorStyle]),
+          class: "uni-countdown__splitor"
+        },
+        vue.toDisplayString($options.dayText),
+        5
+        /* TEXT, STYLE */
+      )) : vue.createCommentVNode("v-if", true),
+      $props.showHour ? (vue.openBlock(), vue.createElementBlock(
+        "text",
+        {
+          key: 2,
+          style: vue.normalizeStyle([$options.timeStyle]),
+          class: "uni-countdown__number"
+        },
+        vue.toDisplayString($data.h),
+        5
+        /* TEXT, STYLE */
+      )) : vue.createCommentVNode("v-if", true),
+      $props.showHour ? (vue.openBlock(), vue.createElementBlock(
+        "text",
+        {
+          key: 3,
+          style: vue.normalizeStyle([$options.splitorStyle]),
+          class: "uni-countdown__splitor"
+        },
+        vue.toDisplayString($props.showColon ? ":" : $options.hourText),
+        5
+        /* TEXT, STYLE */
+      )) : vue.createCommentVNode("v-if", true),
+      $props.showMinute ? (vue.openBlock(), vue.createElementBlock(
+        "text",
+        {
+          key: 4,
+          style: vue.normalizeStyle([$options.timeStyle]),
+          class: "uni-countdown__number"
+        },
+        vue.toDisplayString($data.i),
+        5
+        /* TEXT, STYLE */
+      )) : vue.createCommentVNode("v-if", true),
+      $props.showMinute ? (vue.openBlock(), vue.createElementBlock(
+        "text",
+        {
+          key: 5,
+          style: vue.normalizeStyle([$options.splitorStyle]),
+          class: "uni-countdown__splitor"
+        },
+        vue.toDisplayString($props.showColon ? ":" : $options.minuteText),
+        5
+        /* TEXT, STYLE */
+      )) : vue.createCommentVNode("v-if", true),
+      vue.createElementVNode(
+        "text",
+        {
+          style: vue.normalizeStyle([$options.timeStyle]),
+          class: "uni-countdown__number"
+        },
+        vue.toDisplayString($data.s),
+        5
+        /* TEXT, STYLE */
+      ),
+      !$props.showColon ? (vue.openBlock(), vue.createElementBlock(
+        "text",
+        {
+          key: 6,
+          style: vue.normalizeStyle([$options.splitorStyle]),
+          class: "uni-countdown__splitor"
+        },
+        vue.toDisplayString($options.secondText),
+        5
+        /* TEXT, STYLE */
+      )) : vue.createCommentVNode("v-if", true)
+    ]);
+  }
+  const UniCountdown = /* @__PURE__ */ _export_sfc(_sfc_main$2B, [["render", _sfc_render$2A], ["__scopeId", "data-v-0bd4ae46"], ["__file", "C:/Users/Administrator/node_modules/@dcloudio/uni-ui/lib/uni-countdown/uni-countdown.vue"]]);
+  const _imports_0$7 = "/static/img/fir.png";
+  const _sfc_main$2A = {
+    components: {
+      UniCountdown
+    },
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
     data() {
       return {
         testHour: 0,
@@ -27603,9 +28180,15 @@ This will fail in production.`);
     },
     methods: {
       printTime() {
+<<<<<<< HEAD
         formatAppLog("log", "at components/ActivityItem/ActivityItem.vue:166", "Hours:", this.hours);
         formatAppLog("log", "at components/ActivityItem/ActivityItem.vue:167", "Minutes:", this.minutes);
         formatAppLog("log", "at components/ActivityItem/ActivityItem.vue:168", "Seconds:", this.seconds);
+=======
+        formatAppLog("log", "at components/ActivityItem/ActivityItem.vue:122", "Hours:", typeof this.hours);
+        formatAppLog("log", "at components/ActivityItem/ActivityItem.vue:123", "Minutes:", typeof this.minutes);
+        formatAppLog("log", "at components/ActivityItem/ActivityItem.vue:124", "Seconds:", typeof this.seconds);
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
       },
       updateCountdown() {
         this.testHour = this.hours;
@@ -27618,7 +28201,11 @@ This will fail in production.`);
       }
     }
   };
+<<<<<<< HEAD
   function _sfc_render$2A(_ctx, _cache, $props, $setup, $data, $options) {
+=======
+  function _sfc_render$2z(_ctx, _cache, $props, $setup, $data, $options) {
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
     const _component_uni_countdown = resolveEasycom(vue.resolveDynamicComponent("uni-countdown"), __easycom_0$3);
     return vue.openBlock(), vue.createElementBlock(
       vue.Fragment,
@@ -27630,9 +28217,13 @@ This will fail in production.`);
             "view",
             {
               class: "courseRegistrationCard_bg",
+<<<<<<< HEAD
               style: vue.normalizeStyle({
                 backgroundColor: $props.hours === 0 && $props.minutes === 0 && $props.seconds === 0 ? "gray" : ""
               })
+=======
+              style: vue.normalizeStyle({ backgroundColor: $props.hours === 0 && $props.minutes === 0 && $props.seconds === 0 ? "gray" : "" })
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
             },
             null,
             4
@@ -27642,10 +28233,14 @@ This will fail in production.`);
             "view",
             {
               class: "courseRegistrationCard_status",
+<<<<<<< HEAD
               style: vue.normalizeStyle({
                 top: $props.hours === 0 && $props.minutes === 0 && $props.seconds === 0 ? "-6rpx" : 0,
                 right: $props.hours === 0 && $props.minutes === 0 && $props.seconds === 0 ? "-12rpx" : 0
               })
+=======
+              style: vue.normalizeStyle({ top: $props.hours === 0 && $props.minutes === 0 && $props.seconds === 0 ? "-6rpx" : 0, right: $props.hours === 0 && $props.minutes === 0 && $props.seconds === 0 ? "-12rpx" : 0 })
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
             },
             vue.toDisplayString($props.hours === 0 && $props.minutes === 0 && $props.seconds === 0 ? "已结束" : $props.online === 1 ? "线上" : "线下"),
             5
@@ -27698,6 +28293,10 @@ This will fail in production.`);
                 vue.createElementVNode("text", { style: { "font-size": "24rpx" } }, "距结束还剩:"),
                 vue.createCommentVNode(' <view class="timetextbox">\r\n            <text class="time-num">{{ hours }}</text>\r\n            <text style="font-size: 20rpx; background-color:#fff; color: #F53C38;">:</text>\r\n            <text class="time-num">{{ minutes }}</text>\r\n            <text style="font-size: 20rpx; background-color:#fff; color: #F53C38;">:</text>\r\n            <text class="time-num">{{ seconds }}</text>\r\n          </view> '),
                 vue.createVNode(_component_uni_countdown, {
+<<<<<<< HEAD
+=======
+                  "show-day": false,
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
                   hour: $data.testHour,
                   minute: $data.testMinute,
                   second: $data.testSecond,
@@ -27710,7 +28309,11 @@ This will fail in production.`);
               vue.createElementVNode("view", { class: "peopers" }, [
                 vue.createElementVNode("image", {
                   style: { "width": "24rpx", "height": "32rpx" },
+<<<<<<< HEAD
                   src: _imports_0$8,
+=======
+                  src: _imports_0$7,
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
                   mode: "aspectFit"
                 }),
                 vue.createCommentVNode(' <img src="https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPnge82cb54448fe7b82f1100cbe1494f08248762c97952c5f2a8f4b9a26a743a00a" alt="" /> '),
@@ -27759,9 +28362,13 @@ This will fail in production.`);
                 vue.createElementVNode(
                   "view",
                   {
+<<<<<<< HEAD
                     style: vue.normalizeStyle(
                       $props.signedUp ? { backgroundColor: "#999999" } : { background: "#ff9e02" }
                     ),
+=======
+                    style: vue.normalizeStyle($props.signedUp ? { backgroundColor: "#999999" } : { background: "#ff9e02" }),
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
                     class: "gobtn",
                     onClick: _cache[0] || (_cache[0] = (...args) => $options.handleSignup && $options.handleSignup(...args))
                   },
@@ -27778,14 +28385,24 @@ This will fail in production.`);
       /* STABLE_FRAGMENT, DEV_ROOT_FRAGMENT */
     );
   }
+<<<<<<< HEAD
   const ActivityItem = /* @__PURE__ */ _export_sfc(_sfc_main$2B, [["render", _sfc_render$2A], ["__scopeId", "data-v-bd6e87e7"], ["__file", "C:/Users/Administrator/Desktop/Project Folder/ZXHand/ZXHandwritting_APP_uniapp/components/ActivityItem/ActivityItem.vue"]]);
+=======
+  const ActivityItem = /* @__PURE__ */ _export_sfc(_sfc_main$2A, [["render", _sfc_render$2z], ["__scopeId", "data-v-bd6e87e7"], ["__file", "C:/Users/Administrator/Desktop/Project Folder/ZXHand/ZXHandwritting_APP_uniapp/components/ActivityItem/ActivityItem.vue"]]);
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
   const _imports_1$2 = "/static/img/saoma.png";
   const _imports_2$1 = "/static/img/sousuo.png";
   const _imports_2 = "/static/img/xiaoxi.png";
   const _imports_3 = "/static/img/add.png";
+<<<<<<< HEAD
   const _imports_0$7 = "/static/img/noAct.png";
   const _imports_0$6 = "/static/img/noMes.png";
   const _sfc_main$2A = {
+=======
+  const _imports_0$6 = "/static/img/noAct.png";
+  const _imports_0$5 = "/static/img/noMes.png";
+  const _sfc_main$2z = {
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
     __name: "home",
     setup(__props, { expose: __expose }) {
       __expose();
@@ -27842,7 +28459,11 @@ This will fail in production.`);
           store.setInfoList(infoList2);
           studentAndstyle.value = responses[3].data;
         } catch (error2) {
+<<<<<<< HEAD
           formatAppLog("error", "at pages/pagesall/home.vue:337", "获取数据时发生错误:", error2);
+=======
+          formatAppLog("error", "at pages/pagesall/home.vue:230", "获取数据时发生错误:", error2);
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
         }
       };
       onPullDownRefresh(() => {
@@ -27910,13 +28531,18 @@ This will fail in production.`);
         if (item.timerId) {
           clearInterval(item.timerId);
           item.timerId = null;
+<<<<<<< HEAD
           formatAppLog("log", "at pages/pagesall/home.vue:422", `活动 ${item.id} 的定时器已清除，时间到达。`);
+=======
+          formatAppLog("log", "at pages/pagesall/home.vue:328", `活动 ${item.id} 的定时器已清除，时间到达。`);
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
         }
       };
       const startCountdown2 = () => {
         updateCountdown();
         intervalId.value = setInterval(updateCountdown, 1e3);
       };
+<<<<<<< HEAD
       const search = async () => {
         if (!searchValue.value) {
           return;
@@ -27975,6 +28601,16 @@ This will fail in production.`);
           },
           fail: (error2) => {
             formatAppLog("error", "at pages/pagesall/home.vue:496", "扫码失败", error2);
+=======
+      const btnscan = () => {
+        uni.scanCode({
+          success: (res) => {
+            formatAppLog("log", "at pages/pagesall/home.vue:340", "条码类型：" + res.scanType);
+            formatAppLog("log", "at pages/pagesall/home.vue:341", "条码内容：" + res.result);
+          },
+          fail: (error2) => {
+            formatAppLog("error", "at pages/pagesall/home.vue:344", "扫码失败", error2);
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
             uni.showToast({
               title: "扫码失败",
               icon: "error",
@@ -28006,13 +28642,21 @@ This will fail in production.`);
         });
       };
       const swiper_click = (index2) => {
+<<<<<<< HEAD
         formatAppLog("log", "at pages/pagesall/home.vue:531", "当前点击的轮播图下标:", index2);
+=======
+        formatAppLog("log", "at pages/pagesall/home.vue:379", "当前点击的轮播图下标:", index2);
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
         store.setSelectedSwiperIndex(index2);
         uni.navigateTo({
           url: "/pages/pagesall/home/game"
         });
       };
+<<<<<<< HEAD
       const __returned__ = { store, token, images, listdataIndex, userInfo, infoList, studentAndstyle, intervalId, hours, minutes, seconds, params, fetchData, statusBarHeight, goToDetail, activityLists, formatDate, formatTime, updateCountdown, clearTimer, startCountdown: startCountdown2, search, btnscan, btnsearch, btnmess, informationLists, handleSignup, swiper_click, ref: vue.ref, onMounted: vue.onMounted, onUnmounted: vue.onUnmounted, computed: vue.computed, watch: vue.watch, watchEffect: vue.watchEffect, get ActivityItem() {
+=======
+      const __returned__ = { store, token, images, listdataIndex, userInfo, infoList, studentAndstyle, intervalId, hours, minutes, seconds, params, fetchData, statusBarHeight, goToDetail, activityLists, formatDate, formatTime, updateCountdown, clearTimer, startCountdown: startCountdown2, btnscan, btnsearch, btnmess, informationLists, handleSignup, swiper_click, ref: vue.ref, onMounted: vue.onMounted, onUnmounted: vue.onUnmounted, computed: vue.computed, watch: vue.watch, watchEffect: vue.watchEffect, get ActivityItem() {
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
         return ActivityItem;
       }, get useStore() {
         return useStore;
@@ -28022,10 +28666,13 @@ This will fail in production.`);
         return onShow;
       }, get onPullDownRefresh() {
         return onPullDownRefresh;
+<<<<<<< HEAD
       }, get TUICore() {
         return R$1;
       }, get TUIConstants() {
         return E$1;
+=======
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
       }, get fetchActivityCourseList() {
         return fetchActivityCourseList;
       }, get fetchBannerList() {
@@ -28034,14 +28681,21 @@ This will fail in production.`);
         return fetchNewsList;
       }, get fetchMyStyle() {
         return fetchMyStyle;
+<<<<<<< HEAD
       }, get checkUserFriend() {
         return checkUserFriend;
+=======
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
       } };
       Object.defineProperty(__returned__, "__isScriptSetup", { enumerable: false, value: true });
       return __returned__;
     }
   };
+<<<<<<< HEAD
   function _sfc_render$2z(_ctx, _cache, $props, $setup, $data, $options) {
+=======
+  function _sfc_render$2y(_ctx, _cache, $props, $setup, $data, $options) {
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
     return vue.openBlock(), vue.createElementBlock("view", { class: "homePage" }, [
       vue.createElementVNode(
         "view",
@@ -28268,7 +28922,11 @@ This will fail in production.`);
         }, [
           vue.createElementVNode("image", {
             style: { "width": "400rpx", "height": "400rpx" },
+<<<<<<< HEAD
             src: _imports_0$7,
+=======
+            src: _imports_0$6,
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
             mode: "aspectFit"
           })
         ]))
@@ -28387,24 +29045,41 @@ This will fail in production.`);
         }, [
           vue.createElementVNode("image", {
             style: { "width": "400rpx", "height": "400rpx" },
+<<<<<<< HEAD
             src: _imports_0$6,
+=======
+            src: _imports_0$5,
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
             mode: "aspectFit"
           })
         ]))
       ])
     ]);
   }
+<<<<<<< HEAD
   const PagesPagesallHome = /* @__PURE__ */ _export_sfc(_sfc_main$2A, [["render", _sfc_render$2z], ["__scopeId", "data-v-a21552ae"], ["__file", "C:/Users/Administrator/Desktop/Project Folder/ZXHand/ZXHandwritting_APP_uniapp/pages/pagesall/home.vue"]]);
   const _sfc_main$2z = {
     components: {}
   };
   function _sfc_render$2y(_ctx, _cache, $props, $setup, $data, $options) {
+=======
+  const PagesPagesallHome = /* @__PURE__ */ _export_sfc(_sfc_main$2z, [["render", _sfc_render$2y], ["__scopeId", "data-v-a21552ae"], ["__file", "C:/Users/Administrator/Desktop/Project Folder/ZXHand/ZXHandwritting_APP_uniapp/pages/pagesall/home.vue"]]);
+  const _sfc_main$2y = {
+    components: {}
+  };
+  function _sfc_render$2x(_ctx, _cache, $props, $setup, $data, $options) {
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
     return vue.openBlock(), vue.createElementBlock("view", { class: "timeline" }, [
       vue.renderSlot(_ctx.$slots, "default", {}, void 0, true)
     ]);
   }
+<<<<<<< HEAD
   const timeline = /* @__PURE__ */ _export_sfc(_sfc_main$2z, [["render", _sfc_render$2y], ["__scopeId", "data-v-a4098a69"], ["__file", "C:/Users/Administrator/Desktop/Project Folder/ZXHand/ZXHandwritting_APP_uniapp/components/chenbin-timeline/timeLine.vue"]]);
   const _sfc_main$2y = {
+=======
+  const timeline = /* @__PURE__ */ _export_sfc(_sfc_main$2y, [["render", _sfc_render$2x], ["__scopeId", "data-v-a4098a69"], ["__file", "C:/Users/Administrator/Desktop/Project Folder/ZXHand/ZXHandwritting_APP_uniapp/components/chenbin-timeline/timeLine.vue"]]);
+  const _sfc_main$2x = {
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
     props: {
       leftTime: {
         default: ""
@@ -28426,7 +29101,11 @@ This will fail in production.`);
       return {};
     }
   };
+<<<<<<< HEAD
   function _sfc_render$2x(_ctx, _cache, $props, $setup, $data, $options) {
+=======
+  function _sfc_render$2w(_ctx, _cache, $props, $setup, $data, $options) {
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
     return vue.openBlock(), vue.createElementBlock("view", { class: "timelineItem" }, [
       vue.createElementVNode("view", { class: "timeItem" }, [
         vue.createElementVNode("view", { class: "line" }, [
@@ -28501,14 +29180,22 @@ This will fail in production.`);
       ])
     ]);
   }
+<<<<<<< HEAD
   const timelineItem = /* @__PURE__ */ _export_sfc(_sfc_main$2y, [["render", _sfc_render$2x], ["__scopeId", "data-v-48a104e6"], ["__file", "C:/Users/Administrator/Desktop/Project Folder/ZXHand/ZXHandwritting_APP_uniapp/components/chenbin-timeline/timelineItem.vue"]]);
   const _sfc_main$2x = {
+=======
+  const timelineItem = /* @__PURE__ */ _export_sfc(_sfc_main$2x, [["render", _sfc_render$2w], ["__scopeId", "data-v-48a104e6"], ["__file", "C:/Users/Administrator/Desktop/Project Folder/ZXHand/ZXHandwritting_APP_uniapp/components/chenbin-timeline/timelineItem.vue"]]);
+  const _sfc_main$2w = {
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
     __name: "course",
     setup(__props, { expose: __expose }) {
       __expose();
       const statusBarHeight = vue.ref();
       onLoad(() => {
+<<<<<<< HEAD
         fetchCourse();
+=======
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
         statusBarHeight.value = getApp().globalData.top;
       });
       onReachBottom(() => {
@@ -28533,6 +29220,7 @@ This will fail in production.`);
             fetchMyRecentCourse()
           ]);
           infolist.value = courseListResponse.items;
+<<<<<<< HEAD
           const statusColorMap = {
             0: "#5791F2",
             // 状态 0 对应的颜色
@@ -28551,6 +29239,16 @@ This will fail in production.`);
           }));
         } catch (error2) {
           formatAppLog("error", "at pages/pagesall/course.vue:186", "获取课程失败:", error2);
+=======
+          ti_tea_room_list.value = recentCourseResponse.items.map((item) => ({
+            ...item,
+            // 保留原有属性
+            color: item.status === 0 ? "#5791F2" : "#666666"
+            // 根据状态设置颜色
+          }));
+        } catch (error2) {
+          formatAppLog("error", "at pages/pagesall/course.vue:120", "获取课程失败:", error2);
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
         }
       };
       function goback() {
@@ -28559,6 +29257,7 @@ This will fail in production.`);
       function scroll(e2) {
         old.value.scrollTop = e2.detail.scrollTop;
       }
+<<<<<<< HEAD
       function getBackgroundColor(status) {
         switch (status) {
           case 0:
@@ -28595,6 +29294,14 @@ This will fail in production.`);
         }
       }
       const __returned__ = { statusBarHeight, infolist, ti_tea_room_list, old, fetchCourse, goback, scroll, getBackgroundColor, getButtonText, btn_study, ref: vue.ref, onMounted: vue.onMounted, timeline, timelineItem, get fetchMyCourseList() {
+=======
+      function btn_study() {
+        uni.navigateTo({
+          url: "/pages/pagesall/course/go_learn"
+        });
+      }
+      const __returned__ = { statusBarHeight, infolist, ti_tea_room_list, old, fetchCourse, goback, scroll, btn_study, ref: vue.ref, onMounted: vue.onMounted, timeline, timelineItem, get fetchMyCourseList() {
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
         return fetchMyCourseList;
       }, get fetchMyRecentCourse() {
         return fetchMyRecentCourse;
@@ -28609,7 +29316,11 @@ This will fail in production.`);
       return __returned__;
     }
   };
+<<<<<<< HEAD
   function _sfc_render$2w(_ctx, _cache, $props, $setup, $data, $options) {
+=======
+  function _sfc_render$2v(_ctx, _cache, $props, $setup, $data, $options) {
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
     return vue.openBlock(), vue.createElementBlock(
       vue.Fragment,
       null,
@@ -28690,7 +29401,11 @@ This will fail in production.`);
         }, [
           vue.createElementVNode("image", {
             style: { "width": "400rpx", "height": "400rpx" },
+<<<<<<< HEAD
             src: _imports_0$7,
+=======
+            src: _imports_0$6,
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
             mode: "aspectFit"
           })
         ])),
@@ -28740,6 +29455,7 @@ This will fail in production.`);
                           /* TEXT */
                         )
                       ]),
+<<<<<<< HEAD
                       vue.createCommentVNode(` <view class="list_btn" style="color:white" :style="{ backgroundColor: item.status === 0 ? '#5791F2' : '#666666' }" @click="btn_study">\r
           {{ item.status === 0 ? '写作业' : '作业已完成' }}\r
         </view> `),
@@ -28749,6 +29465,19 @@ This will fail in production.`);
                         onClick: ($event) => $setup.btn_study($event, item.status, item.homework_id),
                         disabled: item.status === -1
                       }, vue.toDisplayString($setup.getButtonText(item.status)), 15, ["onClick", "disabled"])
+=======
+                      vue.createElementVNode(
+                        "view",
+                        {
+                          class: "list_btn",
+                          style: vue.normalizeStyle([{ "color": "white" }, { backgroundColor: item.status === 0 ? "#5791F2" : "#666666" }]),
+                          onClick: $setup.btn_study
+                        },
+                        vue.toDisplayString(item.status === 0 ? "写作业" : "作业已完成"),
+                        5
+                        /* TEXT, STYLE */
+                      )
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
                     ]),
                     _: 2
                     /* DYNAMIC */
@@ -28768,7 +29497,11 @@ This will fail in production.`);
         }, [
           vue.createElementVNode("image", {
             style: { "width": "400rpx", "height": "400rpx" },
+<<<<<<< HEAD
             src: _imports_0$7,
+=======
+            src: _imports_0$6,
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
             mode: "aspectFit"
           })
         ])),
@@ -28778,10 +29511,17 @@ This will fail in production.`);
       /* STABLE_FRAGMENT */
     );
   }
+<<<<<<< HEAD
   const PagesPagesallCourse = /* @__PURE__ */ _export_sfc(_sfc_main$2x, [["render", _sfc_render$2w], ["__file", "C:/Users/Administrator/Desktop/Project Folder/ZXHand/ZXHandwritting_APP_uniapp/pages/pagesall/course.vue"]]);
   const _imports_0$5 = "/static/img/satr.png";
   const _imports_1$1 = "/static/img/jinggao.png";
   const _sfc_main$2w = {
+=======
+  const PagesPagesallCourse = /* @__PURE__ */ _export_sfc(_sfc_main$2w, [["render", _sfc_render$2v], ["__file", "C:/Users/Administrator/Desktop/Project Folder/ZXHand/ZXHandwritting_APP_uniapp/pages/pagesall/course.vue"]]);
+  const _imports_0$4 = "/static/img/satr.png";
+  const _imports_1$1 = "/static/img/jinggao.png";
+  const _sfc_main$2v = {
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
     data() {
       return {
         canvasNode: null,
@@ -28798,16 +29538,27 @@ This will fail in production.`);
           url: "/pages/pagesall/aiDete/aiResult",
           // 目标页面路径
           success: () => {
+<<<<<<< HEAD
             formatAppLog("log", "at pages/pagesall/aiDete.vue:564", "成功跳转到目标页面");
           },
           fail: (err) => {
             formatAppLog("error", "at pages/pagesall/aiDete.vue:567", "跳转失败", err);
+=======
+            formatAppLog("log", "at pages/pagesall/aiDete.vue:552", "成功跳转到目标页面");
+          },
+          fail: (err) => {
+            formatAppLog("error", "at pages/pagesall/aiDete.vue:555", "跳转失败", err);
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
           }
         });
       }
     }
   };
+<<<<<<< HEAD
   function _sfc_render$2v(_ctx, _cache, $props, $setup, $data, $options) {
+=======
+  function _sfc_render$2u(_ctx, _cache, $props, $setup, $data, $options) {
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
     return vue.openBlock(), vue.createElementBlock("view", { style: { "position": "relative" } }, [
       vue.createElementVNode(
         "view",
@@ -28865,7 +29616,11 @@ This will fail in production.`);
         vue.createElementVNode("view", { class: "note1" }, [
           vue.createElementVNode("image", {
             style: { "width": "28rpx", "height": "28rpx" },
+<<<<<<< HEAD
             src: _imports_0$5,
+=======
+            src: _imports_0$4,
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
             mode: "widthFix"
           }),
           vue.createElementVNode("view", { class: "note1_text notes" }, " 仅支持正版彩色专用纸 ")
@@ -28873,7 +29628,11 @@ This will fail in production.`);
         vue.createElementVNode("view", { class: "note2" }, [
           vue.createElementVNode("image", {
             style: { "width": "28rpx", "height": "28rpx" },
+<<<<<<< HEAD
             src: _imports_0$5,
+=======
+            src: _imports_0$4,
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
             mode: "widthFix"
           }),
           vue.createElementVNode("view", { class: "note2_text notes" }, " 测评标准为楷体GB2312 ")
@@ -28894,10 +29653,28 @@ This will fail in production.`);
             ref: "aiBox"
           },
           [
+<<<<<<< HEAD
             vue.createCommentVNode(` <div>\r
           <canvas ref="myCanvas" canvas-id="myCanvas" id="myCanvas" :style="{ width: '100vw', height: canvasHeight + 'px' }" @tap="handleCanvasClick">\r
           </canvas>\r
         </div> `)
+=======
+            vue.createElementVNode("div", null, [
+              vue.createElementVNode(
+                "canvas",
+                {
+                  ref: "myCanvas",
+                  "canvas-id": "myCanvas",
+                  id: "myCanvas",
+                  style: vue.normalizeStyle({ width: "100vw", height: _ctx.canvasHeight + "px" }),
+                  onClick: _cache[1] || (_cache[1] = (...args) => _ctx.handleCanvasClick && _ctx.handleCanvasClick(...args))
+                },
+                null,
+                4
+                /* STYLE */
+              )
+            ])
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
           ],
           512
           /* NEED_PATCH */
@@ -28906,8 +29683,13 @@ This will fail in production.`);
       ])
     ]);
   }
+<<<<<<< HEAD
   const PagesPagesallAiDete = /* @__PURE__ */ _export_sfc(_sfc_main$2w, [["render", _sfc_render$2v], ["__scopeId", "data-v-5d2404b7"], ["__file", "C:/Users/Administrator/Desktop/Project Folder/ZXHand/ZXHandwritting_APP_uniapp/pages/pagesall/aiDete.vue"]]);
   const _sfc_main$2v = {
+=======
+  const PagesPagesallAiDete = /* @__PURE__ */ _export_sfc(_sfc_main$2v, [["render", _sfc_render$2u], ["__scopeId", "data-v-5d2404b7"], ["__file", "C:/Users/Administrator/Desktop/Project Folder/ZXHand/ZXHandwritting_APP_uniapp/pages/pagesall/aiDete.vue"]]);
+  const _sfc_main$2u = {
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
     name: "UniSegmentedControl",
     emits: ["clickItem"],
     props: {
@@ -28923,7 +29705,11 @@ This will fail in production.`);
       },
       activeColor: {
         type: String,
+<<<<<<< HEAD
         default: "#2979FF"
+=======
+        default: "#FFf"
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
       },
       inActiveColor: {
         type: String,
@@ -28961,7 +29747,11 @@ This will fail in production.`);
       }
     }
   };
+<<<<<<< HEAD
   function _sfc_render$2u(_ctx, _cache, $props, $setup, $data, $options) {
+=======
+  function _sfc_render$2t(_ctx, _cache, $props, $setup, $data, $options) {
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
     return vue.openBlock(), vue.createElementBlock(
       "view",
       {
@@ -28987,7 +29777,11 @@ This will fail in production.`);
                 vue.createElementVNode(
                   "text",
                   {
+<<<<<<< HEAD
                     style: vue.normalizeStyle({ color: index2 === $data.currentIndex ? $props.styleType === "text" ? $props.activeColor : "#fff" : $props.styleType === "text" ? "#000" : $props.activeColor }),
+=======
+                    style: vue.normalizeStyle({ color: index2 === $data.currentIndex ? $props.styleType === "text" ? $props.activeColor : "#FF9E02" : $props.styleType === "text" ? "#000" : "#000" }),
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
                     class: vue.normalizeClass(["segmented-control__text", $props.styleType === "text" && index2 === $data.currentIndex ? "segmented-control__item--text" : ""])
                   },
                   vue.toDisplayString(item),
@@ -29005,6 +29799,7 @@ This will fail in production.`);
       /* CLASS, STYLE */
     );
   }
+<<<<<<< HEAD
   const __easycom_0$2 = /* @__PURE__ */ _export_sfc(_sfc_main$2v, [["render", _sfc_render$2u], ["__scopeId", "data-v-86aa1171"], ["__file", "C:/Users/Administrator/Desktop/Project Folder/ZXHand/ZXHandwritting_APP_uniapp/uni_modules/uni-segmented-control/components/uni-segmented-control/uni-segmented-control.vue"]]);
   const _sfc_main$2u = {
     name: "UniSection",
@@ -29123,6 +29918,9 @@ This will fail in production.`);
     ]);
   }
   const __easycom_1 = /* @__PURE__ */ _export_sfc(_sfc_main$2u, [["render", _sfc_render$2t], ["__scopeId", "data-v-637fd36b"], ["__file", "C:/Users/Administrator/Desktop/Project Folder/ZXHand/ZXHandwritting_APP_uniapp/uni_modules/uni-section/components/uni-section/uni-section.vue"]]);
+=======
+  const __easycom_0$2 = /* @__PURE__ */ _export_sfc(_sfc_main$2u, [["render", _sfc_render$2t], ["__scopeId", "data-v-86aa1171"], ["__file", "C:/Users/Administrator/Desktop/Project Folder/ZXHand/ZXHandwritting_APP_uniapp/uni_modules/uni-segmented-control/components/uni-segmented-control/uni-segmented-control.vue"]]);
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
   const _sfc_main$2t = {
     components: {
       ActivityItem
@@ -29133,6 +29931,7 @@ This will fail in production.`);
         items: ["线上活动", "线下活动"],
         current: 0,
         colorIndex: 0,
+<<<<<<< HEAD
         onlineInProgress: [],
         offlineOngoing: [],
         offlineReviewofPreviousEvents: [],
@@ -29148,14 +29947,55 @@ This will fail in production.`);
         activeColor: "#FF9E02"
       };
     },
+=======
+        listdata: [],
+        listdata1: [],
+        listdata2: [],
+        listdata3: [],
+        intervalId: null,
+        // 保存计时器ID
+        oper_area: "湛江市",
+        timer: null,
+        currentPage: 1,
+        isLoading: false
+      };
+    },
+    //   computed: {
+    //     listdata() {
+    //       const store = useStore()
+    //       return store.listdata // 从 Pinia 存储中获取 listdata
+    //     },
+    //   },
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
     onPullDownRefresh() {
       this.fetchActivityData();
       uni.stopPullDownRefresh();
     },
+<<<<<<< HEAD
+=======
+    // onReachBottom() {
+    //   if (this.isLoading) return;
+    //   this.currentPage++;
+    //   let noData = this.fetchActivityData()
+    //   __f__('log','at pages/pagesall/oper.vue:127',noData, '++++')
+    //   // 判断 noData 的状态
+    //   if (noData) {
+    //     // 提示没有更多数据
+    //     uni.showToast({
+    //       title: '没有更多数据',
+    //       icon: 'none',
+    //       duration: 2000 // 持续时间，单位为毫秒
+    //     });
+    //     this.isLoading = true; // 防止多次请求
+    //   }
+    //   // uni.stopPullDownRefresh();
+    // },
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
     onReachBottom() {
       if (this.isLoading)
         return;
       this.currentPage++;
+<<<<<<< HEAD
       const currentLength1 = this.onlineInProgress.length;
       const currentLength2 = this.offlineOngoing.length;
       const currentLength3 = this.offlineReviewofPreviousEvents.length;
@@ -29165,6 +30005,17 @@ This will fail in production.`);
         const newLength2 = this.offlineOngoing.length;
         const newLength3 = this.offlineReviewofPreviousEvents.length;
         const newLength = this.onlineReviewofPastEvents.length;
+=======
+      const currentLength1 = this.listdata1.length;
+      const currentLength2 = this.listdata2.length;
+      const currentLength3 = this.listdata3.length;
+      const currentLength = this.listdata.length;
+      this.fetchActivityData().then(() => {
+        const newLength1 = this.listdata1.length;
+        const newLength2 = this.listdata2.length;
+        const newLength3 = this.listdata3.length;
+        const newLength = this.listdata.length;
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
         if (newLength1 === currentLength1 && newLength2 === currentLength2 && newLength3 === currentLength3 && newLength === currentLength) {
           this.isLoading = true;
           uni.showToast({
@@ -29191,6 +30042,10 @@ This will fail in production.`);
     onUnload() {
     },
     mounted() {
+<<<<<<< HEAD
+=======
+      this.updateCountdown();
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
     },
     methods: {
       async fetchActivityData() {
@@ -29210,10 +30065,19 @@ This will fail in production.`);
           };
           const response = await fetchActivityCourseList(params);
           const afoot = await fetchActivityCourseList(params1);
+<<<<<<< HEAD
           if (this.current === 0) {
             const existingIds1 = new Set(
               this.onlineReviewofPastEvents.map((item) => item.id)
             );
+=======
+          if (response.items && response.items.length === 0 && afoot.items && afoot.items.length === 0) {
+            return true;
+          }
+          formatAppLog("log", "at pages/pagesall/oper.vue:218", response);
+          if (this.current.value === 0) {
+            const existingIds1 = new Set(this.listdata1.map((item) => item.id));
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
             let newItems1 = response.items.filter((item) => !existingIds1.has(item.id)).map((item) => ({
               ...item,
               // 保留原有的属性
@@ -29224,6 +30088,7 @@ This will fail in production.`);
               seconds: 0
               // 增加秒字段，初始化为0
             }));
+<<<<<<< HEAD
             this.onlineReviewofPastEvents = [
               ...this.onlineReviewofPastEvents,
               ...newItems1
@@ -29231,6 +30096,10 @@ This will fail in production.`);
             const existingIds2 = new Set(
               this.onlineInProgress.map((item) => item.id)
             );
+=======
+            this.listdata1 = [...this.listdata1, ...newItems1];
+            const existingIds2 = new Set(this.listdata2.map((item) => item.id));
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
             let newItems2 = afoot.items.filter((item) => !existingIds2.has(item.id)).map((item) => ({
               ...item,
               // 保留原有的属性
@@ -29241,12 +30110,18 @@ This will fail in production.`);
               seconds: 0
               // 增加秒字段，初始化为0
             }));
+<<<<<<< HEAD
             this.onlineInProgress = [...this.onlineInProgress, ...newItems2];
             this.updateCountdown();
           } else {
             const existingIds = new Set(
               this.offlineReviewofPreviousEvents.map((item) => item.id)
             );
+=======
+            this.listdata2 = [...this.listdata2, ...newItems2];
+          } else {
+            const existingIds = new Set(this.listdata.map((item) => item.id));
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
             let newItems = response.items.filter((item) => !existingIds.has(item.id)).map((item) => ({
               ...item,
               // 保留原有的属性
@@ -29257,6 +30132,7 @@ This will fail in production.`);
               seconds: 0
               // 增加秒字段，初始化为0
             }));
+<<<<<<< HEAD
             this.offlineReviewofPreviousEvents = [
               ...this.offlineReviewofPreviousEvents,
               ...newItems
@@ -29264,6 +30140,10 @@ This will fail in production.`);
             const existingIds3 = new Set(
               this.offlineOngoing.map((item) => item.id)
             );
+=======
+            this.listdata = [...this.listdata, ...newItems];
+            const existingIds3 = new Set(this.listdata3.map((item) => item.id));
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
             let newItems3 = afoot.items.filter((item) => !existingIds3.has(item.id)).map((item) => ({
               ...item,
               // 保留原有的属性
@@ -29274,11 +30154,20 @@ This will fail in production.`);
               seconds: 0
               // 增加秒字段，初始化为0
             }));
+<<<<<<< HEAD
             this.offlineOngoing = [...this.offlineOngoing, ...newItems3];
             this.updateCountdown();
           }
         } catch (error2) {
           formatAppLog("error", "at pages/pagesall/oper.vue:412", "获取活动数据失败:", error2);
+=======
+            this.listdata3 = [...this.listdata3, ...newItems3];
+          }
+          formatAppLog("log", "at pages/pagesall/oper.vue:273", this.listdata);
+          formatAppLog("log", "at pages/pagesall/oper.vue:274", this.listdata1);
+        } catch (error2) {
+          formatAppLog("error", "at pages/pagesall/oper.vue:276", "获取活动数据失败:", error2);
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
         }
       },
       onClickItem(e2) {
@@ -29296,7 +30185,11 @@ This will fail in production.`);
       },
       colorChange(e2) {
         if (this.styleType !== e2.detail.value) {
+<<<<<<< HEAD
           formatAppLog("log", "at pages/pagesall/oper.vue:431", e2.detail.value);
+=======
+          formatAppLog("log", "at pages/pagesall/oper.vue:295", e2.detail.value);
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
           this.activeColor = e2.detail.value;
         }
       },
@@ -29351,12 +30244,27 @@ This will fail in production.`);
       formatTime(value) {
         return value.toString().padStart(2, "0");
       },
+<<<<<<< HEAD
       updateCountdown() {
         const currentDateTimestampInMilliseconds = (/* @__PURE__ */ new Date()).getTime();
         const now2 = Math.floor(currentDateTimestampInMilliseconds / 1e3);
         this.onlineInProgress.forEach((item) => {
           if (!isNaN(item.end_time)) {
             const timeDiff = item.end_time - now2;
+=======
+      // 监听 listdata 的变化
+      //     watch(listdata, (newListdata) => {
+      //   updateCountdown()
+      //   __f__('log','at pages/pagesall/oper.vue:356',newListdata)
+      // }),
+      updateCountdown() {
+        const currentDateTimestampInMilliseconds = (/* @__PURE__ */ new Date()).getTime();
+        const now2 = Math.floor(currentDateTimestampInMilliseconds / 1e3);
+        this.listdata.forEach((item) => {
+          if (!isNaN(item.end_time)) {
+            const timeDiff = item.end_time - now2;
+            formatAppLog("log", "at pages/pagesall/oper.vue:366", timeDiff);
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
             if (timeDiff > 0) {
               item.hours = Math.floor(timeDiff / 3600);
               item.minutes = Math.floor(timeDiff % 3600 / 60);
@@ -29371,6 +30279,7 @@ This will fail in production.`);
             item.hours = item.minutes = item.seconds = 0;
           }
         });
+<<<<<<< HEAD
         this.offlineOngoing.forEach((item) => {
           if (!isNaN(item.end_time)) {
             const timeDiff = item.end_time - now2;
@@ -29388,6 +30297,10 @@ This will fail in production.`);
             item.hours = item.minutes = item.seconds = 0;
           }
         });
+=======
+      },
+      btnsignup(id) {
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
       },
       selectCity() {
         uni.showToast({
@@ -29404,7 +30317,11 @@ This will fail in production.`);
   function _sfc_render$2s(_ctx, _cache, $props, $setup, $data, $options) {
     const _component_uni_segmented_control = resolveEasycom(vue.resolveDynamicComponent("uni-segmented-control"), __easycom_0$2);
     const _component_activity_item = vue.resolveComponent("activity-item");
+<<<<<<< HEAD
     const _component_uni_section = resolveEasycom(vue.resolveDynamicComponent("uni-section"), __easycom_1);
+=======
+    const _component_uni_section = vue.resolveComponent("uni-section");
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
     return vue.openBlock(), vue.createElementBlock("view", null, [
       vue.createElementVNode(
         "view",
@@ -29445,6 +30362,7 @@ This will fail in production.`);
       ]),
       vue.createElementVNode("view", null, [
         vue.createVNode(_component_uni_section, {
+<<<<<<< HEAD
           title: "",
           type: "text"
         }, {
@@ -29456,28 +30374,55 @@ This will fail in production.`);
                 values: $data.items,
                 "style-type": "text",
                 "active-color": $data.activeColor,
+=======
+          title: "实心标签",
+          type: "line"
+        }, {
+          default: vue.withCtx(() => [
+            vue.createElementVNode("view", { class: "uni-padding-wrap uni-common-mt" }, [
+              vue.createVNode(_component_uni_segmented_control, {
+                current: $data.current,
+                values: $data.items,
+                "active-color": _ctx.activeColor,
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
                 onClickItem: $options.onClickItem
               }, null, 8, ["current", "values", "active-color", "onClickItem"]),
               $data.current === 0 ? (vue.openBlock(), vue.createElementBlock("view", {
                 key: 0,
+<<<<<<< HEAD
                 class: "line_oper666"
               })) : vue.createCommentVNode("v-if", true),
               $data.current === 1 ? (vue.openBlock(), vue.createElementBlock("view", {
                 key: 1,
                 class: "line_oper1666"
+=======
+                class: "line_oper"
+              })) : vue.createCommentVNode("v-if", true),
+              $data.current === 1 ? (vue.openBlock(), vue.createElementBlock("view", {
+                key: 1,
+                class: "line_oper1"
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
               })) : vue.createCommentVNode("v-if", true)
             ]),
             vue.createElementVNode("view", { class: "oper_title_text" }, " 正在进行 "),
             vue.createElementVNode("view", { class: "content" }, [
               $data.current === 0 ? (vue.openBlock(), vue.createElementBlock("view", { key: 0 }, [
+<<<<<<< HEAD
                 $data.onlineInProgress.length > 0 ? (vue.openBlock(), vue.createElementBlock("view", {
+=======
+                $data.listdata2.length > 0 ? (vue.openBlock(), vue.createElementBlock("view", {
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
                   key: 0,
                   style: { "display": "grid", "justify-items": "center" }
                 }, [
                   (vue.openBlock(true), vue.createElementBlock(
                     vue.Fragment,
                     null,
+<<<<<<< HEAD
                     vue.renderList($data.onlineInProgress, (item, index2) => {
+=======
+                    vue.renderList($data.listdata2, (item, index2) => {
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
                       var _a, _b;
                       return vue.openBlock(), vue.createBlock(_component_activity_item, {
                         key: index2,
@@ -29509,19 +30454,31 @@ This will fail in production.`);
                 }, [
                   vue.createElementVNode("image", {
                     style: { "width": "400rpx", "height": "400rpx" },
+<<<<<<< HEAD
                     src: _imports_0$7,
+=======
+                    src: _imports_0$6,
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
                     mode: "aspectFit"
                   })
                 ])),
                 vue.createElementVNode("view", { class: "oper_title_text1" }, " 往期回顾 "),
+<<<<<<< HEAD
                 $data.onlineReviewofPastEvents.length > 0 ? (vue.openBlock(), vue.createElementBlock("view", {
+=======
+                $data.listdata.length > 0 ? (vue.openBlock(), vue.createElementBlock("view", {
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
                   key: 2,
                   style: { "display": "grid", "justify-items": "center" }
                 }, [
                   (vue.openBlock(true), vue.createElementBlock(
                     vue.Fragment,
                     null,
+<<<<<<< HEAD
                     vue.renderList($data.onlineReviewofPastEvents, (item, index2) => {
+=======
+                    vue.renderList($data.listdata, (item, index2) => {
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
                       var _a, _b;
                       return vue.openBlock(), vue.createBlock(_component_activity_item, {
                         key: index2,
@@ -29553,20 +30510,32 @@ This will fail in production.`);
                 }, [
                   vue.createElementVNode("image", {
                     style: { "width": "400rpx", "height": "400rpx" },
+<<<<<<< HEAD
                     src: _imports_0$7,
+=======
+                    src: _imports_0$6,
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
                     mode: "aspectFit"
                   })
                 ]))
               ])) : vue.createCommentVNode("v-if", true),
               $data.current === 1 ? (vue.openBlock(), vue.createElementBlock("view", { key: 1 }, [
+<<<<<<< HEAD
                 $data.offlineOngoing.length > 0 ? (vue.openBlock(), vue.createElementBlock("view", {
+=======
+                $data.listdata3.length > 0 ? (vue.openBlock(), vue.createElementBlock("view", {
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
                   key: 0,
                   style: { "display": "grid", "justify-items": "center" }
                 }, [
                   (vue.openBlock(true), vue.createElementBlock(
                     vue.Fragment,
                     null,
+<<<<<<< HEAD
                     vue.renderList($data.offlineOngoing, (item, index2) => {
+=======
+                    vue.renderList($data.listdata3, (item, index2) => {
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
                       var _a, _b;
                       return vue.openBlock(), vue.createBlock(_component_activity_item, {
                         key: index2,
@@ -29598,20 +30567,32 @@ This will fail in production.`);
                 }, [
                   vue.createElementVNode("image", {
                     style: { "width": "400rpx", "height": "400rpx" },
+<<<<<<< HEAD
                     src: _imports_0$7,
+=======
+                    src: _imports_0$6,
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
                     mode: "aspectFit"
                   })
                 ])),
                 vue.createElementVNode("view", { class: "oper_title_text1" }, " 往期回顾 "),
                 vue.createElementVNode("view", null, [
+<<<<<<< HEAD
                   $data.offlineReviewofPreviousEvents.length > 0 ? (vue.openBlock(), vue.createElementBlock("view", {
+=======
+                  $data.listdata1.length > 0 ? (vue.openBlock(), vue.createElementBlock("view", {
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
                     key: 0,
                     style: { "display": "grid", "justify-items": "center" }
                   }, [
                     (vue.openBlock(true), vue.createElementBlock(
                       vue.Fragment,
                       null,
+<<<<<<< HEAD
                       vue.renderList($data.offlineReviewofPreviousEvents, (item, index2) => {
+=======
+                      vue.renderList($data.listdata1, (item, index2) => {
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
                         var _a, _b;
                         return vue.openBlock(), vue.createBlock(_component_activity_item, {
                           key: index2,
@@ -29643,7 +30624,11 @@ This will fail in production.`);
                   }, [
                     vue.createElementVNode("image", {
                       style: { "width": "400rpx", "height": "400rpx" },
+<<<<<<< HEAD
                       src: _imports_0$7,
+=======
+                      src: _imports_0$6,
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
                       mode: "aspectFit"
                     })
                   ]))
@@ -29754,10 +30739,17 @@ This will fail in production.`);
             this.participatingActivitiess = matchedD;
             this.updateCountdown();
           } else {
+<<<<<<< HEAD
             formatAppLog("log", "at pages/pagesall/mypage.vue:244", "未找到已经报名的活动");
           }
         } catch (error2) {
           formatAppLog("error", "at pages/pagesall/mypage.vue:247", "获取活动详情失败:", error2);
+=======
+            formatAppLog("log", "at pages/pagesall/mypage.vue:188", "未找到已经报名的活动");
+          }
+        } catch (error2) {
+          formatAppLog("error", "at pages/pagesall/mypage.vue:191", "获取活动详情失败:", error2);
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
         }
       },
       setInfo() {
@@ -29795,7 +30787,11 @@ This will fail in production.`);
         });
       },
       toggle(title) {
+<<<<<<< HEAD
         formatAppLog("log", "at pages/pagesall/mypage.vue:291", title);
+=======
+        formatAppLog("log", "at pages/pagesall/mypage.vue:235", title);
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
         if (title === "我的作业") {
           uni.navigateTo({
             url: "/pages/pagesall/mypage/myHomework"
@@ -30032,7 +31028,11 @@ This will fail in production.`);
         }, [
           vue.createElementVNode("image", {
             style: { "width": "400rpx", "height": "400rpx" },
+<<<<<<< HEAD
             src: _imports_0$7,
+=======
+            src: _imports_0$6,
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
             mode: "aspectFit"
           })
         ]))
@@ -30040,6 +31040,7 @@ This will fail in production.`);
     ]);
   }
   const PagesPagesallMypage = /* @__PURE__ */ _export_sfc(_sfc_main$2s, [["render", _sfc_render$2r], ["__scopeId", "data-v-980ef0f9"], ["__file", "C:/Users/Administrator/Desktop/Project Folder/ZXHand/ZXHandwritting_APP_uniapp/pages/pagesall/mypage.vue"]]);
+<<<<<<< HEAD
   const en = {
     "uni-countdown.day": "day",
     "uni-countdown.h": "h",
@@ -30064,6 +31065,8 @@ This will fail in production.`);
     "zh-Hant": zhHant
   };
   initVueI18n(messages$7);
+=======
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
   const _sfc_main$2r = {
     data() {
       return {
@@ -30105,17 +31108,28 @@ This will fail in production.`);
       async details() {
         try {
           let details = await fetchActivityCourseList(this.options);
+<<<<<<< HEAD
           const matchedDetail = details.items.find(
             (detail) => detail.id === Number(this.activityId)
           );
+=======
+          const matchedDetail = details.items.find((detail) => detail.id === Number(this.activityId));
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
           if (matchedDetail) {
             this.matchedDetails = matchedDetail;
             this.updateCountdown();
           } else {
+<<<<<<< HEAD
             formatAppLog("log", "at pages/pagesall/home/signUp.vue:220", "未找到对应的活动详情");
           }
         } catch (error2) {
           formatAppLog("error", "at pages/pagesall/home/signUp.vue:223", "获取活动详情失败:", error2);
+=======
+            formatAppLog("log", "at pages/pagesall/home/signUp.vue:165", "未找到对应的活动详情");
+          }
+        } catch (error2) {
+          formatAppLog("error", "at pages/pagesall/home/signUp.vue:168", "获取活动详情失败:", error2);
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
         }
       },
       timeup() {
@@ -30167,6 +31181,7 @@ This will fail in production.`);
           });
           return;
         }
+<<<<<<< HEAD
         if (this.matchedDetails.hadSignup) {
           uni.showToast({
             title: "您已经报名",
@@ -30179,6 +31194,10 @@ This will fail in production.`);
             user_id,
             activity_id: Number(this.activityId)
           });
+=======
+        try {
+          const response = await signUpActivity({ user_id, activity_id: Number(this.activityId) });
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
           if (response.code === 1) {
             uni.showToast({
               title: response.msg || "报名成功",
@@ -30188,7 +31207,11 @@ This will fail in production.`);
             if (this.matchedDetails) {
               this.matchedDetails.hadSignup = true;
             } else {
+<<<<<<< HEAD
               formatAppLog("log", "at pages/pagesall/home/signUp.vue:316", "matchedDetails 尚未加载");
+=======
+              formatAppLog("log", "at pages/pagesall/home/signUp.vue:250", "matchedDetails 尚未加载");
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
             }
             const courseListResponse = await fetchActivityCourseList(this.options);
           } else {
@@ -30199,7 +31222,11 @@ This will fail in production.`);
             });
           }
         } catch (error2) {
+<<<<<<< HEAD
           formatAppLog("error", "at pages/pagesall/home/signUp.vue:327", "报名失败:", error2);
+=======
+          formatAppLog("error", "at pages/pagesall/home/signUp.vue:264", "报名失败:", error2);
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
         }
       }
     }
@@ -30310,7 +31337,11 @@ This will fail in production.`);
                 vue.createElementVNode("view", { class: "peopers" }, [
                   vue.createElementVNode("image", {
                     style: { "width": "24rpx", "height": "32rpx" },
+<<<<<<< HEAD
                     src: _imports_0$8,
+=======
+                    src: _imports_0$7,
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
                     mode: "aspectFit"
                   }),
                   vue.createElementVNode(
@@ -30354,6 +31385,7 @@ This will fail in production.`);
                     1
                     /* TEXT */
                   ),
+<<<<<<< HEAD
                   vue.createElementVNode("view", {
                     class: "gobtn",
                     onClick: _cache[0] || (_cache[0] = (...args) => $options.btnsignup && $options.btnsignup(...args)),
@@ -30362,6 +31394,19 @@ This will fail in production.`);
                     ),
                     disabled: $data.matchedDetails.hadSignup
                   }, vue.toDisplayString($data.matchedDetails.hadSignup ? "已报名" : "立即报名"), 13, ["disabled"])
+=======
+                  vue.createElementVNode(
+                    "view",
+                    {
+                      class: "gobtn",
+                      onClick: _cache[0] || (_cache[0] = (...args) => $options.btnsignup && $options.btnsignup(...args)),
+                      style: vue.normalizeStyle($data.matchedDetails.hadSignup ? { backgroundColor: "#999999" } : { background: "#ff9e02" })
+                    },
+                    vue.toDisplayString($data.matchedDetails.hadSignup ? "已报名" : "立即报名"),
+                    5
+                    /* TEXT, STYLE */
+                  )
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
                 ])
               ])
             ])
@@ -30386,7 +31431,11 @@ This will fail in production.`);
           }, [
             vue.createElementVNode("image", {
               style: { "width": "400rpx", "height": "400rpx" },
+<<<<<<< HEAD
               src: _imports_0$7,
+=======
+              src: _imports_0$6,
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
               mode: "aspectFit"
             })
           ]))
@@ -34002,7 +35051,11 @@ This will fail in production.`);
       const currentSearchTabKey = vue.ref(
         (_b = searchMessageTypeDefault[props2.searchType]) == null ? void 0 : _b.key
       );
+<<<<<<< HEAD
       const searchResult2 = vue.ref({});
+=======
+      const searchResult = vue.ref({});
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
       const searchAllMessageList = vue.ref([]);
       const searchAllMessageTotalCount = vue.ref(0);
       const currentSearchConversationID = vue.ref("");
@@ -34019,7 +35072,11 @@ This will fail in production.`);
           return false;
         }
         if (props2.searchType === "global") {
+<<<<<<< HEAD
           if (!((_a2 = keywordList == null ? void 0 : keywordList.value) == null ? void 0 : _a2.length) || ((_b2 = Object == null ? void 0 : Object.keys(searchResult2.value)) == null ? void 0 : _b2.length)) {
+=======
+          if (!((_a2 = keywordList == null ? void 0 : keywordList.value) == null ? void 0 : _a2.length) || ((_b2 = Object == null ? void 0 : Object.keys(searchResult.value)) == null ? void 0 : _b2.length)) {
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
             return false;
           } else {
             return true;
@@ -34097,7 +35154,11 @@ This will fail in production.`);
             searchAllMessageTotalCount.value = (_b2 = res == null ? void 0 : res.data) == null ? void 0 : _b2.totalCount;
             const key = currentSearchTabKey.value === "all" ? "allMessage" : currentSearchTabKey.value;
             if (((_c = searchAllMessageList == null ? void 0 : searchAllMessageList.value) == null ? void 0 : _c.length) && currentSearchTabKey.value !== "contact" && currentSearchTabKey.value !== "group") {
+<<<<<<< HEAD
               searchResult2.value = Object.assign({}, searchResult2.value, {
+=======
+              searchResult.value = Object.assign({}, searchResult.value, {
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
                 [key]: {
                   key,
                   label: searchMessageTypeList[key].label,
@@ -34106,7 +35167,11 @@ This will fail in production.`);
                 }
               });
             } else {
+<<<<<<< HEAD
               searchResult2 == null ? true : delete searchResult2.value[key];
+=======
+              searchResult == null ? true : delete searchResult.value[key];
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
             }
           } else {
             searchConversationResult.value = res == null ? void 0 : res.data;
@@ -34129,7 +35194,11 @@ This will fail in production.`);
       };
       const setMessageSearchResultListDebounce = debounce$1(setMessageSearchResultList, 500);
       const resetSearchResult = () => {
+<<<<<<< HEAD
         searchResult2.value = {};
+=======
+        searchResult.value = {};
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
         searchConversationResult.value = {};
         searchConversationMessageList.value = [];
         searchConversationResultGroupByDate.value = [];
@@ -34153,10 +35222,17 @@ This will fail in production.`);
             });
           } else {
             if (oldValue && oldValue[1] === "all" && newValue && newValue[1] === "allMessage") {
+<<<<<<< HEAD
               ((_b2 = searchResult2 == null ? void 0 : searchResult2.value["allMessage"]) == null ? void 0 : _b2.list) && (searchResult2.value["allMessage"].list = searchAllMessageList == null ? void 0 : searchAllMessageList.value);
               (_c = Object == null ? void 0 : Object.keys(searchResult2 == null ? void 0 : searchResult2.value)) == null ? void 0 : _c.forEach((key) => {
                 if (key !== "allMessage") {
                   searchResult2 == null ? true : delete searchResult2.value[key];
+=======
+              ((_b2 = searchResult == null ? void 0 : searchResult.value["allMessage"]) == null ? void 0 : _b2.list) && (searchResult.value["allMessage"].list = searchAllMessageList == null ? void 0 : searchAllMessageList.value);
+              (_c = Object == null ? void 0 : Object.keys(searchResult == null ? void 0 : searchResult.value)) == null ? void 0 : _c.forEach((key) => {
+                if (key !== "allMessage") {
+                  searchResult == null ? true : delete searchResult.value[key];
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
                 }
               });
               isLoading.value = false;
@@ -34263,7 +35339,11 @@ This will fail in production.`);
       const generateVueRenderKey = (value) => {
         return `${currentSearchTabKey}-${value}`;
       };
+<<<<<<< HEAD
       const __returned__ = { props: props2, keywordList, messageTypeList, timePosition, timePeriod, keywordListMatchType, currentSearchTabKey, searchResult: searchResult2, searchAllMessageList, searchAllMessageTotalCount, currentSearchConversationID, searchConversationResult, searchConversationMessageList, searchConversationMessageTotalCount, searchConversationResultGroupByDate, isResultDetailShow, isLoading, isSearchDetailLoading, isSearchDefaultShow, onCurrentConversationIDUpdate, onCurrentSearchInputValueUpdate, onCurrentSearchMessageTypeUpdate, onCurrentSearchMessageTimeUpdate, setMessageSearchResultList, setMessageSearchResultListDebounce, resetSearchResult, getMoreResult, getMoreResultInConversation, showResultDetail, generateListItemClass, generateResultItemDisplayType, groupResultListByDate, navigateToChatPosition, generateVueRenderKey, get TUITranslateService() {
+=======
+      const __returned__ = { props: props2, keywordList, messageTypeList, timePosition, timePeriod, keywordListMatchType, currentSearchTabKey, searchResult, searchAllMessageList, searchAllMessageTotalCount, currentSearchConversationID, searchConversationResult, searchConversationMessageList, searchConversationMessageTotalCount, searchConversationResultGroupByDate, isResultDetailShow, isLoading, isSearchDetailLoading, isSearchDefaultShow, onCurrentConversationIDUpdate, onCurrentSearchInputValueUpdate, onCurrentSearchMessageTypeUpdate, onCurrentSearchMessageTimeUpdate, setMessageSearchResultList, setMessageSearchResultListDebounce, resetSearchResult, getMoreResult, getMoreResultInConversation, showResultDetail, generateListItemClass, generateResultItemDisplayType, groupResultListByDate, navigateToChatPosition, generateVueRenderKey, get TUITranslateService() {
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
         return Jt;
       }, SearchResultItem, SearchResultDefault, SearchResultLoading, get searchMessageTypeList() {
         return searchMessageTypeList;
@@ -35494,7 +36574,11 @@ This will fail in production.`);
       vue.watch(
         () => props2.marker,
         (newMarker) => {
+<<<<<<< HEAD
           formatAppLog("log", "at TUIKit/components/TUIConversation/conversation-list/index.vue:166", "Received marker:", newMarker);
+=======
+          formatAppLog("log", "at TUIKit/components/TUIConversation/conversation-list/index.vue:104", "Received marker:", newMarker);
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
         },
         { immediate: true }
       );
@@ -35617,6 +36701,10 @@ This will fail in production.`);
         currentConversation.value = conversation;
       }
       function onConversationListUpdated(list) {
+<<<<<<< HEAD
+=======
+        formatAppLog("log", "at TUIKit/components/TUIConversation/conversation-list/index.vue:264", "++++++++++++++++++++++++", list);
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
         conversationList.value = [];
         list.forEach((conversation) => {
           if (conversation.type !== "GROUP") {
@@ -35659,7 +36747,11 @@ This will fail in production.`);
       return __returned__;
     }
   });
+<<<<<<< HEAD
   const _imports_0$4 = "/static/img/noTea.png";
+=======
+  const _imports_0$3 = "/static/img/noTea.png";
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
   function _sfc_render$22(_ctx, _cache, $props, $setup, $data, $options) {
     return vue.openBlock(), vue.createElementBlock("div", null, [
       $setup.conversationList.length > 0 ? (vue.openBlock(), vue.createElementBlock(
@@ -35690,7 +36782,11 @@ This will fail in production.`);
                 ])
               }, [
                 vue.createElementVNode("div", {
+<<<<<<< HEAD
                   style: { "padding": "12px 0 !important" },
+=======
+                  style: { "padding": "12px 0!important" },
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
                   class: vue.normalizeClass([
                     $setup.isPC && "isPC",
                     "tui-conversation-item",
@@ -35810,7 +36906,11 @@ This will fail in production.`);
       }, [
         vue.createElementVNode("image", {
           style: { "margin-top": "-600rpx" },
+<<<<<<< HEAD
           src: _imports_0$4,
+=======
+          src: _imports_0$3,
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
           mode: "aspectFit"
         })
       ]))
@@ -36057,6 +37157,10 @@ This will fail in production.`);
       const updateParentWithLengthTeachers = () => {
         var _a, _b;
         const length = ((_b = (_a = conversationListDomRef.value) == null ? void 0 : _a.items) == null ? void 0 : _b.length) || 0;
+<<<<<<< HEAD
+=======
+        formatAppLog("log", "at TUIKit/components/TUIConversation/index.vue:56", "++++", length);
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
         emits2("updateConversationListLengthTeachers", length);
       };
       vue.onMounted(() => {
@@ -36173,7 +37277,11 @@ This will fail in production.`);
       vue.watch(
         () => props2.marker,
         (newMarker) => {
+<<<<<<< HEAD
           formatAppLog("log", "at TUIKit/components/TUIConversation/conversation-list/index1.vue:166", "Received marker:", newMarker);
+=======
+          formatAppLog("log", "at TUIKit/components/TUIConversation/conversation-list/index1.vue:104", "Received marker:", newMarker);
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
         },
         { immediate: true }
       );
@@ -36296,6 +37404,10 @@ This will fail in production.`);
         currentConversation.value = conversation;
       }
       function onConversationListUpdated(list) {
+<<<<<<< HEAD
+=======
+        formatAppLog("log", "at TUIKit/components/TUIConversation/conversation-list/index1.vue:264", "++++++++++++++++++++++++", list);
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
         conversationList.value = [];
         list.forEach((conversation) => {
           if (conversation.type === "GROUP") {
@@ -36338,7 +37450,10 @@ This will fail in production.`);
       return __returned__;
     }
   });
+<<<<<<< HEAD
   const _imports_0$3 = "/static/img/noGro.png";
+=======
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
   function _sfc_render$1_(_ctx, _cache, $props, $setup, $data, $options) {
     return vue.openBlock(), vue.createElementBlock("div", null, [
       $setup.conversationList.length > 0 ? (vue.openBlock(), vue.createElementBlock(
@@ -36369,7 +37484,11 @@ This will fail in production.`);
                 ])
               }, [
                 vue.createElementVNode("div", {
+<<<<<<< HEAD
                   style: { "padding": "12px 0 !important" },
+=======
+                  style: { "padding": "12px 0!important" },
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
                   class: vue.normalizeClass([
                     $setup.isPC && "isPC",
                     "tui-conversation-item",
@@ -36525,6 +37644,10 @@ This will fail in production.`);
       const updateParentWithLength = () => {
         var _a, _b;
         const length = ((_b = (_a = conversationListDomRef.value) == null ? void 0 : _a.items) == null ? void 0 : _b.length) || 0;
+<<<<<<< HEAD
+=======
+        formatAppLog("log", "at TUIKit/components/TUIConversation/index1.vue:53", "++++", length);
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
         emits2("updateConversationListLength", length);
       };
       vue.onMounted(() => {
@@ -36541,7 +37664,11 @@ This will fail in production.`);
       };
       const closeChildren = () => {
         var _a, _b;
+<<<<<<< HEAD
         formatAppLog("log", "at TUIKit/components/TUIConversation/index1.vue:79", "closeChildren");
+=======
+        formatAppLog("log", "at TUIKit/components/TUIConversation/index1.vue:70", "closeChildren");
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
         (_a = headerRef == null ? void 0 : headerRef.value) == null ? void 0 : _a.closeChildren();
         (_b = conversationListDomRef == null ? void 0 : conversationListDomRef.value) == null ? void 0 : _b.closeChildren();
       };
@@ -36581,8 +37708,13 @@ This will fail in production.`);
       };
       const getPassingRef = (ref2) => {
         ref2.value = conversationListDomRef.value;
+<<<<<<< HEAD
         formatAppLog("log", "at TUIKit/components/TUIConversation/index1.vue:130", "-+-+-+-+-+-", ref2.value);
         formatAppLog("log", "at TUIKit/components/TUIConversation/index1.vue:131", "-+-+-+-+-+-", conversationListDomRef.value);
+=======
+        formatAppLog("log", "at TUIKit/components/TUIConversation/index1.vue:121", "-+-+-+-+-+-", ref2.value);
+        formatAppLog("log", "at TUIKit/components/TUIConversation/index1.vue:122", "-+-+-+-+-+-", conversationListDomRef.value);
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
       };
       const __returned__ = { emits: emits2, totalUnreadCount, headerRef, conversationListDomRef, touchX, touchY, isShowConversationHeader, currentTabIndex, updateParentWithLength, handleSwitchConversation, closeChildren, handleClickConv, handleTouchStart, handleTouchEnd, onTabSelected, getPassingRef, TUISearch: TUISearch$3, ConversationList, ConversationHeader, ConversationNetwork };
       Object.defineProperty(__returned__, "__isScriptSetup", { enumerable: false, value: true });
@@ -36633,7 +37765,10 @@ This will fail in production.`);
     );
   }
   const TUIChat1 = /* @__PURE__ */ _export_sfc(_sfc_main$1_, [["render", _sfc_render$1Z], ["__scopeId", "data-v-dc18037a"], ["__file", "C:/Users/Administrator/Desktop/Project Folder/ZXHand/ZXHandwritting_APP_uniapp/TUIKit/components/TUIConversation/index1.vue"]]);
+<<<<<<< HEAD
   const _imports_0$2 = "/static/img/scan.png";
+=======
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
   const _sfc_main$1Z = {
     __name: "message",
     setup(__props, { expose: __expose }) {
@@ -36673,6 +37808,7 @@ This will fail in production.`);
         try {
           uni.navigateTo({ url: url2 });
         } catch (error2) {
+<<<<<<< HEAD
           formatAppLog("error", "at pages/pagesall/home/message.vue:129", "导航失败:", error2);
           uni.showToast({ title: "导航失败，请重试", icon: "none" });
         }
@@ -36682,11 +37818,18 @@ This will fail in production.`);
           url: "/pages/pagesall/home/search"
         });
       };
+=======
+          formatAppLog("error", "at pages/pagesall/home/message.vue:109", "导航失败:", error2);
+          uni.showToast({ title: "导航失败，请重试", icon: "none" });
+        }
+      };
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
       const goback = () => {
         uni.switchTab({ url: "/pages/pagesall/home" });
       };
       const btnscan = () => {
         uni.scanCode({
+<<<<<<< HEAD
           success: async (res) => {
             const userIdMatch = res.result.match(/user_id=(\d+)/);
             if (userIdMatch) {
@@ -36708,13 +37851,32 @@ This will fail in production.`);
               title: "扫码失败",
               icon: "error",
               duration: 2e3
+=======
+          success: (res) => {
+            formatAppLog("log", "at pages/pagesall/home/message.vue:121", "条码类型：", res.scanType);
+            formatAppLog("log", "at pages/pagesall/home/message.vue:122", "条码内容：", res.result);
+          },
+          fail: (err) => {
+            formatAppLog("error", "at pages/pagesall/home/message.vue:125", "扫码失败:", err);
+            uni.showToast({
+              title: "扫码失败，请重试",
+              icon: "none"
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
             });
           }
         });
       };
+<<<<<<< HEAD
       const mycode = () => navigateTo("/pages/pagesall/home/mycode");
       const messgoback = () => navigateTo("/pages/pagesall/home/adverMess");
       const __returned__ = { statusBarHeight, conversationList1, messagesList, navigateTo, btnsearch, goback, btnscan, mycode, messgoback, ref: vue.ref, onMounted: vue.onMounted, get MessageList() {
+=======
+      const mycode = () => navigateTo("/pages/message/mycode");
+      const search = () => navigateTo("/pages/message/search");
+      const messgoback = () => navigateTo("/pages/pagesall/home/adverMess");
+      const goToChat = () => navigateTo("/pages/message/chat");
+      const __returned__ = { statusBarHeight, conversationList1, messagesList, navigateTo, goback, btnscan, mycode, search, messgoback, goToChat, ref: vue.ref, onMounted: vue.onMounted, get MessageList() {
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
         return MessageList$1;
       }, TUIChat: TUIConversation$3, TUIChat1, Avatar, get onLoad() {
         return onLoad;
@@ -36747,6 +37909,7 @@ This will fail in production.`);
           ]),
           vue.createElementVNode("view", { class: "title_text" }, " 消息 "),
           vue.createElementVNode("view", { class: "title_img" }, [
+<<<<<<< HEAD
             vue.createElementVNode("image", {
               style: { "width": "36rpx", "height": "36rpx" },
               src: _imports_0$2,
@@ -36764,6 +37927,22 @@ This will fail in production.`);
               src: _imports_2$1,
               mode: "aspectFit",
               onClick: $setup.btnsearch
+=======
+            vue.createElementVNode("img", {
+              src: "https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPng321758fb81a047a63eed79ffbd8a9de39b6d95d0adc9749329922655c760bb3a",
+              alt: "",
+              onClick: $setup.mycode
+            }),
+            vue.createElementVNode("img", {
+              src: "https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPng5e1b57899cb5b9cd47a8d4e301f4f736efd47c45ca7713a43d00721e94370714",
+              alt: "",
+              onClick: $setup.btnscan
+            }),
+            vue.createElementVNode("img", {
+              src: "https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPng60de4c6690251e592eeb3edf5e89b8b74e18a9d17717d9949db1edcb3fcd23bd",
+              alt: "",
+              onClick: $setup.search
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
             })
           ])
         ]),
@@ -36780,10 +37959,17 @@ This will fail in production.`);
             ]),
             vue.createElementVNode("view", { class: "messinter" }, [
               vue.createElementVNode("view", { class: "inter_text1" }, " 公告消息 "),
+<<<<<<< HEAD
               vue.createCommentVNode(' <view class="inter_text2"> 书法比赛将在2024年7月15号开始… </view> ')
             ])
           ]),
           vue.createCommentVNode(' <text class="inter_text3">6-15</text> ')
+=======
+              vue.createElementVNode("view", { class: "inter_text2" }, " 书法比赛将在2024年7月15号开始… ")
+            ])
+          ]),
+          vue.createElementVNode("text", { class: "inter_text3" }, "6-15")
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
         ]),
         vue.createCommentVNode(' <MessageList :messages="messages" @click="goToChat" /> '),
         vue.createElementVNode("view", {
@@ -36858,7 +38044,11 @@ This will fail in production.`);
       const isTransferSearch = vue.ref(true);
       const isTransferCustomItem = vue.ref(false);
       const transferTitle = vue.ref("");
+<<<<<<< HEAD
       const searchValue2 = vue.ref("");
+=======
+      const searchValue = vue.ref("");
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
       vue.watchEffect(() => {
         if (props2.isCustomItem) {
           for (let index2 = 0; index2 < props2.list.length; index2++) {
@@ -36881,8 +38071,13 @@ This will fail in production.`);
         () => transferList.value.filter((item) => !item.isDisabled)
       );
       const handleInput = (e2) => {
+<<<<<<< HEAD
         searchValue2.value = e2.target.value || e2.detail.value;
         emit("search", searchValue2.value);
+=======
+        searchValue.value = e2.target.value || e2.detail.value;
+        emit("search", searchValue.value);
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
       };
       const selected = (item) => {
         if (item.isDisabled) {
@@ -36908,16 +38103,28 @@ This will fail in production.`);
       };
       const submit = () => {
         emit("submit", transferSelectedList.value);
+<<<<<<< HEAD
         searchValue2.value = "";
       };
       const cancel = () => {
         emit("cancel");
         searchValue2.value = "";
+=======
+        searchValue.value = "";
+      };
+      const cancel = () => {
+        emit("cancel");
+        searchValue.value = "";
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
       };
       const getMore = () => {
         emit("getMore");
       };
+<<<<<<< HEAD
       const __returned__ = { props: props2, transferList, transferTotal, transferSelectedList, isTransferSearch, isTransferCustomItem, transferTitle, searchValue: searchValue2, emit, optional, handleInput, selected, selectedAll, submit, cancel, getMore, get TUITranslateService() {
+=======
+      const __returned__ = { props: props2, transferList, transferTotal, transferSelectedList, isTransferSearch, isTransferCustomItem, transferTitle, searchValue, emit, optional, handleInput, selected, selectedAll, submit, cancel, getMore, get TUITranslateService() {
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
         return Jt;
       }, Icon: Icon$1, get selectedIcon() {
         return selectedIcon;
@@ -37503,8 +38710,13 @@ This will fail in production.`);
       __expose();
       const searchingPlaceholder = Jt.t("TUIContact.输入ID");
       const isSearching = vue.ref(true);
+<<<<<<< HEAD
       const searchValue2 = vue.ref("");
       const searchResult2 = vue.ref({
+=======
+      const searchValue = vue.ref("");
+      const searchResult = vue.ref({
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
         user: {
           label: "联系人",
           list: []
@@ -37518,6 +38730,7 @@ This will fail in production.`);
         isSearching.value = status;
       }, 200);
       const search = async () => {
+<<<<<<< HEAD
         if (!searchValue2.value) {
           return;
         }
@@ -37562,11 +38775,47 @@ This will fail in production.`);
       };
       vue.watch(
         () => searchResult2.value,
+=======
+        if (!searchValue.value) {
+          return;
+        }
+        R$1.callService({
+          serviceName: E$1.TUISearch.SERVICE.NAME,
+          method: E$1.TUISearch.SERVICE.METHOD.SEARCH_USER,
+          params: {
+            userID: searchValue.value
+          }
+        }).then((res) => {
+          searchResult.value.user.list = res.data;
+        }).catch((error2) => {
+          searchResult.value.user.list = [];
+          formatAppLog("warn", "at TUIKit/components/TUIContact/contact-search/index.vue:83", "search user error", error2);
+        });
+        R$1.callService({
+          serviceName: E$1.TUISearch.SERVICE.NAME,
+          method: E$1.TUISearch.SERVICE.METHOD.SEARCH_GROUP,
+          params: {
+            groupID: searchValue.value
+          }
+        }).then((res) => {
+          searchResult.value.group.list = [res.data.group];
+        }).catch((error2) => {
+          searchResult.value.group.list = [];
+          formatAppLog("warn", "at TUIKit/components/TUIContact/contact-search/index.vue:97", "search group error", error2);
+        });
+      };
+      vue.watch(
+        () => searchResult.value,
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
         () => {
           zt.update(
             o$2.CUSTOM,
             "currentContactSearchResult",
+<<<<<<< HEAD
             searchResult2.value
+=======
+            searchResult.value
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
           );
         },
         {
@@ -37583,9 +38832,15 @@ This will fail in production.`);
             isSearching.value
           );
           if (isSearching.value) {
+<<<<<<< HEAD
             searchValue2.value = "";
             searchResult2.value.user.list = [];
             searchResult2.value.group.list = [];
+=======
+            searchValue.value = "";
+            searchResult.value.user.list = [];
+            searchResult.value.group.list = [];
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
           }
         },
         {
@@ -37597,6 +38852,7 @@ This will fail in production.`);
       i.closeSearching = () => {
         isSearching.value = false;
       };
+<<<<<<< HEAD
       onLoad(() => {
         var _a;
         const userId = (_a = uni.getStorageSync("params")) == null ? void 0 : _a.user_id;
@@ -37607,6 +38863,9 @@ This will fail in production.`);
         }
       });
       const __returned__ = { searchingPlaceholder, isSearching, searchValue: searchValue2, searchResult: searchResult2, changeContactSearchingStatus, search, get TUITranslateService() {
+=======
+      const __returned__ = { searchingPlaceholder, isSearching, searchValue, searchResult, changeContactSearchingStatus, search, get TUITranslateService() {
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
         return Jt;
       }, get isPC() {
         return isPC;
@@ -38433,8 +39692,13 @@ This will fail in production.`);
       function generateRenderKey(contactListMapKey, contactInfo, index2) {
         return `${contactListMapKey}-${contactInfo.userID || contactInfo.groupID || "index" + index2}`;
       }
+<<<<<<< HEAD
       function onCurrentContactSearchResultUpdated(searchResult2) {
         contactSearchResult.value = searchResult2;
+=======
+      function onCurrentContactSearchResultUpdated(searchResult) {
+        contactSearchResult.value = searchResult;
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
       }
       function onCurrentContactSearchingStatusUpdated(searchingStatus) {
         contactSearchingStatus.value = searchingStatus;
@@ -38888,6 +40152,7 @@ This will fail in production.`);
           isInBlackList: isInBlackList.value
         });
       };
+<<<<<<< HEAD
       const onContactInfoButtonClicked = async (item) => {
         var _a, _b, _c, _d;
         formatAppLog("log", "at TUIKit/components/TUIContact/contact-info/index.vue:310", item.key);
@@ -38933,11 +40198,22 @@ This will fail in production.`);
         }
       };
       function handleSwitchConversation(item) {
+=======
+      const onContactInfoButtonClicked = (item) => {
+        item.onClick && item.onClick({
+          contactInfoData: contactInfoData.value,
+          contactInfoMoreList: contactInfoMoreList.value
+        });
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
         if (item.key === "enterGroupConversation" || item.key === "enterC2CConversation") {
           emits2("switchConversation", contactInfoData.value);
           resetContactSearchingUIData();
         }
+<<<<<<< HEAD
       }
+=======
+      };
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
       const generateMoreInfo = async () => {
         var _a, _b, _c, _d;
         if (!isApplication.value) {
@@ -39030,7 +40306,11 @@ This will fail in production.`);
           });
         }
       }
+<<<<<<< HEAD
       const __returned__ = { emits: emits2, contactInfoData, contactInfoBasicList, contactInfoMoreList, contactInfoButtonList, setEditing, isGroup, isApplication, isBothFriend, isGroupMember, isInBlackList, blackList, resetContactInfoUIData, resetContactSearchingUIData, onContactInfoEmitSubmit, onContactInfoButtonClicked, handleSwitchConversation, generateMoreInfo, generateButton, onUserBlacklistUpdated, onCurrentContactInfoUpdated, get TUITranslateService() {
+=======
+      const __returned__ = { emits: emits2, contactInfoData, contactInfoBasicList, contactInfoMoreList, contactInfoButtonList, setEditing, isGroup, isApplication, isBothFriend, isGroupMember, isInBlackList, blackList, resetContactInfoUIData, resetContactSearchingUIData, onContactInfoEmitSubmit, onContactInfoButtonClicked, generateMoreInfo, generateButton, onUserBlacklistUpdated, onCurrentContactInfoUpdated, get TUITranslateService() {
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
         return Jt;
       }, get isPC() {
         return isPC;
@@ -39303,7 +40583,10 @@ This will fail in production.`);
             ])
           },
           [
+<<<<<<< HEAD
             vue.createCommentVNode(" 发送申请 "),
+=======
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
             (vue.openBlock(true), vue.createElementBlock(
               vue.Fragment,
               null,
@@ -39463,15 +40746,37 @@ This will fail in production.`);
         statusBarHeight: "",
         btnyes: true,
         input_text: "",
+<<<<<<< HEAD
         friends_List: []
       };
     },
     onLoad(options) {
+=======
+        friends_List: [
+          {
+            name: "王老师",
+            id: "000000",
+            head: "https://lanhu-dds-backend.oss-cn-beijing.aliyuncs.com/merge_image/imgs/19217f29299e465481d28ae91dbf317b_mergeImage.png"
+          },
+          {
+            name: "王老师",
+            id: "000000",
+            head: "https://lanhu-dds-backend.oss-cn-beijing.aliyuncs.com/merge_image/imgs/19217f29299e465481d28ae91dbf317b_mergeImage.png"
+          }
+        ]
+      };
+    },
+    onLoad() {
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
       this.statusBarHeight = getApp().globalData.top;
     },
     methods: {
       input_search(event) {
+<<<<<<< HEAD
         formatAppLog("log", "at pages/pagesall/home/search.vue:28", event.detail.value);
+=======
+        formatAppLog("log", "at pages/pagesall/home/search.vue:71", event.detail.value);
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
         this.input_text = event.detail.value;
         if (this.input_text == "") {
           this.btnyes = true;
@@ -39491,6 +40796,7 @@ This will fail in production.`);
   };
   function _sfc_render$1O(_ctx, _cache, $props, $setup, $data, $options) {
     const _component_TUIContact = vue.resolveComponent("TUIContact");
+<<<<<<< HEAD
     return vue.openBlock(), vue.createElementBlock("view", null, [
       vue.createElementVNode(
         "view",
@@ -39503,6 +40809,30 @@ This will fail in production.`);
       ),
       vue.createVNode(_component_TUIContact)
     ]);
+=======
+    return vue.openBlock(), vue.createElementBlock(
+      vue.Fragment,
+      null,
+      [
+        vue.createCommentVNode(' <view class="btnbox">\r\n    <img src="https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPng0ac4c131284679fa0f7412d62e239e026e1af50accd921fa8c94da8d9d529b26" alt="" class="btns_img" />\r\n    <input type="text" placeholder="请输入搜索ID" class="input1" prefix="search" @input="input_search" />\r\n\r\n    <view class="" v-if="btnyes" @click="cancel_lation">\r\n      <text class="btn">取消</text>\r\n    </view>\r\n    <view class="" v-else>\r\n      <text class="btn">搜索</text>\r\n    </view>\r\n  </view> '),
+        vue.createElementVNode("view", null, [
+          vue.createElementVNode(
+            "view",
+            {
+              style: vue.normalizeStyle("height:" + ($data.statusBarHeight + 5) + "px;")
+            },
+            null,
+            4
+            /* STYLE */
+          ),
+          vue.createVNode(_component_TUIContact)
+        ]),
+        vue.createCommentVNode(' <view class="friends" v-for="(item,index) in friends_List" :key="index">\r\n		<view class="friendsbox" @click="friendsgoback">\r\n			<view class="friendsbox2">\r\n				<view class="friendsbox_img">\r\n					<img :src="item.head" alt="" />\r\n				</view>\r\n\r\n				<view class="friendsinter">\r\n					<view class="friends_text1">\r\n						{{item.name}}\r\n					</view>\r\n					<view class="friends_text2">\r\n						ID:{{item.id}}\r\n					</view>\r\n\r\n				</view>\r\n			</view>\r\n\r\n			<text class="friends_text3" @click="add_friend">添加好友</text>\r\n		</view>\r\n	</view> ')
+      ],
+      2112
+      /* STABLE_FRAGMENT, DEV_ROOT_FRAGMENT */
+    );
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
   }
   const PagesPagesallHomeSearch = /* @__PURE__ */ _export_sfc(_sfc_main$1P, [["render", _sfc_render$1O], ["__file", "C:/Users/Administrator/Desktop/Project Folder/ZXHand/ZXHandwritting_APP_uniapp/pages/pagesall/home/search.vue"]]);
   const _sfc_main$1O = {};
@@ -39513,6 +40843,7 @@ This will fail in production.`);
   const _sfc_main$1N = {
     data() {
       return {
+<<<<<<< HEAD
         statusBarHeight: "",
         codeUrl: ""
       };
@@ -39538,6 +40869,15 @@ This will fail in production.`);
         this.codeUrl = res.data;
         formatAppLog("log", "at pages/pagesall/home/mycode.vue:93", this.codeUrl);
       },
+=======
+        statusBarHeight: ""
+      };
+    },
+    onLoad() {
+      this.statusBarHeight = getApp().globalData.top;
+    },
+    methods: {
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
       goback() {
         uni.navigateBack();
       },
@@ -39545,6 +40885,7 @@ This will fail in production.`);
         uni.navigateTo({
           url: "/pages/pagesall/home/mycode"
         });
+<<<<<<< HEAD
       },
       saveToAlbum() {
         uni.saveImageToPhotosAlbum({
@@ -39564,6 +40905,8 @@ This will fail in production.`);
             });
           }
         });
+=======
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
       }
     }
   };
@@ -39579,7 +40922,19 @@ This will fail in production.`);
         /* STYLE */
       ),
       vue.createElementVNode("view", { class: "code_titlebox" }, [
+<<<<<<< HEAD
         vue.createCommentVNode(' <view class="messImg" @click="goback">\r\n        <img\r\n          src="https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPnge1553c1d8d43568ee582b54f1deab731573c8804790b09e299c2e73eda1cfa68"\r\n          alt=""\r\n        />\r\n      </view> '),
+=======
+        vue.createElementVNode("view", {
+          class: "messImg",
+          onClick: _cache[0] || (_cache[0] = (...args) => $options.goback && $options.goback(...args))
+        }, [
+          vue.createElementVNode("img", {
+            src: "https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPnge1553c1d8d43568ee582b54f1deab731573c8804790b09e299c2e73eda1cfa68",
+            alt: ""
+          })
+        ]),
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
         vue.createElementVNode("view", { class: "code_title" }, " 分享二维码 ")
       ]),
       vue.createElementVNode("view", { class: "code_codebox" }, [
@@ -39589,6 +40944,7 @@ This will fail in production.`);
             alt: ""
           })
         ]),
+<<<<<<< HEAD
         vue.createElementVNode("view", {
           class: "code_titileimg",
           onClick: _cache[0] || (_cache[0] = (...args) => $options.saveToAlbum && $options.saveToAlbum(...args))
@@ -39606,10 +40962,20 @@ This will fail in production.`);
               1
               /* TEXT */
             ),
+=======
+        vue.createElementVNode("view", { class: "code_titileimg" }, [
+          vue.createElementVNode("img", {
+            src: "https://lanhu-dds-backend.oss-cn-beijing.aliyuncs.com/merge_image/imgs/a1f75ab65caa4ac6afc5909f8472ecba_mergeImage.png",
+            alt: ""
+          }),
+          vue.createElementVNode("view", { class: "code_name" }, [
+            vue.createElementVNode("view", { style: { "font-weight": "500", "font-size": "28rpx", "color": "#000000" } }, "刘易阳的二维码"),
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
             vue.createElementVNode("view", { style: { "font-weight": "400", "font-size": "16rpx", "color": "#666666", "margin-top": "10rpx" } }, "分享给老师们加个好友吧 ")
           ])
         ]),
         vue.createElementVNode("view", { class: "code_codeimg" }, [
+<<<<<<< HEAD
           vue.createElementVNode("image", {
             style: { "width": "474rpx", "height": "474rpx" },
             src: $data.codeUrl,
@@ -39621,6 +40987,15 @@ This will fail in production.`);
         class: "code_baocun",
         onClick: _cache[1] || (_cache[1] = (...args) => $options.saveToAlbum && $options.saveToAlbum(...args))
       }, [
+=======
+          vue.createElementVNode("img", {
+            src: "https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPngdec58e091c33964c716ceeb24df93a33629b032a848ee6ada66281e68aeaa069",
+            alt: ""
+          })
+        ])
+      ]),
+      vue.createElementVNode("view", { class: "code_baocun" }, [
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
         vue.createElementVNode("img", {
           src: "https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPnga09d8270200e68c37da10c6fc926c63f90e314b103034a125a42216d2610bbbf",
           alt: ""
@@ -39647,9 +41022,15 @@ This will fail in production.`);
         uni.navigateBack();
       },
       async adverbtn(event, index2) {
+<<<<<<< HEAD
         formatAppLog("log", "at pages/pagesall/home/adverMess.vue:88", event, index2);
         const selectedNotice = this.messList[index2];
         formatAppLog("log", "at pages/pagesall/home/adverMess.vue:90", selectedNotice.id);
+=======
+        formatAppLog("log", "at pages/pagesall/home/adverMess.vue:57", event, index2);
+        const selectedNotice = this.messList[index2];
+        formatAppLog("log", "at pages/pagesall/home/adverMess.vue:59", selectedNotice.id);
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
         uni.navigateTo({
           url: `/pages/pagesall/home/adver_detail?id=${selectedNotice.id}`
         });
@@ -39666,7 +41047,11 @@ This will fail in production.`);
           this.messList = response.rows;
           store.setMessageList(this.messList);
         } catch (error2) {
+<<<<<<< HEAD
           formatAppLog("error", "at pages/pagesall/home/adverMess.vue:107", "获取公告消息失败:", error2);
+=======
+          formatAppLog("error", "at pages/pagesall/home/adverMess.vue:76", "获取公告消息失败:", error2);
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
         }
       }
     }
@@ -39753,7 +41138,11 @@ This will fail in production.`);
       }, [
         vue.createElementVNode("image", {
           style: { "margin-top": "-600rpx" },
+<<<<<<< HEAD
           src: _imports_0$6,
+=======
+          src: _imports_0$5,
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
           mode: "aspectFit"
         }),
         vue.createCommentVNode(' <view class="bg_img"></view> ')
@@ -40288,7 +41677,11 @@ This will fail in production.`);
     );
   }
   const PagesPagesallHomeGame = /* @__PURE__ */ _export_sfc(_sfc_main$1J, [["render", _sfc_render$1I], ["__file", "C:/Users/Administrator/Desktop/Project Folder/ZXHand/ZXHandwritting_APP_uniapp/pages/pagesall/home/game.vue"]]);
+<<<<<<< HEAD
   const _imports_0$1 = "/static/img/advio.png";
+=======
+  const _imports_0$2 = "/static/img/advio.png";
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
   const _imports_1 = "/static/img/Frame.png";
   const _sfc_main$1I = {
     data() {
@@ -40596,7 +41989,11 @@ This will fail in production.`);
                       /* TEXT */
                     ),
                     vue.createElementVNode("img", {
+<<<<<<< HEAD
                       src: _imports_0$1,
+=======
+                      src: _imports_0$2,
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
                       alt: ""
                     })
                   ])) : vue.createCommentVNode("v-if", true),
@@ -40679,7 +42076,11 @@ This will fail in production.`);
     ], 8, ["scroll-into-view"]);
   }
   const PagesPagesallHomeChat = /* @__PURE__ */ _export_sfc(_sfc_main$1I, [["render", _sfc_render$1H], ["__file", "C:/Users/Administrator/Desktop/Project Folder/ZXHand/ZXHandwritting_APP_uniapp/pages/pagesall/home/chat.vue"]]);
+<<<<<<< HEAD
   const _imports_0 = "/static/img/noVideo.png";
+=======
+  const _imports_0$1 = "/static/img/noVideo.png";
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
   const _sfc_main$1H = {
     data() {
       return {
@@ -40688,6 +42089,7 @@ This will fail in production.`);
           "https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPngdadd194d15ae0a321cf1b69b42b82fbdb401e127f68d9e091f73b2ef2c6682a6",
           "/static/img/swiper1.png"
         ],
+<<<<<<< HEAD
         listdata: [
           {
             biaoti: "书法综合突破集训营(赠教学视频)",
@@ -40704,6 +42106,22 @@ This will fail in production.`);
             quenum: "15999"
           }
         ],
+=======
+        listdata: [{
+          biaoti: "书法综合突破集训营(赠教学视频)",
+          laoshi: " 书法综合突破集训营主导讲师刘老师经验丰富…",
+          star: "2024.8.22",
+          end: "2024.8.24",
+          hearimg: "https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPngf75020ee967309de69964375963839256bf76467ffccdabe9efe77aefea8f6e1",
+          techerimg: "https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPng580a34d876cda0a5b37d451367934eb478865bb7b4b80bedde3f71fcaa5c8775",
+          teachername: "李衣裳",
+          pers: "2034",
+          money: "免费",
+          online: "线上",
+          planum: "26000",
+          quenum: "15999"
+        }],
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
         hours: "",
         minutes: "",
         seconds: "",
@@ -40715,7 +42133,11 @@ This will fail in production.`);
         // 用于存储音频上下文的引用
         learnList: {
           font_data: null,
+<<<<<<< HEAD
           //
+=======
+          // 
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
           info: {}
           // 初始化为一个数组，用于存储其他相关信息
         },
@@ -40723,6 +42145,7 @@ This will fail in production.`);
         statusBarHeight: ""
       };
     },
+<<<<<<< HEAD
     onLoad(options) {
       const homework_id = options.homework_id;
       formatAppLog("log", "at pages/pagesall/course/go_learn.vue:168", homework_id);
@@ -40730,12 +42153,23 @@ This will fail in production.`);
       this.startCountdown();
       this.audioContext = uni.createInnerAudioContext();
       this.loadHomeworkAudio(homework_id);
+=======
+    onLoad() {
+      this.statusBarHeight = getApp().globalData.top;
+      this.startCountdown();
+      this.audioContext = uni.createInnerAudioContext();
+      this.loadHomeworkAudio();
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
     },
     onUnload() {
       this.stopCountdown();
       this.audioContext.destroy();
     },
     mounted() {
+<<<<<<< HEAD
+=======
+      this.loadHomeworkAudio();
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
     },
     methods: {
       async submitHomework() {
@@ -40749,7 +42183,11 @@ This will fail in production.`);
             this.uploadImage(res.tempFilePaths[0]);
           },
           fail: (err) => {
+<<<<<<< HEAD
             formatAppLog("error", "at pages/pagesall/course/go_learn.vue:197", "选择图片失败:", err);
+=======
+            formatAppLog("error", "at pages/pagesall/course/go_learn.vue:131", "选择图片失败:", err);
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
           }
         });
       },
@@ -40787,7 +42225,11 @@ This will fail in production.`);
             });
           }
         } catch (error2) {
+<<<<<<< HEAD
           formatAppLog("error", "at pages/pagesall/course/go_learn.vue:236", "上传失败:", error2);
+=======
+          formatAppLog("error", "at pages/pagesall/course/go_learn.vue:171", "上传失败:", error2);
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
           uni.showToast({
             title: "上传异常，请稍后再试",
             icon: "none",
@@ -40796,23 +42238,39 @@ This will fail in production.`);
           });
         }
       },
+<<<<<<< HEAD
       async loadHomeworkAudio(homework_id) {
         try {
           const response = await fetchHomeworkAudio(homework_id);
+=======
+      async loadHomeworkAudio() {
+        try {
+          const response = await fetchHomeworkAudio();
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
           this.learnList.font_data = [];
           this.learnList.info = [];
           this.learnList.font_data = response.items.font_data || {};
           this.learnList.info = response.items[0];
+<<<<<<< HEAD
           formatAppLog("log", "at pages/pagesall/course/go_learn.vue:260", "Font Data:", this.learnList.font_data);
           formatAppLog("log", "at pages/pagesall/course/go_learn.vue:261", "Info Data:", this.learnList.info);
           formatAppLog("log", "at pages/pagesall/course/go_learn.vue:262", this.learnList.font_data[0].voice_url);
+=======
+          formatAppLog("log", "at pages/pagesall/course/go_learn.vue:196", "Font Data:", this.learnList.font_data);
+          formatAppLog("log", "at pages/pagesall/course/go_learn.vue:197", "Info Data:", this.learnList.info);
+          formatAppLog("log", "at pages/pagesall/course/go_learn.vue:198", this.learnList.font_data[0].voice_url);
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
           this.homeworkFinishTime = this.learnList.info.homeworkFinishTime;
           if (this.learnList.font_data.length > 0) {
             const audioSrc = this.learnList.font_data[0].voice_url;
             this.audioContext.src = audioSrc;
           }
         } catch (error2) {
+<<<<<<< HEAD
           formatAppLog("error", "at pages/pagesall/course/go_learn.vue:270", "获取作业失败:", error2);
+=======
+          formatAppLog("error", "at pages/pagesall/course/go_learn.vue:207", "获取作业失败:", error2);
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
         }
       },
       // loadHomeworkAudio() {
@@ -40931,7 +42389,11 @@ This will fail in production.`);
                       1
                       /* TEXT */
                     ),
+<<<<<<< HEAD
                     vue.createElementVNode("text", { style: { "font-size": "20rpx", "background-color": "#fff", "color": "#f53c38" } }, ":"),
+=======
+                    vue.createElementVNode("text", { style: { "font-size": "20rpx", "background-color": "#fff", "color": "#F53C38" } }, ":"),
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
                     vue.createElementVNode(
                       "text",
                       { style: { "font-size": "20rpx", "padding": "3rpx 5rpx 3rpx 5rpx", "border-radius": "5rpx" } },
@@ -40939,7 +42401,11 @@ This will fail in production.`);
                       1
                       /* TEXT */
                     ),
+<<<<<<< HEAD
                     vue.createElementVNode("text", { style: { "font-size": "20rpx", "background-color": "#fff", "color": "#f53c38" } }, ":"),
+=======
+                    vue.createElementVNode("text", { style: { "font-size": "20rpx", "background-color": "#fff", "color": "#F53C38" } }, ":"),
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
                     vue.createElementVNode(
                       "text",
                       { style: { "font-size": "20rpx", "padding": "3rpx 5rpx 3rpx 5rpx", "border-radius": "5rpx" } },
@@ -40974,7 +42440,11 @@ This will fail in production.`);
       }, [
         vue.createElementVNode("image", {
           style: { "width": "400rpx", "height": "400rpx" },
+<<<<<<< HEAD
           src: _imports_0,
+=======
+          src: _imports_0$1,
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
           mode: "aspectFit"
         })
       ]))
@@ -41972,6 +43442,7 @@ This will fail in production.`);
       return {
         canvasRef: null,
         // canvas 的引用
+<<<<<<< HEAD
         stu_List: [
           {
             name: "刘琪琦",
@@ -42000,6 +43471,28 @@ This will fail in production.`);
             score: 1
           }
         ],
+=======
+        stu_List: [{
+          name: "刘琪琦",
+          id: "1008601"
+        }],
+        score_List: [{
+          title: "重心",
+          score: 5
+        }, {
+          title: "位置",
+          score: 4
+        }, {
+          title: "形态",
+          score: 3
+        }, {
+          title: "笔画",
+          score: 2
+        }, {
+          title: "大小",
+          score: 1
+        }],
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
         comprehensiveLevel: "",
         // imageSrc: '/static/logo.png',
         imagePath: null,
@@ -42031,6 +43524,62 @@ This will fail in production.`);
     },
     mounted() {
       this.getToken();
+<<<<<<< HEAD
+=======
+      this.store = useStore();
+      formatAppLog("log", "at pages/pagesall/aiDete/aiResult.vue:124", this.store.resultDivData, typeof this.store.resultDivData);
+      let scoreText = this.store.evaluationDesc;
+      formatAppLog("log", "at pages/pagesall/aiDete/aiResult.vue:135", scoreText);
+      if (scoreText) {
+        const scores = {
+          综合得分: null,
+          重心得分: null,
+          形态得分: null,
+          大小得分: null,
+          位置得分: null,
+          笔画得分: null
+        };
+        const regex = /(综合得分|重心得分|形态得分|大小得分|位置得分|笔画得分)[^\d]*(\d+)/g;
+        let match;
+        while ((match = regex.exec(scoreText)) !== null) {
+          const scoreType = match[1];
+          const scoreValue = parseInt(match[2], 10);
+          if (scores.hasOwnProperty(scoreType)) {
+            scores[scoreType] = scoreValue;
+          }
+        }
+        const getComprehensiveLevel = (score) => {
+          return score >= 60 ? "优" : "差";
+        };
+        if (scores.综合得分 !== null) {
+          this.comprehensiveLevel = getComprehensiveLevel(scores.综合得分);
+        }
+        const getOtherLevel = (score) => {
+          if (score >= 80)
+            return 5;
+          if (score >= 60)
+            return 4;
+          if (score >= 40)
+            return 3;
+          if (score >= 20)
+            return 2;
+          return 1;
+        };
+        const scoreMap = {
+          "重心": scores.重心得分,
+          "位置": scores.位置得分,
+          "形态": scores.形态得分,
+          "笔画": scores.笔画得分,
+          "大小": scores.大小得分
+        };
+        this.score_List.forEach((item) => {
+          const score = scoreMap[item.title];
+          if (score !== void 0) {
+            item.score = getOtherLevel(score);
+          }
+        });
+      }
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
     },
     onLoad() {
       const systemInfo = uni.getSystemInfoSync();
@@ -42040,6 +43589,7 @@ This will fail in production.`);
     },
     // methods: {
     //   handleCanvasClick() {
+<<<<<<< HEAD
     //     __f__('log','at pages/pagesall/aiDete/aiResult.vue:150',125464646)
     //   }
     // },
@@ -42096,16 +43646,29 @@ This will fail in production.`);
           });
         }
       },
+=======
+    //     __f__('log','at pages/pagesall/aiDete/aiResult.vue:200',125464646)
+    //   }
+    // },
+    methods: {
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
       getToken() {
         uni.getStorage({
           key: "token",
           // 存储的 key 名
           success: (res) => {
             this.token = res.data;
+<<<<<<< HEAD
             formatAppLog("log", "at pages/pagesall/aiDete/aiResult.vue:216", "获取的 token:", this.token);
           },
           fail: (err) => {
             formatAppLog("error", "at pages/pagesall/aiDete/aiResult.vue:219", "获取 token 失败:", err);
+=======
+            formatAppLog("log", "at pages/pagesall/aiDete/aiResult.vue:210", "获取的 token:", this.token);
+          },
+          fail: (err) => {
+            formatAppLog("error", "at pages/pagesall/aiDete/aiResult.vue:213", "获取 token 失败:", err);
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
           }
         });
       },
@@ -42118,6 +43681,7 @@ This will fail in production.`);
           success: (res) => {
             this.imageSrc = res.tempFilePaths[0];
             this.imagePath = res.tempFilePaths[0];
+<<<<<<< HEAD
             formatAppLog("log", "at pages/pagesall/aiDete/aiResult.vue:233", "choose file path ", res.tempFiles[0].path);
             formatAppLog("log", "at pages/pagesall/aiDete/aiResult.vue:234", "choose file size ", res.tempFiles[0].size);
             uni.getImageInfo({
@@ -42125,6 +43689,15 @@ This will fail in production.`);
               success: (image2) => {
                 formatAppLog("log", "at pages/pagesall/aiDete/aiResult.vue:239", "choose image width", image2.width);
                 formatAppLog("log", "at pages/pagesall/aiDete/aiResult.vue:240", "choose image height", image2.height);
+=======
+            formatAppLog("log", "at pages/pagesall/aiDete/aiResult.vue:227", "choose file path ", res.tempFiles[0].path);
+            formatAppLog("log", "at pages/pagesall/aiDete/aiResult.vue:228", "choose file size ", res.tempFiles[0].size);
+            uni.getImageInfo({
+              src: res.tempFilePaths[0],
+              success: (image2) => {
+                formatAppLog("log", "at pages/pagesall/aiDete/aiResult.vue:235", "choose image width", image2.width);
+                formatAppLog("log", "at pages/pagesall/aiDete/aiResult.vue:236", "choose image height", image2.height);
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
                 this.chooseImageWidth = image2.width;
                 this.chooseImageHeight = image2.height;
                 const aspectRatio = this.chooseImageHeight / this.chooseImageWidth;
@@ -42137,10 +43710,49 @@ This will fail in production.`);
             });
           },
           fail: (err) => {
+<<<<<<< HEAD
             uni.navigateBack();
           }
         });
       },
+=======
+            formatAppLog("error", "at pages/pagesall/aiDete/aiResult.vue:252", "选择图片失败：", err);
+          }
+        });
+      },
+      // login() {
+      //   uni.request({
+      //     url: 'https://open.pixsmart.cn:6802/sdkMgr/auth/signin',
+      //     method: 'POST',
+      //     header: {
+      //       'Content-Type': 'application/json'
+      //     },
+      //     data: {
+      //       apiKey: user,
+      //       apiSecret: pass
+      //     },
+      //     success: (res) => {
+      //       if (res.data.code === 0) {
+      //         this.token = res.data.data.accessToken;
+      //         __f__('log','at pages/pagesall/aiDete/aiResult.vue:270','登录成功', this.token);
+      //       } else {
+      //         __f__('log','at pages/pagesall/aiDete/aiResult.vue:272','登录失败', res.data.message);
+      //         uni.showToast({
+      //           title: '登录失败',
+      //           icon: 'none'
+      //         });
+      //       }
+      //     },
+      //     fail: (error) => {
+      //       __f__('error','at pages/pagesall/aiDete/aiResult.vue:280','登录请求失败', error);
+      //       uni.showToast({
+      //         title: '请求失败',
+      //         icon: 'none'
+      //       });
+      //     }
+      //   });
+      // },
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
       submitForm() {
         if (!this.imagePath) {
           return uni.showToast({
@@ -42160,6 +43772,7 @@ This will fail in production.`);
           filePath: this.imagePath,
           name: "file",
           header: {
+<<<<<<< HEAD
             token: `${this.token}`
           },
           formData: {
@@ -42168,6 +43781,16 @@ This will fail in production.`);
             // 随便填
             isCheckExamNum: "false",
             font: 0
+=======
+            "token": `${this.token}`
+          },
+          formData: {
+            "sdk": "WordEvaluation",
+            "device_id": "test_device_id",
+            // 随便填
+            "isCheckExamNum": "false",
+            "font": 0
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
             // "userId": user,
           },
           success: (uploadFileRes) => {
@@ -42180,6 +43803,10 @@ This will fail in production.`);
             }
           },
           fail: (err) => {
+<<<<<<< HEAD
+=======
+            formatAppLog("error", "at pages/pagesall/aiDete/aiResult.vue:328", "提交失败：", err);
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
             uni.showToast({
               title: "提交失败",
               icon: "none"
@@ -42192,14 +43819,30 @@ This will fail in production.`);
         ctx.clearRect(0, 0, this.canvasWidth, this.canvasHeight);
         ctx.drawImage(this.imagePath, 0, 0, this.canvasWidth, this.canvasHeight);
         ctx.draw(false, () => {
+<<<<<<< HEAD
           formatAppLog("log", "at pages/pagesall/aiDete/aiResult.vue:312", "draw image success");
+=======
+          formatAppLog("log", "at pages/pagesall/aiDete/aiResult.vue:342", "draw image success");
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
         });
       },
       handleCanvasClick(event) {
         const query = uni.createSelectorQuery().in(this);
         query.select("#myScrollView").scrollOffset((data) => {
+<<<<<<< HEAD
           const x2 = event.detail.x - event.target.offsetLeft;
           const y2 = event.detail.y - event.target.offsetTop;
+=======
+          formatAppLog("log", "at pages/pagesall/aiDete/aiResult.vue:349", event);
+          formatAppLog("log", "at pages/pagesall/aiDete/aiResult.vue:350", event.target);
+          formatAppLog("log", "at pages/pagesall/aiDete/aiResult.vue:351", event.detail.x, event.detail.y);
+          formatAppLog("log", "at pages/pagesall/aiDete/aiResult.vue:352", event.target.offsetLeft, event.target.offsetTop);
+          const x2 = event.detail.x - event.target.offsetLeft;
+          const y2 = event.detail.y - event.target.offsetTop;
+          formatAppLog("log", "at pages/pagesall/aiDete/aiResult.vue:355", "x", x2);
+          formatAppLog("log", "at pages/pagesall/aiDete/aiResult.vue:356", "y", y2);
+          formatAppLog("log", "at pages/pagesall/aiDete/aiResult.vue:357", data);
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
           this.mouseX = x2;
           this.mouseY = y2 + data.scrollTop;
           this.drawImageWithData();
@@ -42212,6 +43855,11 @@ This will fail in production.`);
         if (!this.ocrResults && !this.wordMarks) {
           return;
         }
+<<<<<<< HEAD
+=======
+        formatAppLog("log", "at pages/pagesall/aiDete/aiResult.vue:373", "mouseX", this.mouseX);
+        formatAppLog("log", "at pages/pagesall/aiDete/aiResult.vue:374", "mouseY", this.mouseY);
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
         this.chooseImageHeight / this.chooseImageWidth;
         const scale = this.canvasWidth / this.chooseImageWidth;
         this.ocrResults.forEach((ocr, i2) => {
@@ -42223,7 +43871,11 @@ This will fail in production.`);
           let displayText;
           if (word.mark > 80) {
             displayText = "优";
+<<<<<<< HEAD
           } else if (word.mark >= 70) {
+=======
+          } else if (word.mark >= 60) {
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
             displayText = "良";
           } else {
             displayText = "学习";
@@ -42238,12 +43890,24 @@ This will fail in production.`);
             const encoder = new TextEncoder();
             const encodedData = encoder.encode(ocr.label);
             const base64Label = btoa(String.fromCharCode(...encodedData));
+<<<<<<< HEAD
+=======
+            formatAppLog("log", "at pages/pagesall/aiDete/aiResult.vue:413", `你点击了文字 "${ocr.label}"，分数: ${word.mark}，Base64格式: ${base64Label}`);
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
             if (displayText === "学习") {
               let params = {
                 fonts: base64Label
               };
+<<<<<<< HEAD
               goStudy(params).then((response) => {
                 const { msg } = response;
+=======
+              formatAppLog("log", "at pages/pagesall/aiDete/aiResult.vue:418", 11111);
+              goStudy(params).then((response) => {
+                formatAppLog("log", "at pages/pagesall/aiDete/aiResult.vue:420", "学习成功:", response);
+                const { msg } = response;
+                formatAppLog("log", "at pages/pagesall/aiDete/aiResult.vue:423", msg);
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
                 if (response.code === 1) {
                   uni.navigateTo({
                     url: "/pages/pagesall/course/go_learn"
@@ -42271,6 +43935,7 @@ This will fail in production.`);
           }
         });
         if (this.mouseX == 0 && this.mouseY == 0 && this.ocrResults.length > 0) {
+<<<<<<< HEAD
           this.drawMask(
             "wordMask",
             this.ocrResults[0].label,
@@ -42280,6 +43945,13 @@ This will fail in production.`);
         }
         ctx.draw(false, () => {
           formatAppLog("log", "at pages/pagesall/aiDete/aiResult.vue:430", "draw image success");
+=======
+          this.drawMask("wordMask", this.ocrResults[0].label, this.wordMarks[0].base64Mark);
+          this.showWordsInfo(this.ocrResults[0], this.wordMarks[0]);
+        }
+        ctx.draw(false, () => {
+          formatAppLog("log", "at pages/pagesall/aiDete/aiResult.vue:466", "draw image success");
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
         });
       },
       drawMask(canvasId, label, base64String) {
@@ -42309,9 +43981,13 @@ This will fail in production.`);
                 let bit = bits2[128 * i3 + j2];
                 if (bit === 0) {
                   const colorValue = bit === 0 ? 0 : 255;
+<<<<<<< HEAD
                   ctx.setFillStyle(
                     `rgb(${colorValue}, ${colorValue}, ${colorValue})`
                   );
+=======
+                  ctx.setFillStyle(`rgb(${colorValue}, ${colorValue}, ${colorValue})`);
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
                   ctx.fillRect(j2, i3, 1, 1);
                 }
               }
@@ -42330,7 +44006,14 @@ This will fail in production.`);
         }
         draw();
         ctx.draw(false, () => {
+<<<<<<< HEAD
           formatAppLog("log", "at pages/pagesall/aiDete/aiResult.vue:491", "draw mask success");
+=======
+          formatAppLog("log", "at pages/pagesall/aiDete/aiResult.vue:526", "draw mask success");
+          useStore();
+          const canvasElement = this.$refs.aiBox;
+          formatAppLog("log", "at pages/pagesall/aiDete/aiResult.vue:529", canvasElement);
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
         });
       },
       showWordsInfo(ocrResult, wordMark) {
@@ -42392,7 +44075,12 @@ This will fail in production.`);
         }
         sb.push("\n");
         this.evaluationDesc = sb.join("");
+<<<<<<< HEAD
         this.score();
+=======
+        const store = useStore();
+        store.setEvaluationDesc(this.evaluationDesc);
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
       }
     }
   };
@@ -42710,7 +44398,11 @@ This will fail in production.`);
         default: true
       },
       modelValue: {
+<<<<<<< HEAD
         type: null,
+=======
+        type: String,
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
         default: ""
       },
       type: {
@@ -42926,7 +44618,10 @@ This will fail in production.`);
       const multiIndex = vue.ref();
       const refelist = vue.ref({});
       const avatarUrl = vue.ref("");
+<<<<<<< HEAD
       const avatarUrl1 = vue.ref("");
+=======
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
       const retPass = async () => {
         await uni.navigateTo({
           url: "/pages/login/ratpass"
@@ -42934,7 +44629,11 @@ This will fail in production.`);
       };
       const open2 = () => {
         datetimePicker.value.open();
+<<<<<<< HEAD
         formatAppLog("log", "at pages/pagesall/mypage/PersonalData.vue:193", datetimePicker.value);
+=======
+        formatAppLog("log", "at pages/pagesall/mypage/PersonalData.vue:136", datetimePicker.value);
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
       };
       const togglePicker = () => {
         isDisabled1.value = !isDisabled1.value;
@@ -42942,6 +44641,7 @@ This will fail in production.`);
       const togglePickerclass = () => {
         isDisabled2.value = !isDisabled2.value;
       };
+<<<<<<< HEAD
       const getlogin = async () => {
         try {
           if (avatarUrl.value) {
@@ -42960,6 +44660,14 @@ This will fail in production.`);
         }
       };
       const giftPickerChange = (e2, giftArray2) => {
+=======
+      const getlogin = () => {
+        formatAppLog("log", "at pages/pagesall/mypage/PersonalData.vue:158", refelist.value);
+        uni.navigateBack();
+      };
+      const giftPickerChange = (e2, giftArray2) => {
+        formatAppLog("log", "at pages/pagesall/mypage/PersonalData.vue:163", "picker发送选择改变，携带值为", e2.detail.value);
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
         let index2 = e2.detail.value;
         giftindex.value = index2;
         giftmoren.value = giftArray2[index2].title;
@@ -42973,12 +44681,17 @@ This will fail in production.`);
         } else {
           pickImageFromAlbum();
         }
+<<<<<<< HEAD
+=======
+        formatAppLog("log", "at pages/pagesall/mypage/PersonalData.vue:181", "选择的选项:", option);
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
       };
       const takePhoto = () => {
         uni.chooseImage({
           count: 1,
           sourceType: ["camera"],
           success: async (res) => {
+<<<<<<< HEAD
             uni.uploadFile({
               url: "http://admin.zexishuhua.com/api/common/upload",
               filePath: res.tempFilePaths[0],
@@ -42990,11 +44703,29 @@ This will fail in production.`);
                 const data = JSON.parse(uploadFileRes.data);
                 avatarUrl.value = data.data.url;
                 avatarUrl1.value = data.data.fullurl;
+=======
+            formatAppLog("log", "at pages/pagesall/mypage/PersonalData.vue:189", res, "+++++++++");
+            uni.uploadFile({
+              url: "http://admin.zexishuhua.com/api/common/upload",
+              //仅为示例，非真实的接口地址
+              filePath: res.tempFilePaths[0],
+              name: "file",
+              formData: {
+                "token": uni.getStorageSync("token")
+              },
+              success: (uploadFileRes) => {
+                formatAppLog("log", "at pages/pagesall/mypage/PersonalData.vue:198", uploadFileRes.data);
+                avatarUrl.value = res.tempFilePaths[0];
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
               }
             });
           },
           fail: (error2) => {
+<<<<<<< HEAD
             formatAppLog("error", "at pages/pagesall/mypage/PersonalData.vue:265", "拍照失败:", error2);
+=======
+            formatAppLog("error", "at pages/pagesall/mypage/PersonalData.vue:204", "拍照失败:", error2);
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
           }
         });
       };
@@ -43003,8 +44734,14 @@ This will fail in production.`);
           count: 1,
           sourceType: ["album"],
           success: async (res) => {
+<<<<<<< HEAD
             if (res.tempFilePaths.length === 0) {
               formatAppLog("error", "at pages/pagesall/mypage/PersonalData.vue:276", "未选择任何图片");
+=======
+            formatAppLog("log", "at pages/pagesall/mypage/PersonalData.vue:214", res, "+++++++++");
+            if (res.tempFilePaths.length === 0) {
+              formatAppLog("error", "at pages/pagesall/mypage/PersonalData.vue:216", "未选择任何图片");
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
               return;
             }
             uni.uploadFile({
@@ -43013,16 +44750,28 @@ This will fail in production.`);
               filePath: res.tempFilePaths[0],
               name: "file",
               formData: {
+<<<<<<< HEAD
                 token: uni.getStorageSync("token")
               },
               success: (uploadFileRes) => {
                 const data = JSON.parse(uploadFileRes.data);
                 avatarUrl.value = data.data.url;
                 avatarUrl1.value = data.data.fullurl;
+=======
+                "token": uni.getStorageSync("token")
+              },
+              success: (uploadFileRes) => {
+                formatAppLog("log", "at pages/pagesall/mypage/PersonalData.vue:227", uploadFileRes.data);
+                avatarUrl.value = res.tempFilePaths[0];
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
               }
             });
           },
           fail: (error2) => {
+<<<<<<< HEAD
+=======
+            formatAppLog("error", "at pages/pagesall/mypage/PersonalData.vue:234", "选择图片失败:", error2);
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
           }
         });
       };
@@ -43050,6 +44799,7 @@ This will fail in production.`);
         dateYear.value = newtime2;
       };
       vue.onMounted(async () => {
+<<<<<<< HEAD
         formatAppLog("log", "at pages/pagesall/mypage/PersonalData.vue:333", store.campusData);
         giftArray.value = store.campusData;
         formatAppLog("log", "at pages/pagesall/mypage/PersonalData.vue:335", giftArray.value);
@@ -43057,12 +44807,22 @@ This will fail in production.`);
         try {
           const userInfo = await fetchUserInfo();
           formatAppLog("log", "at pages/pagesall/mypage/PersonalData.vue:339", userInfo);
+=======
+        formatAppLog("log", "at pages/pagesall/mypage/PersonalData.vue:274", store.campusData);
+        giftArray.value = store.campusData;
+        formatAppLog("log", "at pages/pagesall/mypage/PersonalData.vue:276", giftArray.value);
+        multiArray.value = store.classData;
+        try {
+          const userInfo = await fetchUserInfo();
+          formatAppLog("log", "at pages/pagesall/mypage/PersonalData.vue:280", userInfo);
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
           formData.name = userInfo.data.nickname;
           formData.age = userInfo.data.age;
           formData.referrer = userInfo.data.referee;
           formData.phone = userInfo.data.mobile;
           formData.password = userInfo.data.password;
           const birthDate = new Date(userInfo.data.birthday);
+<<<<<<< HEAD
           formatAppLog("log", "at pages/pagesall/mypage/PersonalData.vue:349", birthDate);
           const y2 = birthDate.getFullYear();
           const MM = (birthDate.getMonth() + 1).toString().padStart(2, "0");
@@ -43072,33 +44832,61 @@ This will fail in production.`);
           const campus = store.campusData.find(
             (item) => item.id === userInfo.data.school_id
           );
+=======
+          formatAppLog("log", "at pages/pagesall/mypage/PersonalData.vue:290", birthDate);
+          const y2 = birthDate.getFullYear();
+          const MM = (birthDate.getMonth() + 1).toString().padStart(2, "0");
+          const d2 = birthDate.getDate().toString().padStart(2, "0");
+          formatAppLog("log", "at pages/pagesall/mypage/PersonalData.vue:294", y2, MM, d2);
+          dateYear.value = `${y2}.${MM}.${d2}`;
+          const campus = store.campusData.find((item) => item.id === userInfo.data.school_id);
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
           if (campus) {
             giftmoren.value = campus.title;
             giftindex.value = store.campusData.indexOf(campus);
           }
+<<<<<<< HEAD
           formatAppLog("log", "at pages/pagesall/mypage/PersonalData.vue:368", store.classData);
           formatAppLog("log", "at pages/pagesall/mypage/PersonalData.vue:369", userInfo.data.classly_id);
           const classItem = store.classData.find(
             (item) => item.id === userInfo.data.classly_id
           );
           formatAppLog("log", "at pages/pagesall/mypage/PersonalData.vue:374", classItem);
+=======
+          formatAppLog("log", "at pages/pagesall/mypage/PersonalData.vue:307", store.classData);
+          formatAppLog("log", "at pages/pagesall/mypage/PersonalData.vue:308", userInfo.data.classly_id);
+          const classItem = store.classData.find((item) => item.id === userInfo.data.classly_id);
+          formatAppLog("log", "at pages/pagesall/mypage/PersonalData.vue:311", classItem);
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
           if (classItem) {
             const classIndex = store.classData.indexOf(classItem);
             selectedValue.value = classItem.title;
             multiIndex.value = [classIndex];
           }
         } catch (error2) {
+<<<<<<< HEAD
           formatAppLog("error", "at pages/pagesall/mypage/PersonalData.vue:381", "获取用户信息失败:", error2);
         }
       });
       const __returned__ = { store, statusBarHeight, formData, isActionSheetVisible, actionSheetOptions, isDisabled1, isDisabled2, isDisabled, dateYear, giftmoren, selectedValue, datetimePicker, giftindex, giftArray, multiArray, multiIndex, refelist, avatarUrl, avatarUrl1, retPass, open: open2, togglePicker, togglePickerclass, getlogin, giftPickerChange, chooseAvatar, handleOptionSelect, takePhoto, pickImageFromAlbum, onClassChange, confirm, ref: vue.ref, reactive: vue.reactive, onMounted: vue.onMounted, get CustomInput() {
+=======
+          formatAppLog("error", "at pages/pagesall/mypage/PersonalData.vue:318", "获取用户信息失败:", error2);
+        }
+      });
+      const __returned__ = { store, statusBarHeight, formData, isActionSheetVisible, actionSheetOptions, isDisabled1, isDisabled2, isDisabled, dateYear, giftmoren, selectedValue, datetimePicker, giftindex, giftArray, multiArray, multiIndex, refelist, avatarUrl, retPass, open: open2, togglePicker, togglePickerclass, getlogin, giftPickerChange, chooseAvatar, handleOptionSelect, takePhoto, pickImageFromAlbum, onClassChange, confirm, ref: vue.ref, reactive: vue.reactive, onMounted: vue.onMounted, get CustomInput() {
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
         return CustomInput;
       }, get BottomSheet() {
         return BottomSheet;
       }, get fetchUserInfo() {
         return fetchUserInfo;
+<<<<<<< HEAD
       }, get updateAvatar() {
         return updateAvatar;
+=======
+      }, get uploadImage() {
+        return uploadImage;
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
       }, get useStore() {
         return useStore;
       }, get onLoad() {
@@ -43147,10 +44935,17 @@ This will fail in production.`);
                 class: "img1",
                 onClick: $setup.chooseAvatar
               }, [
+<<<<<<< HEAD
                 vue.createElementVNode("image", {
                   src: $setup.avatarUrl1,
                   style: { "width": "192rpx", "height": "192rpx", "border-radius": "50%" },
                   mode: "aspectFill"
+=======
+                vue.createElementVNode("img", {
+                  style: { "width": "192rpx", "height": "192rpx", "border-radius": "50%" },
+                  src: $setup.avatarUrl,
+                  alt: ""
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
                 }, null, 8, ["src"]),
                 vue.createCommentVNode(' <img src="https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPng37fd122e911efbf5a6c9a5907384d8c8ed78d7e5b8bc971416d09e8e914fe7a3" alt="" /> '),
                 vue.createCommentVNode(' <img v-else src="https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPngccb17aadab169aefc90146fec8d12c387bab7ca72b9085f1b18a2a993cef6316" alt="" /> '),
@@ -43180,7 +44975,11 @@ This will fail in production.`);
               vue.createElementVNode(
                 "view",
                 {
+<<<<<<< HEAD
                   class: vue.normalizeClass([{ disabled: $setup.isDisabled }, "image-text_1 flex-row justify-between input"])
+=======
+                  class: vue.normalizeClass([{ "disabled": $setup.isDisabled }, "image-text_1 flex-row justify-between input"])
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
                 },
                 [
                   vue.createElementVNode(
@@ -43302,17 +45101,24 @@ This will fail in production.`);
         uni.navigateTo({
           url: `/pages/pagesall/mypage/${page2}`
         });
+<<<<<<< HEAD
       },
       logout() {
         uni.clearStorageSync();
         uni.navigateTo({
           url: "/pages/login/login"
         });
+=======
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
       }
     }
   };
   function _sfc_render$1y(_ctx, _cache, $props, $setup, $data, $options) {
+<<<<<<< HEAD
     return vue.openBlock(), vue.createElementBlock("view", null, [
+=======
+    return vue.openBlock(), vue.createElementBlock("view", { class: "container" }, [
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
       vue.createElementVNode(
         "view",
         {
@@ -43322,6 +45128,7 @@ This will fail in production.`);
         4
         /* STYLE */
       ),
+<<<<<<< HEAD
       vue.createElementVNode("view", { class: "container" }, [
         vue.createCommentVNode(' <view class="header">\r\n			<text class="back" @click="goBack">＜</text>\r\n			<text class="title">设置</text>\r\n		</view> '),
         vue.createElementVNode("view", { class: "list" }, [
@@ -43368,6 +45175,51 @@ This will fail in production.`);
             class: "logout-btn",
             onClick: _cache[5] || (_cache[5] = (...args) => $options.logout && $options.logout(...args))
           }, "退出登录")
+=======
+      vue.createCommentVNode(' <view class="header">\r\n			<text class="back" @click="goBack">＜</text>\r\n			<text class="title">设置</text>\r\n		</view> '),
+      vue.createElementVNode("view", { class: "list" }, [
+        vue.createElementVNode("view", {
+          class: "item",
+          onClick: _cache[0] || (_cache[0] = ($event) => $options.goToPage("privacy"))
+        }, [
+          vue.createElementVNode("text", null, "隐私"),
+          vue.createElementVNode("text", { class: "arrow" }, "＞")
+        ]),
+        vue.createElementVNode("view", {
+          class: "item",
+          onClick: _cache[1] || (_cache[1] = ($event) => $options.goToPage("changePassword"))
+        }, [
+          vue.createElementVNode("text", null, "修改密码"),
+          vue.createElementVNode("text", { class: "arrow" }, "＞")
+        ]),
+        vue.createElementVNode("view", {
+          class: "item",
+          onClick: _cache[2] || (_cache[2] = ($event) => $options.goToPage("changePhone"))
+        }, [
+          vue.createElementVNode("text", null, "修改手机号"),
+          vue.createElementVNode("text", { class: "arrow" }, "＞")
+        ]),
+        vue.createElementVNode("view", {
+          class: "item",
+          onClick: _cache[3] || (_cache[3] = ($event) => $options.goToPage("complaint"))
+        }, [
+          vue.createElementVNode("text", null, "投诉意见"),
+          vue.createElementVNode("text", { class: "arrow" }, "＞")
+        ]),
+        vue.createElementVNode("view", {
+          class: "item",
+          onClick: _cache[4] || (_cache[4] = ($event) => $options.goToPage("contactUs"))
+        }, [
+          vue.createElementVNode("text", null, "联系我们"),
+          vue.createElementVNode("text", { class: "arrow" }, "＞")
+        ]),
+        vue.createElementVNode("view", {
+          class: "item",
+          onClick: _cache[5] || (_cache[5] = ($event) => $options.goToPage("aboutUs"))
+        }, [
+          vue.createElementVNode("text", null, "关于我们"),
+          vue.createElementVNode("text", { class: "arrow" }, "＞")
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
         ])
       ])
     ]);
@@ -43381,9 +45233,13 @@ This will fail in production.`);
         // 用于存储旧密码
         newPassword: "",
         // 用于存储新密码
+<<<<<<< HEAD
         qrPassword: "",
         isSubmitting: false
         // 用于跟踪按钮是否被点击
+=======
+        qrPassword: ""
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
       };
     },
     onLoad() {
@@ -43391,16 +45247,22 @@ This will fail in production.`);
     },
     methods: {
       async submit() {
+<<<<<<< HEAD
         if (this.isSubmitting) {
           return;
         }
         this.isSubmitting = true;
         try {
           if (this.oldPassword === "" || this.newPassword === "" || this.qrPassword === "") {
+=======
+        try {
+          if (this.oldPassword === "" || this.newPassword === "") {
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
             uni.showToast({
               title: "密码不能为空",
               icon: "none"
             });
+<<<<<<< HEAD
             this.isSubmitting = false;
             return;
           }
@@ -43413,11 +45275,19 @@ This will fail in production.`);
             return;
           }
           if (this.newPassword !== this.qrPassword) {
+=======
+            return;
+          }
+          if (this.newPassword === "" || this.qrPassword === "") {
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
             uni.showToast({
               title: "密码不一致",
               icon: "none"
             });
+<<<<<<< HEAD
             this.isSubmitting = false;
+=======
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
             return;
           }
           const response = await fetchFindPassword({
@@ -43425,6 +45295,7 @@ This will fail in production.`);
             newpassword: this.newPassword,
             oldpassword: this.oldPassword
           });
+<<<<<<< HEAD
           formatAppLog("log", "at pages/pagesall/mypage/changePassword.vue:90", response);
           if (response.code === 1) {
             uni.showToast({
@@ -43438,6 +45309,15 @@ This will fail in production.`);
                 url: "/pages/login/login"
               });
             }, 3e3);
+=======
+          formatAppLog("log", "at pages/pagesall/mypage/changePassword.vue:53", response);
+          if (response.code === 1) {
+            uni.showToast({
+              title: response.msg,
+              icon: "success"
+            });
+            uni.navigateBack();
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
           } else {
             uni.showToast({
               title: response.msg,
@@ -43445,9 +45325,13 @@ This will fail in production.`);
             });
           }
         } catch (error2) {
+<<<<<<< HEAD
           formatAppLog("error", "at pages/pagesall/mypage/changePassword.vue:113", "修改密码接口失败：", error2);
         } finally {
           this.isSubmitting = false;
+=======
+          formatAppLog("error", "at pages/pagesall/mypage/changePassword.vue:70", "修改密码接口失败：", error2);
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
         }
       }
     }
@@ -43508,9 +45392,14 @@ This will fail in production.`);
         ]),
         vue.createElementVNode("button", {
           class: "submit-button",
+<<<<<<< HEAD
           disabled: $data.isSubmitting,
           onClick: _cache[3] || (_cache[3] = (...args) => $options.submit && $options.submit(...args))
         }, " 完成 ", 8, ["disabled"])
+=======
+          onClick: _cache[3] || (_cache[3] = (...args) => $options.submit && $options.submit(...args))
+        }, "完成")
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
       ])
     ]);
   }
@@ -43547,7 +45436,11 @@ This will fail in production.`);
             mobile: this.phone,
             event: "changemobile"
           });
+<<<<<<< HEAD
           formatAppLog("log", "at pages/pagesall/mypage/changePhone.vue:70", response);
+=======
+          formatAppLog("log", "at pages/pagesall/mypage/changePhone.vue:55", response);
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
           if (response.code === 1) {
             uni.showToast({
               title: response.msg || "验证码发送成功",
@@ -43598,6 +45491,7 @@ This will fail in production.`);
         });
         if (response.code === 1) {
           this.isCodeSent = true;
+<<<<<<< HEAD
           uni.showToast({
             title: response.msg + "即将重新登录",
             icon: "success",
@@ -43609,6 +45503,16 @@ This will fail in production.`);
               url: "/pages/login/login"
             });
           }, 3e3);
+=======
+          startCountdown();
+          uni.showToast({
+            title: response.msg,
+            icon: "none",
+            duration: 2e3
+            // 持续时间
+          });
+          uni.navigateBack();
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
         } else {
           uni.showToast({
             title: response.msg || "发送验证码失败，请重试",
@@ -43765,12 +45669,19 @@ This will fail in production.`);
       return {
         statusBarHeight: "",
         isActionSheetVisible: false,
+<<<<<<< HEAD
         actionSheetOptions: [
           {
             text: null,
             imageSrc: "https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPng508af3211aff2093c82948b6b714248f4e7c9dd737836b3b8d1449d9c81c5b12"
           }
         ]
+=======
+        actionSheetOptions: [{
+          text: null,
+          imageSrc: "https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPng508af3211aff2093c82948b6b714248f4e7c9dd737836b3b8d1449d9c81c5b12"
+        }]
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
       };
     },
     onLoad() {
@@ -43781,6 +45692,7 @@ This will fail in production.`);
       async getContactUs() {
         try {
           const response = await fetchContactUs();
+<<<<<<< HEAD
           this.$set(this.actionSheetOptions[0], "text", response.tel);
           this.actionSheetOptions.text = response.tel;
         } catch (error2) {
@@ -43793,11 +45705,23 @@ This will fail in production.`);
         } else {
           formatAppLog("error", "at pages/pagesall/mypage/contactUs.vue:59", "电话号码获取失败，无法打开拨打弹出框");
         }
+=======
+          formatAppLog("log", "at pages/pagesall/mypage/contactUs.vue:37", response);
+          this.actionSheetOptions.text = response.tel;
+          formatAppLog("log", "at pages/pagesall/mypage/contactUs.vue:39", this.actionSheetOptions.text);
+        } catch (error2) {
+          formatAppLog("error", "at pages/pagesall/mypage/contactUs.vue:41", "获取关于我们的接口失败：", error2);
+        }
+      },
+      showActionSheet() {
+        this.isActionSheetVisible = true;
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
       },
       handleOptionSelect() {
         this.makePhoneCall();
       },
       makePhoneCall() {
+<<<<<<< HEAD
         const phoneNumber = this.actionSheetOptions[0].text;
         formatAppLog("log", "at pages/pagesall/mypage/contactUs.vue:67", "正在准备拨打电话:", phoneNumber);
         uni.makePhoneCall({
@@ -43807,6 +45731,15 @@ This will fail in production.`);
           },
           fail: (error2) => {
             formatAppLog("error", "at pages/pagesall/mypage/contactUs.vue:75", "拨打电话失败", error2);
+=======
+        uni.makePhoneCall({
+          phoneNumber: "4000000000",
+          success: () => {
+            formatAppLog("log", "at pages/pagesall/mypage/contactUs.vue:55", "拨打电话成功");
+          },
+          fail: () => {
+            formatAppLog("log", "at pages/pagesall/mypage/contactUs.vue:58", "拨打电话失败");
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
           }
         });
       }
@@ -43862,9 +45795,17 @@ This will fail in production.`);
       async getAboutUs() {
         try {
           const response = await fetchAboutUs();
+<<<<<<< HEAD
           this.constants = response;
         } catch (error2) {
           formatAppLog("error", "at pages/pagesall/mypage/aboutUs.vue:39", "获取关于我们的接口失败：", error2);
+=======
+          formatAppLog("log", "at pages/pagesall/mypage/aboutUs.vue:32", response);
+          this.constants = response;
+          formatAppLog("log", "at pages/pagesall/mypage/aboutUs.vue:34", this.constants);
+        } catch (error2) {
+          formatAppLog("error", "at pages/pagesall/mypage/aboutUs.vue:36", "获取关于我们的接口失败：", error2);
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
         }
       }
     }
@@ -43884,7 +45825,11 @@ This will fail in production.`);
         vue.createElementVNode("image", {
           class: "image_2",
           referrerpolicy: "no-referrer",
+<<<<<<< HEAD
           src: $data.constants.site_logo
+=======
+          src: $data.constants.downloadurl
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
         }, null, 8, ["src"]),
         vue.createElementVNode(
           "text",
@@ -43906,6 +45851,10 @@ This will fail in production.`);
     ]);
   }
   const PagesPagesallMypageAboutUs = /* @__PURE__ */ _export_sfc(_sfc_main$1u, [["render", _sfc_render$1t], ["__file", "C:/Users/Administrator/Desktop/Project Folder/ZXHand/ZXHandwritting_APP_uniapp/pages/pagesall/mypage/aboutUs.vue"]]);
+<<<<<<< HEAD
+=======
+  const _imports_0 = "/static/img/scan.png";
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
   const _sfc_main$1t = {
     components: {
       TUIChat1
@@ -43981,7 +45930,11 @@ This will fail in production.`);
         vue.createElementVNode("view", { class: "title_img" }, [
           vue.createElementVNode("image", {
             style: { "width": "36rpx", "height": "36rpx" },
+<<<<<<< HEAD
             src: _imports_0$2,
+=======
+            src: _imports_0,
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
             mode: "aspectFit",
             onClick: _cache[1] || (_cache[1] = (...args) => $options.mycode && $options.mycode(...args))
           }),
@@ -44188,7 +46141,11 @@ This will fail in production.`);
       }, [
         vue.createElementVNode("image", {
           style: { "width": "400rpx", "height": "400rpx" },
+<<<<<<< HEAD
           src: _imports_0$7,
+=======
+          src: _imports_0$6,
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
           mode: "aspectFit"
         })
       ])),
@@ -44211,7 +46168,11 @@ This will fail in production.`);
       }, [
         vue.createElementVNode("image", {
           style: { "width": "400rpx", "height": "400rpx" },
+<<<<<<< HEAD
           src: _imports_0$7,
+=======
+          src: _imports_0$6,
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
           mode: "aspectFit"
         })
       ]))
@@ -44333,7 +46294,11 @@ This will fail in production.`);
         }, [
           vue.createElementVNode("image", {
             style: { "width": "400rpx", "height": "400rpx" },
+<<<<<<< HEAD
             src: _imports_0$7,
+=======
+            src: _imports_0$6,
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
             mode: "aspectFit"
           })
         ]))
@@ -44445,7 +46410,11 @@ This will fail in production.`);
         }, [
           vue.createElementVNode("image", {
             style: { "width": "400rpx", "height": "400rpx" },
+<<<<<<< HEAD
             src: _imports_0$7,
+=======
+            src: _imports_0$6,
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
             mode: "aspectFit"
           })
         ]))
@@ -44635,7 +46604,11 @@ This will fail in production.`);
       }, [
         vue.createElementVNode("image", {
           style: { "width": "400rpx", "height": "400rpx" },
+<<<<<<< HEAD
           src: _imports_0$7,
+=======
+          src: _imports_0$6,
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
           mode: "aspectFit"
         })
       ])),
@@ -44691,7 +46664,11 @@ This will fail in production.`);
       }, [
         vue.createElementVNode("image", {
           style: { "width": "400rpx", "height": "400rpx" },
+<<<<<<< HEAD
           src: _imports_0$7,
+=======
+          src: _imports_0$6,
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
           mode: "aspectFit"
         })
       ]))
@@ -44802,7 +46779,11 @@ This will fail in production.`);
   };
   function _sfc_render$1m(_ctx, _cache, $props, $setup, $data, $options) {
     const _component_uni_segmented_control = resolveEasycom(vue.resolveDynamicComponent("uni-segmented-control"), __easycom_0$2);
+<<<<<<< HEAD
     const _component_uni_section = resolveEasycom(vue.resolveDynamicComponent("uni-section"), __easycom_1);
+=======
+    const _component_uni_section = vue.resolveComponent("uni-section");
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
     const _component_myhistList = vue.resolveComponent("myhistList");
     return vue.openBlock(), vue.createElementBlock("view", { class: "indmsg" }, [
       vue.createElementVNode(
@@ -45009,7 +46990,11 @@ This will fail in production.`);
       }, [
         vue.createElementVNode("image", {
           style: { "width": "400rpx", "height": "400rpx" },
+<<<<<<< HEAD
           src: _imports_0$7,
+=======
+          src: _imports_0$6,
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
           mode: "aspectFit"
         })
       ]))
@@ -45185,7 +47170,11 @@ This will fail in production.`);
         vue.createElementVNode("view", { class: "title_img" }, [
           vue.createElementVNode("image", {
             style: { "width": "36rpx", "height": "36rpx" },
+<<<<<<< HEAD
             src: _imports_0$2,
+=======
+            src: _imports_0,
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
             mode: "aspectFit",
             onClick: _cache[1] || (_cache[1] = (...args) => $options.mycode && $options.mycode(...args))
           }),
@@ -58163,9 +60152,15 @@ This will fail in production.`);
         uni.navigateBack();
       },
       async adverbtn(event, index2) {
+<<<<<<< HEAD
         formatAppLog("log", "at pages/pagesall/home/informationDetails.vue:91", event, index2);
         const selectedNotice = this.infoList[index2];
         formatAppLog("log", "at pages/pagesall/home/informationDetails.vue:93", selectedNotice.id);
+=======
+        formatAppLog("log", "at pages/pagesall/home/informationDetails.vue:59", event, index2);
+        const selectedNotice = this.infoList[index2];
+        formatAppLog("log", "at pages/pagesall/home/informationDetails.vue:61", selectedNotice.id);
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
         uni.navigateTo({
           url: `/pages/pagesall/home/informationDetailsmess?id=${selectedNotice.id}`
         });
@@ -58179,8 +60174,14 @@ This will fail in production.`);
         try {
           const store = useStore();
           this.infoList = store.infoList;
+<<<<<<< HEAD
         } catch (error2) {
           formatAppLog("error", "at pages/pagesall/home/informationDetails.vue:108", "获取公告消息失败:", error2);
+=======
+          formatAppLog("log", "at pages/pagesall/home/informationDetails.vue:75", "+++++++++++", this.infoList);
+        } catch (error2) {
+          formatAppLog("error", "at pages/pagesall/home/informationDetails.vue:77", "获取公告消息失败:", error2);
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
         }
       }
     }
@@ -58280,7 +60281,11 @@ This will fail in production.`);
       }, [
         vue.createElementVNode("image", {
           style: { "margin-top": "-600rpx" },
+<<<<<<< HEAD
           src: _imports_0$6,
+=======
+          src: _imports_0$5,
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
           mode: "aspectFit"
         })
       ]))

@@ -14,6 +14,7 @@ export const useStore = defineStore('main', {
     selectedSwiperIndex: null,
     campusData: [],
     classData: [],
+<<<<<<< HEAD
     userinfo: {
       avatar: '',
       nickname: '',
@@ -22,6 +23,9 @@ export const useStore = defineStore('main', {
       school_name: '',
       // 其他属性
     },
+=======
+    userinfo: null,
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
     resultDivData: null,
     messageList: [],
     infoList: [],
@@ -96,9 +100,13 @@ export const useStore = defineStore('main', {
     setUserinfo(userinfo) {
       this.userinfo = userinfo
     },
+<<<<<<< HEAD
     // setAvatar(url) {
     //   this.userInfo.avatar = url // 更新头像
     // },
+=======
+
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
     setListdataIndex(data) {
       this.listdataIndex = data
     },

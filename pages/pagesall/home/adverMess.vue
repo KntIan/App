@@ -1,4 +1,5 @@
 <template>
+<<<<<<< HEAD
   <view>
     <view :style="'height:' + statusBarHeight + 'px;'"></view>
 
@@ -29,10 +30,37 @@
             <view class="adver_btn" @click="adverbtn(event, index)">
               查看详情
             </view>
+=======
+  <view class="codepage">
+    <view :style="'height:' + (statusBarHeight + 5) + 'px;'"></view>
+    <view class="code_titlebox">
+      <view class="messImg" @click="goback">
+        <img src="https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPng427bd6433cc6e0a8e82f63b3174b2c817dc9c299bd0c4414c8d258f46cf46f94" alt="" />
+      </view>
+      <view class="code_title">
+        公告消息
+      </view>
+    </view>
+
+    <view v-if="messList.length > 0" class="adverbox" v-for="(item,index) in messList" :key="index">
+      <view class="adver_time">
+        <view class="adver_hour" style="text-align: center; font-weight: 400;font-size: 20rpx;color: #000000;margin: 28rpx 0 28rpx 0;">
+          <text>{{item.createtime}}</text>
+        </view>
+        <view class="adver_content">
+          <view class="adver_text1">{{item.title}}</view>
+          <view class="adver_text2">{{item.description}}</view>
+          <view class="line">
+            <img src="https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPng754b004becd9b25a8ebdc9d2cb98f423d3fa6fdf022dd0a97d950d38fe548f62" alt="" />
+          </view>
+          <view class="adver_btn" @click="adverbtn(event,index)">
+            查看详情
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
           </view>
         </view>
       </view>
     </view>
+<<<<<<< HEAD
     <view
       v-else
       class="kong"
@@ -51,20 +79,35 @@
       <text style="color: #666; position: absolute; z-index: 1; bottom: 140rpx"
         >暂无资讯</text
       >
+=======
+    <view v-else class="kong" style="display: flex; justify-content: center; align-items: center; height: 100vh;">
+      <image style="margin-top: -600rpx;" src="@/static/img/noMes.png" mode="aspectFit" />
+      <!-- <view class="bg_img"></view> -->
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
     </view>
   </view>
 </template>
 
 <script>
+<<<<<<< HEAD
 import { fetchNoticeList } from '@/utils/api';
 import { useStore } from '@/store';
+=======
+import { fetchNoticeList } from '@/utils/api'
+import { useStore } from '@/store'
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
 
 export default {
   data() {
     return {
       messList: [], // 初始化为空数组
+<<<<<<< HEAD
       statusBarHeight: '',
     };
+=======
+      statusBarHeight: ''
+    }
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
   },
   onLoad() {
     this.statusBarHeight = getApp().globalData.top;
@@ -72,20 +115,33 @@ export default {
   },
   methods: {
     goback() {
+<<<<<<< HEAD
       uni.navigateBack();
+=======
+      uni.navigateBack()
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
     },
     async adverbtn(event, index) {
       console.log(event, index);
       const selectedNotice = this.messList[index]; // 获取选中的公告
       console.log(selectedNotice.id);
       uni.navigateTo({
+<<<<<<< HEAD
         url: `/pages/pagesall/home/adver_detail?id=${selectedNotice.id}`,
+=======
+        url: `/pages/pagesall/home/adver_detail?id=${selectedNotice.id}`
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
       });
     },
     mycode() {
       uni.navigateTo({
+<<<<<<< HEAD
         url: '/pages/pagesall/home/mycode',
       });
+=======
+        url: "/pages/pagesall/home/mycode"
+      })
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
     },
     async loadNoticeList() {
       try {
@@ -94,11 +150,19 @@ export default {
         this.messList = response.rows; // 将返回的数据赋值给 messList
         store.setMessageList(this.messList);
       } catch (error) {
+<<<<<<< HEAD
         console.error('获取公告消息失败:', error);
       }
     },
   },
 };
+=======
+        console.error("获取公告消息失败:", error);
+      }
+    }
+  }
+}
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
 </script>
 
 <style scoped>
@@ -115,7 +179,11 @@ export default {
 }
 .codepage {
   width: 750rpx;
+<<<<<<< HEAD
   padding-bottom: 24rpx;
+=======
+  height: 1624rpx;
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
   background-color: #eeeeee;
 }
 

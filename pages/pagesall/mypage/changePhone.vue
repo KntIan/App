@@ -1,5 +1,6 @@
 <template>
   <view class="container">
+<<<<<<< HEAD
     <view :style="'height:' + statusBarHeight + 'px;'"></view>
     <view class="form">
       <view class="input-container">
@@ -9,28 +10,42 @@
           class="input"
           v-model="phone"
         />
+=======
+    <view :style="'height:' + (statusBarHeight + 5) + 'px;'"></view>
+    <view class="form">
+      <view class="input-container">
+        <input type="text" placeholder="请输入新的手机号" class="input" v-model="phone" />
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
         <button class="get-code-button" :disabled="isCodeSent" @click="getCode">
           {{ getCodeButtonText }}
         </button>
       </view>
+<<<<<<< HEAD
       <input
         type="text"
         placeholder="请输入验证码"
         class="input"
         v-model="code"
       />
+=======
+      <input type="text" placeholder="请输入验证码" class="input" v-model="code" />
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
       <button class="submit-button" @click="submit">完成</button>
     </view>
   </view>
 </template>
 
 <script>
+<<<<<<< HEAD
 import {
   fetchCampusData,
   fetchVerificationCode,
   updatePhone,
   submitRegisterInfo,
 } from '@/utils/api';
+=======
+import { fetchCampusData, fetchVerificationCode, updatePhone, submitRegisterInfo } from "@/utils/api";
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
 export default {
   data() {
     return {
@@ -41,7 +56,11 @@ export default {
       timer: null,
       getCodeButtonText: '获取验证码',
       statusBarHeight: '',
+<<<<<<< HEAD
     };
+=======
+    }
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
   },
   onLoad() {
     this.statusBarHeight = getApp().globalData.top;
@@ -56,7 +75,11 @@ export default {
       if (!/^1[3-9]\d{9}$/.test(this.phone)) {
         uni.showToast({
           title: '手机号格式不正确',
+<<<<<<< HEAD
           icon: 'none',
+=======
+          icon: 'none'
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
         });
         return;
       }
@@ -69,6 +92,7 @@ export default {
         });
         console.log(response);
         if (response.code === 1) {
+<<<<<<< HEAD
           uni.showToast({
             title: response.msg || '验证码发送成功',
             icon: 'success', // 提示图标类型
@@ -76,14 +100,35 @@ export default {
           });
           this.isCodeSent = true;
           startCountdown();
+=======
+
+          uni.showToast({
+            title: response.msg || '验证码发送成功',
+            icon: 'success', // 提示图标类型
+            duration: 2000 // 持续时间
+          });
+          this.isCodeSent = true;
+          startCountdown();
+
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
         } else {
           uni.showToast({
             title: response.msg || '发送验证码失败，请重试',
             icon: 'none', // 提示图标类型
+<<<<<<< HEAD
             duration: 2000, // 持续时间
           });
         }
       } catch (error) {}
+=======
+            duration: 2000 // 持续时间
+          });
+        }
+
+      } catch (error) {
+
+      }
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
     },
     startCountdown() {
       this.isCodeSent = true;
@@ -104,7 +149,11 @@ export default {
       if (!this.code) {
         uni.showToast({
           title: '请输入验证码',
+<<<<<<< HEAD
           icon: 'none',
+=======
+          icon: 'none'
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
         });
         return;
       }
@@ -112,6 +161,7 @@ export default {
         mobile: this.phone,
         captcha: this.code,
       });
+<<<<<<< HEAD
 
       if (response.code === 1) {
         this.isCodeSent = true;
@@ -127,16 +177,38 @@ export default {
             url: '/pages/login/login',
           });
         }, 3000); // 3 秒后跳转
+=======
+      if (response.code === 1) {
+        this.isCodeSent = true;
+        startCountdown();
+        uni.showToast({
+          title: response.msg,
+
+          icon: 'none',
+          duration: 2000 // 持续时间
+        });
+        uni.navigateBack();
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
       } else {
         uni.showToast({
           title: response.msg || '发送验证码失败，请重试',
           icon: 'none', // 提示图标类型
+<<<<<<< HEAD
           duration: 2000, // 持续时间
         });
       }
     },
   },
 };
+=======
+          duration: 2000 // 持续时间
+        });
+      }
+
+    }
+  }
+}
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
 </script>
 
 <style scoped>
@@ -146,7 +218,11 @@ export default {
 }
 
 .form {
+<<<<<<< HEAD
   padding: 30rpx 64rpx;
+=======
+  padding: 48rpx 64rpx;
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
 }
 
 .input {
@@ -184,4 +260,8 @@ export default {
   font-size: 30rpx;
   margin-top: 28rpx;
 }
+<<<<<<< HEAD
 </style>
+=======
+</style>
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74

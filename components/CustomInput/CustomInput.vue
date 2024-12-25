@@ -23,7 +23,11 @@ export default {
       default: true,
     },
     modelValue: {
+<<<<<<< HEAD
       type: null,
+=======
+      type: String,
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
       default: '',
     },
     type: {  // 新增 type 属性

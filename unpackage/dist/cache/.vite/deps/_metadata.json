@@ -1,60 +1,100 @@
 {
+<<<<<<< HEAD
   "hash": "24c31e67",
   "configHash": "07536bfb",
   "lockfileHash": "105703e7",
   "browserHash": "f01cd3ce",
+=======
+  "hash": "ce6aac80",
+  "configHash": "9640ddf7",
+  "lockfileHash": "a79ce96c",
+  "browserHash": "ffd821e4",
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
   "optimized": {
     "@tencentcloud/chat-uikit-engine": {
       "src": "../../../../../node_modules/@tencentcloud/chat-uikit-engine/index.js",
       "file": "@tencentcloud_chat-uikit-engine.js",
+<<<<<<< HEAD
       "fileHash": "502fd987",
+=======
+      "fileHash": "5b369d96",
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
       "needsInterop": false
     },
     "@tencentcloud/tui-core": {
       "src": "../../../../../node_modules/@tencentcloud/tui-core/index.js",
       "file": "@tencentcloud_tui-core.js",
+<<<<<<< HEAD
       "fileHash": "579d5b77",
+=======
+      "fileHash": "5ff5f774",
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
       "needsInterop": false
     },
     "@tencentcloud/universal-api": {
       "src": "../../../../../node_modules/@tencentcloud/universal-api/index.js",
       "file": "@tencentcloud_universal-api.js",
+<<<<<<< HEAD
       "fileHash": "866c85d9",
+=======
+      "fileHash": "43a76d86",
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
       "needsInterop": false
     },
     "@vue/composition-api": {
       "src": "../../../../../node_modules/@vue/composition-api/dist/vue-composition-api.mjs",
       "file": "@vue_composition-api.js",
+<<<<<<< HEAD
       "fileHash": "861f6ed5",
+=======
+      "fileHash": "17cd052a",
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
       "needsInterop": false
     },
     "dayjs": {
       "src": "../../../../../node_modules/dayjs/dayjs.min.js",
       "file": "dayjs.js",
+<<<<<<< HEAD
       "fileHash": "19d17770",
+=======
+      "fileHash": "5735c034",
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
       "needsInterop": true
     },
     "dayjs/locale/zh-cn": {
       "src": "../../../../../node_modules/dayjs/locale/zh-cn.js",
       "file": "dayjs_locale_zh-cn.js",
+<<<<<<< HEAD
       "fileHash": "526b11dc",
+=======
+      "fileHash": "ccac3b3c",
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
       "needsInterop": true
     },
     "dayjs/plugin/isSameOrAfter.js": {
       "src": "../../../../../node_modules/dayjs/plugin/isSameOrAfter.js",
       "file": "dayjs_plugin_isSameOrAfter__js.js",
+<<<<<<< HEAD
       "fileHash": "87311889",
+=======
+      "fileHash": "b52d58ba",
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
       "needsInterop": true
     },
     "dayjs/plugin/isSameOrBefore.js": {
       "src": "../../../../../node_modules/dayjs/plugin/isSameOrBefore.js",
       "file": "dayjs_plugin_isSameOrBefore__js.js",
+<<<<<<< HEAD
       "fileHash": "2bb68e3d",
+=======
+      "fileHash": "ec62f73e",
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
       "needsInterop": true
     },
     "dayjs/plugin/localeData.js": {
       "src": "../../../../../node_modules/dayjs/plugin/localeData.js",
       "file": "dayjs_plugin_localeData__js.js",
+<<<<<<< HEAD
       "fileHash": "a4e3ec3b",
       "needsInterop": true
     },
@@ -62,10 +102,14 @@
       "src": "../../../../../../../../../node_modules/crypto-js/index.js",
       "file": "crypto-js.js",
       "fileHash": "13e54a8f",
+=======
+      "fileHash": "69df78bd",
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
       "needsInterop": true
     }
   },
   "chunks": {
+<<<<<<< HEAD
     "chunk-SI3C56W5": {
       "file": "chunk-SI3C56W5.js"
     },
@@ -74,6 +118,16 @@
     },
     "chunk-BQWMX7FD": {
       "file": "chunk-BQWMX7FD.js"
+=======
+    "chunk-BFRB2QID": {
+      "file": "chunk-BFRB2QID.js"
+    },
+    "chunk-A6PKGKLD": {
+      "file": "chunk-A6PKGKLD.js"
+    },
+    "chunk-LQ2VYIYD": {
+      "file": "chunk-LQ2VYIYD.js"
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
     }
   }
 }

@@ -1,4 +1,8 @@
 @font-face {
 	font-family: 'Pangmen Zhengdao Title';
+<<<<<<< HEAD
 	src: url('/static/fonts/PingFangSC-Light.tff') format('tff');
+=======
+	src: url('/static/fonts/PangMenZhengDaoBiaoTiTiMianFeiBan-2.tff') format('tff');
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
 }

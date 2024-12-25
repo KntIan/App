@@ -1,5 +1,6 @@
 <template>
   <view class="homePage">
+<<<<<<< HEAD
     <view :style="'height:' + statusBarHeight + 'px;'"></view>
     <view class="titleHome">
       <view class="nameId">
@@ -36,10 +37,34 @@
             src="@/static/img/xiaoxi.png"
             alt=""
           />
+=======
+    <view :style="'height:' + (statusBarHeight + 5) + 'px;'"></view>
+    <view class="titleHome">
+      <view class="nameId">
+        <view class="head">
+          <img style="width:32px;height:32px;border-radius:50%;" :src="userInfo.avatar" />
+        </view>
+        <view class="name">
+          <text class="textname">{{ userInfo.nickname }}</text>
+          <text class="textid">ID:{{ userInfo.id }}</text>
+        </view>
+        <view class="classID">{{userInfo.classly_name}}</view>
+      </view>
+      <view class="buttonImg">
+        <view class="btnimg1" @click="btnscan">
+          <image style="width: 36rpx;height: 36rpx;" src="../../static/img/saoma.png" alt="" />
+        </view>
+        <view class="btnimg2" @click="btnsearch">
+          <image style="width: 36rpx;height: 36rpx;" src="@/static/img/sousuo.png" alt="" />
+        </view>
+        <view class="btnimg3" @click="btnmess">
+          <image style="width: 36rpx;height: 36rpx;" src="@/static/img/xiaoxi.png" alt="" />
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
         </view>
       </view>
     </view>
     <view class="posit">
+<<<<<<< HEAD
       <img
         style="margin-right: 10rpx"
         src="http://admin.zexishuhua.com/uploads/20241128/11a05173840d3d4ad9dc32f1cf5c6e98.png"
@@ -62,6 +87,14 @@
         :key="index"
         @click="swiper_click(index)"
       >
+=======
+      <img src="@/static/img/add.png" alt="" />
+      <text class="postext">{{userInfo.school_name}}</text>
+    </view>
+
+    <swiper class="swiper-container" indicator-dots autoplay interval="3000" circular indicator-color="#ddd" indicator-active-color="#333">
+      <swiper-item v-for="(item, index) in images" :key="index" @click="() => swiper_click(index+1)">
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
         <image :src="item.thumb" class="swiper-image"></image>
       </swiper-item>
     </swiper>
@@ -71,6 +104,7 @@
         <img :src="studentAndstyle.logo" alt="" class="showimg1" />
       </view>
       <view class="showtext">
+<<<<<<< HEAD
         <text class="text-content" @click="toggleTooltip">{{
           studentAndstyle.remark
         }}</text>
@@ -87,10 +121,16 @@
         <view v-if="isTooltipVisible" class="tooltip">
           {{ studentAndstyle.remark }}
         </view> -->
+=======
+        <text class="text-content">{{
+            studentAndstyle.remark
+          }}</text>
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
       </view>
     </view>
 
     <view class="works">
+<<<<<<< HEAD
       <view class="infoText">
         <text style="font-weight: bold">优秀作品</text>
         <text style="font-size: 24rpx; color: #666666" @click="nice_text"
@@ -138,10 +178,18 @@
         <div v-if="isModalVisible" class="modal" @click="hideImage">
           <img :src="currentImage" class="large-image" />
         </div>
+=======
+      <text class="worktext">优秀作品</text>
+      <view class="worksImgs">
+        <view class="worksimgbox" v-for="(item, index) in studentAndstyle.nice" :key="index">
+          <image style="width:198rpx;height:122rpx;margin-top:12rpx" :src="item.sub_image" mode="aspectFill" />
+        </view>
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
       </view>
     </view>
 
     <view class="students">
+<<<<<<< HEAD
       <view class="infoText">
         <text style="font-weight: bold">学员风采</text>
         <text style="font-size: 24rpx; color: #666666" @click="xueyuanLists"
@@ -197,11 +245,20 @@
             />
           </view>
         </template>
+=======
+      <text class="stutext">学员风采</text>
+      <view class="stusImgs">
+        <view class="stuimgbox" v-for="(item, index) in studentAndstyle.stud" :key="index">
+          <image style="width:108rpx;height:108rpx;border-radius: 32px;margin-top: -4px;margin-left: -2px;" :src="item.avatar" mode="aspectFill" />
+
+        </view>
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
       </view>
     </view>
 
     <view class="actiClass">
       <view class="actText">
+<<<<<<< HEAD
         <text style="font-weight: bold">活动课</text>
         <text style="font-size: 24rpx; color: #666666" @click="activityLists"
           >更多</text
@@ -252,11 +309,23 @@
           style="color: #666; position: absolute; z-index: 1; bottom: 140rpx"
           >暂无活动</text
         >
+=======
+        <text>活动课</text>
+        <text style="font-size: 24rpx; color: #666666" @click="activityLists">更多</text>
+      </view>
+
+      <view style="height: 500rpx;overflow: hidden" v-if="listdataIndex.length >0">
+        <activity-item v-for="(item, index) in listdataIndex" :key="index" :online="item.is_online" :techerimg="item.avatar" :biaoti="item.title" :laoshi="item.description" :star="item.s_time" :end="item.e_time" :hearimg="item.teacher_avatar" :teachername="item.teacher_name" :hours="item.hours" :minutes="item.minutes" :seconds="item.seconds" :pers="item.signup_member?.total || 0" :money="item.price" :imgs="item.signup_member?.items || []" :signedUp="item.hadSignup" @signup="() => handleSignup(item.id)" />
+      </view>
+      <view v-else class="kong" style="display: flex; justify-content: center; align-items: center; height: 500rpx;">
+        <image style="width:400rpx;height: 400rpx;" src="@/static/img/noAct.png" mode="aspectFit" />
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
       </view>
     </view>
 
     <view class="infobox">
       <view class="infoText">
+<<<<<<< HEAD
         <text style="font-weight: bold">资讯</text>
         <text style="font-size: 24rpx; color: #666666" @click="informationLists"
           >更多</text
@@ -282,11 +351,25 @@
                 "
                 >{{ item.title }}</text
               >
+=======
+        <text>资讯</text>
+        <text style="font-size: 24rpx; color: #666666" @click="informationLists">更多</text>
+      </view>
+      <view style="overflow: hidden;height: 300rpx;" v-if="infoList.length >0">
+        <view class="infolistbox" v-for="(item, index) in infoList" :key="index" @click="goToDetail(item)">
+          <view class="infostr">
+            <view class="huatibox">
+              <img :src="item.titleimg" alt="" />
+              <text style="font-size: 32rpx; font-weight: 500;overflow: hidden;white-space: nowrap;text-overflow: ellipsis;">{{
+              item.title
+            }}</text>
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
             </view>
             <view class="paddbox">
               <view class="titleText">{{ item.description }}</view>
               <view class="huatibox">
                 <img :src="item.image_input" alt="" />
+<<<<<<< HEAD
                 <text
                   style="
                     font-weight: 400;
@@ -304,11 +387,21 @@
                   {{ item.school_name || 'http://www.baidu.com' }}
                 </text>
                 <img :src="item.ressImg" alt="" />
+=======
+                <text style="font-weight: 400; font-size: 24rpx; color: #666666;margin-left: 6px;">{{ item.addtime || '2022-01-01' }}</text>
+              </view>
+              <view class="huatibox">
+                <img :src="item.ressImg" alt="" />
+                <text style="font-weight: 400; font-size: 24rpx;margin-left: 6px;">
+                  {{ item.school_name || 'http://www.baidu.com' }}
+                </text>
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
               </view>
             </view>
           </view>
           <view class="infoImg">
             <view class="proNum" :style="{ opacity: item.views === 0 ? 0 : 1 }">
+<<<<<<< HEAD
               <text style="font-weight: 400; font-size: 24rpx; color: #666666">
                 {{ item.views }}人已观看
               </text>
@@ -321,10 +414,20 @@
             <view class="proImg">
               <!-- <img :src="item.thumb" alt="" /> -->
               <image :src="item.thumb" mode="aspectFit" />
+=======
+              <text style="font-weight: 400; font-size: 24rpx; color: #666666;">
+                {{ item.views }}人已观看
+              </text>
+              <img :src="item.jiantouimg" alt="" style="width: 8rpx; height: 16rpx" />
+            </view>
+            <view class="proImg">
+              <img :src="item.thumb" alt="" />
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
             </view>
           </view>
         </view>
       </view>
+<<<<<<< HEAD
       <view
         v-else
         class="kong"
@@ -346,10 +449,18 @@
         >
       </view>
     </view>
+=======
+      <view v-else class="kong" style="display: flex; justify-content: center; align-items: center; height: 500rpx;">
+        <image style="width:400rpx;height: 400rpx;" src="@/static/img/noMes.png" mode="aspectFit" />
+      </view>
+    </view>
+
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
   </view>
 </template>
 
 <script setup>
+<<<<<<< HEAD
 import { ref, onMounted, onUnmounted, computed, watch, watchEffect } from 'vue';
 import ActivityItem from '@/components/ActivityItem/ActivityItem';
 import { useStore } from '@/store';
@@ -357,11 +468,31 @@ import { aesEncrypt, aesDecrypt } from '@/utils/utils.js';
 import { onLoad, onShow, onPullDownRefresh } from '@dcloudio/uni-app';
 //腾讯IM
 import TUICore, { TUIConstants } from '@tencentcloud/tui-core';
+=======
+import {
+  ref,
+  onMounted,
+  onUnmounted,
+  computed,
+  watch,
+  watchEffect
+} from 'vue'
+import ActivityItem from '@/components/ActivityItem/ActivityItem';
+import {
+  useStore
+} from '@/store'
+import {
+  onLoad,
+  onShow,
+  onPullDownRefresh,
+} from '@dcloudio/uni-app';
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
 
 import {
   fetchActivityCourseList,
   fetchBannerList,
   fetchNewsList,
+<<<<<<< HEAD
   fetchMyStyle,
   checkUserFriend,
 } from '@/utils/api';
@@ -369,12 +500,20 @@ import {
 const store = useStore();
 
 // const token = store.token
+=======
+  fetchMyStyle
+} from '@/utils/api'
+
+const store = useStore()
+const token = store.token
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
 
 // const images = ref([
 //   "/static/img/swiper1.png",
 //   "https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPngdadd194d15ae0a321cf1b69b42b82fbdb401e127f68d9e091f73b2ef2c6682a6",
 //   "/static/img/swiper1.png",
 // ]);
+<<<<<<< HEAD
 const images = computed(() => store.images); // 从 store 中获取 images
 const listdataIndex = computed(() => store.listdataIndex); // 从 store 中获取 listdata
 const userInfo = computed(() => store.userinfo); // 从 store 中获取 listdata
@@ -385,11 +524,27 @@ const infoList = computed(() => store.infoList); // 从 store 中获取 listdata
 //学员风采&优秀作品
 const studentAndstyle = ref({});
 const intervalId = ref(null);
+=======
+const images = computed(() => store.images) // 从 store 中获取 images
+const listdataIndex = computed(() => store.listdataIndex) // 从 store 中获取 listdata
+const userInfo = computed(() => store.userinfo) // 从 store 中获取 listdata
+
+const infoList = computed(() => store.infoList) // 从 store 中获取 listdata
+// const studentShowcase = ref([])
+// const excellentWorks = ref([])
+//学员风采&优秀作品
+const studentAndstyle = ref({
+
+});
+const intervalId = ref(null)
+
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
 
 const hours = ref(0); // 示例：当前页面
 const minutes = ref(0); // 示例：每页数据条数
 const seconds = ref(0); // 示例：是否是首页数据
 
+<<<<<<< HEAD
 const isTooltipVisible = ref(false);
 const toggleTooltip = () => {
   isTooltipVisible.value = !isTooltipVisible.value;
@@ -416,6 +571,13 @@ const params = {
   page: 1, // 当前页面
   limit: 1, // 每页数据条数
   is_index: 1, // 是否是首页数据
+=======
+//首页活动传入的值
+const params = {
+  page: 1, // 当前页面
+  limit: 7, // 每页数据条数
+  isindex: 1 // 是否是首页数据
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
 };
 
 const fetchData = async () => {
@@ -423,6 +585,7 @@ const fetchData = async () => {
     const responses = await Promise.all([
       fetchActivityCourseList(params), // 传入 page, limit, isindex
       fetchBannerList(),
+<<<<<<< HEAD
       fetchNewsList(params),
       fetchMyStyle(),
     ]);
@@ -484,10 +647,86 @@ onUnmounted(() => {});
 const goToDetail = (item) => {
   uni.navigateTo({
     url: `/pages/pagesall/home/informationDetailsmess?id=${item.id}`, // 确保将 item.id 修改为您的详情页所需的参数
+=======
+      fetchNewsList(),
+      fetchMyStyle()
+    ])
+    // console.log(responses)
+
+
+    const listdataIndex = responses[0].items.map(item => ({
+      ...item, // 保留原有的属性
+      timerId: null,//用于存储定时器ID
+      hours: 0, // 增加时字段，初始化为0
+      minutes: 0, // 增加分字段，初始化为0
+      seconds: 0, // 增加秒字段，初始化为0
+
+    }));
+
+
+    store.setListdataIndex(listdataIndex) // 存入 store
+
+
+    store.setImages(responses[1].items)
+    // 遍历响应中的 items 并添加 titleimg
+
+    const infoList = responses[2].items.map(item => ({
+      ...item, // 保留原有的属性
+      titleimg: item.titleimg || '../../static/img/jinghao.png',
+      image_input: item.image_input ||
+        'https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPng9124bf95026b34308d6bd993d7c3774578aa0f9fdf293cc08d4cb043bc1ba5a8',
+      ressImg: item.ressImg || '@/static/img/add.png',
+      jiantouimg: item.jiantouimg ||
+        'https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPng6deab9d71966dbbdc8297bb42543232fd5ab80e8f1b6e7650f9a66310b4f656e',
+    }));
+    store.setInfoList(infoList);
+    studentAndstyle.value = responses[3].data
+
+  } catch (error) {
+    console.error('获取数据时发生错误:', error); // 打印错误信息
+  }
+
+};
+onPullDownRefresh(() => {
+  fetchData()
+
+  startCountdown()
+  uni.stopPullDownRefresh();
+
+})
+
+onShow(() => {
+
+  fetchData()
+
+  startCountdown()
+
+})
+// onMounted(() => {
+
+//   fetchData()
+
+//   updateCountdown()
+//   setInterval(updateCountdown, 1000);
+// })
+const statusBarHeight = ref()
+onLoad(() => {
+  statusBarHeight.value = getApp().globalData.top;
+})
+onUnmounted(() => {
+
+})
+// 跳转到详情页面的函数
+const goToDetail = (item) => {
+
+  uni.navigateTo({
+    url: `/pages/pagesall/home/informationDetailsmess?id=${item.id}` // 确保将 item.id 修改为您的详情页所需的参数
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
   });
 };
 const activityLists = () => {
   uni.switchTab({
+<<<<<<< HEAD
     url: '/pages/pagesall/oper',
   });
 };
@@ -502,11 +741,31 @@ const formatDate = (dateString) => {
 const formatTime = (value) => {
   return value.toString().padStart(2, '0');
 };
+=======
+    url: '/pages/pagesall/oper'
+  })
+};
+const formatDate = (dateString) => {
+  const date = new Date(dateString)
+  const year = date.getFullYear()
+  const month = String(date.getMonth() + 1).padStart(2, '0') // 月份从0开始计算
+  const day = String(date.getDate()).padStart(2, '0')
+  return `${year}.${month}.${day}` // 格式化为 YYYY.MM.DD
+}
+
+const formatTime = (value) => {
+  return value.toString().padStart(2, '0')
+}
+
+
+
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
 
 const updateCountdown = () => {
   const currentDateTimestampInMilliseconds = new Date().getTime();
   const now = Math.floor(currentDateTimestampInMilliseconds / 1000);
 
+<<<<<<< HEAD
   listdataIndex.value.forEach((item) => {
     // const newItem = { ...item };
     if (!isNaN(item.end_time)) {
@@ -517,6 +776,15 @@ const updateCountdown = () => {
 
         item.minutes = Math.floor((timeDiff % 3600) / 60);
 
+=======
+  listdataIndex.value.forEach(item => {
+    // const newItem = { ...item };
+    if (!isNaN(item.end_time)) {
+      const timeDiff = item.end_time - now;
+      if (timeDiff > 0) {
+        item.hours = Math.floor(timeDiff / 3600);
+        item.minutes = Math.floor((timeDiff % 3600) / 60);
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
         item.seconds = timeDiff % 60;
 
         // 如果没有设置定时器ID，设置一个定时器
@@ -553,6 +821,7 @@ const startCountdown = () => {
   updateCountdown(); // 初始化倒计时
   intervalId.value = setInterval(updateCountdown, 1000); // 每秒更新一次
 };
+<<<<<<< HEAD
 const search = async () => {
   if (!searchValue.value) {
     return;
@@ -719,10 +988,46 @@ const xueyuanLists = () => {
     url: '/pages/pagesall/home/studentStyle',
   });
 };
+=======
+const btnscan = () => {
+  uni.scanCode({
+    success: (res) => {
+      console.log('条码类型：' + res.scanType)
+      console.log('条码内容：' + res.result)
+    },
+    fail: (error) => {
+      console.error('扫码失败', error)
+      uni.showToast({
+        title: '扫码失败',
+        icon: 'error',
+        duration: 2000
+      })
+    },
+  })
+}
+
+const btnsearch = () => {
+  uni.navigateTo({
+    url: '/pages/pagesall/home/search'
+  })
+}
+
+const btnmess = () => {
+  uni.navigateTo({
+    url: '/pages/pagesall/home/message'
+  })
+}
+const informationLists = () => {
+  uni.navigateTo({
+    url: '/pages/pagesall/home/informationDetails'
+  })
+}
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
 
 const handleSignup = (id) => {
   const paramsString = encodeURIComponent(JSON.stringify(params));
   uni.navigateTo({
+<<<<<<< HEAD
     url: `/pages/pagesall/home/signUp?id=${id}&params=${paramsString}`, // 确保替换为相应的页面路径
   });
 };
@@ -742,6 +1047,19 @@ const swiper_click = (index) => {
     console.error('未找到对应的链接');
   }
 };
+=======
+    url: `/pages/pagesall/home/signUp?id=${id}&params=${paramsString}` // 确保替换为相应的页面路径
+  });
+}
+
+const swiper_click = (index) => {
+  console.log('当前点击的轮播图下标:', index); // 打印下标
+  store.setSelectedSwiperIndex(index);
+  uni.navigateTo({
+    url: '/pages/pagesall/home/game'
+  })
+}
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
 
 // // 处理下拉刷新
 // const onPullDownRefresh = () => {
@@ -758,23 +1076,36 @@ const swiper_click = (index) => {
 //   // 这里模拟加载更多数据的操作
 //   console.log('触底加载更多');
 // };
+<<<<<<< HEAD
 // 监听 listdata 的变化
+=======
+	// 监听 listdata 的变化
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
 </script>
 
 <style lang="scss" scoped>
 .homePage {
   padding: 15rpx 20rpx;
+<<<<<<< HEAD
 
+=======
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
   // ... 其他样式
   .content {
     height: 100vh; // 根据需要调整高度
   }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
   .loadmore {
     height: 100vh; // 根据需要调整高度
   }
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
 .homePage {
   padding: 15rpx 20rpx;
 
@@ -818,7 +1149,10 @@ const swiper_click = (index) => {
 
   .textname {
     font-size: 28rpx;
+<<<<<<< HEAD
     font-weight: bold;
+=======
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
   }
 
   .textid {
@@ -831,10 +1165,13 @@ const swiper_click = (index) => {
     background-color: #ff9e02;
     color: #fff;
     margin-top: 8rpx;
+<<<<<<< HEAD
     max-width: 120rpx;
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
+=======
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
   }
 
   .posit {
@@ -869,7 +1206,10 @@ const swiper_click = (index) => {
 
     .showtext {
       margin-left: 20rpx;
+<<<<<<< HEAD
       position: relative;
+=======
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
     }
   }
 
@@ -898,7 +1238,10 @@ const swiper_click = (index) => {
 
   .stutext {
     margin: 15rpx 0;
+<<<<<<< HEAD
     font-weight: bold;
+=======
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
   }
 
   .stuimgbox {
@@ -907,6 +1250,11 @@ const swiper_click = (index) => {
     display: flex;
     justify-content: center;
     align-items: center;
+<<<<<<< HEAD
+=======
+    background: url(https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPngbd78fc264dd7a014ef4d8c87f28b0858f0fac59b2a450df23b73c19c048bc5f5)
+      50% no-repeat;
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
 
     img {
       width: 100%;
@@ -919,6 +1267,11 @@ const swiper_click = (index) => {
     display: flex;
     justify-content: center;
     align-items: center;
+<<<<<<< HEAD
+=======
+    background: url(https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPng0e0e71aa4be084e3a16a052095bf6950ed5290cb2c60b5f90b0eb25b21205b9d)
+      50% no-repeat;
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
   }
 
   .actText,
@@ -929,10 +1282,13 @@ const swiper_click = (index) => {
     margin: 15rpx 0;
   }
 
+<<<<<<< HEAD
   .courseRegistrationCard {
     width: 100% !important;
   }
 
+=======
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
   .actitme {
     box-shadow: 0rpx 4rpx 8rpx 2rpx rgba(0, 0, 0, 0.05);
     margin-top: 16rpx;
@@ -1147,7 +1503,11 @@ const swiper_click = (index) => {
     margin-top: 38rpx;
     margin-bottom: 34rpx;
 
+<<<<<<< HEAD
     image {
+=======
+    img {
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
       width: 192rpx;
       height: 176rpx;
       border-radius: 8rpx;
@@ -1160,6 +1520,7 @@ const swiper_click = (index) => {
     align-items: center;
   }
 }
+<<<<<<< HEAD
 
 .modal {
   position: fixed;
@@ -1192,3 +1553,6 @@ const swiper_click = (index) => {
   max-width: 750rpx;
 }
 </style>
+=======
+</style>
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74

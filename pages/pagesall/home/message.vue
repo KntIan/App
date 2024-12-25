@@ -1,6 +1,7 @@
 <template>
   <view>
     <view class="container">
+<<<<<<< HEAD
       <view :style="'height:' + statusBarHeight + 'px;'"></view>
 
       <view class="mess_Title">
@@ -30,12 +31,27 @@
             mode="aspectFit"
             @click="btnsearch"
           />
+=======
+
+      <view :style="'height:' + (statusBarHeight + 5) + 'px;'"></view>
+
+      <view class="mess_Title">
+        <view class="messImg" @click="goback">
+          <img src="https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPng427bd6433cc6e0a8e82f63b3174b2c817dc9c299bd0c4414c8d258f46cf46f94" alt="" />
+        </view>
+        <view class="title_text"> 消息 </view>
+        <view class="title_img">
+          <img src="https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPng321758fb81a047a63eed79ffbd8a9de39b6d95d0adc9749329922655c760bb3a" alt="" @click="mycode" />
+          <img src="https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPng5e1b57899cb5b9cd47a8d4e301f4f736efd47c45ca7713a43d00721e94370714" alt="" @click="btnscan" />
+          <img src="https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPng60de4c6690251e592eeb3edf5e89b8b74e18a9d17717d9949db1edcb3fcd23bd" alt="" @click="search" />
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
         </view>
       </view>
 
       <view class="messbox" @click="messgoback">
         <view class="messbox2">
           <view class="messbox_img">
+<<<<<<< HEAD
             <img
               src="https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPngd6279aab531ef9632e4b587c47bd1b290e34249129eb3b24c940e727cb528bd0"
               alt=""
@@ -52,6 +68,21 @@
 
       <!-- <MessageList :messages="messages" @click="goToChat" /> -->
       <view class="group_group" style="height: 130rpx">
+=======
+            <img src="https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPngd6279aab531ef9632e4b587c47bd1b290e34249129eb3b24c940e727cb528bd0" alt="" />
+          </view>
+          <view class="messinter">
+            <view class="inter_text1"> 公告消息 </view>
+            <view class="inter_text2"> 书法比赛将在2024年7月15号开始… </view>
+          </view>
+        </view>
+
+        <text class="inter_text3">6-15</text>
+      </view>
+
+      <!-- <MessageList :messages="messages" @click="goToChat" /> -->
+      <view class="group_group" style="height: 130rpx;">
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
         <TUIChat1 />
       </view>
     </view>
@@ -64,11 +95,19 @@
 </template>
 
 <script setup>
+<<<<<<< HEAD
 import { ref, onMounted } from 'vue';
 import MessageList from '@/components/MessageList/MessageList';
 import TUIChat from '../../../TUIKit/components/TUIConversation/index.vue';
 import TUIChat1 from '../../../TUIKit/components/TUIConversation/index1.vue';
 import Avatar from '../../../TUIKit/components/common/Avatar/index.vue';
+=======
+import { ref, onMounted } from "vue";
+import MessageList from "@/components/MessageList/MessageList";
+import TUIChat from "../../../TUIKit/components/TUIConversation/index.vue";
+import TUIChat1 from "../../../TUIKit/components/TUIConversation/index1.vue";
+import Avatar from "../../../TUIKit/components/common/Avatar/index.vue";
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
 // 在组件挂载时获取存储的 conversationList1
 // onMounted(() => {
 //   uni.getStorage({
@@ -84,14 +123,22 @@ import Avatar from '../../../TUIKit/components/common/Avatar/index.vue';
 //   });
 // });
 import { onLoad } from '@dcloudio/uni-app';
+<<<<<<< HEAD
 const statusBarHeight = ref();
 onLoad(() => {
   statusBarHeight.value = getApp().globalData.top;
 });
+=======
+const statusBarHeight = ref()
+onLoad(() => {
+  statusBarHeight.value = getApp().globalData.top;
+})
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
 
 const conversationList1 = ref([
   {
     avatar:
+<<<<<<< HEAD
       'https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPngc16f5b5f9c443120840c9f3ff8028109651b9e21de9ee0d18951c54acb7132e8',
     title: '书法一班群聊',
     subtitle: '刘易阳王老师你号啊',
@@ -105,6 +152,21 @@ const conversationList1 = ref([
     subtitle: '刘易阳王老师你号啊',
     time: '6-15',
     color: '#5791F2',
+=======
+      "https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPngc16f5b5f9c443120840c9f3ff8028109651b9e21de9ee0d18951c54acb7132e8",
+    title: "书法一班群聊",
+    subtitle: "刘易阳王老师你号啊",
+    time: "6-15",
+    color: "#5791F2",
+  },
+  {
+    avatar:
+      "https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPngc16f5b5f9c443120840c9f3ff8028109651b9e21de9ee0d18951c54acb7132e8",
+    title: "书法二班群聊",
+    subtitle: "刘易阳王老师你号啊",
+    time: "6-15",
+    color: "#5791F2",
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
   },
   // 更多假数据
 ]);
@@ -112,11 +174,19 @@ const conversationList1 = ref([
 const messagesList = ref([
   {
     avatar:
+<<<<<<< HEAD
       'https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPng3c05227c15cc3e583fbe8af777d512ad3c5dd22f9540376effbda59a5f162710',
     title: '公告消息',
     subtitle: '书法比赛将在2024年7月15号开始...',
     time: '6-15',
     size: '88rpx',
+=======
+      "https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPng3c05227c15cc3e583fbe8af777d512ad3c5dd22f9540376effbda59a5f162710",
+    title: "公告消息",
+    subtitle: "书法比赛将在2024年7月15号开始...",
+    time: "6-15",
+    size: "88rpx",
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
   },
   // 更多假数据
 ]);
@@ -126,6 +196,7 @@ const navigateTo = (url) => {
   try {
     uni.navigateTo({ url });
   } catch (error) {
+<<<<<<< HEAD
     console.error('导航失败:', error);
     uni.showToast({ title: '导航失败，请重试', icon: 'none' });
   }
@@ -137,10 +208,20 @@ const btnsearch = () => {
 };
 const goback = () => {
   uni.switchTab({ url: '/pages/pagesall/home' }); // 修改为实际的 tabBar 首页路径
+=======
+    console.error("导航失败:", error);
+    uni.showToast({ title: "导航失败，请重试", icon: "none" });
+  }
+};
+
+const goback = () => {
+  uni.switchTab({ url: "/pages/pagesall/home" }); // 修改为实际的 tabBar 首页路径
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
 };
 
 const btnscan = () => {
   uni.scanCode({
+<<<<<<< HEAD
     success: async (res) => {
       // console.log('条码类型：' + res.scanType)
       console.log('条码内容：' + res.result);
@@ -208,12 +289,30 @@ const btnscan = () => {
         title: '扫码失败',
         icon: 'error',
         duration: 2000,
+=======
+    success: (res) => {
+      console.log("条码类型：", res.scanType);
+      console.log("条码内容：", res.result);
+    },
+    fail: (err) => {
+      console.error("扫码失败:", err);
+      uni.showToast({
+        title: "扫码失败，请重试",
+        icon: "none",
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
       });
     },
   });
 };
+<<<<<<< HEAD
 const mycode = () => navigateTo('/pages/pagesall/home/mycode');
 const messgoback = () => navigateTo('/pages/pagesall/home/adverMess');
+=======
+const mycode = () => navigateTo("/pages/message/mycode");
+const search = () => navigateTo("/pages/message/search");
+const messgoback = () => navigateTo("/pages/pagesall/home/adverMess");
+const goToChat = () => navigateTo("/pages/message/chat");
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
 </script>
 
 <style scoped>
@@ -232,7 +331,11 @@ const messgoback = () => navigateTo('/pages/pagesall/home/adverMess');
   margin-left: 90rpx;
 }
 
+<<<<<<< HEAD
 .title_img image {
+=======
+.title_img img {
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
   margin-left: 25rpx;
   width: 32rpx;
   height: 32rpx;

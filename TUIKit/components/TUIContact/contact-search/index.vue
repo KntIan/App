@@ -1,5 +1,6 @@
 <template>
   <div :class="['tui-contact-search', !isPC && 'tui-contact-search-h5']">
+<<<<<<< HEAD
     <div
       v-if="!isSearching || !isPC"
       :class="[
@@ -49,6 +50,32 @@
         @blur="search"
         @confirm="search"
       />
+=======
+    <div v-if="!isSearching || !isPC" :class="[
+        'tui-contact-search-header',
+        !isPC && 'tui-contact-search-h5-header',
+        isSearching && 'tui-contact-searching-h5-header',
+      ]" @click="changeContactSearchingStatus(true)">
+      <!-- <div :class="[
+          'tui-contact-search-header-icon',
+          !isPC && 'tui-contact-search-h5-header-icon',
+        ]" @click.stop="changeContactSearchingStatus(!isSearching)">
+        <Icon :file="isSearching ? backSVG : addSVG" :width="isSearching ? '20px' : '14px'" :height="isSearching ? '20px' : '14px'" />
+      </div> -->
+
+      <div :class="[
+          'tui-contact-search-header-title',
+          !isPC && 'tui-contact-search-h5-header-title',
+        ]">
+        {{ TUITranslateService.t("TUIContact.添加好友/群聊") }}
+      </div>
+    </div>
+    <div v-if="isSearching" :class="[
+        'tui-contact-search-main',
+        !isPC && 'tui-contact-search-h5-main',
+      ]">
+      <input v-model="searchValue" class="tui-contact-search-main-input" type="text" :placeholder="searchingPlaceholder" enterkeyhint="search" @keyup.enter="search" @blur="search" @confirm="search">
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
       <!-- <div class="tui-contact-search-main-cancel" @click="isSearching = false">
         {{ TUITranslateService.t("搜索") }}
       </div> -->
@@ -56,11 +83,16 @@
   </div>
 </template>
 <script setup lang="ts">
+<<<<<<< HEAD
 import { ref, watch } from 'vue';
+=======
+import { ref, watch } from "vue";
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
 import {
   TUITranslateService,
   TUIStore,
   StoreName,
+<<<<<<< HEAD
 } from '@tencentcloud/chat-uikit-engine';
 import TUICore, { TUIConstants } from '@tencentcloud/tui-core';
 import { TUIGlobal } from '@tencentcloud/universal-api';
@@ -84,6 +116,28 @@ const searchResult = ref<IContactSearchResult>({
   },
   group: {
     label: '群聊',
+=======
+} from "@tencentcloud/chat-uikit-engine";
+import TUICore, { TUIConstants } from "@tencentcloud/tui-core";
+import { TUIGlobal } from "@tencentcloud/universal-api";
+import Icon from "../../common/Icon.vue";
+import addSVG from "../../../assets/icon/add.svg";
+import backSVG from "../../../assets/icon/back.svg";
+import { isPC } from "../../../utils/env";
+import { debounce } from "../../../utils/lodash";
+import { IContactSearchResult } from "../../../interface";
+
+const searchingPlaceholder = TUITranslateService.t("TUIContact.输入ID");
+const isSearching = ref<boolean>(true);
+const searchValue = ref<string>("");
+const searchResult = ref<IContactSearchResult>({
+  user: {
+    label: "联系人",
+    list: [],
+  },
+  group: {
+    label: "群聊",
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
     list: [],
   },
 });
@@ -96,6 +150,7 @@ const search = async () => {
   if (!searchValue.value) {
     return;
   }
+<<<<<<< HEAD
 
   let params = {
     user_id: Number(searchValue.value),
@@ -149,13 +204,47 @@ const search = async () => {
       mask: true,
     });
   }
+=======
+  TUICore.callService({
+    serviceName: TUIConstants.TUISearch.SERVICE.NAME,
+    method: TUIConstants.TUISearch.SERVICE.METHOD.SEARCH_USER,
+    params: {
+      userID: searchValue.value,
+    },
+  })
+    .then((res: any) => {
+      searchResult.value.user.list = res.data;
+    })
+    .catch((error: any) => {
+      searchResult.value.user.list = [];
+      console.warn("search user error", error);
+    });
+  TUICore.callService({
+    serviceName: TUIConstants.TUISearch.SERVICE.NAME,
+    method: TUIConstants.TUISearch.SERVICE.METHOD.SEARCH_GROUP,
+    params: {
+      groupID: searchValue.value,
+    },
+  })
+    .then((res: any) => {
+      searchResult.value.group.list = [res.data.group];
+    })
+    .catch((error: any) => {
+      searchResult.value.group.list = [];
+      console.warn("search group error", error);
+    });
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
 };
 watch(
   () => searchResult.value,
   () => {
     TUIStore.update(
       StoreName.CUSTOM,
+<<<<<<< HEAD
       'currentContactSearchResult',
+=======
+      "currentContactSearchResult",
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
       searchResult.value
     );
   },
@@ -169,11 +258,19 @@ watch(
   () => {
     TUIStore.update(
       StoreName.CUSTOM,
+<<<<<<< HEAD
       'currentContactSearchingStatus',
       isSearching.value
     );
     if (isSearching.value) {
       searchValue.value = '';
+=======
+      "currentContactSearchingStatus",
+      isSearching.value
+    );
+    if (isSearching.value) {
+      searchValue.value = "";
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
       searchResult.value.user.list = [];
       searchResult.value.group.list = [];
     }
@@ -188,6 +285,7 @@ TUIGlobal.updateContactSearch = search;
 TUIGlobal.closeSearching = () => {
   isSearching.value = false;
 };
+<<<<<<< HEAD
 onLoad(() => {
   const userId = uni.getStorageSync('params')?.user_id; // 获取存储的 user_id
   console.log(userId, typeof userId);
@@ -197,6 +295,8 @@ onLoad(() => {
     search(); // 自动调用搜索
   }
 });
+=======
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
 </script>
 <style lang="scss" scoped>
 .tui-contact-search {
@@ -281,4 +381,8 @@ onLoad(() => {
     margin-right: 30px;
   }
 }
+<<<<<<< HEAD
 </style>
+=======
+</style>
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74

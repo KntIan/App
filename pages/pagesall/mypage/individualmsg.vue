@@ -1,5 +1,6 @@
 <template>
   <view class="indmsg">
+<<<<<<< HEAD
     <view :style="'height:' + statusBarHeight + 'px;'"></view>
     <view class="msg_Title">
       <view class="msgImg" @click="ind_goback">
@@ -9,6 +10,16 @@
         />
       </view>
       <view class="msg_text"> 刘易阳信息 </view>
+=======
+    <view :style="'height:' + (statusBarHeight + 5) + 'px;'"></view>
+    <view class="msg_Title">
+      <view class="msgImg" @click="ind_goback">
+        <img src="https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPng427bd6433cc6e0a8e82f63b3174b2c817dc9c299bd0c4414c8d258f46cf46f94" alt="" />
+      </view>
+      <view class="msg_text">
+        刘易阳信息
+      </view>
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
     </view>
 
     <view class="bg_left"></view>
@@ -17,6 +28,7 @@
 
     <view class="indivimsg_name">
       <img :src="indivimsg_heard" alt="" />
+<<<<<<< HEAD
       <view class="msg_text1" style="margin-top: 8rpx">
         {{ indivimsg_name }}
       </view>
@@ -26,12 +38,28 @@
       <view class="textflex">
         <view class="msgtext3"> 书法一班 </view>
         <view class="msgtext4"> 11岁 </view>
+=======
+      <view class="msg_text1" style="margin-top: 8rpx;">
+        {{indivimsg_name}}
+      </view>
+      <view class="msg_text2" style="margin-top: 8rpx;">
+        ID:{{indivimsg_id}}
+      </view>
+      <view class="textflex">
+        <view class="msgtext3">
+          书法一班
+        </view>
+        <view class="msgtext4">
+          11岁
+        </view>
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
       </view>
     </view>
 
     <view class="worksmsg">
       <uni-section title="实心标签" type="line">
         <view class="uni-padding-wrap uni-common-mt">
+<<<<<<< HEAD
           <uni-segmented-control
             class="uni_center"
             style="border-bottom: 0.5rpx solid #eeeeee"
@@ -43,6 +71,15 @@
           />
           <view class="indi_oper" v-if="current === 0"> </view>
           <view class="indi_oper1" v-if="current === 1"> </view>
+=======
+          <uni-segmented-control class="uni_center" style="border-bottom: 0.5rpx solid #EEEEEE;" :current="current" :values="items" active-color="#5791F2" styleType="text" @clickItem="onClickItem" />
+          <view class="indi_oper" v-if="current === 0">
+
+          </view>
+          <view class="indi_oper1" v-if="current === 1">
+
+          </view>
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
         </view>
       </uni-section>
       <view class="AIlist" v-if="current === 0">
@@ -60,17 +97,26 @@
 import myhistList from './compontents/histList.vue';
 export default {
   components: {
+<<<<<<< HEAD
     myhistList,
+=======
+    myhistList
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
   },
   data() {
     return {
       statusBarHeight: '',
+<<<<<<< HEAD
       indivimsg_heard:
         'https://lanhu-dds-backend.oss-cn-beijing.aliyuncs.com/merge_image/imgs/26483a4d5dc54c63ae2af524e81ebb4d_mergeImage.png',
+=======
+      indivimsg_heard: 'https://lanhu-dds-backend.oss-cn-beijing.aliyuncs.com/merge_image/imgs/26483a4d5dc54c63ae2af524e81ebb4d_mergeImage.png',
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
       indivimsg_name: '刘易阳-田园路校区',
       indivimsg_id: '0000002',
       current: 0,
       items: ['AI检查', '老师审阅'],
+<<<<<<< HEAD
       AIhistList: [
         {
           img: 'https://lanhu-dds-backend.oss-cn-beijing.aliyuncs.com/merge_image/imgs/fdef5ff762634f9f883ddd89c8af057a_mergeImage.png',
@@ -146,12 +192,88 @@ export default {
         },
       ],
     };
+=======
+      AIhistList: [{
+        img: 'https://lanhu-dds-backend.oss-cn-beijing.aliyuncs.com/merge_image/imgs/fdef5ff762634f9f883ddd89c8af057a_mergeImage.png',
+        title: '书法练习第一课',
+        date: '2024-07-1',
+      },
+      {
+        img: 'https://lanhu-dds-backend.oss-cn-beijing.aliyuncs.com/merge_image/imgs/e5923dca4d594da3abf115ee5a05cf14_mergeImage.png',
+        title: '书法练习第二课',
+        date: '2024-07-1',
+      },
+      {
+        img: 'https://lanhu-dds-backend.oss-cn-beijing.aliyuncs.com/merge_image/imgs/e5923dca4d594da3abf115ee5a05cf14_mergeImage.png',
+        title: '书法练习第三课',
+        date: '2024-07-1',
+      },
+      {
+        img: 'https://lanhu-dds-backend.oss-cn-beijing.aliyuncs.com/merge_image/imgs/fdef5ff762634f9f883ddd89c8af057a_mergeImage.png',
+        title: '书法练习第四课',
+        date: '2024-07-1',
+      },
+      {
+        img: 'https://lanhu-dds-backend.oss-cn-beijing.aliyuncs.com/merge_image/imgs/fdef5ff762634f9f883ddd89c8af057a_mergeImage.png',
+        title: '书法练习第一课',
+        date: '2024-07-1',
+      },
+      {
+        img: 'https://lanhu-dds-backend.oss-cn-beijing.aliyuncs.com/merge_image/imgs/e5923dca4d594da3abf115ee5a05cf14_mergeImage.png',
+        title: '书法练习第二课',
+        date: '2024-07-1',
+      }
+      ],
+      teacherhistList: [{
+        img: 'https://lanhu-dds-backend.oss-cn-beijing.aliyuncs.com/merge_image/imgs/e5923dca4d594da3abf115ee5a05cf14_mergeImage.png',
+        title: '有进步继续努力',
+        teacherName: '王老师',
+      },
+      {
+        img: 'https://lanhu-dds-backend.oss-cn-beijing.aliyuncs.com/merge_image/imgs/fdef5ff762634f9f883ddd89c8af057a_mergeImage.png',
+        title: '有进步继续努力',
+        teacherName: '王老师',
+      },
+      {
+        img: 'https://lanhu-dds-backend.oss-cn-beijing.aliyuncs.com/merge_image/imgs/fdef5ff762634f9f883ddd89c8af057a_mergeImage.png',
+        title: '有进步继续努力',
+        teacherName: '王老师',
+      },
+      {
+        img: 'https://lanhu-dds-backend.oss-cn-beijing.aliyuncs.com/merge_image/imgs/e5923dca4d594da3abf115ee5a05cf14_mergeImage.png',
+        title: '有进步继续努力',
+        teacherName: '王老师',
+      },
+      {
+        img: 'https://lanhu-dds-backend.oss-cn-beijing.aliyuncs.com/merge_image/imgs/e5923dca4d594da3abf115ee5a05cf14_mergeImage.png',
+        title: '有进步继续努力',
+        teacherName: '王老师',
+      },
+      {
+        img: 'https://lanhu-dds-backend.oss-cn-beijing.aliyuncs.com/merge_image/imgs/fdef5ff762634f9f883ddd89c8af057a_mergeImage.png',
+        title: '有进步继续努力',
+        teacherName: '王老师',
+      },
+      {
+        img: 'https://lanhu-dds-backend.oss-cn-beijing.aliyuncs.com/merge_image/imgs/e5923dca4d594da3abf115ee5a05cf14_mergeImage.png',
+        title: '有进步继续努力',
+        teacherName: '王老师',
+      },
+      {
+        img: 'https://lanhu-dds-backend.oss-cn-beijing.aliyuncs.com/merge_image/imgs/fdef5ff762634f9f883ddd89c8af057a_mergeImage.png',
+        title: '有进步继续努力',
+        teacherName: '王老师',
+      }
+      ]
+    }
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
   },
   onLoad() {
     this.statusBarHeight = getApp().globalData.top;
   },
   methods: {
     ind_goback() {
+<<<<<<< HEAD
       uni.navigateBack();
     },
     onClickItem(e) {
@@ -161,6 +283,17 @@ export default {
     },
   },
 };
+=======
+      uni.navigateBack()
+    },
+    onClickItem(e) {
+      if (this.current !== e.currentIndex) {
+        this.current = e.currentIndex
+      }
+    }
+  }
+}
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
 </script>
 
 <style>
@@ -306,4 +439,8 @@ export default {
 :deep .segmented-control__item--text {
   border-bottom: 0rpx !important;
 }
+<<<<<<< HEAD
 </style>
+=======
+</style>
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74

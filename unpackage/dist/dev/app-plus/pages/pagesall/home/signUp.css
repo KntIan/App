@@ -460,7 +460,10 @@
 }
 .listindex {
   width: 100%;
+<<<<<<< HEAD
   height: 100%;
+=======
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
   background: #ffffff;
   border-radius: 0.5rem;
   padding: 0.875rem 0 0.875rem 0.9375rem;

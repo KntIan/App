@@ -1,0 +1,202 @@
+<template>
+  <view class="container">
+    <view class="form">
+      <view class="textlogin">
+        <text>登录/注册</text>
+      </view>
+
+      <input type="text" placeholder="账号" class="input" @input="getadmin" />
+      <input
+        type="password"
+        placeholder="密码"
+        class="input"
+        @input="getpass"
+      />
+      <button class="login-button" @click="getlogin">登录</button>
+      <view class="links">
+        <text class="link" @click="retPass">找回密码</text>
+        <text class="link" @click="regiSter">注册</text>
+      </view>
+    </view>
+
+    <view class="footer">
+      <checkbox-group
+        @change="radiogrp"
+        style="display: flex; align-items: center"
+      >
+        <label class="radio">
+          <checkbox
+            value="true"
+            activeBorderColor="#000"
+            activeBackgroundColor="#fff"
+            iconColor="#000"
+            style="transform: scale(0.5)"
+          />
+        </label>
+
+        <text>
+          点击登录，即表示同意
+          <text
+            @click="handlePolicyClick('privacyPolicy')"
+            style="color: blue; text-decoration: underline"
+            >《隐私政策》</text
+          >
+          和
+          <text
+            @click="handlePolicyClick('userAgreement')"
+            style="color: blue; text-decoration: underline"
+            >《用户协议》</text
+          >
+        </text>
+      </checkbox-group>
+    </view>
+  </view>
+</template>
+
+<script setup>
+import { ref } from "vue";
+import { useStore } from "@/store"; // 导入 Pinia store
+
+const account = ref("");
+const password = ref("");
+const radio = ref(false);
+const store = useStore();
+
+const parsePolicyContent = (content, title) => {
+  const parser = new DOMParser();
+  const doc = parser.parseFromString(content, "text/html");
+  const paragraphs = Array.from(doc.getElementsByTagName("p"))
+    .map((p) => p.textContent)
+    .join("\n");
+
+  uni.showModal({
+    title: title, // 使用传入的标题
+    content: paragraphs,
+    showCancel: false,
+  });
+};
+const capitalizeFirstLetter = (string) => {
+  return string.charAt(0).toUpperCase() + string.slice(1); // 首字母大写
+};
+// 修改 handlePolicyClick 方法，传入不同的标题
+const handlePolicyClick = async (type) => {
+  try {
+    await store[`fetch${capitalizeFirstLetter(type)}`]();
+    const title = type === "privacyPolicy" ? "隐私政策" : "用户协议"; // 根据 type 设置标题
+    parsePolicyContent(store[type].content, title);
+  } catch (error) {
+    console.error(`获取${type}失败:`, error);
+    uni.showToast({
+      title: `获取${type}失败，请重试`,
+      icon: "error",
+      duration: 2000,
+    });
+  }
+};
+
+const retPass = async () => {
+  await uni.navigateTo({ url: "/pages/login/ratpass" });
+};
+
+const regiSter = () => {
+  uni.navigateTo({ url: "/pages/login/register" });
+};
+
+const radiogrp = (event) => {
+  radio.value = event.detail.value;
+};
+
+const getadmin = (event) => {
+  account.value = event.detail.value;
+};
+
+const getpass = (event) => {
+  password.value = event.detail.value;
+};
+
+const getlogin = async () => {
+  if (!radio.value) {
+    uni.showToast({
+      title: "请勾选同意协议",
+      icon: "error",
+      duration: 2000,
+    });
+    return;
+  }
+
+  try {
+    await store.login({ account: account.value, password: password.value });
+    uni.showToast({
+      title: "登录成功",
+      icon: "success",
+      duration: 2000,
+    });
+    setTimeout(() => {
+      uni.switchTab({ url: "/pages/pagesall/home" });
+    }, 1500);
+  } catch (error) {
+    uni.showToast({
+      title: error.message || "登录失败，请重试",
+      icon: "error",
+      duration: 2000,
+    });
+  }
+};
+</script>
+
+<style>
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  height: 100vh;
+  background-color: #fff;
+}
+
+.form {
+  width: 80%;
+}
+
+.input {
+  padding: 10px;
+  margin-bottom: 15px;
+  border-radius: 50px;
+  background-color: #eeeeee;
+  font-size: 14px;
+}
+
+.login-button {
+  width: 100%;
+  padding: 2px;
+  border-radius: 50px;
+  background-color: #666666;
+  color: #fff;
+  text-align: center;
+  font-size: 16px;
+}
+
+.textlogin {
+  margin-bottom: 24px;
+  font-weight: 700;
+}
+
+.links {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.link {
+  color: #555;
+  font-size: 12px;
+}
+
+.footer {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 12px;
+  color: #888;
+}
+</style>

@@ -24,7 +24,10 @@
 /* 透明度 */
 /* 文章场景相关 */
 .segmented-control[data-v-86aa1171] {
+<<<<<<< HEAD
   display: flex;
+=======
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
   box-sizing: border-box;
   flex-direction: row;
   height: 36px;
@@ -49,6 +52,10 @@
   border-left-width: 1px;
   border-top-left-radius: 5px;
   border-bottom-left-radius: 5px;
+<<<<<<< HEAD
+=======
+  margin-right: 2rem;
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
 }
 .segmented-control__item--button--last[data-v-86aa1171] {
   border-top-right-radius: 5px;
@@ -60,6 +67,7 @@
   padding: 6px 0;
 }
 .segmented-control__text[data-v-86aa1171] {
+<<<<<<< HEAD
   font-size: 14px;
   line-height: 20px;
   text-align: center;
@@ -140,6 +148,13 @@
 .uni-section .uni-section-content[data-v-637fd36b] {
   font-size: 14px;
 }
+=======
+  font-weight: 500;
+  font-size: 1rem;
+  line-height: 20px;
+  text-align: center;
+}
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
 
 .box-list[data-v-df6b140b] {
   margin-top: 0.25rem;

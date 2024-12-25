@@ -1,5 +1,6 @@
 <template>
   <view class="codepage">
+<<<<<<< HEAD
     <view :style="'height:' + statusBarHeight + 'px;'"></view>
 
     <view class="code_titlebox">
@@ -10,10 +11,23 @@
         />
       </view>
       <view class="code_title"> 分享二维码 </view>
+=======
+
+    <view :style="'height:' + (statusBarHeight + 5) + 'px;'"></view>
+
+    <view class="code_titlebox">
+      <view class="messImg" @click="goback">
+        <img src="https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPnge1553c1d8d43568ee582b54f1deab731573c8804790b09e299c2e73eda1cfa68" alt="" />
+      </view>
+      <view class="code_title">
+        分享二维码
+      </view>
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
     </view>
 
     <view class="code_codebox">
       <view class="code_img">
+<<<<<<< HEAD
         <img
           src="https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPngcd993bafb56f0fa9ca43f6a3a3f5885980722e955fcc6ed400fa9b64a364b72e"
           alt=""
@@ -57,16 +71,45 @@
       />
       <text>保存到手机</text>
     </view>
+=======
+        <img src="https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPngcd993bafb56f0fa9ca43f6a3a3f5885980722e955fcc6ed400fa9b64a364b72e" alt="" />
+      </view>
+
+      <view class="code_titileimg">
+        <img src="https://lanhu-dds-backend.oss-cn-beijing.aliyuncs.com/merge_image/imgs/a1f75ab65caa4ac6afc5909f8472ecba_mergeImage.png" alt="" />
+        <view class="code_name">
+          <view style="font-weight: 500;font-size: 28rpx;color: #000000;">刘易阳的二维码</view>
+          <view style="font-weight: 400;font-size: 16rpx;color: #666666; margin-top: 10rpx;">分享给老师们加个好友吧
+          </view>
+        </view>
+
+      </view>
+
+      <view class="code_codeimg">
+        <img src="https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPngdec58e091c33964c716ceeb24df93a33629b032a848ee6ada66281e68aeaa069" alt="" />
+      </view>
+
+    </view>
+    <view class="code_baocun">
+      <img src="https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPnga09d8270200e68c37da10c6fc926c63f90e314b103034a125a42216d2610bbbf" alt="" />
+      <text>保存到手机</text>
+    </view>
+
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
   </view>
 </template>
 
 <script>
+<<<<<<< HEAD
 import { generateQRCode } from '@/utils/api';
 import { useStore } from '@/store';
+=======
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
 export default {
   data() {
     return {
       statusBarHeight: '',
+<<<<<<< HEAD
       codeUrl: '',
     };
   },
@@ -75,10 +118,14 @@ export default {
       const store = useStore();
       return store.userinfo; // 从 Pinia 存储中获取 userinfo
     },
+=======
+    }
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
   },
   onLoad() {
     this.statusBarHeight = getApp().globalData.top;
   },
+<<<<<<< HEAD
   mounted() {
     this.generateCode();
   },
@@ -131,6 +178,26 @@ body {
   background-color: #ff9e02;
   width: 750rpx;
   min-height: 100vh;
+=======
+  methods: {
+    goback() {
+      uni.navigateBack()
+    },
+    mycode() {
+      uni.navigateTo({
+        url: "/pages/pagesall/home/mycode"
+      })
+    }
+  }
+}
+</script>
+
+<style>
+.codepage {
+  background-color: #ff9e02;
+  width: 750rpx;
+  height: 1624rpx;
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
 }
 
 .code_titlebox {
@@ -156,7 +223,11 @@ body {
   background: url(https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPng2f44e9201c59e30551b904da05df9e722aa6c7cb73f8bbacb51e09e0cd9aa9a8)
     100% no-repeat;
   background-size: 100% 100%;
+<<<<<<< HEAD
   margin: 176rpx 98rpx;
+=======
+  margin: 176rpx 0 0 98rpx;
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
   position: relative;
 }
 
@@ -207,4 +278,8 @@ body {
   width: 450rpx;
   height: 450rpx;
 }
+<<<<<<< HEAD
 </style>
+=======
+</style>
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74

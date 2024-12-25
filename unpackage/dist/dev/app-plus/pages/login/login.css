@@ -1,12 +1,17 @@
 
+<<<<<<< HEAD
 body[data-v-e4e4508d] {
   overflow: hidden;
 }
 .container[data-v-e4e4508d] {
+=======
+.container {
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
+<<<<<<< HEAD
   min-height: 100vh;
   background-color: #fff;
 }
@@ -14,13 +19,26 @@ body[data-v-e4e4508d] {
   width: 80%;
 }
 .input[data-v-e4e4508d] {
+=======
+  height: 100vh;
+  background-color: #fff;
+}
+.form {
+  width: 80%;
+}
+.input {
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
   padding: 10px;
   margin-bottom: 15px;
   border-radius: 50px;
   background-color: #eeeeee;
   font-size: 14px;
 }
+<<<<<<< HEAD
 .login-button[data-v-e4e4508d] {
+=======
+.login-button {
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
   width: 100%;
   padding: 2px;
   border-radius: 50px;
@@ -29,21 +47,37 @@ body[data-v-e4e4508d] {
   text-align: center;
   font-size: 16px;
 }
+<<<<<<< HEAD
 .textlogin[data-v-e4e4508d] {
   margin-bottom: 24px;
   font-weight: 700;
 }
 .links[data-v-e4e4508d] {
+=======
+.textlogin {
+  margin-bottom: 24px;
+  font-weight: 700;
+}
+.links {
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
   width: 100%;
   display: flex;
   justify-content: space-between;
   margin-top: 10px;
 }
+<<<<<<< HEAD
 .link[data-v-e4e4508d] {
   color: #555;
   font-size: 12px;
 }
 .footer[data-v-e4e4508d] {
+=======
+.link {
+  color: #555;
+  font-size: 12px;
+}
+.footer {
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
   margin-top: 20px;
   text-align: center;
   font-size: 12px;

@@ -131,8 +131,11 @@
   bottom: 10%;
   right: 0;
   border-radius: 0.3125rem;
+<<<<<<< HEAD
 }
 .disabled-btn {
   pointer-events: none;
   opacity: 0.5;
+=======
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
 }

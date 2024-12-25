@@ -1,10 +1,15 @@
 <template>
   <view class="code_titlebox">
+<<<<<<< HEAD
     <view :style="'height:' + statusBarHeight + 'px;'"></view>
+=======
+    <view :style="'height:' + (statusBarHeight + 5) + 'px;'"></view>
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
     <view class="code_title"> 课程 </view>
   </view>
 
   <view class="game_time">
+<<<<<<< HEAD
     <text style="font-weight: bold; font-size: 36rpx; color: #000000"
       >今日课程</text
     >
@@ -21,11 +26,21 @@
         <view
           class="tips"
           style="
+=======
+    <text style="font-weight: 500; font-size: 36rpx; color: #000000">活动时间安排</text>
+  </view>
+
+  <timeline v-if="infolist.length>0">
+    <view class="line_list" v-for="(item, index) in infolist" :key="index">
+      <timelineItem class="list_box_cour" :leftTime="item.title" color="#5791F2">
+        <view class="tips" style="
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
             height: 134rpx;
             font-weight: 500;
             font-size: 28rpx;
             color: #000000;
             margin-left: 20rpx;
+<<<<<<< HEAD
           "
         >
           主讲：{{ item.teacher_name }}
@@ -37,10 +52,19 @@
           <view style="font-weight: 400; font-size: 24rpx; color: #333333"
             >时间:{{ item.s_time }}-{{ item.e_time }}</view
           >
+=======
+          ">
+          主讲：{{ item.teacher_name }}
+        </view>
+        <view class="class_room">
+          <view style="font-weight: 400; font-size: 24rpx; color: #000000">教室:{{ item.classroom }}</view>
+          <view style="font-weight: 400; font-size: 24rpx; color: #333333">时间:{{ item.s_time }}-{{ item.e_time }}</view>
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
         </view>
       </timelineItem>
     </view>
   </timeline>
+<<<<<<< HEAD
   <view
     v-else
     class="kong"
@@ -84,10 +108,25 @@
         <view
           class="tips"
           style="
+=======
+  <view v-else class="kong" style="display: flex; justify-content: center; align-items: center; height: 500rpx;">
+    <image style="width:400rpx;height: 400rpx;" src="@/static/img/noAct.png" mode="aspectFit" />
+  </view>
+
+  <view class="game_time">
+    <text style="font-weight: 500; font-size: 36rpx; color: #000000">近期课程</text>
+  </view>
+
+  <timeline v-if="ti_tea_room_list.length>0">
+    <view class="line_list" v-for="(item, index) in ti_tea_room_list" :key="index">
+      <timelineItem class="list_box_cour" :leftTime="item.title" :color="item.color" style="font-weight: 600; font-size: 28rpx; color: #000000">
+        <view class="tips" style="
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
             height: 154rpx;
             font-weight: 500;
             font-size: 28rpx;
             color: #000000;
+<<<<<<< HEAD
           "
         >
           主讲：{{ item.teacher_name }}
@@ -130,10 +169,22 @@
           :disabled="item.status === -1"
         >
           {{ getButtonText(item.status) }}
+=======
+          ">
+          主讲：{{ item.teacher_name }}
+        </view>
+        <view class="class_room">
+          <view style="font-weight: 400; color: #000000">教室:{{ item.classroom }}</view>
+          <view style="font-weight: 400; font-size: 24rpx; color: #333333">时间:{{ item.s_time }}-{{ item.e_time }}</view>
+        </view>
+        <view class="list_btn" style="color:white" :style="{ backgroundColor: item.status === 0 ? '#5791F2' : '#666666' }" @click="btn_study">
+          {{ item.status === 0 ? '写作业' : '作业已完成' }}
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
         </view>
       </timelineItem>
     </view>
   </timeline>
+<<<<<<< HEAD
   <view
     v-else
     class="kong"
@@ -152,11 +203,16 @@
     <text style="color: #666; position: absolute; z-index: 1; bottom: 140rpx"
       >暂无课程</text
     >
+=======
+  <view v-else class="kong" style="display: flex; justify-content: center; align-items: center; height: 500rpx;">
+    <image style="width:400rpx;height: 400rpx;" src="@/static/img/noAct.png" mode="aspectFit" />
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
   </view>
   <view class="infobox"></view>
 </template>
 
 <script setup>
+<<<<<<< HEAD
 import { ref, onMounted } from 'vue';
 import timeline from '../../components/chenbin-timeline/timeLine.vue';
 import timelineItem from '../../components/chenbin-timeline/timelineItem.vue';
@@ -197,12 +253,33 @@ onPullDownRefresh(() => {
   fetchCourse();
   uni.stopPullDownRefresh();
 });
+=======
+import { ref, onMounted } from "vue";
+import timeline from "../../components/chenbin-timeline/timeLine.vue";
+import timelineItem from "../../components/chenbin-timeline/timelineItem.vue";
+import { fetchMyCourseList, fetchMyRecentCourse } from "@/utils/api";
+import { onLoad, onPullDownRefresh, onReachBottom } from '@dcloudio/uni-app';
+const statusBarHeight = ref()
+onLoad(() => {
+  statusBarHeight.value = getApp().globalData.top;
+
+})
+onReachBottom(() => {
+  fetchCourse()
+})
+onPullDownRefresh(() => {
+  fetchCourse()
+  uni.stopPullDownRefresh();
+
+})
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
 const infolist = ref([]);
 const ti_tea_room_list = ref([]);
 // const recentCourseInfo = ref([]);
 const old = ref({
   scrollTop: 0,
 });
+<<<<<<< HEAD
 const handleChildClick = (id) => {
   // 在这里处理事件
   console.log('子组件被点击', id);
@@ -231,10 +308,31 @@ const fetchCourse = async () => {
     ]);
 
     infolist.value = courseListResponse.items;
+=======
+
+onMounted(() => {
+
+  fetchCourse()
+});
+const fetchCourse = async () => {
+  try {
+    // 同时请求两个接口
+    const [courseListResponse, recentCourseResponse] = await Promise.all([
+      fetchMyCourseList(),
+      fetchMyRecentCourse()
+    ]);
+
+    // console.log(courseListResponse);
+    // console.log(recentCourseResponse);
+
+    infolist.value = courseListResponse.items
+
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
 
     // 处理 recentCourseResponse 的数据
     // 根据您的需求，您可以将其存放到组件中的某个响应式变量中
     // 例如：
+<<<<<<< HEAD
     const statusColorMap = {
       0: '#5791F2', // 状态 0 对应的颜色
       1: '#33CC33', // 状态 1 对应的颜色
@@ -262,6 +360,19 @@ const fetchCourse = async () => {
     console.error('获取课程失败:', error);
   }
 };
+=======
+    ti_tea_room_list.value = recentCourseResponse.items.map(item => ({
+      ...item, // 保留原有属性
+      color: item.status === 0 ? '#5791F2' : '#666666' // 根据状态设置颜色
+    }));
+    // console.log(ti_tea_room_list.value)
+
+
+  } catch (error) {
+    console.error("获取课程失败:", error);
+  }
+}
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
 
 function goback() {
   uni.navigateBack();
@@ -270,6 +381,7 @@ function goback() {
 function scroll(e) {
   old.value.scrollTop = e.detail.scrollTop;
 }
+<<<<<<< HEAD
 function getBackgroundColor(status) {
   switch (status) {
     case 0:
@@ -305,6 +417,13 @@ function btn_study(event, status, homework_id) {
       url: `/pages/pagesall/mypage/correction?homework_id=${homework_id}`,
     }); // 跳转到作业审阅详情页面，按实际配置调整路径
   }
+=======
+
+function btn_study() {
+  uni.navigateTo({
+    url: "/pages/pagesall/course/go_learn",
+  });
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
 }
 </script>
 
@@ -348,10 +467,13 @@ function btn_study(event, status, homework_id) {
   bottom: 10%;
   right: 0;
   border-radius: 10rpx;
+<<<<<<< HEAD
   font-weight: bold;
 }
 .disabled-btn {
   pointer-events: none;
   opacity: 0.5;
+=======
+>>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
 }
 </style>
