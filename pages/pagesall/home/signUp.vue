@@ -1,5 +1,4 @@
 <template>
-<<<<<<< HEAD
   <view style="overflow-x: hidden">
     <view :style="'height:' + statusBarHeight + 'px;'"></view>
     <view class="homePage">
@@ -13,13 +12,6 @@
         indicator-color="#ddd"
         indicator-active-color="#333"
       >
-=======
-  <view style="overflow-x: hidden;">
-    <view :style="'height:' + (statusBarHeight + 5) + 'px;'"></view>
-    <view class="homePage">
-
-      <swiper v-if="images.length" class="swiper-container" indicator-dots="true" autoplay="true" interval="3000" circular="true" indicator-color="#ddd" indicator-active-color="#333">
->>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
         <swiper-item v-for="(item, index) in images" :key="index">
           <image :src="item.thumb" class="swiper-image"></image>
         </swiper-item>
@@ -32,7 +24,6 @@
           <!-- <view class="linetext1">{{
           item.is_online === 1 ? '线上' : '线下'
         }}</view> -->
-<<<<<<< HEAD
           <view
             class="techerImg"
             style="width: 192rpx; height: 176rpx; border-radius: 8rpx"
@@ -54,26 +45,12 @@
             <!-- <view class="actitmeText3">开课时间:{{ formatDate(item.s_time) }} -
             {{ formatDate(item.e_time) }}</view> -->
             <view class="actImg">
-=======
-          <view class="techerImg" style="width:192rpx;height:176rpx;border-radius: 8rpx;">
-            <!-- <img :src="item.avatar" alt="" /> -->
-            <img style="width: 100%;height:100%" src="https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPng13a2fb02e015caf1325ed0ae70a60ac4263056e78d6de603517f5fae96ceca41" alt="" />
-          </view>
-          <view class="listindex">
-            <view class="actitmeText1">{{ matchedDetails.title }}</view>
-            <view class="actitmeText2">计划人数：{{ matchedDetails.planum || 20}}人</view>
-            <!-- <view class="actitmeText3">开课时间:{{ formatDate(item.s_time) }} -
-            {{ formatDate(item.e_time) }}</view> -->
-            <view class="actImg">
-
->>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
               <img :src="matchedDetails.teacher_avatar" alt="" />
               <view class="actTeacher">
                 <text>{{ matchedDetails.teacher_name }}</text>
                 <text style="font-size: 20rpx; margin-top: 10rpx">授课</text>
               </view>
               <view class="acttime">
-<<<<<<< HEAD
                 <text
                   style="
                     font-size: 24rpx;
@@ -91,17 +68,10 @@
                   color="#FFFFFF"
                   background-color="#F53C38"
                 />
-=======
-                <text style="font-size: 24rpx">距结束还剩:</text>
-
-                <uni-countdown :show-day="false" :hour="testHour" :minute="testMinute" :second="testSecond" color="#FFFFFF" background-color="#007AFF" />
-
->>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
               </view>
             </view>
             <view class="endbaoming">
               <view class="peopers">
-<<<<<<< HEAD
                 <image
                   style="width: 24rpx; height: 32rpx"
                   src="../../../static/img/fir.png"
@@ -125,25 +95,10 @@
                       borderRadius: '50%',
                     }"
                   />
-=======
-                <image style="width: 24rpx;height: 32rpx;" src="../../../static/img/fir.png" mode="aspectFit" />
-
-                <view class="peotext" style="font-size: 20rpx">{{ matchedDetails.signup_member.total }}人报名</view>
-                <view class="imgbox">
-                  <image v-for="(img, idx) in matchedDetails.signup_member.items" :src="img.avatar ? img.avatar : ''" :key="idx" :style="{
-    position: 'absolute',
-    right: `calc(20rpx * ${idx})`,
-    zIndex: 10 - idx,
-    width: '30rpx',
-    height: '30rpx',
-    borderRadius: '50%'
-  }" />
->>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
                 </view>
               </view>
               <view class="perbtn">
                 <view class="permoney">
-<<<<<<< HEAD
                   {{
                     matchedDetails && matchedDetails.price > 0
                       ? '￥' + matchedDetails.price
@@ -160,11 +115,6 @@
                   "
                   :disabled="matchedDetails.hadSignup"
                 >
-=======
-                  {{ matchedDetails.price <= 0 ? '免费' : '￥' + item.price }}
-                </view>
-                <view class="gobtn" @click="btnsignup" :style="matchedDetails.hadSignup ? { backgroundColor: '#999999' } : { background: '#ff9e02' }">
->>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
                   {{ matchedDetails.hadSignup ? '已报名' : '立即报名' }}
                 </view>
               </view>
@@ -175,7 +125,6 @@
 
       <view class="eventDetails">
         <view class="detaTitle">
-<<<<<<< HEAD
           <img
             src="https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPng771a065a39e551cb80b0755732dcaf20cc3ae52e9d4ee72c3e9f6c9d414f07cb"
             alt=""
@@ -204,39 +153,18 @@
             mode="aspectFit"
           />
         </view> -->
-=======
-          <img src="https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPng771a065a39e551cb80b0755732dcaf20cc3ae52e9d4ee72c3e9f6c9d414f07cb" alt="" />
-          <text class="detaText">活动详情</text>
-        </view>
-        <div class="detaxiangqing" v-if="matchedDetails" v-html="matchedDetails.content">
-        </div>
-        <view v-else class="kong" style="display: flex; justify-content: center; align-items: center; height: 500rpx;">
-          <image style="width:400rpx;height: 400rpx;" src="@/static/img/noAct.png" mode="aspectFit" />
-        </view>
-
->>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
       </view>
     </view>
   </view>
 </template>
 
 <script>
-<<<<<<< HEAD
-import { useStore } from '@/store';
-import UniCountdown from '@dcloudio/uni-ui/lib/uni-countdown/uni-countdown.vue';
-import { signUpActivity, fetchActivityCourseList } from '@/utils/api';
-export default {
-  data() {
-    return {
-=======
 import { useStore } from '@/store'
-import UniCountdown from '@dcloudio/uni-ui/lib/uni-countdown/uni-countdown.vue';
+import UniCountdown from '@dcloudio/uni-ui/lib/uni-countdown/uni-countdown.vue'
 import { signUpActivity, fetchActivityCourseList } from '@/utils/api'
 export default {
   data() {
     return {
-
->>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
       intervalId: null, // 保存计时器ID
       activityId: null, //
       options: null,
@@ -248,31 +176,7 @@ export default {
       timeupSecond: 10,
       statusBarHeight: '',
       matchedDetails: null,
-<<<<<<< HEAD
       htmlContentUrl: '',
-    };
-  },
-  computed: {
-    images() {
-      const store = useStore();
-      return store.images; // 从 Pinia 存储中获取 images
-    },
-    listdata() {
-      const store = useStore();
-      return store.listdata; // 从 Pinia 存储中获取 listdata
-    },
-  },
-  mounted() {
-    this.details(); // 获取活动详情
-  },
-
-  onLoad(options) {
-    this.statusBarHeight = getApp().globalData.top;
-
-    this.activityId = options.id; // 假设路由中有一个参数id
-    this.options = options;
-=======
-
     }
   },
   computed: {
@@ -287,27 +191,13 @@ export default {
   },
   mounted() {
     this.details() // 获取活动详情
-    // setTimeout(() => {
-    //   this.testHour = 1
-    //   this.testMinute = 1
-    //   this.testSecond = 0
-    //   this.start = true
-    // }, 3000)
-    // setTimeout(() => {
-    //   this.start = false
-    // }, 10000)
   },
 
   onLoad(options) {
+    this.statusBarHeight = getApp().globalData.top
 
-    this.statusBarHeight = getApp().globalData.top;
-    // console.log(options)
-    this.activityId = options.id; // 假设路由中有一个参数id
-    this.options = options;
-    // console.log('活动ID:', this.activityId);
-    // this.startCountdown() // 开始倒计时
-
->>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
+    this.activityId = options.id // 假设路由中有一个参数id
+    this.options = options
   },
   onUnload() {
     // this.stopCountdown() // 页面卸载时停止倒计时
@@ -316,124 +206,82 @@ export default {
   methods: {
     async details() {
       try {
-        let details = await fetchActivityCourseList(this.options);
+        let details = await fetchActivityCourseList(this.options)
         // console.log('活动详情:', details);
 
         // 假设 details 是一个数组，找到匹配的活动ID
-<<<<<<< HEAD
         const matchedDetail = details.items.find(
           (detail) => detail.id === Number(this.activityId)
-        );
+        )
 
         // 打印匹配的活动详情
         if (matchedDetail) {
-          this.matchedDetails = matchedDetail;
-          this.htmlContentUrl = this.matchedDetails.content;
-          // console.log('匹配的活动详情:', this.matchedDetails.content)
-=======
-        const matchedDetail = details.items.find(detail => detail.id === Number(this.activityId));
-
-
-
-        // 打印匹配的活动详情
-        if (matchedDetail) {
-
           this.matchedDetails = matchedDetail
-          // console.log('匹配的活动详情:', matchedDetail);
->>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
+          this.htmlContentUrl = this.matchedDetails.content
+          // console.log('匹配的活动详情:', this.matchedDetails.content)
 
-          this.updateCountdown();
+          this.updateCountdown()
         } else {
-          console.log('未找到对应的活动详情');
+          console.log('未找到对应的活动详情')
         }
       } catch (error) {
-        console.error('获取活动详情失败:', error);
+        console.error('获取活动详情失败:', error)
       }
     },
 
     timeup() {
       uni.showToast({
-<<<<<<< HEAD
         title: '时间到',
-      });
-      this.timeupSecond = 29;
-    },
-    formatTime(value) {
-      // 确保时间总是两位数
-      return value.toString().padStart(2, '0');
-=======
-        title: '时间到'
       })
       this.timeupSecond = 29
     },
     formatTime(value) {
       // 确保时间总是两位数
       return value.toString().padStart(2, '0')
->>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
     },
     updateCountdown() {
-      const currentDateTimestampInMilliseconds = new Date().getTime();
-      const now = Math.floor(currentDateTimestampInMilliseconds / 1000);
+      const currentDateTimestampInMilliseconds = new Date().getTime()
+      const now = Math.floor(currentDateTimestampInMilliseconds / 1000)
 
       // 确保 matchedDetails 存在并且包含 end_time
       if (this.matchedDetails && !isNaN(this.matchedDetails.end_time)) {
-        const timeDiff = this.matchedDetails.end_time - now;
+        const timeDiff = this.matchedDetails.end_time - now
         if (timeDiff > 0) {
-<<<<<<< HEAD
-=======
-
->>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
-          this.testHour = Math.floor(timeDiff / 3600);
-          this.testMinute = Math.floor((timeDiff % 3600) / 60);
-          this.testSecond = timeDiff % 60;
+          this.testHour = Math.floor(timeDiff / 3600)
+          this.testMinute = Math.floor((timeDiff % 3600) / 60)
+          this.testSecond = timeDiff % 60
         } else {
-          this.testHour = this.testMinute = this.testSecond = 0; // 时间到达
+          this.testHour = this.testMinute = this.testSecond = 0 // 时间到达
         }
       } else {
         // console.warn('matchedDetails 无效，无法更新倒计时');
-        this.testHour = this.testMinute = this.testSecond = 0; // 处理无效时间
+        this.testHour = this.testMinute = this.testSecond = 0 // 处理无效时间
       }
     },
 
     async btnsignup() {
       // 从本地存储获取用户 ID
-<<<<<<< HEAD
-      const store = useStore();
-      const { user_id } = store.userinfo; // 假设用户 ID 存储在 'userId' 下
-=======
       const store = useStore()
       const { user_id } = store.userinfo // 假设用户 ID 存储在 'userId' 下
-
-
->>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
 
       // 检查用户 ID 和活动 ID 是否存在
       if (!user_id) {
         uni.showToast({
           title: '用户未登录，请先登录',
-<<<<<<< HEAD
           icon: 'none',
-=======
-          icon: 'none'
->>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
-        });
-        return;
+        })
+        return
       }
 
       if (!this.activityId) {
         uni.showToast({
           title: '活动 ID 不存在',
-<<<<<<< HEAD
           icon: 'none',
-=======
-          icon: 'none'
->>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
-        });
-        return;
+        })
+        return
       }
       // 检查活动是否已结束
 
-<<<<<<< HEAD
       if (
         this.testHour === 0 &&
         this.testMinute === 0 &&
@@ -442,91 +290,50 @@ export default {
         uni.showToast({
           title: '活动已结束',
           icon: 'none',
-        });
-        return;
+        })
+        return
       }
       // 如果已报名，直接返回
       if (this.matchedDetails.hadSignup) {
         uni.showToast({
           title: '您已经报名',
           icon: 'none',
-        });
-        return; // 不发送请求
+        })
+        return // 不发送请求
       }
       // 调用封装的 signUpActivity 方法
       try {
         const response = await signUpActivity({
           user_id: user_id,
           activity_id: Number(this.activityId),
-        });
-=======
-      if (this.testHour === 0 && this.testMinute === 0 && this.testSecond === 0) {
-        uni.showToast({
-          title: '活动已结束',
-          icon: 'none'
-        });
-        return;
-      }
-      // 调用封装的 signUpActivity 方法
-      try {
-        const response = await signUpActivity({ user_id: user_id, activity_id: Number(this.activityId) });
->>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
+        })
 
         if (response.code === 1) {
           uni.showToast({
             title: response.msg || '报名成功',
             icon: 'success',
-<<<<<<< HEAD
             duration: 2000,
-=======
-            duration: 2000
->>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
-          });
+          })
           if (this.matchedDetails) {
             // 假设 you want to set hadSignup to true
-            this.matchedDetails.hadSignup = true;
-<<<<<<< HEAD
+            this.matchedDetails.hadSignup = true
           } else {
-            console.log('matchedDetails 尚未加载');
+            console.log('matchedDetails 尚未加载')
           }
-          const courseListResponse = await fetchActivityCourseList(
-            this.options
-          );
-=======
-
-          } else {
-            console.log('matchedDetails 尚未加载');
-          }
-          const courseListResponse = await fetchActivityCourseList(this.options);
-
-
->>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
+          const courseListResponse = await fetchActivityCourseList(this.options)
         } else {
           uni.showToast({
             title: response.msg || '报名失败，请重试',
             icon: 'error',
-<<<<<<< HEAD
             duration: 2000,
-          });
+          })
         }
       } catch (error) {
-        console.error('报名失败:', error);
+        console.error('报名失败:', error)
       }
     },
   },
-};
-=======
-            duration: 2000
-          });
-        }
-
-      } catch (error) {
-        console.error('报名失败:', error);
-      }
-    }
-  },
 }
->>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
 </script>
 
 <style lang="scss">
@@ -614,11 +421,7 @@ export default {
 
 .actitmeText2 {
   font-size: 28rpx;
-<<<<<<< HEAD
   color: #666666;
-=======
-  color: #333333;
->>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
 }
 
 .actitmeText3 {
@@ -711,11 +514,8 @@ export default {
 .gobtn {
   width: 232rpx;
   height: 80rpx;
-<<<<<<< HEAD
   font-size: 32rpx;
   font-weight: bold;
-=======
->>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
   background: #ff9e02;
   border-radius: 0rpx 200rpx 200rpx 50rpx;
   color: #fff;
@@ -749,11 +549,7 @@ export default {
 
 .detaText {
   margin-left: 12rpx;
-<<<<<<< HEAD
   font-weight: bold;
-=======
-  font-weight: 500;
->>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
   font-size: 32rpx;
   color: #000000;
 }
@@ -963,24 +759,15 @@ export default {
 
 .listindex {
   width: 100%;
-<<<<<<< HEAD
   height: 100%;
   background: #ffffff;
-=======
-  background: #ffffff;
-  // box-shadow: 0rpx 4rpx 8rpx 2rpx rgba(0, 0, 0, 0.05);
->>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
   border-radius: 16rpx;
   padding: 28rpx 0 28rpx 30rpx;
 }
 
 .actitmeText1 {
   font-size: 32rpx;
-<<<<<<< HEAD
   font-weight: bold;
-=======
-  font-weight: 500;
->>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
 }
 
 .actitmeText2 {
@@ -1060,10 +847,7 @@ export default {
   .peotext {
     margin-left: 16rpx;
     margin-right: 16rpx;
-<<<<<<< HEAD
     font-weight: bold;
-=======
->>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
   }
 }
 
@@ -1156,7 +940,6 @@ export default {
   justify-content: space-between;
   align-items: center;
 }
-<<<<<<< HEAD
 ::v-deep.detaxiangqing {
   text-indent: 0 !important;
 }
@@ -1166,6 +949,4 @@ export default {
   width: 100% !important;
   height: 100% !important;
 }
-=======
->>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
 </style>

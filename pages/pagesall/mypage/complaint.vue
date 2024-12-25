@@ -1,6 +1,5 @@
 <template>
   <view class="container">
-<<<<<<< HEAD
     <view :style="'height:' + statusBarHeight + 'px;'"></view>
     <view class="form">
       <textarea
@@ -9,11 +8,6 @@
         v-model="feedback"
         @input="updateCharCount"
       ></textarea>
-=======
-    <view :style="'height:' + (statusBarHeight + 5) + 'px;'"></view>
-    <view class="form">
-      <textarea class="textarea" placeholder="请输入您的投诉意见" v-model="feedback" @input="updateCharCount"></textarea>
->>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
       <text class="char-count">{{ charCount }}/1000</text>
       <button class="submit-button" @click="submitFeedback">提交</button>
     </view>
@@ -21,73 +15,49 @@
 </template>
 
 <script setup>
-<<<<<<< HEAD
-import { ref } from 'vue';
-import { submitComplaint } from '@/utils/api';
-import { onLoad } from '@dcloudio/uni-app';
-const statusBarHeight = ref();
-onLoad(() => {
-  statusBarHeight.value = getApp().globalData.top;
-});
-
-const feedback = ref('');
-=======
-import { ref } from "vue";
-import { submitComplaint } from "@/utils/api";
-import { onLoad } from '@dcloudio/uni-app';
+import { ref } from 'vue'
+import { submitComplaint } from '@/utils/api'
+import { onLoad } from '@dcloudio/uni-app'
 const statusBarHeight = ref()
 onLoad(() => {
-  statusBarHeight.value = getApp().globalData.top;
+  statusBarHeight.value = getApp().globalData.top
 })
 
-const feedback = ref("");
->>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
-const charCount = ref(0);
+const feedback = ref('')
+const charCount = ref(0)
 
 const updateCharCount = () => {
-  charCount.value = feedback.value.length;
-};
+  charCount.value = feedback.value.length
+}
 
 const showToast = (title, icon) => {
   uni.showToast({
     title,
     icon,
-  });
-};
+  })
+}
 
 const submitFeedback = async () => {
   if (!feedback.value.trim()) {
-<<<<<<< HEAD
-    return showToast('请输入投诉意见', 'none');
+    return showToast('请输入投诉意见', 'none')
   }
 
   try {
-    let res = await submitComplaint({ data: feedback.value }); // 将 feedback.value 作为参数传递
+    let res = await submitComplaint({ data: feedback.value }) // 将 feedback.value 作为参数传递
     // showToast('投诉意见已提交', 'success');
     // uni.navigateBack();
     uni.showToast({
       title: '投诉意见已提交',
       icon: 'success',
       success: () => {
-        uni.navigateBack();
+        uni.navigateBack()
       },
-    });
+    })
   } catch (error) {
-    showToast('提交失败，请稍后再试', 'none');
-    console.error('提交反馈失败:', error);
-=======
-    return showToast("请输入投诉意见", "none");
+    showToast('提交失败，请稍后再试', 'none')
+    console.error('提交反馈失败:', error)
   }
-
-  try {
-    await submitComplaint({ data: feedback.value }); // 将 feedback.value 作为参数传递
-    showToast("投诉意见已提交", "success");
-  } catch (error) {
-    showToast("提交失败，请稍后再试", "none");
-    console.error("提交反馈失败:", error);
->>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
-  }
-};
+}
 </script>
 
 <style scoped>

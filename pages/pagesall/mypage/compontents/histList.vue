@@ -1,6 +1,5 @@
 <template>
   <view class="box-list">
-<<<<<<< HEAD
     <view
       class="boxlist"
       v-for="(item, index) in histList"
@@ -15,17 +14,6 @@
       </view>
       <view class="boxlistText2">
         <text>{{ item.date ? item.date : item.teacherName }}</text>
-=======
-    <view class="boxlist" v-for="(item,index) in histList" :key="index" @click="toCorr">
-      <view class="boxlistImg">
-        <img :src="item.img" alt="" />
-      </view>
-      <view class="boxlistText1">
-        {{item.title}}
-      </view>
-      <view class="boxlistText2">
-        <text>{{item.date ? item.date : item.teacherName}}</text>
->>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
         <view class="boxlistText3">
           <text>评测:</text>
           <text class="boxlistText4">{{ item.grade }}</text>
@@ -41,45 +29,23 @@ export default {
   props: {
     histList: {
       type: Array,
-<<<<<<< HEAD
       default: [],
     },
   },
   emits: ['tea'],
   data() {
-    return {};
+    return {}
   },
   onload() {},
   methods: {
     toCorr(id) {
-      this.$emit('tea', id); // 向父组件传值
+      this.$emit('tea', id) // 向父组件传值
       // uni.navigateTo({
       //   url: `/pages/pagesall/aiDete/aiResult?homework_id=${id}`, // 使用模板字符串传入变量
       // })
     },
   },
-};
-=======
-      default: []
-    }
-  },
-  data() {
-    return {
-
-    }
-  },
-  onload() {
-
-  },
-  methods: {
-    toCorr() {
-      uni.navigateTo({
-        url: "/pages/pagesall/mypage/correction"
-      })
-    }
-  }
 }
->>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
 </script>
 
 <style>
@@ -103,7 +69,6 @@ export default {
   width: 340rpx;
   height: 160rpx;
 }
-<<<<<<< HEAD
 .boxlistImg2 {
   width: 340rpx;
   height: 200rpx;
@@ -116,12 +81,6 @@ export default {
 .boxlistImg2 img {
   width: 100%;
   height: 100%;
-=======
-
-.boxlistImg img {
-  width: 340rpx;
-  height: 160rpx;
->>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
 }
 
 .boxlistText1 {
@@ -130,12 +89,9 @@ export default {
   font-weight: 600;
   font-size: 28rpx;
   line-height: 40rpx;
-<<<<<<< HEAD
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
-=======
->>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
 }
 
 .boxlistText2 {
@@ -159,8 +115,4 @@ export default {
   font-size: 16rpx;
   color: #ffffff;
 }
-<<<<<<< HEAD
 </style>
-=======
-</style>
->>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74

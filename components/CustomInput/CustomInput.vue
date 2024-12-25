@@ -1,16 +1,26 @@
 <template>
   <view class="input-container">
-    <input :type="inputType" :placeholder="placeholder" :disabled="isDisabled" class="custom-input" v-model="currentValue" @input="updateValue" />
+    <input
+      :type="inputType"
+      :placeholder="placeholder"
+      :disabled="isDisabled"
+      class="custom-input"
+      v-model="currentValue"
+      @input="updateValue"
+    />
     <!-- <uni-easyinput class="custom-input" :type="inputType" v-model="currentValue" :disabled="isDisabled" :placeholder="placeholder" @input="updateValue"></uni-easyinput> -->
-    <image class="icon_1" referrerpolicy="no-referrer" src="https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPng020f3b0f7825fdd6e79b0361c149b486540d9894e91feb72f43c076696f9d05f" style="width: 28rpx; height: 28rpx;" @click="enableInput" />
+    <image
+      class="icon_1"
+      referrerpolicy="no-referrer"
+      src="https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPng020f3b0f7825fdd6e79b0361c149b486540d9894e91feb72f43c076696f9d05f"
+      style="width: 28rpx; height: 28rpx"
+      @click="enableInput"
+    />
   </view>
 </template>
 
 <script>
-import {
-  ref,
-  watch
-} from 'vue';
+import { ref, watch } from 'vue'
 
 export default {
   props: {
@@ -23,53 +33,48 @@ export default {
       default: true,
     },
     modelValue: {
-<<<<<<< HEAD
       type: null,
-=======
-      type: String,
->>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
       default: '',
     },
-    type: {  // 新增 type 属性
+    type: {
+      // 新增 type 属性
       type: String,
-      default: 'text', // 默认设置为 
+      default: 'text', // 默认设置为
     },
   },
-  setup(props, {
-    emit
-  }) {
-    const isDisabled = ref(props.disabled);
-    const currentValue = ref(props.modelValue);
+  setup(props, { emit }) {
+    const isDisabled = ref(props.disabled)
+    const currentValue = ref(props.modelValue)
     // 添加 inputType，以保持与 props.type 同步
-    const inputType = ref(props.type);
+    const inputType = ref(props.type)
     const updateValue = () => {
-      emit('update:modelValue', currentValue.value);
-    };
+      emit('update:modelValue', currentValue.value)
+    }
 
     const enableInput = () => {
-      isDisabled.value = false;
-    };
+      isDisabled.value = false
+    }
 
     watch(
       () => props.modelValue,
       (newValue) => {
-        currentValue.value = newValue; // Sync with prop value
+        currentValue.value = newValue // Sync with prop value
       }
-    );
+    )
 
     watch(
       () => props.disabled,
       (newDisabled) => {
-        isDisabled.value = newDisabled; // Sync with prop value
+        isDisabled.value = newDisabled // Sync with prop value
       }
-    );
+    )
     // 监视 type 属性的变化
     watch(
       () => props.type,
       (newType) => {
-        inputType.value = newType; // 同步更新 inputType
+        inputType.value = newType // 同步更新 inputType
       }
-    );
+    )
 
     return {
       isDisabled,
@@ -77,9 +82,9 @@ export default {
       updateValue,
       enableInput,
       inputType, // 需要返回 inputType 以供模板使用
-    };
+    }
   },
-};
+}
 </script>
 
 <style scoped>

@@ -1,6 +1,5 @@
 <template>
   <view class="page">
-<<<<<<< HEAD
     <view :style="'height:' + statusBarHeight + 'px;'"></view>
     <view class="box1">
       <image
@@ -9,62 +8,39 @@
         :src="constants.site_logo"
       />
       <text class="text-group_2">{{ constants.content }}</text>
-=======
-    <view :style="'height:' + (statusBarHeight + 5) + 'px;'"></view>
-    <view class="box1">
-      <image class="image_2" referrerpolicy="no-referrer" :src="constants.downloadurl" />
-      <text class="text-group_2">{{constants.content}}</text>
->>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
     </view>
     <view class="box2">
       <text class="text2">当前版本：{{ constants.newversion }}</text>
     </view>
   </view>
-<<<<<<< HEAD
-</template>
-<script>
-import { fetchAboutUs } from '@/utils/api';
-=======
-
 </template>
 <script>
 import { fetchAboutUs } from '@/utils/api'
->>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
 export default {
   data() {
     return {
       constants: null,
       statusBarHeight: '',
-    };
+    }
   },
   onLoad() {
-    this.statusBarHeight = getApp().globalData.top;
-    this.getAboutUs();
+    this.statusBarHeight = getApp().globalData.top
+    this.getAboutUs()
   },
 
   methods: {
     async getAboutUs() {
       try {
-        const response = await fetchAboutUs();
-<<<<<<< HEAD
+        const response = await fetchAboutUs()
         // console.log(response)
-        this.constants = response; // 根据实际返回结果调整
+        this.constants = response // 根据实际返回结果调整
         // console.log(this.constants)
       } catch (error) {
-        console.error('获取关于我们的接口失败：', error);
+        console.error('获取关于我们的接口失败：', error)
       }
     },
-=======
-        console.log(response)
-        this.constants = response; // 根据实际返回结果调整
-        console.log(this.constants)
-      } catch (error) {
-        console.error('获取关于我们的接口失败：', error);
-      }
-    }
->>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
   },
-};
+}
 </script>
 <style>
 .page {
@@ -121,8 +97,4 @@ export default {
   font-size: 36rpx;
   color: #000000;
 }
-<<<<<<< HEAD
 </style>
-=======
-</style>
->>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74

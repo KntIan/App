@@ -1,5 +1,4 @@
 <template>
-<<<<<<< HEAD
   <view style="position: relative">
     <view :style="'height:' + statusBarHeight + 'px;'"></view>
     <view class="ai—_box" style="position: absolute; z-index: 1000">
@@ -37,65 +36,10 @@
           mode="widthFix"
         />
         <view class="note3_text notes"> 使用说明 </view>
-=======
-  <view style="position: relative;">
-    <view :style="'height:' + (statusBarHeight + 5) + 'px;'"></view>
-    <view class="ai—_box" style="position: absolute; z-index: 1000;">
-      <view class="ai_img">
-
-      </view>
-
-      <view class="ai_title">
-
-      </view>
-      <view class="photo_box">
-        <view class="left_top">
-          <img src="https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPng8841afb2ed9b814c547bbb1d87bb42508771ef6fea67f1f4b54dae3061027a9c" alt="" />
-        </view>
-        <view class="right_top">
-          <img src="https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPnge94653dbe7f9bbbbe93f73e44c1dc68ccd17c869bf40e27cee8834315c37bd77" alt="" />
-        </view>
-        <view class="right_bottom">
-          <img src="https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPngb3b3f03ebc6279ecc80d4ea63aa70fe3cf9aea5a8a49c7a1abe68f3e7fda82ac" alt="" />
-        </view>
-        <view class="left_bottom">
-          <img src="https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPngff2bda36ded4b2b18a74c5ae9c8f5cc1c354864c822489c9660cfd7d2d26bc3e" alt="" />
-        </view>
-
-        <view class="photo_box2" @click="chooseImage">
-          <view class="photo_box3">
-            <img src="https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPng3ed3fe30d1cf29e35208039bd47fd79c2b4a0a89c3f20565393574a04704475a" alt="" />
-            <view class="photo_text">
-              拍照测评
-            </view>
-          </view>
-
-        </view>
-      </view>
-
-      <view class="note1">
-        <image style="width: 28rpx;height: 28rpx;" src="../../static/img/satr.png" mode="widthFix" />
-        <view class="note1_text notes">
-          仅支持正版彩色专用纸
-        </view>
-      </view>
-      <view class="note2">
-        <image style="width: 28rpx;height: 28rpx;" src="../../static/img/satr.png" mode="widthFix" />
-        <view class="note2_text notes">
-          测评标准为楷体GB2312
-        </view>
-      </view>
-      <view class="note3">
-        <image style="width: 28rpx;height: 28rpx;" src="../../static/img/jinggao.png" mode="widthFix" />
-        <view class="note3_text notes">
-          使用说明
-        </view>
->>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
       </view>
 
       <!-- <scroll-view ref="aiBox" id="myScrollView" scroll-y="true" style="height: 100vh;"> -->
       <div class="content" ref="aiBox">
-<<<<<<< HEAD
         <!-- <div>
           <canvas ref="myCanvas" canvas-id="myCanvas" id="myCanvas" :style="{ width: '100vw', height: canvasHeight + 'px' }" @tap="handleCanvasClick">
           </canvas>
@@ -103,17 +47,6 @@
       </div>
       <!-- </scroll-view> -->
     </view>
-=======
-
-        <div>
-          <canvas ref="myCanvas" canvas-id="myCanvas" id="myCanvas" :style="{ width: '100vw', height: canvasHeight + 'px' }" @tap="handleCanvasClick">
-          </canvas>
-        </div>
-      </div>
-      <!-- </scroll-view> -->
-    </view>
-
->>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
   </view>
 </template>
 
@@ -589,26 +522,25 @@ export default {
       canvasNode: null,
       evaluationDesc: '',
       statusBarHeight: '',
-    };
+    }
   },
   onLoad() {
-    this.statusBarHeight = getApp().globalData.top;
+    this.statusBarHeight = getApp().globalData.top
   },
   methods: {
     chooseImage() {
       uni.navigateTo({
         url: '/pages/pagesall/aiDete/aiResult', // 目标页面路径
         success: () => {
-          console.log('成功跳转到目标页面');
+          console.log('成功跳转到目标页面')
         },
         fail: (err) => {
-          console.error('跳转失败', err);
-<<<<<<< HEAD
+          console.error('跳转失败', err)
         },
-      });
+      })
     },
   },
-};
+}
 </script>
 
 <style scoped>
@@ -616,27 +548,12 @@ body {
   overflow: hidden;
 }
 
-=======
-        }
-      });
-    }
-  }
-}
-</script>
-
-<style scoped>
->>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
 .ai—_box {
   /* width: 100%;
 		height: 100%; */
   width: 100%;
-<<<<<<< HEAD
   height: 100vh;
   background: url('../../static/img/aibg.png');
-=======
-  height: 93vh;
-  background: url("../../static/img/aibg.png");
->>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
   background-size: cover;
   position: relative;
   display: flex;
@@ -668,11 +585,7 @@ body {
 .photo_box {
   width: 480rpx;
   height: 480rpx;
-<<<<<<< HEAD
   /* background: linear-gradient(
-=======
-  background: linear-gradient(
->>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
     180deg,
     rgba(255, 159, 4, 0.24) 0%,
     rgba(255, 255, 255, 0) 50%,
@@ -686,11 +599,7 @@ body {
       rgba(255, 255, 255, 0),
       rgba(255, 255, 255, 0.8)
     )
-<<<<<<< HEAD
     4 4; */
-=======
-    4 4;
->>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
   position: relative;
   display: flex;
   justify-content: center;
@@ -796,8 +705,4 @@ body {
   bottom: 5%;
   right: 0;
 }
-<<<<<<< HEAD
 </style>
-=======
-</style>
->>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74

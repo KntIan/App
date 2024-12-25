@@ -12,24 +12,16 @@
 			"style": {
 				"navigationBarTitleText": "登录页",
 				"navigationStyle": "custom",
-<<<<<<< HEAD
 				"app-plus": {
 					"popGesture": "none"
 				}
-=======
-				"enablePullDownRefresh": true
->>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
 			}
 		},
 		{
 			"path": "pages/login/ratpass",
 			"style": {
 				"navigationBarTitleText": "找回密码",
-<<<<<<< HEAD
 				"navigationStyle": "custom"
-=======
-				"navigationStyle": "default "
->>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
 			}
 		},
 		{
@@ -51,12 +43,8 @@
 			"style": {
 				"navigationBarTitleText": "课程",
 				"navigationStyle": "custom",
-<<<<<<< HEAD
 				"enablePullDownRefresh": true,
 				"onReachBottomDistance": 50
-=======
-				"enablePullDownRefresh": true
->>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
 			}
 		}, {
 			"path": "pages/pagesall/aiDete",
@@ -83,12 +71,7 @@
 		{
 			"path": "pages/pagesall/home/signUp",
 			"style": {
-<<<<<<< HEAD
 				"navigationBarTitleText": "立即报名"
-=======
-				"navigationBarTitleText": "立即报名",
-				"navigationStyle": "custom"
->>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
 			}
 		},
 		{
@@ -122,12 +105,7 @@
 		{
 			"path": "pages/pagesall/home/adverMess",
 			"style": {
-<<<<<<< HEAD
 				"navigationBarTitleText": "公告消息"
-=======
-				"navigationBarTitleText": "公告消息",
-				"navigationStyle": "custom"
->>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
 			}
 		},
 		{
@@ -147,12 +125,7 @@
 		{
 			"path": "pages/pagesall/home/game",
 			"style": {
-<<<<<<< HEAD
 				"navigationBarTitleText": "赛事比赛"
-=======
-				"navigationBarTitleText": "赛事比赛",
-				"navigationStyle": "custom"
->>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
 			}
 		},
 		{
@@ -165,12 +138,7 @@
 		{
 			"path": "pages/pagesall/course/go_learn",
 			"style": {
-<<<<<<< HEAD
 				"navigationBarTitleText": "双师课堂"
-=======
-				"navigationBarTitleText": "学习",
-				"navigationStyle": "custom"
->>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
 			}
 		},
 		{
@@ -273,11 +241,7 @@
 				"navigationBarTitleText": "我的作业",
 				"navigationStyle": "custom",
 				"enablePullDownRefresh": true,
-<<<<<<< HEAD
 				"onReachBottomDistance": 50
-=======
-                "onReachBottomDistance": 50
->>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
 			}
 		},
 		{
@@ -359,26 +323,17 @@
 			"path": "pages/pagesall/home/informationDetails",
 			"style": {
 				"navigationBarTitleText": "资讯列表",
-<<<<<<< HEAD
 				"navigationBarBackgroundColor": "#eeeeee",
 				"enablePullDownRefresh": true,
 				"onReachBottomDistance": 50
-=======
-				"navigationStyle": "custom"
->>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
 			}
 		},
 		{
 			"path": "pages/pagesall/home/informationDetailsmess",
 			"style": {
-<<<<<<< HEAD
 				"navigationBarTitleText": "资讯详情",
 				"navigationBarBackgroundColor": "white"
 
-=======
-				"navigationBarTitleText": "",
-				"navigationStyle": "custom"
->>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
 			}
 		},
 		{
@@ -388,7 +343,6 @@
 
 				"navigationStyle": "custom"
 			}
-<<<<<<< HEAD
 		},
 		{
 			"path": "pages/pagesall/course/golearn",
@@ -413,8 +367,6 @@
 				"enablePullDownRefresh": true,
 				"onReachBottomDistance": 50
 			}
-=======
->>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
 		}
 
 	],
@@ -428,15 +380,10 @@
 	},
 	"tabBar": {
 		"borderStyle": "black",
-<<<<<<< HEAD
 		"selectedColor": "#FF9E02",
 
 		"color": "#444444",
 
-=======
-		"selectedColor": "#FB7299",
-		"color": "#444444",
->>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
 		"list": [{
 			"pagePath": "pages/pagesall/home",
 			"iconPath": "./static/img/index.png",
@@ -448,14 +395,6 @@
 			"selectedIconPath": "./static/img/les1.png",
 			"text": "课程"
 		}, {
-<<<<<<< HEAD
-=======
-			"pagePath": "pages/pagesall/aiDete",
-			"iconPath": "./static/img/ai1.png",
-			"selectedIconPath": "./static/img/ai1.png",
-			"text": "AI测评"
-		}, {
->>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
 			"pagePath": "pages/pagesall/oper",
 			"iconPath": "./static/img/act.png",
 			"selectedIconPath": "./static/img/act1.png",
@@ -465,7 +404,6 @@
 			"iconPath": "./static/img/my.png",
 			"selectedIconPath": "./static/img/my1.png",
 			"text": "我的"
-<<<<<<< HEAD
 		}],
 		"midButton": {
 			"iconWidth": "60px",
@@ -474,16 +412,6 @@
 			"iconPath": "static/img/ai1.png"
 		}
 	},
-=======
-		}]
-	},
-	// "midButton": {
-	//   "width": "60px",
-	//   "height": "60px",
-	//   "iconWidth": "50px",
-	//   "iconPath": "./static/img/ai1.png"
-	// },
->>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
 
 	"uniIdRouter": {}
 }

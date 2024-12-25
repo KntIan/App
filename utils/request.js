@@ -3,11 +3,7 @@ const httpRequest = (method) => async (url, data) => {
   return new Promise((resolve, reject) => {
     uni.request({
       url: `http://admin.zexishuhua.com/api${url}`, // API基础URL需加在这里
-<<<<<<< HEAD
       // url: `http://www.zexiart.com/api${url}`, // API基础URL需加在这里
-=======
-      //   url: `http://www.zexiart.com/api${url}`, // API基础URL需加在这里
->>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
       // url: `http://zexiart.com/api${url}`, // API基础URL需加在这里
       method: method.toUpperCase(),
       sslVerify: false, // 关闭SSL验证

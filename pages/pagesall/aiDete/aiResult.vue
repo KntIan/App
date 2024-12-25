@@ -1,5 +1,4 @@
 <template>
-<<<<<<< HEAD
   <scroll-view id="myScrollView" scroll-y="true" style="height: 100vh">
     <view :style="'height:' + statusBarHeight + 'px;'"></view>
     <view class="res_box">
@@ -10,21 +9,10 @@
           @click="res_goback"
         />
         <view class="res_text"> AI测评结果 </view>
-=======
-  <scroll-view id="myScrollView" scroll-y="true" style="height: 100vh;">
-    <view :style="'height:' + (statusBarHeight + 5) + 'px;'"></view>
-    <view class="res_box">
-      <view class="res_box2">
-        <img src="https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPnge1553c1d8d43568ee582b54f1deab731573c8804790b09e299c2e73eda1cfa68" alt="" @click="res_goback" />
-        <view class="res_text">
-          AI测评结果
-        </view>
->>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
       </view>
 
       <view class="res_box3">
         <view class="res_heard">
-<<<<<<< HEAD
           <view style="display: flex; align-items: center">
             <img
               style="border-radius: 50%; width: 144rpx; height: 144rpx"
@@ -36,21 +24,11 @@
                 {{ userInfo.nickname }}
               </view>
               <view class="text_2"> ID:{{ userInfo.show_id }} </view>
-=======
-          <img style="border-radius: 50%;" :src="userInfo.avatar" alt="" />
-          <view class="head_text">
-            <view class="text_1">
-              {{userInfo.nickname}}
-            </view>
-            <view class="text_2">
-              ID:{{userInfo.id}}
->>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
             </view>
           </view>
         </view>
         <view class="score_box">
           <view class="score_box1">
-<<<<<<< HEAD
             <view class="">
               <text style="font-weight: bold; font-size: 28rpx; color: #000000"
                 >当前文字评分：</text
@@ -117,60 +95,16 @@
       </canvas>
     </view>
   </scroll-view>
-=======
-            <view class="score_text">
-              {{ comprehensiveLevel }}
-            </view>
-            <img src="https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPngfe293373ca510260bf25cf15905e96d33c640dc3b4be40d673f30a4860f69215" alt="" />
-            <img src="https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPngfe293373ca510260bf25cf15905e96d33c640dc3b4be40d673f30a4860f69215" alt="" />
-          </view>
-          <view class="scoring_box">
-
-            <view class="xingxing1" v-for="(item,index) in score_List" :key="index">
-              <view class="xingxing">
-                {{item.title}}
-              </view>
-              <uni-rate :readonly="true" size="20" :value="item.score" />
-            </view>
-
-          </view>
-
-        </view>
-
-        <textarea type="text" class="ipt_res" placeholder="  重心写的很棒，注意整体形态，笔画再加长一些，加油！你距离成功仅仅一步之遥，多跟泽曦名师学习，相信可以写的更好！" />
-
-      </view>
-
-    </view>
-    <!-- <view style="display: flex;">
-      <canvas ref="wordMask" canvas-id="wordMask" id="wordMask" style="width: 128px; height: 128px; border: 1px solid red;"></canvas>
-      <text class="pageDesc">{{evaluationDesc}}</text>
-    </view> -->
-
-    <view>
-
-      <canvas ref="myCanvas" canvas-id="myCanvas" id="myCanvas" :style="{ width: '100vw', height: canvasHeight + 'px' }" @tap="handleCanvasClick">
-      </canvas>
-    </view>
-
-  </scroll-view>
-
->>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
 </template>
 
 <script>
-import { useStore } from '@/store';
-<<<<<<< HEAD
-import { goStudy, fetchHomeworkAIReviewDetail } from '@/utils/api';
-=======
-import { goStudy } from '@/utils/api'
->>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
+import { useStore } from '@/store'
+import { goStudy, fetchHomeworkAIReviewDetail } from '@/utils/api'
 
 export default {
   data() {
     return {
       canvasRef: null, // canvas 的引用
-<<<<<<< HEAD
       stu_List: [
         {
           name: '刘琪琦',
@@ -203,34 +137,6 @@ export default {
 
       // imageSrc: '/static/logo.png',
       imagePath: '',
-=======
-      stu_List: [{
-        name: '刘琪琦',
-        id: '1008601'
-      }],
-      score_List: [{
-        title: '重心',
-        score: 5,
-      }, {
-        title: '位置',
-        score: 4,
-      }, {
-        title: '形态',
-        score: 3,
-      }, {
-        title: '笔画',
-        score: 2,
-      }, {
-        title: '大小',
-        score: 1,
-      }],
-      comprehensiveLevel: '',
-
-
-
-      // imageSrc: '/static/logo.png',
-      imagePath: null,
->>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
       token: null,
       pageMark: 0, // 卷面分
       canvasWidth: 0, // canvas 的宽度
@@ -242,122 +148,35 @@ export default {
       scrollTop: 0,
       mouseX: 0,
       mouseY: 0,
-<<<<<<< HEAD
       evaluationDesc: '',
       statusBarHeight: '',
       historyAi_id: '',
       originImg: null,
       scoreMark: [],
-=======
-      evaluationDesc: "",
-      statusBarHeight: ''
->>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
-    };
+    }
   },
   computed: {
     userInfo() {
-      const store = useStore();
-      return store.userinfo;
-<<<<<<< HEAD
+      const store = useStore()
+      return store.userinfo
     },
   },
 
   mounted() {
-    this.getToken(); // 在组件挂载时获取 token
+    this.getToken() // 在组件挂载时获取 token
   },
   onLoad(options) {
-    this.historyAi_id = options.homework_id;
+    this.historyAi_id = options.homework_id
     // 获取设备屏幕宽度，用于设置 canvas 宽度
-    const systemInfo = uni.getSystemInfoSync();
-    this.canvasWidth = systemInfo.windowWidth; // 设置 canvas 宽度为 100vw
+    const systemInfo = uni.getSystemInfoSync()
+    this.canvasWidth = systemInfo.windowWidth // 设置 canvas 宽度为 100vw
     if (!this.historyAi_id) {
-      console.log(11);
-      this.chooseImage();
+      console.log(11)
+      this.chooseImage()
     } else {
-      this.getFetchHomeworkAIReviewDetail();
+      this.getFetchHomeworkAIReviewDetail()
     }
-    this.statusBarHeight = getApp().globalData.top;
-=======
-    }
-  },
-  mounted() {
-
-    this.getToken(); // 在组件挂载时获取 token
-    this.store = useStore(); // 使用状态管理
-    console.log(this.store.resultDivData, typeof this.store.resultDivData);
-
-    // if (this.store.resultDivData) {
-    //   console.log(this.$refs.resultsContainer, '+++++++++');
-    //   // this.$refs.resultsContainer.appendChild(this.store.resultDivData);
-    //   // this.$refs.resultsContainer.innerHTML = this.store.resultDivData
-    // } else {
-    //   console.error("resultDivData is null");
-    // }
-
-    let scoreText = this.store.evaluationDesc;
-    console.log(scoreText);
-
-    if (scoreText) {
-      // 使用正则表达式提取分数
-      const scores = {
-        综合得分: null,
-        重心得分: null,
-        形态得分: null,
-        大小得分: null,
-        位置得分: null,
-        笔画得分: null
-      };
-
-      const regex = /(综合得分|重心得分|形态得分|大小得分|位置得分|笔画得分)[^\d]*(\d+)/g;
-      let match;
-      while ((match = regex.exec(scoreText)) !== null) {
-        const scoreType = match[1]; // 得分类型
-        const scoreValue = parseInt(match[2], 10); // 将得分值转换为整数
-        if (scores.hasOwnProperty(scoreType)) {
-          scores[scoreType] = scoreValue; // 存储得分
-        }
-      }
-
-      const getComprehensiveLevel = (score) => {
-        return score >= 60 ? '优' : '差'; // 60分及以上为优
-      };
-
-      if (scores.综合得分 !== null) {
-        this.comprehensiveLevel = getComprehensiveLevel(scores.综合得分);
-      }
-
-      const getOtherLevel = (score) => {
-        if (score >= 80) return 5;  // 80-100 -> 等级5
-        if (score >= 60) return 4;  // 60-79 -> 等级4
-        if (score >= 40) return 3;  // 40-59 -> 等级3
-        if (score >= 20) return 2;  // 20-39 -> 等级2
-        return 1;                   // 0-19 -> 等级1
-      };
-
-      const scoreMap = {
-        '重心': scores.重心得分,
-        '位置': scores.位置得分,
-        '形态': scores.形态得分,
-        '笔画': scores.笔画得分,
-        '大小': scores.大小得分,
-      };
-
-      this.score_List.forEach(item => {
-        const score = scoreMap[item.title];
-        if (score !== undefined) {
-          item.score = getOtherLevel(score); // 将等级赋值给对应的项
-        }
-      });
-    }
-  },
-  onLoad() {
-    // 获取设备屏幕宽度，用于设置 canvas 宽度
-    const systemInfo = uni.getSystemInfoSync();
-    this.canvasWidth = systemInfo.windowWidth; // 设置 canvas 宽度为 100vw
-    this.chooseImage()
-    this.statusBarHeight = getApp().globalData.top;
-
->>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
+    this.statusBarHeight = getApp().globalData.top
   },
   // methods: {
   //   handleCanvasClick() {
@@ -365,9 +184,8 @@ export default {
   //   }
   // },
   methods: {
-<<<<<<< HEAD
     score() {
-      let scoreText = this.evaluationDesc;
+      let scoreText = this.evaluationDesc
 
       if (scoreText) {
         // 使用正则表达式提取分数
@@ -378,18 +196,18 @@ export default {
           大小得分: null,
           位置得分: null,
           笔画得分: null,
-        };
+        }
 
         const regex =
-          /(综合得分|重心得分|形态得分|大小得分|位置得分|笔画得分)[^\d]*(\d+)/g;
+          /(综合得分|重心得分|形态得分|大小得分|位置得分|笔画得分)[^\d]*(\d+)/g
 
-        let match;
+        let match
         while ((match = regex.exec(scoreText)) !== null) {
-          const scoreType = match[1]; // 得分类型
+          const scoreType = match[1] // 得分类型
 
-          const scoreValue = parseInt(match[2], 10); // 将得分值转换为整数
+          const scoreValue = parseInt(match[2], 10) // 将得分值转换为整数
           if (scores.hasOwnProperty(scoreType)) {
-            scores[scoreType] = scoreValue; // 存储得分
+            scores[scoreType] = scoreValue // 存储得分
           }
         }
 
@@ -402,12 +220,12 @@ export default {
         // }
 
         const getOtherLevel = (score) => {
-          if (score >= 80) return 5; // 80-100 -> 等级5
-          if (score >= 60) return 4; // 60-79 -> 等级4
-          if (score >= 40) return 3; // 40-59 -> 等级3
-          if (score >= 20) return 2; // 20-39 -> 等级2
-          return 1; // 0-19 -> 等级1
-        };
+          if (score >= 80) return 5 // 80-100 -> 等级5
+          if (score >= 60) return 4 // 60-79 -> 等级4
+          if (score >= 40) return 3 // 40-59 -> 等级3
+          if (score >= 20) return 2 // 20-39 -> 等级2
+          return 1 // 0-19 -> 等级1
+        }
 
         const scoreMap = {
           重心: scores.重心得分,
@@ -415,52 +233,48 @@ export default {
           形态: scores.形态得分,
           笔画: scores.笔画得分,
           大小: scores.大小得分,
-        };
+        }
 
         this.score_List.forEach((item) => {
-          const score = scoreMap[item.title];
+          const score = scoreMap[item.title]
           if (score !== undefined) {
-            item.score = getOtherLevel(score); // 将等级赋值给对应的项
+            item.score = getOtherLevel(score) // 将等级赋值给对应的项
           }
-        });
+        })
       }
     },
-=======
-
->>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
     getToken() {
       uni.getStorage({
         key: 'token', // 存储的 key 名
         success: (res) => {
-          this.token = res.data; // 将获取的 token 存储到 data 属性中
-<<<<<<< HEAD
+          this.token = res.data // 将获取的 token 存储到 data 属性中
         },
         fail: (err) => {
-          console.error('获取 token 失败:', err);
+          console.error('获取 token 失败:', err)
         },
-      });
+      })
     },
     res_goback() {
       uni.navigateBack({
         delta: 1,
-      });
+      })
     },
 
     async getPrivateDoc(targetFile) {
       return new Promise((resolve, reject) => {
-        let fileReader = new plus.io.FileReader(); //new一个可以用来读取文件的对象fileReader
-        fileReader.readAsText(targetFile, 'utf-8'); //读文件的格式
+        let fileReader = new plus.io.FileReader() //new一个可以用来读取文件的对象fileReader
+        fileReader.readAsText(targetFile, 'utf-8') //读文件的格式
         fileReader.onerror = (e) => {
           plus.nativeUI.toast('获取文件失败,请重启应用', {
             background: '#ffa38c',
-          });
-          return;
-        };
+          })
+          return
+        }
         fileReader.onload = (e) => {
-          let txtData = e.target.result;
-          resolve(txtData);
-        };
-      });
+          let txtData = e.target.result
+          resolve(txtData)
+        }
+      })
     },
 
     handleshadowImageLoad(e) {
@@ -471,169 +285,86 @@ export default {
       try {
         const data = {
           homework_id: this.historyAi_id,
-        };
-        const res = await fetchHomeworkAIReviewDetail(data);
-        console.log(res);
+        }
+        const res = await fetchHomeworkAIReviewDetail(data)
+        console.log(res)
 
-        const imagePath = res.items[0].origin_img; // 使用可选链操作符避免未定义的错误
+        const imagePath = res.items[0].origin_img // 使用可选链操作符避免未定义的错误
         // const ctx = uni.createCanvasContext('myCanvas');
         // console.log(res.items[0].origin_img);
         // console.log(imagePath);
-        this.pageMark = res.items[0].content.pageMark;
-        this.scoreMark = res.items[0].content.score;
-        this.ocrResults = res.items[0].content.ocrResults;
-        this.wordMarks = res.items[0].content.wordMarks;
+        this.pageMark = res.items[0].content.pageMark
+        this.scoreMark = res.items[0].content.score
+        this.ocrResults = res.items[0].content.ocrResults
+        this.wordMarks = res.items[0].content.wordMarks
         uni.getImageInfo({
           src: imagePath,
           success: (image) => {
-            console.log('image width', image.width);
-            console.log('image height', image.height);
+            console.log('image width', image.width)
+            console.log('image height', image.height)
 
-            this.chooseImageWidth = image.width;
-            this.chooseImageHeight = image.height;
+            this.chooseImageWidth = image.width
+            this.chooseImageHeight = image.height
 
-            const aspectRatio = this.chooseImageHeight / this.chooseImageWidth; // 计算图片宽高比
-            this.canvasHeight = this.canvasWidth * aspectRatio;
-            this.imagePath = imagePath;
-            console.log(this.imagePath);
+            const aspectRatio = this.chooseImageHeight / this.chooseImageWidth // 计算图片宽高比
+            this.canvasHeight = this.canvasWidth * aspectRatio
+            this.imagePath = imagePath
+            console.log(this.imagePath)
             setTimeout(() => {
-              this.drawImage();
-              this.drawImageWithData();
-            }, 100);
+              this.drawImage()
+              this.drawImageWithData()
+            }, 100)
           },
-        });
+        })
       } catch (err) {}
     },
-=======
-          console.log('获取的 token:', this.token);
-        },
-        fail: (err) => {
-          console.error('获取 token 失败:', err);
-        }
-      });
-    },
->>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
 
     chooseImage() {
-      this.pageMark = 0;
+      this.pageMark = 0
       uni.chooseImage({
         count: 1,
         sizeType: ['compressed'],
         sourceType: ['album', 'camera'],
         success: (res) => {
-          this.imageSrc = res.tempFilePaths[0];
-          this.imagePath = res.tempFilePaths[0];
-<<<<<<< HEAD
+          this.imageSrc = res.tempFilePaths[0]
+          this.imagePath = res.tempFilePaths[0]
           uni.getImageInfo({
             src: res.tempFilePaths[0],
             success: (image) => {
-              this.chooseImageWidth = image.width;
-              this.chooseImageHeight = image.height;
-              const aspectRatio =
-                this.chooseImageHeight / this.chooseImageWidth; // 计算图片宽高比
-              this.canvasHeight = this.canvasWidth * aspectRatio;
-              setTimeout(() => {
-                this.drawImage();
-                this.submitForm();
-              }, 100);
-            },
-          });
-        },
-        fail: (err) => {
-          // console.error('选择图片失败：', err)
-          uni.navigateBack(); // 返回上一页
-        },
-      });
-    },
-=======
-          console.log("choose file path ", res.tempFiles[0].path)
-          console.log("choose file size ", res.tempFiles[0].size)
-
-
-
-          uni.getImageInfo({
-            src: res.tempFilePaths[0],
-            success: (image) => {
-              console.log("choose image width", image.width);
-              console.log("choose image height", image.height);
-              this.chooseImageWidth = image.width;
-              this.chooseImageHeight = image.height;
-              const aspectRatio = this.chooseImageHeight / this
-                .chooseImageWidth; // 计算图片宽高比
-              this.canvasHeight = this.canvasWidth * aspectRatio;
+              this.chooseImageWidth = image.width
+              this.chooseImageHeight = image.height
+              const aspectRatio = this.chooseImageHeight / this.chooseImageWidth // 计算图片宽高比
+              this.canvasHeight = this.canvasWidth * aspectRatio
               setTimeout(() => {
                 this.drawImage()
                 this.submitForm()
-
               }, 100)
-
-            }
-          });
+            },
+          })
         },
         fail: (err) => {
-          console.error("选择图片失败：", err);
-        }
-      });
+          // console.error('选择图片失败：', err)
+          uni.navigateBack() // 返回上一页
+        },
+      })
     },
-    // login() {
-    //   uni.request({
-    //     url: 'https://open.pixsmart.cn:6802/sdkMgr/auth/signin',
-    //     method: 'POST',
-    //     header: {
-    //       'Content-Type': 'application/json'
-    //     },
-    //     data: {
-    //       apiKey: user,
-    //       apiSecret: pass
-    //     },
-    //     success: (res) => {
-    //       if (res.data.code === 0) {
-    //         this.token = res.data.data.accessToken;
-    //         console.log('登录成功', this.token);
-    //       } else {
-    //         console.log('登录失败', res.data.message);
-    //         uni.showToast({
-    //           title: '登录失败',
-    //           icon: 'none'
-    //         });
-    //       }
-    //     },
-    //     fail: (error) => {
-    //       console.error('登录请求失败', error);
-    //       uni.showToast({
-    //         title: '请求失败',
-    //         icon: 'none'
-    //       });
-    //     }
-    //   });
-    // },
->>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
     submitForm() {
       if (!this.imagePath) {
         return uni.showToast({
           title: '请先选择图片',
-<<<<<<< HEAD
           icon: 'none',
-=======
-          icon: 'none'
->>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
-        });
+        })
       }
 
       if (!this.token) {
         return uni.showToast({
           title: '请先登录',
-<<<<<<< HEAD
           icon: 'none',
-=======
-          icon: 'none'
->>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
-        });
+        })
       }
 
       uni.uploadFile({
         url: 'http://admin.zexishuhua.com/api/common/detecthomework',
-<<<<<<< HEAD
         // url: 'http://zexiart.com/api/common/detecthomework',
         filePath: this.imagePath,
         name: 'file',
@@ -645,30 +376,16 @@ export default {
           device_id: 'test_device_id', // 随便填
           isCheckExamNum: 'false',
           font: 0,
-=======
-        // url: 'http://www.zexiart.com/api/common/detecthomework',
-        filePath: this.imagePath,
-        name: 'file',
-        header: {
-          "token": `${this.token}`
-        },
-        formData: {
-          "sdk": "WordEvaluation",
-          "device_id": "test_device_id", // 随便填
-          "isCheckExamNum": "false",
-          "font": 0,
->>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
           // "userId": user,
         },
         success: (uploadFileRes) => {
-          const response = JSON.parse(uploadFileRes.data);
+          const response = JSON.parse(uploadFileRes.data)
           if (response.code == 0) {
-<<<<<<< HEAD
             // this.pageMark = response.data.pageMark;
-            this.scoreMark = response.data.score;
-            this.ocrResults = response.data.ocrResults;
-            this.wordMarks = response.data.wordMarks;
-            this.drawImageWithData();
+            this.scoreMark = response.data.score
+            this.ocrResults = response.data.ocrResults
+            this.wordMarks = response.data.wordMarks
+            this.drawImageWithData()
             // this.drawImageWithData()
           }
         },
@@ -677,112 +394,57 @@ export default {
           uni.showToast({
             title: '提交失败',
             icon: 'none',
-          });
+          })
         },
-=======
-            this.pageMark = response.data.pageMark;
-            this.ocrResults = response.data.ocrResults;
-            this.wordMarks = response.data.wordMarks;
-            this.drawImageWithData()
-          }
-        },
-        fail: (err) => {
-          console.error("提交失败：", err);
-          uni.showToast({
-            title: '提交失败',
-            icon: 'none'
-          });
-        }
->>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
-      });
+      })
     },
 
     drawImage() {
-      const ctx = uni.createCanvasContext('myCanvas');
-<<<<<<< HEAD
-      ctx.clearRect(0, 0, this.canvasWidth, this.canvasHeight);
-
-      ctx.drawImage(this.imagePath, 0, 0, this.canvasWidth, this.canvasHeight); // 按比例绘制图片
-
-      ctx.draw(false, () => {
-        console.log('draw image success');
-=======
+      const ctx = uni.createCanvasContext('myCanvas')
       ctx.clearRect(0, 0, this.canvasWidth, this.canvasHeight)
-      ctx.drawImage(this.imagePath, 0, 0, this.canvasWidth, this.canvasHeight); // 按比例绘制图片
+
+      ctx.drawImage(this.imagePath, 0, 0, this.canvasWidth, this.canvasHeight) // 按比例绘制图片
+
       ctx.draw(false, () => {
         console.log('draw image success')
->>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
-      });
+      })
     },
 
     handleCanvasClick(event) {
-      const query = uni.createSelectorQuery().in(this);
-<<<<<<< HEAD
+      const query = uni.createSelectorQuery().in(this)
       query
         .select('#myScrollView')
         .scrollOffset((data) => {
-          const x = event.detail.x - event.target.offsetLeft;
-          const y = event.detail.y - event.target.offsetTop;
-          this.mouseX = x;
-          this.mouseY = y + data.scrollTop;
-          this.drawImageWithData();
+          const x = event.detail.x - event.target.offsetLeft
+          const y = event.detail.y - event.target.offsetTop
+          this.mouseX = x
+          this.mouseY = y + data.scrollTop
+          this.drawImageWithData()
         })
-        .exec();
+        .exec()
     },
     drawImageWithData() {
-      const ctx = uni.createCanvasContext('myCanvas');
-      ctx.clearRect(0, 0, this.canvasWidth, this.canvasHeight);
-=======
-      query.select('#myScrollView').scrollOffset((data) => {
-        console.log(event)
-        console.log(event.target)
-        console.log(event.detail.x, event.detail.y)
-        console.log(event.target.offsetLeft, event.target.offsetTop)
-        const x = event.detail.x - event.target.offsetLeft;
-        const y = event.detail.y - event.target.offsetTop;
-        console.log('x', x)
-        console.log('y', y)
-        console.log(data)
-        this.mouseX = x;
-        this.mouseY = y + data.scrollTop;
-        this.drawImageWithData();
-      }).exec();
-    },
-
-    drawImageWithData() {
-      const ctx = uni.createCanvasContext('myCanvas');
+      const ctx = uni.createCanvasContext('myCanvas')
       ctx.clearRect(0, 0, this.canvasWidth, this.canvasHeight)
->>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
-      ctx.drawImage(this.imagePath, 0, 0, this.canvasWidth, this.canvasHeight); // 按比例绘制图片
+      ctx.drawImage(this.imagePath, 0, 0, this.canvasWidth, this.canvasHeight) // 按比例绘制图片
 
       if (!this.ocrResults && !this.wordMarks) {
-        return;
+        return
       }
 
-<<<<<<< HEAD
-=======
-      console.log("mouseX", this.mouseX);
-      console.log("mouseY", this.mouseY)
-
->>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
-      const aspectRatio = this.chooseImageHeight / this.chooseImageWidth; // 计算图片宽高比
-      const scale = this.canvasWidth / this.chooseImageWidth;
+      const aspectRatio = this.chooseImageHeight / this.chooseImageWidth // 计算图片宽高比
+      const scale = this.canvasWidth / this.chooseImageWidth
 
       this.ocrResults.forEach((ocr, i) => {
-        const word = this.wordMarks[i];
-<<<<<<< HEAD
-=======
-        // console.log('+++++++++', word)
->>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
-        let x = ocr.points[0] * scale;
-        let y = ocr.points[1] * scale;
-        let width = (ocr.points[4] - ocr.points[0]) * scale;
-        let height = (ocr.points[5] - ocr.points[1]) * scale;
+        const word = this.wordMarks[i]
+        let x = ocr.points[0] * scale
+        let y = ocr.points[1] * scale
+        let width = (ocr.points[4] - ocr.points[0]) * scale
+        let height = (ocr.points[5] - ocr.points[1]) * scale
 
         // 创建一个变量来存储显示的文本
-        let displayText;
+        let displayText
 
-<<<<<<< HEAD
         // if (word.mark > 80) {
         //   displayText = '优'; // 如果分数大于80，设置显示文本为"优"
         // } else if (word.mark >= 70) {
@@ -797,17 +459,17 @@ export default {
           this.mouseY >= y &&
           this.mouseY <= y + height
         ) {
-          ctx.strokeStyle = 'blue';
-          ctx.fillStyle = 'blue';
-          ctx.strokeRect(x, y, width, height);
+          ctx.strokeStyle = 'blue'
+          ctx.fillStyle = 'blue'
+          ctx.strokeRect(x, y, width, height)
           // ctx.fillText(`${word.mark.toFixed(0)}`, x, y + 25);
-          ctx.fillText(`${word.score_title}`, x, y + 25);
+          ctx.fillText(`${word.score_title}`, x, y + 25)
 
-          this.drawMask('wordMask', ocr.label, word.base64Mark);
-          this.showWordsInfo(ocr, word);
+          this.drawMask('wordMask', ocr.label, word.base64Mark)
+          this.showWordsInfo(ocr, word)
           // 将点击的文字转化为 Base64 格式
           // 将点击的文字转化为 Base64 格式
-          const base64Label = btoa(unescape(encodeURIComponent(ocr.label)));
+          const base64Label = btoa(unescape(encodeURIComponent(ocr.label)))
           //   const encoder = new TextEncoder()
           //   const encodedData = encoder.encode(ocr.label) // 将文本转换为 Uint8Array
           //   const base64Label = btoa(String.fromCharCode(...encodedData)) // 转换为 Base64
@@ -816,843 +478,206 @@ export default {
           // );
           // this.comprehensiveLevel = word.score_title;
           // console.log('w', word);
-          this.comprehensiveLevel = word.mark;
+          this.comprehensiveLevel = word.mark
           if (displayText === '学习') {
             let params = {
               fonts: base64Label,
-            };
+            }
             goStudy(params)
               .then((res) => {
-                console.log(res); // 打印响应
+                console.log(res) // 打印响应
                 if (res.code === 1) {
                   uni.navigateTo({
                     url: '/pages/pagesall/course/go_learn', // 替换为实际的页面路径
-                  });
+                  })
                 } else {
                   uni.showToast({
                     title: res.msg,
                     icon: 'error',
-                  });
+                  })
                 }
               })
               .catch((error) => {
-                console.error('请求发生错误:', error); // 打印错误信息
+                console.error('请求发生错误:', error) // 打印错误信息
                 uni.showToast({
                   title: '请求失败，请稍后重试。',
                   icon: 'error',
-                });
-              });
-=======
-        if (word.mark > 80) {
-          displayText = "优"; // 如果分数大于80，设置显示文本为"优"
-        } else if (word.mark >= 60) {
-          displayText = "良"; // 如果分数在60到80之间，设置显示文本为"良"
-        } else {
-          displayText = "学习"; // 如果分数低于60，设置显示文本为"去学习"
-        }
-
-        if (this.mouseX >= x && this.mouseX <= x + width && this.mouseY >= y && this.mouseY <= y +
-          height) {
-          ctx.strokeStyle = "blue";
-          ctx.fillStyle = "blue";
-          ctx.strokeRect(x, y, width, height);
-          // ctx.fillText(`${word.mark.toFixed(0)}`, x, y + 25);
-          ctx.fillText(displayText, x, y + 25);
-
-          this.drawMask("wordMask", ocr.label, word.base64Mark);
-          this.showWordsInfo(ocr, word);
-          // 将点击的文字转化为 Base64 格式
-          // 将点击的文字转化为 Base64 格式
-          const encoder = new TextEncoder();
-          const encodedData = encoder.encode(ocr.label); // 将文本转换为 Uint8Array
-          const base64Label = btoa(String.fromCharCode(...encodedData)); // 转换为 Base64
-          console.log(`你点击了文字 "${ocr.label}"，分数: ${word.mark}，Base64格式: ${base64Label}`);
-          if (displayText === "学习") {
-            let params = {
-              fonts: base64Label
-            }
-            console.log(11111)
-            goStudy(params).then(response => {
-              console.log("学习成功:", response);
-
-              const { msg } = response; // 解构获取 msg 属性
-              console.log(msg);
-
-              if (response.code === 1) {
-                uni.navigateTo({
-                  url: '/pages/pagesall/course/go_learn' // 替换为实际的页面路径
-                });
-              } else {
-                uni.showToast({
-                  title: msg,
-                  icon: 'error'
-                });
-              }
-            }).catch(error => {
-
-
-            });
-
-
-
->>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
+                })
+              })
           }
         } else {
           // 低分用不同颜色
           if (word.mark < 70) {
-<<<<<<< HEAD
-            ctx.strokeStyle = 'red';
-            ctx.fillStyle = 'red';
+            ctx.strokeStyle = 'red'
+            ctx.fillStyle = 'red'
           } else {
-            ctx.strokeStyle = '#2e8b57';
-            ctx.fillStyle = '#2e8b57';
+            ctx.strokeStyle = '#2e8b57'
+            ctx.fillStyle = '#2e8b57'
           }
-          ctx.strokeRect(x, y, width, height);
-          ctx.fillText(`${word.score_title}`, x, y + 25);
+          ctx.strokeRect(x, y, width, height)
+          ctx.fillText(`${word.score_title}`, x, y + 25)
 
           // ctx.fillText(`${word.mark.toFixed(0)}`, x, y + 25);
         }
-      });
+      })
 
       if (this.mouseX == 0 && this.mouseY == 0 && this.ocrResults.length > 0) {
-        const firstWord = this.wordMarks[0];
+        const firstWord = this.wordMarks[0]
 
         // this.comprehensiveLevel = firstWord.score_title;
-        this.comprehensiveLevel = firstWord.mark;
+        this.comprehensiveLevel = firstWord.mark
         this.drawMask(
           'wordMask',
           this.ocrResults[0].label,
           this.wordMarks[0].base64Mark
-        );
-=======
-            ctx.strokeStyle = "red";
-            ctx.fillStyle = "red";
-          } else {
-            ctx.strokeStyle = "#2e8b57";
-            ctx.fillStyle = "#2e8b57";
-          }
-          ctx.strokeRect(x, y, width, height);
-          ctx.fillText(displayText, x, y + 25);
-
-          // ctx.fillText(`${word.mark.toFixed(0)}`, x, y + 25);
-        }
-
-      })
-
-      if (this.mouseX == 0 && this.mouseY == 0 && this.ocrResults.length > 0) {
-        this.drawMask("wordMask", this.ocrResults[0].label, this.wordMarks[0].base64Mark);
->>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
-        this.showWordsInfo(this.ocrResults[0], this.wordMarks[0]);
+        )
+        this.showWordsInfo(this.ocrResults[0], this.wordMarks[0])
       }
 
       ctx.draw(false, () => {
-<<<<<<< HEAD
-        console.log('draw image success');
-      });
-      // requestAnimationFrame(() => this.drawImageWithData);
-=======
         console.log('draw image success')
-      });
-
->>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
+      })
+      // requestAnimationFrame(() => this.drawImageWithData);
     },
     drawMask(canvasId, label, base64String) {
-      const ctx = uni.createCanvasContext('wordMask', this);
+      const ctx = uni.createCanvasContext('wordMask', this)
 
-<<<<<<< HEAD
-      ctx.clearRect(0, 0, 128, 128);
-      ctx.setFillStyle('#ffffff');
-=======
       ctx.clearRect(0, 0, 128, 128)
-      ctx.setFillStyle("#ffffff")
->>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
-      ctx.fillRect(0, 0, 128, 128);
+      ctx.setFillStyle('#ffffff')
+      ctx.fillRect(0, 0, 128, 128)
 
       // 标准字
-      const x = 128 / 2;
-      const y = 128 / 2;
-      ctx.setFillStyle('#FF5733');
-<<<<<<< HEAD
-      ctx.font = '106px simkai';
-      ctx.setFontSize(106);
-=======
+      const x = 128 / 2
+      const y = 128 / 2
+      ctx.setFillStyle('#FF5733')
       ctx.font = '106px simkai'
       ctx.setFontSize(106)
->>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
 
-      ctx.setTextAlign('center');
-      ctx.setTextBaseline('middle');
-      ctx.fillText(label, x, y);
+      ctx.setTextAlign('center')
+      ctx.setTextBaseline('middle')
+      ctx.fillText(label, x, y)
 
-      const binaryData = atob(base64String);
-      const byteArray = new Uint8Array(binaryData.length);
+      const binaryData = atob(base64String)
+      const byteArray = new Uint8Array(binaryData.length)
       for (var i = 0; i < binaryData.length; i++) {
-        byteArray[i] = binaryData.charCodeAt(i);
+        byteArray[i] = binaryData.charCodeAt(i)
       }
 
       // Draw the image from the binary data
       function draw() {
-        let bits = displayBits(byteArray);
-        drawBinaryImage(bits);
+        let bits = displayBits(byteArray)
+        drawBinaryImage(bits)
 
         function drawBinaryImage(bits) {
           for (let i = 0; i < 128; ++i) {
             for (let j = 0; j < 128; ++j) {
-              let bit = bits[128 * i + j];
+              let bit = bits[128 * i + j]
               if (bit === 0) {
-                const colorValue = bit === 0 ? 0 : 255;
-<<<<<<< HEAD
+                const colorValue = bit === 0 ? 0 : 255
                 ctx.setFillStyle(
                   `rgb(${colorValue}, ${colorValue}, ${colorValue})`
-                );
-=======
-                ctx.setFillStyle(`rgb(${colorValue}, ${colorValue}, ${colorValue})`);
->>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
-                ctx.fillRect(j, i, 1, 1);
+                )
+                ctx.fillRect(j, i, 1, 1)
               }
             }
           }
         }
 
         function displayBits(uint8Array) {
-          const bitValues = [];
+          const bitValues = []
           for (let i = 0; i < uint8Array.length; i++) {
             for (let j = 7; j >= 0; j--) {
-              const bit = (uint8Array[i] >> j) & 1;
-              bitValues.push(bit);
+              const bit = (uint8Array[i] >> j) & 1
+              bitValues.push(bit)
             }
           }
-          return bitValues;
+          return bitValues
         }
       }
-      draw();
+      draw()
 
       ctx.draw(false, () => {
-<<<<<<< HEAD
-        console.log('draw mask success');
+        console.log('draw mask success')
         // const store = useStore()
         // const canvasElement = this.$refs.aiBox // 获取 canvas 元素
-      });
-=======
-        console.log('draw mask success')
-        const store = useStore();
-        const canvasElement = this.$refs.aiBox; // 获取 canvas 元素
-        console.log(canvasElement)
-        // console.log(JSON.stringify(canvasElement));
-        // uni.setStorageSync('canvasNode', canvasElement);
-        // store.setCanvasNode(canvasElement); // 保存元素到 store
-        // uni.navigateTo({
-        //   url: '/pages/pagesall/aiDete/aiResult', // 目标页面路径
-        //   success: () => {
-        //     console.log('成功跳转到目标页面');
-        //   },
-        //   fail: (err) => {
-        //     console.error('跳转失败', err);
-        //   }
-        // });
-      });
-
-
->>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
+      })
     },
 
     showWordsInfo(ocrResult, wordMark) {
       // 构建文本信息
-      let sb = [];
-<<<<<<< HEAD
-      sb.push(ocrResult.label + '\n');
+      let sb = []
+      sb.push(ocrResult.label + '\n')
       if (wordMark.mark <= 0) {
-        sb.push('暂无识别字的评测数据\n');
+        sb.push('暂无识别字的评测数据\n')
       }
-      sb.push('综合得分 ' + wordMark.mark + '\n');
-      sb.push('重心得分 ' + wordMark.centerMark);
+      sb.push('综合得分 ' + wordMark.mark + '\n')
+      sb.push('重心得分 ' + wordMark.centerMark)
 
       if (wordMark.centerInfo === 0) {
-        sb.push('良好');
+        sb.push('良好')
       } else if (wordMark.centerInfo === 1) {
-        sb.push('偏上');
+        sb.push('偏上')
       } else if (wordMark.centerInfo === 2) {
-        sb.push('偏下');
+        sb.push('偏下')
       } else if (wordMark.centerInfo === 3) {
-        sb.push('偏左');
+        sb.push('偏左')
       } else if (wordMark.centerInfo === 4) {
-        sb.push('偏右');
+        sb.push('偏右')
       }
-      sb.push('\n');
+      sb.push('\n')
 
-      sb.push('形态得分 ' + wordMark.rateMark);
+      sb.push('形态得分 ' + wordMark.rateMark)
       if (wordMark.rateInfo === 0) {
-        sb.push('良好');
+        sb.push('良好')
       } else if (wordMark.rateInfo === 1) {
-        sb.push('太宽');
+        sb.push('太宽')
       } else if (wordMark.rateInfo === 2) {
-        sb.push('太瘦');
+        sb.push('太瘦')
       }
-      sb.push('\n');
+      sb.push('\n')
 
-      sb.push('大小得分 ' + wordMark.areaMark);
+      sb.push('大小得分 ' + wordMark.areaMark)
       if (wordMark.areaInfo === 0) {
-        sb.push('良好');
+        sb.push('良好')
       } else if (wordMark.areaInfo === 1) {
-        sb.push('太小');
+        sb.push('太小')
       } else if (wordMark.areaInfo === 2) {
-        sb.push('太大');
+        sb.push('太大')
       }
-      sb.push('\n');
+      sb.push('\n')
 
-      sb.push('位置得分 ' + wordMark.posMark);
+      sb.push('位置得分 ' + wordMark.posMark)
       if (wordMark.posInfo === 0) {
-        sb.push('良好');
+        sb.push('良好')
       } else if (wordMark.posInfo === 1) {
-        sb.push('偏上');
+        sb.push('偏上')
       } else if (wordMark.posInfo === 2) {
-        sb.push('偏下');
+        sb.push('偏下')
       } else if (wordMark.posInfo === 3) {
-        sb.push('偏左');
+        sb.push('偏左')
       } else if (wordMark.posInfo === 4) {
-        sb.push('偏右');
+        sb.push('偏右')
       }
-      sb.push('\n');
+      sb.push('\n')
 
-      sb.push('笔画得分 ' + wordMark.conFMark);
+      sb.push('笔画得分 ' + wordMark.conFMark)
       if (wordMark.conFInfo === 0) {
-        sb.push('良好');
+        sb.push('良好')
       } else if (wordMark.conFInfo === 1) {
-        sb.push('不良');
+        sb.push('不良')
       }
-      sb.push('\n');
+      sb.push('\n')
 
-      this.evaluationDesc = sb.join('');
-      this.score();
+      this.evaluationDesc = sb.join('')
+      this.score()
       // console.log(this.evaluationDesc)
       // const store = useStore()
       // store.setEvaluationDesc(this.evaluationDesc)
     },
   },
-};
-</script>
-
-=======
-      sb.push(ocrResult.label + "\n");
-      if (wordMark.mark <= 0) {
-        sb.push("暂无识别字的评测数据\n");
-      }
-      sb.push("综合得分 " + wordMark.mark + "\n");
-      sb.push("重心得分 " + wordMark.centerMark);
-
-      if (wordMark.centerInfo === 0) {
-        sb.push("良好");
-      } else if (wordMark.centerInfo === 1) {
-        sb.push("偏上");
-      } else if (wordMark.centerInfo === 2) {
-        sb.push("偏下");
-      } else if (wordMark.centerInfo === 3) {
-        sb.push("偏左");
-      } else if (wordMark.centerInfo === 4) {
-        sb.push("偏右");
-      }
-      sb.push("\n");
-
-      sb.push("形态得分 " + wordMark.rateMark);
-      if (wordMark.rateInfo === 0) {
-        sb.push("良好");
-      } else if (wordMark.rateInfo === 1) {
-        sb.push("太宽");
-      } else if (wordMark.rateInfo === 2) {
-        sb.push("太瘦");
-      }
-      sb.push("\n");
-
-      sb.push("大小得分 " + wordMark.areaMark);
-      if (wordMark.areaInfo === 0) {
-        sb.push("良好");
-      } else if (wordMark.areaInfo === 1) {
-        sb.push("太小");
-      } else if (wordMark.areaInfo === 2) {
-        sb.push("太大");
-      }
-      sb.push("\n");
-
-      sb.push("位置得分 " + wordMark.posMark);
-      if (wordMark.posInfo === 0) {
-        sb.push("良好");
-      } else if (wordMark.posInfo === 1) {
-        sb.push("偏上");
-      } else if (wordMark.posInfo === 2) {
-        sb.push("偏下");
-      } else if (wordMark.posInfo === 3) {
-        sb.push("偏左");
-      } else if (wordMark.posInfo === 4) {
-        sb.push("偏右");
-      }
-      sb.push("\n");
-
-      sb.push("笔画得分 " + wordMark.conFMark);
-      if (wordMark.conFInfo === 0) {
-        sb.push("良好");
-      } else if (wordMark.conFInfo === 1) {
-        sb.push("不良");
-      }
-      sb.push("\n");
-
-      this.evaluationDesc = sb.join("");
-
-      const store = useStore();
-      store.setEvaluationDesc(this.evaluationDesc)
-
-    },
-
-
-
-  }
-};
-</script>
-
-
-<!-- <script>
-
-const user = 'test1';
-const pass = 'test1';
-export default {
-  data() {
-    return {
-      imageSrc: '/static/logo.png',
-      imagePath: null,
-      token: null,
-      pageMark: 0, // 卷面分
-      canvasWidth: 0, // canvas 的宽度
-      canvasHeight: 0, // canvas 的高度，根据图片比例动态设置
-      chooseImageWidth: 0, // px
-      chooseImageHeight: 0, // px
-      ocrResults: null,
-      wordMarks: null,
-      scrollTop: 0,
-      mouseX: 0,
-      mouseY: 0,
-      evaluationDesc: "",
-      score_List: [{
-        title: '重心',
-        score: 5,
-      },
-      {
-        title: '位置',
-        score: 4,
-      },
-      {
-        title: '形态',
-        score: 3,
-      },
-      {
-        title: '笔画',
-        score: 2,
-      }, {
-        title: '大小',
-        score: 1,
-      }]
-    };
-  },
-  onLoad() {
-
-    // 获取设备屏幕宽度，用于设置 canvas 宽度
-    const systemInfo = uni.getSystemInfoSync();
-    this.canvasWidth = systemInfo.windowWidth; // 设置 canvas 宽度为 100vw
-    // uni.$emit('update', { msg: '页面更新' })
-    this.chooseImage()
-
-  },
-  mounted() {
-    this.getToken(); // 在组件挂载时获取 token
-  },
-  methods: {
-
-
-    getToken() {
-      uni.getStorage({
-        key: 'token', // 存储的 key 名
-        success: (res) => {
-          this.token = res.data; // 将获取的 token 存储到 data 属性中
-          console.log('获取的 token:', this.token);
-        },
-        fail: (err) => {
-          console.error('获取 token 失败:', err);
-        }
-      });
-    },
-
-    chooseImage() {
-      this.pageMark = 0;
-      uni.chooseImage({
-        count: 1,
-        sizeType: ['compressed'],
-        sourceType: ['album', 'camera'],
-        success: (res) => {
-          console.log(res)
-          this.imageSrc = res.tempFilePaths[0];
-          this.imagePath = res.tempFilePaths[0];
-          console.log("choose file path ", res.tempFiles[0].path)
-          console.log("choose file size ", res.tempFiles[0].size)
-
-          uni.getImageInfo({
-            src: res.tempFilePaths[0],
-            success: (image) => {
-              console.log("choose image width", image.width);
-              console.log("choose image height", image.height);
-              this.chooseImageWidth = image.width;
-              this.chooseImageHeight = image.height;
-              const aspectRatio = this.chooseImageHeight / this
-                .chooseImageWidth; // 计算图片宽高比
-              this.canvasHeight = this.canvasWidth * aspectRatio;
-              setTimeout(() => {
-                this.drawImage()
-                this.submitForm()
-              }, 100)
-
-            }
-          });
-        },
-        fail: (err) => {
-          console.error("选择图片失败：", err);
-        }
-      });
-    },
-
-    submitForm() {
-      if (!this.imagePath) {
-        return uni.showToast({
-          title: '请先选择图片',
-          icon: 'none'
-        });
-      }
-
-      if (!this.token) {
-        return uni.showToast({
-          title: '请先登录',
-          icon: 'none'
-        });
-      }
-
-      uni.uploadFile({
-        url: 'http://admin.zexishuhua.com/api/common/detecthomework',
-        filePath: this.imagePath,
-        name: 'file',
-        header: {
-          "token": `${this.token}`
-        },
-        formData: {
-          "sdk": "WordEvaluation",
-          "device_id": "test_device_id", // 随便填
-          "isCheckExamNum": "false",
-          "font": 0,
-          "userId": user,
-        },
-        success: (uploadFileRes) => {
-          const response = JSON.parse(uploadFileRes.data);
-          if (response.code == 0) {
-            this.pageMark = response.data.pageMark;
-            this.ocrResults = response.data.ocrResults;
-            this.wordMarks = response.data.wordMarks;
-            this.drawImageWithData()
-          }
-        },
-        fail: (err) => {
-          console.error("提交失败：", err);
-          uni.showToast({
-            title: '提交失败',
-            icon: 'none'
-          });
-        }
-      });
-    },
-
-    drawImage() {
-      const ctx = uni.createCanvasContext('myCanvas');
-      ctx.clearRect(0, 0, this.canvasWidth, this.canvasHeight)
-      ctx.drawImage(this.imagePath, 0, 0, this.canvasWidth, this.canvasHeight); // 按比例绘制图片
-      ctx.draw(false, () => {
-        console.log('draw image success')
-      });
-    },
-
-    handleCanvasClick(event) {
-      const query = uni.createSelectorQuery().in(this);
-      query.select('#myScrollView').scrollOffset((data) => {
-        const x = event.target.x - event.target.offsetLeft;
-        const y = event.target.y - event.target.offsetTop;
-
-        this.mouseX = x;
-        this.mouseY = y + data.scrollTop;
-        this.drawImageWithData();
-      }).exec();
-    },
-
-    drawImageWithData() {
-      const ctx = uni.createCanvasContext('myCanvas');
-      ctx.clearRect(0, 0, this.canvasWidth, this.canvasHeight)
-      ctx.drawImage(this.imagePath, 0, 0, this.canvasWidth, this.canvasHeight); // 按比例绘制图片
-
-      if (!this.ocrResults && !this.wordMarks) {
-        return;
-      }
-
-      console.log("mouseX", this.mouseX);
-      console.log("mouseY", this.mouseY)
-
-      const aspectRatio = this.chooseImageHeight / this.chooseImageWidth; // 计算图片宽高比
-      const scale = this.canvasWidth / this.chooseImageWidth;
-
-      this.ocrResults.forEach((ocr, i) => {
-        const word = this.wordMarks[i];
-        let x = ocr.points[0] * scale;
-        let y = ocr.points[1] * scale;
-        let width = (ocr.points[4] - ocr.points[0]) * scale;
-        let height = (ocr.points[5] - ocr.points[1]) * scale;
-
-        if (this.mouseX >= x && this.mouseX <= x + width && this.mouseY >= y && this.mouseY <= y +
-          height) {
-          ctx.strokeStyle = "blue";
-          ctx.fillStyle = "blue";
-          ctx.strokeRect(x, y, width, height);
-          ctx.fillText(`${word.mark.toFixed(0)}`, x, y);
-
-          this.drawMask("wordMask", ocr.label, word.base64Mark);
-          this.showWordsInfo(ocr, word);
-        } else {
-          // 低分用不同颜色
-          if (word.mark < 70) {
-            ctx.strokeStyle = "red";
-            ctx.fillStyle = "red";
-          } else {
-            ctx.strokeStyle = "#2e8b57";
-            ctx.fillStyle = "#2e8b57";
-          }
-          ctx.strokeRect(x, y, width, height);
-          ctx.fillText(`${word.mark.toFixed(0)}`, x, y);
-        }
-
-      })
-
-      if (this.mouseX == 0 && this.mouseY == 0 && this.ocrResults.length > 0) {
-        this.drawMask("wordMask", this.ocrResults[0].label, this.wordMarks[0].base64Mark);
-        this.showWordsInfo(this.ocrResults[0], this.wordMarks[0]);
-      }
-
-      ctx.draw(false, () => {
-        console.log('draw image success')
-      });
-
-    },
-    drawMask(canvasId, label, base64String) {
-      const ctx = uni.createCanvasContext('wordMask', this);
-
-      ctx.clearRect(0, 0, 128, 128)
-      ctx.setFillStyle("#ffffff")
-      ctx.fillRect(0, 0, 128, 128);
-
-      // 标准字
-      const x = 128 / 2;
-      const y = 128 / 2;
-      ctx.setFillStyle('#FF5733');
-      ctx.font = '106px simkai'
-      ctx.setFontSize(106)
-
-      ctx.setTextAlign('center');
-      ctx.setTextBaseline('middle');
-      ctx.fillText(label, x, y);
-
-      const binaryData = atob(base64String);
-      const byteArray = new Uint8Array(binaryData.length);
-      for (var i = 0; i < binaryData.length; i++) {
-        byteArray[i] = binaryData.charCodeAt(i);
-      }
-
-      // Draw the image from the binary data
-      function draw() {
-        let bits = displayBits(byteArray);
-        drawBinaryImage(bits);
-
-        function drawBinaryImage(bits) {
-          for (let i = 0; i < 128; ++i) {
-            for (let j = 0; j < 128; ++j) {
-              let bit = bits[128 * i + j];
-              if (bit === 0) {
-                const colorValue = bit === 0 ? 0 : 255;
-                ctx.setFillStyle(`rgb(${colorValue}, ${colorValue}, ${colorValue})`);
-                ctx.fillRect(j, i, 1, 1);
-              }
-            }
-          }
-        }
-
-        function displayBits(uint8Array) {
-          const bitValues = [];
-          for (let i = 0; i < uint8Array.length; i++) {
-            for (let j = 7; j >= 0; j--) {
-              const bit = (uint8Array[i] >> j) & 1;
-              bitValues.push(bit);
-            }
-          }
-          return bitValues;
-        }
-      }
-      draw();
-
-      ctx.draw(false, () => {
-        console.log('draw mask success')
-      });
-
-
-    },
-
-    showWordsInfo(ocrResult, wordMark) {
-      // 构建文本信息
-      let sb = [];
-      sb.push(ocrResult.label + "\n");
-      if (wordMark.mark <= 0) {
-        sb.push("暂无识别字的评测数据\n");
-      }
-      sb.push("综合得分 " + wordMark.mark + "\n");
-      sb.push("重心得分 " + wordMark.centerMark);
-
-      if (wordMark.centerInfo === 0) {
-        sb.push("良好");
-      } else if (wordMark.centerInfo === 1) {
-        sb.push("偏上");
-      } else if (wordMark.centerInfo === 2) {
-        sb.push("偏下");
-      } else if (wordMark.centerInfo === 3) {
-        sb.push("偏左");
-      } else if (wordMark.centerInfo === 4) {
-        sb.push("偏右");
-      }
-      sb.push("\n");
-
-      sb.push("形态得分 " + wordMark.rateMark);
-      if (wordMark.rateInfo === 0) {
-        sb.push("良好");
-      } else if (wordMark.rateInfo === 1) {
-        sb.push("太宽");
-      } else if (wordMark.rateInfo === 2) {
-        sb.push("太瘦");
-      }
-      sb.push("\n");
-
-      sb.push("大小得分 " + wordMark.areaMark);
-      if (wordMark.areaInfo === 0) {
-        sb.push("良好");
-      } else if (wordMark.areaInfo === 1) {
-        sb.push("太小");
-      } else if (wordMark.areaInfo === 2) {
-        sb.push("太大");
-      }
-      sb.push("\n");
-
-      sb.push("位置得分 " + wordMark.posMark);
-      if (wordMark.posInfo === 0) {
-        sb.push("良好");
-      } else if (wordMark.posInfo === 1) {
-        sb.push("偏上");
-      } else if (wordMark.posInfo === 2) {
-        sb.push("偏下");
-      } else if (wordMark.posInfo === 3) {
-        sb.push("偏左");
-      } else if (wordMark.posInfo === 4) {
-        sb.push("偏右");
-      }
-      sb.push("\n");
-
-      sb.push("笔画得分 " + wordMark.conFMark);
-      if (wordMark.conFInfo === 0) {
-        sb.push("良好");
-      } else if (wordMark.conFInfo === 1) {
-        sb.push("不良");
-      }
-      sb.push("\n");
-
-      this.evaluationDesc = sb.join("");
-      this.scoreText()
-      console.log(this.evaluationDesc)
-    },
-
-    // scoreText() {
-    //   let scoreText = this.evaluationDesc
-    //   let scores = {
-    //     综合得分: null,
-    //     重心得分: null,
-    //     形态得分: null,
-    //     大小得分: null,
-    //     位置得分: null,
-    //     笔画得分: null
-    //   };
-    //   const regex = /(综合得分|重心得分|形态得分|大小得分|位置得分|笔画得分)[^\d]*(\d+)/g;
-    //   let match;
-    //   while ((match = regex.exec(scoreText)) !== null) {
-    //     // console.log('匹配到的内容:', match); // 打印每次匹配到的内容
-    //     const scoreType = match[1]; // 得分类型
-    //     const scoreValue = parseInt(match[2], 10); // 将得分值转换为整数
-    //     if (scores.hasOwnProperty(scoreType)) {
-    //       scores[scoreType] = scoreValue; // 存储得分
-    //     }
-    //   }
-
-    //   // 打印提取的分数
-    //   // console.log('提取的分数:', scores);
-
-    //   // 定义评分级别函数
-    //   const getComprehensiveLevel = (score) => {
-    //     if (score >= 60) return '优'; // 60分及以上为优
-    //     return '差';                 // 60分以下为差
-    //   };
-
-    //   if (scores.综合得分 !== null) {
-    //     comprehensiveLevel.value = getComprehensiveLevel(scores.综合得分);
-    //   }
-
-    //   const getOtherLevel = (score) => {
-    //     if (score >= 80) return 5;  // 80-100 -> 等级5
-    //     if (score >= 60) return 4;  // 60-79 -> 等级4
-    //     if (score >= 40) return 3;  // 40-59 -> 等级3
-    //     if (score >= 20) return 2;  // 20-39 -> 等级2
-    //     return 1;                   // 0-19 -> 等级1
-    //   };
-
-    //   // 打印提取的分数和等级
-    //   for (const [key, value] of Object.entries(scores)) {
-    //     if (value !== null) {
-    //       let level;
-    //       if (key === '卷面分') {
-    //         level = getComprehensiveLevel(value); // 获取综合得分等级
-    //       } else {
-    //         level = getOtherLevel(value); // 获取其他得分等级
-    //       }
-    //       // console.log(`${key}: ${value}, 等级: ${level}`);
-    //     }
-    //   }
-
-    //   const scoreMap = {
-    //     '重心': scores.重心得分,
-    //     '位置': scores.位置得分,
-    //     '形态': scores.形态得分,
-    //     '笔画': scores.笔画得分,
-    //     '大小': scores.大小得分,
-    //   };
-
-    //   score_List.value.forEach(item => {
-    //     const score = scoreMap[item.title];
-    //     if (score !== undefined) {
-    //       item.score = getOtherLevel(score); // 将等级赋值给对应的项
-    //       // console.log(item.title, item.score);
-    //     }
-    //   });
-    // }
-
-
-
-  }
 }
-</script> -->
+</script>
 
-
->>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
 <style>
 .res_box {
   width: 750rpx;
@@ -1690,18 +715,10 @@ export default {
 .res_heard {
   display: flex;
   align-items: center;
-<<<<<<< HEAD
   justify-content: space-between;
 }
 
 .res_heard img {
-=======
-}
-
-.res_heard img {
-  width: 144rpx;
-  height: 144rpx;
->>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
 }
 
 .head_text {
@@ -1722,13 +739,8 @@ export default {
 }
 
 .score_text {
-<<<<<<< HEAD
   /* width: 128rpx;
   height: 180rpx; */
-=======
-  width: 128rpx;
-  height: 180rpx;
->>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
   overflow-wrap: break-word;
   color: rgba(219, 1, 12, 1);
   font-size: 128rpx;
@@ -1738,7 +750,6 @@ export default {
   white-space: nowrap;
   line-height: 180rpx;
 }
-<<<<<<< HEAD
 .score_text1 {
   /* width: 128rpx;
   height: 180rpx; */
@@ -1751,18 +762,13 @@ export default {
   white-space: nowrap;
   /* line-height: 180rpx; */
 }
-=======
->>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
 
 .score_box1 {
   display: flex;
   align-items: center;
   flex-direction: column;
   justify-content: center;
-<<<<<<< HEAD
   margin-right: 40rpx;
-=======
->>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
 }
 
 .score_box {
@@ -1795,14 +801,11 @@ export default {
   padding: 15rpx;
   margin-top: 15rpx;
   font-size: 28rpx;
-<<<<<<< HEAD
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
-=======
->>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
 }
 
 .score_img {
@@ -1815,8 +818,4 @@ export default {
   height: 1000rpx;
   background-color: rgba(249, 183, 34, 1);
 }
-<<<<<<< HEAD
 </style>
-=======
-</style>
->>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74

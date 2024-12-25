@@ -1,6 +1,5 @@
 <template>
   <!-- Course registration card -->
-<<<<<<< HEAD
   <view class="courseRegistrationCard" @click="handleSignup">
     <view
       class="courseRegistrationCard_bg"
@@ -29,15 +28,6 @@
         src="https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPng13a2fb02e015caf1325ed0ae70a60ac4263056e78d6de603517f5fae96ceca41"
         alt=""
       />
-=======
-  <view class="courseRegistrationCard">
-    <view class="courseRegistrationCard_bg" :style="{ backgroundColor: (hours === 0 && minutes === 0 && seconds === 0) ? 'gray' : '' }"></view>
-    <view class="courseRegistrationCard_status" :style="{ top: (hours === 0 && minutes === 0 && seconds === 0) ? '-6rpx' : 0, right: (hours === 0 && minutes === 0 && seconds === 0) ? '-12rpx' : 0 }">
-      {{ (hours === 0 && minutes === 0 && seconds === 0) ? '已结束' : (online === 1 ? '线上' : '线下') }}
-    </view>
-    <view class="techerImg">
-      <img src="https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPng13a2fb02e015caf1325ed0ae70a60ac4263056e78d6de603517f5fae96ceca41" alt="" />
->>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
     </view>
     <view class="courseInformation">
       <view class="courseTitle">{{ biaoti }}</view>
@@ -47,17 +37,10 @@
         <img :src="hearimg" alt="" />
         <view class="lecturer_name">
           <text>{{ teachername }}</text>
-<<<<<<< HEAD
           <text style="font-size: 20rpx; margin-top: 10rpx">授课</text>
         </view>
         <view class="remainingTime">
           <text style="font-size: 24rpx">距结束还剩:</text>
-=======
-          <text style="font-size: 20rpx; margin-top: 10rpx;">授课</text>
-        </view>
-        <view class="remainingTime">
-          <text style="font-size: 24rpx;">距结束还剩:</text>
->>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
           <!-- <view class="timetextbox">
             <text class="time-num">{{ hours }}</text>
             <text style="font-size: 20rpx; background-color:#fff; color: #F53C38;">:</text>
@@ -66,7 +49,6 @@
             <text class="time-num">{{ seconds }}</text>
           </view> -->
 
-<<<<<<< HEAD
           <uni-countdown
             :hour="testHour"
             :minute="testMinute"
@@ -74,15 +56,10 @@
             color="#FFFFFF"
             background-color="#F53C38"
           />
-=======
-          <uni-countdown :show-day="false" :hour="testHour" :minute="testMinute" :second="testSecond" color="#FFFFFF" background-color="#007AFF" />
-
->>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
         </view>
       </view>
       <view class="endbaoming">
         <view class="peopers">
-<<<<<<< HEAD
           <image
             style="width: 24rpx; height: 32rpx"
             src="../../static/img/fir.png"
@@ -122,27 +99,6 @@
             class="gobtn"
             >{{ signupText }}</view
           >
-=======
-          <image style="width: 24rpx;height: 32rpx;" src="../../static/img/fir.png" mode="aspectFit" />
-          <!-- <img src="https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPnge82cb54448fe7b82f1100cbe1494f08248762c97952c5f2a8f4b9a26a743a00a" alt="" /> -->
-          <view class="peotext" style="font-size: 20rpx;">{{ pers }}人报名</view>
-          <view class="imgbox">
-            <!-- <img v-for="(img, idx) in imgs" :key="idx" :src="img.avatar" alt="" :style="{ right: (idx * 20) + 'rpx', zIndex: 10 - idx }" /> -->
-            <image v-for="(img, idx) in imgs" :src="img.avatar ? img.avatar : ''" :key="idx" :style="{
-    position: 'absolute',
-    right: `calc(20rpx * ${idx})`,
-    zIndex: 10 - idx,
-    width: '30rpx',
-    height: '30rpx',
-    borderRadius: '50%'
-  }" />
-          </view>
-        </view>
-        <view class="perbtn">
-          <view class="permoney">{{ money ?? 0 <= 0 ? '免费' : '￥' + (money ?? 0) }}</view>
-
-          <view :style="signedUp ? { backgroundColor: '#999999' } : { background: '#ff9e02' }" class="gobtn" @click="handleSignup">{{ signupText }}</view>
->>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
         </view>
       </view>
     </view>
@@ -150,34 +106,19 @@
 </template>
 
 <script>
-<<<<<<< HEAD
 // import UniCountdown from '@dcloudio/uni-ui/lib/uni-countdown/uni-countdown.vue';
 export default {
   // components: {
   //   UniCountdown,
 
   // },
-=======
-
-import UniCountdown from '@dcloudio/uni-ui/lib/uni-countdown/uni-countdown.vue';
-export default {
-  components: {
-    UniCountdown,
-
-
-  },
->>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
   data() {
     return {
       testHour: 0,
       testMinute: 0,
       testSecond: 0,
       start: false,
-<<<<<<< HEAD
-    };
-=======
     }
->>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
   },
 
   props: {
@@ -199,36 +140,31 @@ export default {
   },
   computed: {
     signupText() {
-<<<<<<< HEAD
       // 确保进行类型转换
-      const hours = Number(this.hours);
-      const minutes = Number(this.minutes);
-      const seconds = Number(this.seconds);
+      const hours = Number(this.hours)
+      const minutes = Number(this.minutes)
+      const seconds = Number(this.seconds)
 
       // 根据时间和是否已报名来返回不同的文本
       if (hours === 0 && minutes === 0 && seconds === 0) {
-        return '已结束'; // 时间为0时返回“已结束”
+        return '已结束' // 时间为0时返回“已结束”
       } else {
         // 根据 signedUp 的值返回相应的文本
         switch (this.signedUp) {
           case -1:
-            return '已结束'; // 当 signedUp 为 -1 时
+            return '已结束' // 当 signedUp 为 -1 时
           case 0:
-            return '立即报名'; // 当 signedUp 为 0 时
+            return '立即报名' // 当 signedUp 为 0 时
           case 1:
-            return '已报名'; // 当 signedUp 为 1 时
+            return '已报名' // 当 signedUp 为 1 时
           default:
-            return '状态未知'; // 其他情况可以返回一个默认状态
+            return '状态未知' // 其他情况可以返回一个默认状态
         }
       }
     },
-=======
-      return this.signedUp ? '已报名' : '立即报名';
-    }
->>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
   },
   mounted() {
-    this.updateCountdown();
+    this.updateCountdown()
     // setTimeout(() => {
     //   this.testHour = this.hours
     //   this.testMinute = this.minutes
@@ -238,11 +174,7 @@ export default {
     // setTimeout(() => {
     //   this.start = false
     // }, 10000)
-<<<<<<< HEAD
     // this.printTime()
-=======
-    // this.printTime();
->>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
   },
   watch: {
     hours: 'updateCountdown',
@@ -251,35 +183,25 @@ export default {
   },
   methods: {
     printTime() {
-<<<<<<< HEAD
-      console.log('Hours:', this.hours);
-      console.log('Minutes:', this.minutes);
-      console.log('Seconds:', this.seconds);
-=======
-      console.log('Hours:', typeof this.hours);
-      console.log('Minutes:', typeof this.minutes);
-      console.log('Seconds:', typeof this.seconds);
->>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
+      console.log('Hours:', this.hours)
+      console.log('Minutes:', this.minutes)
+      console.log('Seconds:', this.seconds)
     },
     updateCountdown() {
-      this.testHour = this.hours;
-      this.testMinute = this.minutes;
-      this.testSecond = this.seconds;
-      this.start = true; // 可以在此状态中进行其他逻辑，比如开始计时
-<<<<<<< HEAD
+      this.testHour = this.hours
+      this.testMinute = this.minutes
+      this.testSecond = this.seconds
+      this.start = true // 可以在此状态中进行其他逻辑，比如开始计时
       // console.log(
       //   'Counting down:',
       //   this.testHour,
       //   this.testMinute,
       //   this.testSecond
       // )
-=======
-      // console.log('Counting down:', this.testHour, this.testMinute, this.testSecond);
->>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
     },
     handleSignup() {
       // 如果已报名，则可以显示提示
-      this.$emit('signup', this);
+      this.$emit('signup', this)
       // if (this.signedUp) {
       //   uni.showToast({
       //     title: '您已经报名了',
@@ -288,15 +210,9 @@ export default {
       // } else {
       //   this.$emit('signup', this); // 发出报名事件
       // }
-<<<<<<< HEAD
     },
   },
-};
-=======
-    }
-  }
 }
->>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
 </script>
 
 <style scoped>
@@ -367,7 +283,6 @@ export default {
 
 .courseTitle {
   font-size: 32rpx;
-<<<<<<< HEAD
   font-weight: bold;
   padding-top: 12rpx;
   padding-bottom: 8rpx;
@@ -375,9 +290,6 @@ export default {
   white-space: nowrap;
   text-overflow: ellipsis;
   width: 90%;
-=======
-  font-weight: 500;
->>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
 }
 
 .courseTeacher {
@@ -423,14 +335,9 @@ export default {
 
 .imgbox {
   position: relative;
-<<<<<<< HEAD
   width: 150rpx;
   height: 30rpx;
   overflow: hidden;
-=======
-  width: 70rpx;
-  height: 30rpx;
->>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
 }
 
 .imgbox img {
@@ -461,7 +368,6 @@ export default {
 .peotext {
   margin-left: 16rpx;
   margin-right: 16rpx;
-<<<<<<< HEAD
   font-weight: bold;
 }
 
@@ -470,33 +376,16 @@ export default {
   position: relative;
 }
 
-=======
-}
-
-.perbtn {
-  width: 50%;
-  position: relative;
-}
-
-.courseTitle {
-  padding-top: 12rpx;
-  padding-bottom: 8rpx;
-}
-
->>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
 .courseTime {
   padding-top: 16rpx;
   padding-bottom: 28rpx;
 }
 
 .permoney {
-<<<<<<< HEAD
   width: 100rpx;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
-=======
->>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
   color: #f53c38;
   font-size: 28rpx;
 }
@@ -528,13 +417,9 @@ export default {
   margin-right: 4rpx;
   color: #fff;
 }
-<<<<<<< HEAD
 
 .uni-countdown {
   margin-left: -25px;
   margin-top: 5px;
 }
 </style>
-=======
-</style>
->>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74

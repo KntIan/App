@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 __MACOSX
 .idea
 .vscode
@@ -6,10 +5,3 @@ __MACOSX
 .history
 node_modules
 unpackage
-=======
-node_modules
-node_modules
-node_modules
-node_modules
-node_modules
->>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74

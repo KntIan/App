@@ -1,18 +1,13 @@
 import {
-  require_chat,
   require_tim_profanity_filter_plugin,
   require_tim_upload_plugin
-<<<<<<< HEAD
-} from "./chunk-SI3C56W5.js";
+} from "./chunk-KWQPLJ33.js";
+import {
+  require_chat
+} from "./chunk-37O6DVQ2.js";
 import {
   __toESM
 } from "./chunk-BQWMX7FD.js";
-=======
-} from "./chunk-A6PKGKLD.js";
-import {
-  __toESM
-} from "./chunk-LQ2VYIYD.js";
->>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
 
 // ../../../Project Folder/ZXHand/ZXHandwritting_APP_uniapp/node_modules/@tencentcloud/tui-core/index.js
 var import_chat = __toESM(require_chat());

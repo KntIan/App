@@ -1,5 +1,4 @@
 <template>
-<<<<<<< HEAD
   <view class="chat_box" :scroll-into-view="poaMessgae">
     <view :style="'height:' + statusBarHeight + 'px;'"></view>
     <view class="chat_title_box">
@@ -15,18 +14,6 @@
             src="https://lanhu-dds-backend.oss-cn-beijing.aliyuncs.com/merge_image/imgs/cf805a0bbe4b4f17abb1c215c9ec2df7_mergeImage.png"
             alt=""
           />
-=======
-
-  <view class="chat_box" :scroll-into-view=" poaMessgae">
-    <view :style="'height:' + (statusBarHeight + 5) + 'px;'"></view>
-    <view class="chat_title_box">
-      <view class="chat_title">
-        <view class="chat_title_img" @click="chat_goback">
-          <img src="https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPng427bd6433cc6e0a8e82f63b3174b2c817dc9c299bd0c4414c8d258f46cf46f94" alt="" />
-        </view>
-        <view class="chat_head_img">
-          <img src="https://lanhu-dds-backend.oss-cn-beijing.aliyuncs.com/merge_image/imgs/cf805a0bbe4b4f17abb1c215c9ec2df7_mergeImage.png" alt="" />
->>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
         </view>
         <view class="chat_name">
           {{ chat_name }}
@@ -35,7 +22,6 @@
     </view>
 
     <view class="chat-container">
-<<<<<<< HEAD
       <scroll-view
         ref="messageList"
         scroll-y=" true"
@@ -116,49 +102,6 @@
       </view>
     </view>
   </view>
-=======
-      <scroll-view ref="messageList" scroll-y=" true" class="message-list" :scroll-into-view=" poaMessgae">
-
-        <view v-for="(item, index) in messages_stu" :key="index" class="message-item_stu">
-          <view class="time" v-if="index == 0 || item.time - messages_stu[index-1].time >= 300000">
-            <view>{{formatDate(item.time)}}</view>
-          </view>
-          <view class="content1" :id="item.status == 'l' ? 'l' : 'r'">
-            <view class="text" v-if="item.type=='img'">
-              <img src="https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPng580a34d876cda0a5b37d451367934eb478865bb7b4b80bedde3f71fcaa5c8775" alt="" />
-            </view>
-            <view class="advio" v-if="item.type=='record'">
-              <view class="">
-                {{item.text}} "
-              </view>
-              <img src="../../../static/img/advio.png" alt="" />
-            </view>
-            <view class="text" v-if="item.type=='text'">{{ item.text }}</view>
-            <view class="avatar" style="margin-left: 20rpx;">
-              <image :src="item.avatar"></image>
-            </view>
-          </view>
-
-        </view>
-        <view id="poaMessgae"></view> <!-- 仅用于定位到消息最后一条 -->
-      </scroll-view>
-      <view class="input-container">
-        <view class="chat_input">
-          <img src="https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPng8336930e00a2e304b3bd63727ff79ab21eb7c0da57bcc1da2dc88adc00ef2cbe" alt="" @click="input_change" v-if="change" />
-          <img src="../../../static/img/Frame.png" alt="" srcset="" @click="inputchange" v-else />
-          <input v-model="inputMessage" placeholder="发消息..." @focus="scrollToBottom" confirm-type="send" @confirm="onSend" v-if="change" />
-
-          <view class="voice" @touchstart="handleTouchStart" @touchend="handleTouchEnd" v-else>
-            按住说话
-          </view>
-          <img src="https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPng59f0b59c28758e28c9970d6e3110b53be29f04b99fded460a8f2a1cd5b32d1da" alt="" class="btn_img" />
-        </view>
-
-      </view>
-    </view>
-  </view>
-
->>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
 </template>
 
 <script>
@@ -166,7 +109,6 @@ export default {
   data() {
     return {
       statusBarHeight: '',
-<<<<<<< HEAD
       messages_stu: [
         {
           username: '刘易阳',
@@ -253,159 +195,40 @@ export default {
         // 其他学生消息...
       ],
       inputMessage: '',
-=======
-      messages_stu: [{
-        username: "刘易阳",
-        type: 'text',
-        status: 'l',
-        avatar: "https://lanhu-dds-backend.oss-cn-beijing.aliyuncs.com/merge_image/imgs/cf805a0bbe4b4f17abb1c215c9ec2df7_mergeImage.png",
-        text: "刘易阳你今天表现不错哦1111111111111111111111111111111111111111111111",
-        time: 1683791638972
-      },
-      {
-        username: "刘易阳",
-        type: 'text',
-        status: 'l',
-        avatar: "https://lanhu-dds-backend.oss-cn-beijing.aliyuncs.com/merge_image/imgs/cf805a0bbe4b4f17abb1c215c9ec2df7_mergeImage.png",
-        text: "刘易阳你今天表现不错哦1111111111111111111111111111111111111111111111",
-        time: 1683793245623
-      }, {
-        username: "刘易阳",
-        type: 'text',
-        status: 'l',
-        avatar: "https://lanhu-dds-backend.oss-cn-beijing.aliyuncs.com/merge_image/imgs/cf805a0bbe4b4f17abb1c215c9ec2df7_mergeImage.png",
-        text: "刘易阳你今天表现不错哦1111111111111111111111111111111111111111111111",
-        time: 1683793245623
-      }, {
-        username: "刘易阳",
-        type: 'text',
-        status: 'l',
-        avatar: "https://lanhu-dds-backend.oss-cn-beijing.aliyuncs.com/merge_image/imgs/cf805a0bbe4b4f17abb1c215c9ec2df7_mergeImage.png",
-        text: "刘易阳你今天表现不错哦",
-        time: 1683793245623
-      }, {
-        username: "刘易阳",
-        type: 'img',
-        status: 'r',
-        avatar: "https://lanhu-dds-backend.oss-cn-beijing.aliyuncs.com/merge_image/imgs/7872400aa4644186b920b0121d6a5136_mergeImage.png",
-        text: "https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPng580a34d876cda0a5b37d451367934eb478865bb7b4b80bedde3f71fcaa5c8775",
-        time: 1683793245623
-      }, {
-        username: "刘易阳",
-        type: 'text',
-        status: 'l',
-        avatar: "https://lanhu-dds-backend.oss-cn-beijing.aliyuncs.com/merge_image/imgs/cf805a0bbe4b4f17abb1c215c9ec2df7_mergeImage.png",
-        text: "刘易阳你今天表现不错哦1111111111111111111111111111111111111111111111",
-        time: 1683793245623
-      }, {
-        username: "刘易阳",
-        type: 'text',
-        status: 'r',
-        avatar: "https://lanhu-dds-backend.oss-cn-beijing.aliyuncs.com/merge_image/imgs/7872400aa4644186b920b0121d6a5136_mergeImage.png",
-        text: "刘易阳你今天表现不错哦1111111111111111111111111111111111111111111111",
-        time: 1683793245623
-      }, {
-        username: "刘易阳",
-        type: 'text',
-        status: 'l',
-        avatar: "https://lanhu-dds-backend.oss-cn-beijing.aliyuncs.com/merge_image/imgs/cf805a0bbe4b4f17abb1c215c9ec2df7_mergeImage.png",
-        text: "刘易阳你今天表现不错哦1111111111111111111111111111111111111111111111",
-        time: 1683793245623
-      }, {
-        username: "刘易阳",
-        type: 'text',
-        status: 'r',
-        avatar: "https://lanhu-dds-backend.oss-cn-beijing.aliyuncs.com/merge_image/imgs/7872400aa4644186b920b0121d6a5136_mergeImage.png",
-        text: "刘易阳你今天表现不错哦1111111111111111111111111111111111111111111111",
-        time: 1683793245623
-      },
-
-        // 其他学生消息...
-      ],
-      inputMessage: "",
->>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
       chat_name: '书法一班刘老师',
       change: true,
       poaMessgae: 'poaMessgae',
       scrollViewHeight: '',
       startTime: null,
       longPressDuration: 6000, // 定义长按的阈值（毫秒）,
-<<<<<<< HEAD
       show: true,
-    };
+    }
   },
   methods: {
     onload() {
-      this.statusBarHeight = getApp().globalData.top;
-      console.log('1111');
-      this.scrollToBottom();
-      this.poalast(); // 定位消息最后一行
-      this.getHeight('.chat_box');
-    },
-    formatDate(value) {
-      if (typeof value == 'undefined') {
-        return '';
-      } else {
-        let date = new Date(value);
-        let now = new Date();
-        let y = date.getFullYear();
-        let MM = date.getMonth() + 1;
-        MM = MM < 10 ? '0' + MM : MM;
-        let d = date.getDate();
-        d = d < 10 ? '0' + d : d;
-        let h = date.getHours();
-        h = h < 10 ? '0' + h : h;
-        let m = date.getMinutes();
-        m = m < 10 ? '0' + m : m;
-        let s = date.getSeconds();
-        s = s < 10 ? '0' + s : s;
-
-        // 如果消息是昨天发送的，显示“昨天 HH:mm”
-        if (now.getDate() - d == 1 && now - date < 172800000) {
-          return '昨天' + h + ':' + m;
-        }
-        // 如果消息是今天发送的，显示“HH:mm”
-        else if (now - date < 86400000) {
-          return h + ':' + m;
-        }
-        // 如果消息是今年发送的，显示“MM-DD HH:mm”
-        else if (now - date >= 86400000 && now - date < 31536000000) {
-          return MM + '-' + d + ' ' + h + ':' + m;
-        }
-        // 如果消息是往年发送的，显示“YYYY-MM-DD HH:mm”
-        else if (now - date >= 31536000000) {
-          return y + '-' + MM + '-' + d + ' ' + h + ':' + m;
-=======
-      show: true
-
-    };
-  },
-  methods: {
-
-    onload() {
-      this.statusBarHeight = getApp().globalData.top;
+      this.statusBarHeight = getApp().globalData.top
       console.log('1111')
       this.scrollToBottom()
       this.poalast() // 定位消息最后一行
       this.getHeight('.chat_box')
     },
     formatDate(value) {
-      if (typeof (value) == 'undefined') {
+      if (typeof value == 'undefined') {
         return ''
       } else {
         let date = new Date(value)
         let now = new Date()
         let y = date.getFullYear()
         let MM = date.getMonth() + 1
-        MM = MM < 10 ? ('0' + MM) : MM
+        MM = MM < 10 ? '0' + MM : MM
         let d = date.getDate()
-        d = d < 10 ? ('0' + d) : d
+        d = d < 10 ? '0' + d : d
         let h = date.getHours()
-        h = h < 10 ? ('0' + h) : h
+        h = h < 10 ? '0' + h : h
         let m = date.getMinutes()
-        m = m < 10 ? ('0' + m) : m
+        m = m < 10 ? '0' + m : m
         let s = date.getSeconds()
-        s = s < 10 ? ('0' + s) : s
+        s = s < 10 ? '0' + s : s
 
         // 如果消息是昨天发送的，显示“昨天 HH:mm”
         if (now.getDate() - d == 1 && now - date < 172800000) {
@@ -422,7 +245,6 @@ export default {
         // 如果消息是往年发送的，显示“YYYY-MM-DD HH:mm”
         else if (now - date >= 31536000000) {
           return y + '-' + MM + '-' + d + ' ' + h + ':' + m
->>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
         }
       }
     },
@@ -433,22 +255,9 @@ export default {
         text: this.inputMessage,
         status: 'r',
         type: 'text',
-<<<<<<< HEAD
         avatar:
           'https://lanhu-dds-backend.oss-cn-beijing.aliyuncs.com/merge_image/imgs/7872400aa4644186b920b0121d6a5136_mergeImage.png',
         time: new Date() - 0,
-      };
-      this.sendmessage(JSON.stringify(mess));
-      this.inputMessage = '';
-    },
-    sendmessage(e) {
-      console.log(e);
-      this.messages_stu.push(JSON.parse(e));
-      this.scrollToBottom();
-      this.poalast(); // 定位消息最后一行
-=======
-        avatar: 'https://lanhu-dds-backend.oss-cn-beijing.aliyuncs.com/merge_image/imgs/7872400aa4644186b920b0121d6a5136_mergeImage.png',
-        time: new Date() - 0
       }
       this.sendmessage(JSON.stringify(mess))
       this.inputMessage = ''
@@ -458,66 +267,37 @@ export default {
       this.messages_stu.push(JSON.parse(e))
       this.scrollToBottom()
       this.poalast() // 定位消息最后一行
-
->>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
     },
     scrollToBottom() {
       this.$nextTick(() => {
-        const scrollView = this.$refs.messageList;
+        const scrollView = this.$refs.messageList
         if (scrollView) {
-          scrollView.scrollTop = scrollView.scrollHeight;
+          scrollView.scrollTop = scrollView.scrollHeight
         }
-      });
+      })
     },
 
     poalast() {
-      let that = this;
+      let that = this
       this.$nextTick(() => {
-        this.poaMessgae = '';
+        this.poaMessgae = ''
         setTimeout(() => {
-          this.poaMessgae = 'poaMessgae';
-        }, 50);
-      });
+          this.poaMessgae = 'poaMessgae'
+        }, 50)
+      })
     },
 
     input_change() {
       if (this.change == true) {
-<<<<<<< HEAD
-        console.log(this.change);
-        this.change = false;
-        console.log(this.change);
-      } else if (this.change == false) {
-        this.change = true;
-=======
         console.log(this.change)
         this.change = false
         console.log(this.change)
       } else if (this.change == false) {
         this.change = true
->>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
       }
     },
     inputchange() {
       if (this.change == true) {
-<<<<<<< HEAD
-        console.log(this.change);
-        this.change = false;
-        console.log(this.change);
-      } else if (this.change == false) {
-        this.change = true;
-      }
-    },
-    handleTouchStart() {
-      console.log('1111');
-      this.startTime = new Date().getTime();
-    },
-    handleTouchEnd() {
-      console.log('1111');
-      if (this.startTime) {
-        let endTime = new Date().getTime();
-        let duration1 = (endTime - this.startTime) / 1000;
-        let duration = Math.round(duration1);
-=======
         console.log(this.change)
         this.change = false
         console.log(this.change)
@@ -527,78 +307,46 @@ export default {
     },
     handleTouchStart() {
       console.log('1111')
-      this.startTime = new Date().getTime();
+      this.startTime = new Date().getTime()
     },
     handleTouchEnd() {
       console.log('1111')
       if (this.startTime) {
-        let endTime = new Date().getTime();
-        let duration1 = (endTime - this.startTime) / 1000;
+        let endTime = new Date().getTime()
+        let duration1 = (endTime - this.startTime) / 1000
         let duration = Math.round(duration1)
->>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
         if (duration < 1) {
-          console.log('时间太短了');
+          console.log('时间太短了')
         } else {
-          console.log(`${duration}`);
+          console.log(`${duration}`)
           let mess = {
-<<<<<<< HEAD
             username: '刘易阳',
-=======
-            username: "刘易阳",
->>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
             type: 'record',
             status: 'r',
             // type 区分消息类型
 
-<<<<<<< HEAD
             avatar:
               'https://lanhu-dds-backend.oss-cn-beijing.aliyuncs.com/merge_image/imgs/7872400aa4644186b920b0121d6a5136_mergeImage.png',
             text: duration,
             time: new Date() - 0,
-          };
-          this.messages_stu.push(mess);
-          this.poalast(); // 定位消息最后一行
-        }
-        this.startTime = null; // 重置 startTime
-      }
-    },
-
-    chat_goback() {
-      uni.navigateBack();
-    },
-  },
-  mounted() {
-    console.log('1111');
-
-    this.poalast(); // 定位消息最后一行
-  },
-};
-=======
-            avatar: "https://lanhu-dds-backend.oss-cn-beijing.aliyuncs.com/merge_image/imgs/7872400aa4644186b920b0121d6a5136_mergeImage.png",
-            text: duration,
-            time: new Date() - 0
           }
           this.messages_stu.push(mess)
           this.poalast() // 定位消息最后一行
         }
-        this.startTime = null; // 重置 startTime
+        this.startTime = null // 重置 startTime
       }
-
     },
 
     chat_goback() {
       uni.navigateBack()
-    }
+    },
   },
   mounted() {
-
     console.log('1111')
 
     this.poalast() // 定位消息最后一行
-
-  }
+  },
 }
->>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
 </script>
 
 <style>
@@ -794,8 +542,4 @@ input {
   top: 0;
   left: 0;
 }
-<<<<<<< HEAD
 </style>
-=======
-</style>
->>>>>>> 90eb7b15125f34a3b3df696701d5a8ae1b9e2f74
